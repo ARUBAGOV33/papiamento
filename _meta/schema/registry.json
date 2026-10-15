@@ -1,0 +1,59 @@
+{
+  "$comment": "Which schema applies to which file. Globs are relative to the repo root.",
+  "tables": [
+    {
+      "name": "words",
+      "glob": "lexicon/words/*/words.tsv",
+      "schema": "lexicon-words.schema.json"
+    },
+    {
+      "name": "numbers",
+      "glob": "lexicon/numbers/*.tsv",
+      "schema": "numbers.schema.json"
+    },
+    {
+      "name": "calendar",
+      "glob": "lexicon/calendar/*.tsv",
+      "schema": "calendar.schema.json"
+    },
+    {
+      "name": "barbarismos",
+      "glob": "lexicon/barbarismos/*.tsv",
+      "schema": "barbarismos.schema.json"
+    },
+    {
+      "name": "variants",
+      "glob": "lexicon/variants/*.tsv",
+      "schema": "variants.schema.json"
+    },
+    {
+      "name": "loanwords",
+      "glob": "lexicon/loanwords/*.tsv",
+      "schema": "loanwords.schema.json"
+    },
+    {
+      "name": "errata",
+      "glob": "sources/errata.tsv",
+      "schema": "errata.schema.json"
+    },
+    {
+      "name": "sources",
+      "glob": "sources/sources.tsv",
+      "schema": "sources.schema.json"
+    },
+    {
+      "name": "known-facts",
+      "glob": "_meta/known-facts.tsv",
+      "schema": "known-facts.schema.json"
+    }
+  ],
+  "allowlists": {
+    "accented_loans": "_meta/allowlists/accented-loans.txt"
+  },
+  "pdf_dir": "sources/pdf",
+  "shareable_licence_tiers": [
+    "public-domain",
+    "permission",
+    "open-licence"
+  ]
+}

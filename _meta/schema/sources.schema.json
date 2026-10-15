@@ -1,0 +1,133 @@
+{
+  "title": "Source registry",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Short code + year, e.g. AB2018",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$",
+        "unique": true
+      }
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "authors",
+      "type": "string",
+      "description": "Authors or editors, '; '-separated"
+    },
+    {
+      "name": "publisher",
+      "type": "string"
+    },
+    {
+      "name": "year",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[0-9]{4}$"
+      }
+    },
+    {
+      "name": "edition",
+      "type": "string"
+    },
+    {
+      "name": "isbn",
+      "type": "string",
+      "constraints": {
+        "pattern": "^(97[89])?[0-9X-]{10,17}$"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "law",
+          "gov-publication",
+          "book",
+          "article",
+          "thesis",
+          "web",
+          "dataset"
+        ]
+      }
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "description": "Which Papiamento the source describes",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "pap-AW",
+          "pap-CW",
+          "mixed",
+          "n/a"
+        ]
+      }
+    },
+    {
+      "name": "licence_tier",
+      "type": "string",
+      "description": "What we may redistribute",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "public-domain",
+          "permission",
+          "open-licence",
+          "restricted"
+        ]
+      }
+    },
+    {
+      "name": "permission_ref",
+      "type": "string",
+      "description": "Who granted permission, when, and where the record is filed"
+    },
+    {
+      "name": "pdf",
+      "type": "string",
+      "description": "Path of the PDF in this repo (only for shareable sources)",
+      "constraints": {
+        "pattern": "^sources/pdf/[A-Z0-9]+[a-z]?\\.pdf$"
+      }
+    },
+    {
+      "name": "page_offset",
+      "type": "string",
+      "description": "PDF page number minus printed page number",
+      "constraints": {
+        "pattern": "^-?[0-9]+$"
+      }
+    },
+    {
+      "name": "url",
+      "type": "string"
+    },
+    {
+      "name": "card",
+      "type": "string",
+      "description": "Path of the source card",
+      "constraints": {
+        "required": true,
+        "pattern": "^sources/cards/[A-Z0-9]+[a-z]?\\.md$"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "primaryKey": "id",
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md."
+}

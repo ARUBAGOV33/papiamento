@@ -1,0 +1,106 @@
+{
+  "title": "Errata: typos and conflicts found in source documents",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^err-[0-9]{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$"
+      },
+      "description": "Source id from sources/sources.tsv."
+    },
+    {
+      "name": "page",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)$"
+      },
+      "description": "Printed page number(s), e.g. 38 or 38-39, roman for front matter."
+    },
+    {
+      "name": "section",
+      "type": "string",
+      "description": "Section or paragraph, e.g. §11.8"
+    },
+    {
+      "name": "printed",
+      "type": "string",
+      "description": "What the source prints, verbatim",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "correct",
+      "type": "string",
+      "description": "What it should say",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "explanation",
+      "type": "string",
+      "description": "Why",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed"
+        ]
+      }
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the reviewers, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "unique_together": [
+      [
+        "source",
+        "page",
+        "printed"
+      ]
+    ]
+  },
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
+  "primaryKey": "id",
+  "foreignKeys": [
+    {
+      "fields": "source",
+      "reference": {
+        "resource": "sources",
+        "fields": "id"
+      }
+    }
+  ]
+}

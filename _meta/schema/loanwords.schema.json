@@ -1,0 +1,122 @@
+{
+  "title": "Loanwords: origin and accepted Aruban form",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^loan-[0-9]{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "lemma",
+      "type": "string",
+      "description": "Form used in Aruban Papiamento",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "origin",
+      "type": "string",
+      "description": "Language of origin",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "nl",
+          "en",
+          "es",
+          "pt",
+          "fr",
+          "other"
+        ]
+      }
+    },
+    {
+      "name": "original",
+      "type": "string",
+      "description": "Spelling in the language of origin"
+    },
+    {
+      "name": "accepted",
+      "type": "string",
+      "description": "Whether the loan is accepted in writing",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "yes",
+          "no",
+          "tolerated"
+        ]
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the reviewers, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$"
+      },
+      "description": "Source id from sources/sources.tsv."
+    },
+    {
+      "name": "page",
+      "type": "string",
+      "constraints": {
+        "pattern": "^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)$"
+      },
+      "description": "Printed page number(s), e.g. 38 or 38-39, roman for front matter."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "unique_together": [
+      [
+        "lemma",
+        "origin"
+      ]
+    ],
+    "aruban_text": [],
+    "lexicon_refs": [
+      "lemma"
+    ]
+  },
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
+  "primaryKey": "id",
+  "foreignKeys": [
+    {
+      "fields": "source",
+      "reference": {
+        "resource": "sources",
+        "fields": "id"
+      }
+    }
+  ]
+}

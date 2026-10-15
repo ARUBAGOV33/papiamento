@@ -1,0 +1,29 @@
+id	table	where	field	match	value	ruled_by	date	notes
+fact-0001	words	lemma=hopi	en	contains	a lot	victorgomesrt-rgb	2026-10-15	Glosbe returned "Hopi"
+fact-0002	words	lemma=hopi	en	not-contains	Hopi	victorgomesrt-rgb	2026-10-15	
+fact-0003	words	lemma=cinco	en	contains	five	victorgomesrt-rgb	2026-10-15	Glosbe returned "basketball team"
+fact-0004	words	lemma=cinco	en	not-contains	basketball team	victorgomesrt-rgb	2026-10-15	
+fact-0005	numbers	kind=cardinal&value=23	pap	equals	bintitres	victorgomesrt-rgb	2026-10-15	AB 2018 §11.8 p.38 prints "23 > bintiseis", a typo (see errata)
+fact-0006	numbers	kind=cardinal&value=26	pap	equals	bintiseis	victorgomesrt-rgb	2026-10-15	
+fact-0007	numbers	kind=cardinal&value=4	pap	equals	cuater	victorgomesrt-rgb	2026-10-15	cuatro is an accepted alternative (alt column)
+fact-0008	numbers	kind=cardinal&value=5	pap	equals	cinco	victorgomesrt-rgb	2026-10-15	not cincu or sinku
+fact-0009	numbers	kind=cardinal&value=7	pap	equals	shete	victorgomesrt-rgb	2026-10-15	never siete
+fact-0010	calendar	kind=day&order=1	pap	equals	dialuna	victorgomesrt-rgb	2026-10-15	lowercase; Spanish day names are barbarismos
+fact-0011	calendar	kind=day&order=2	pap	equals	diamars	victorgomesrt-rgb	2026-10-15	
+fact-0012	calendar	kind=day&order=3	pap	equals	diaranson	victorgomesrt-rgb	2026-10-15	
+fact-0013	calendar	kind=day&order=4	pap	equals	diahuebs	victorgomesrt-rgb	2026-10-15	
+fact-0014	calendar	kind=day&order=5	pap	equals	diabierna	victorgomesrt-rgb	2026-10-15	
+fact-0015	calendar	kind=day&order=6	pap	equals	diasabra	victorgomesrt-rgb	2026-10-15	
+fact-0016	calendar	kind=day&order=7	pap	equals	diadomingo	victorgomesrt-rgb	2026-10-15	
+fact-0017	calendar	kind=month&order=1	pap	equals	januari	victorgomesrt-rgb	2026-10-15	lowercase, Dutch-derived; Spanish month names are barbarismos
+fact-0018	calendar	kind=month&order=2	pap	equals	februari	victorgomesrt-rgb	2026-10-15	
+fact-0019	calendar	kind=month&order=3	pap	equals	maart	victorgomesrt-rgb	2026-10-15	
+fact-0020	calendar	kind=month&order=4	pap	equals	april	victorgomesrt-rgb	2026-10-15	
+fact-0021	calendar	kind=month&order=5	pap	equals	mei	victorgomesrt-rgb	2026-10-15	
+fact-0022	calendar	kind=month&order=6	pap	equals	juni	victorgomesrt-rgb	2026-10-15	
+fact-0023	calendar	kind=month&order=7	pap	equals	juli	victorgomesrt-rgb	2026-10-15	
+fact-0024	calendar	kind=month&order=8	pap	equals	augustus	victorgomesrt-rgb	2026-10-15	
+fact-0025	calendar	kind=month&order=9	pap	equals	september	victorgomesrt-rgb	2026-10-15	
+fact-0026	calendar	kind=month&order=10	pap	equals	october	victorgomesrt-rgb	2026-10-15	
+fact-0027	calendar	kind=month&order=11	pap	equals	november	victorgomesrt-rgb	2026-10-15	
+fact-0028	calendar	kind=month&order=12	pap	equals	december	victorgomesrt-rgb	2026-10-15	

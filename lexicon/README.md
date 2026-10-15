@@ -1,0 +1,33 @@
+# lexicon/
+
+The words of Aruban Papiamento and the small reference tables built around them. All files are TSV and follow [`_meta/conventions.md`](../_meta/conventions.md).
+
+## What lives here
+
+| Folder | File(s) | Content | Status |
+|---|---|---|---|
+| `words/A` … `words/Z` | `words.tsv` | Every headword of the official AB 2018 no. 68 word list, with English, Dutch and Spanish columns | import in progress |
+| `numbers/` | `cardinals.tsv`, `ordinals.tsv`, `fractions.tsv`, `times.tsv` | How numbers and clock times are written (AB §11.8) | empty |
+| `calendar/` | `days.tsv`, `months.tsv`, `holidays.tsv` | Days, months, public holidays | empty |
+| `barbarismos/` | `barbarismos.tsv` | Forms to avoid and the Aruban form to use instead | empty |
+| `variants/` | `curacao-aruba.tsv` | Curaçao spelling mapped to Aruban spelling | empty |
+| `loanwords/` | `loanwords.tsv` | Loanwords, their origin and accepted Aruban form (AB §12) | empty |
+| `names/` | — | Places, institutions, demonyms | schema to come |
+| `closed-classes/` | — | Pronouns, articles, prepositions, conjunctions, tense markers | schema to come |
+
+The schema for each table is in [`_meta/schema/`](../_meta/schema/); [`registry.json`](../_meta/schema/registry.json) maps files to schemas.
+
+## How to add or fix something
+
+1. Open the file on GitHub and use the pencil icon, or use one of the issue forms. Spreadsheets are fine for reading, but saving from one can break ñ, page ranges and quotes; see [Editing a table in the browser](../CONTRIBUTING.md#editing-a-table-in-the-browser).
+2. Keep the columns exactly as they are. One row per entry.
+3. Fill `source` and `page` from the PDF you checked. Without them, the row stays `draft`.
+4. Leave `status` as `draft`. A review-board member changes it to `reviewed`.
+5. Run `python3 tools/validate.py`, or let the pull request run it for you.
+
+## Rules that matter most here
+
+- Aruban spelling only. Curaçao forms go in `variants/` and nowhere else.
+- One row per sense the source lists. Homographs get separate rows.
+- Translations are separated by `; `.
+- Never paste from copyrighted dictionaries, Glosbe or websites.

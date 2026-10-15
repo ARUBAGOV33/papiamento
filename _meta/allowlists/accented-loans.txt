@@ -1,0 +1,15 @@
+# Loanwords the AB 2018 list prints with accents (AB §12 allows source spelling for loans).
+# One word per line, exactly as printed. Lines starting with # are comments.
+ampère
+cliché
+conciërge
+crèche
+crème
+crêpepapier
+frère
+macramé
+paté
+première
+quotiënt
+saté
+triduüm

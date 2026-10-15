@@ -1,0 +1,132 @@
+{
+  "title": "Numbers: cardinals, ordinals, fractions, clock times",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^num-[0-9]{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "cardinal",
+          "ordinal",
+          "fraction",
+          "time",
+          "rule-example"
+        ]
+      }
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The number in digits, e.g. 7, 236, 1/2, 7:00",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "pap",
+      "type": "string",
+      "description": "How it is written in Aruban Papiamento",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "description": "Accepted alternative spellings, '; '-separated"
+    },
+    {
+      "name": "en",
+      "type": "string",
+      "description": "English translation(s), '; '-separated"
+    },
+    {
+      "name": "nl",
+      "type": "string",
+      "description": "Dutch translation(s), '; '-separated"
+    },
+    {
+      "name": "es",
+      "type": "string",
+      "description": "Spanish translation(s), '; '-separated"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the reviewers, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$"
+      },
+      "description": "Source id from sources/sources.tsv."
+    },
+    {
+      "name": "page",
+      "type": "string",
+      "constraints": {
+        "pattern": "^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)$"
+      },
+      "description": "Printed page number(s), e.g. 38 or 38-39, roman for front matter."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "unique_together": [
+      [
+        "kind",
+        "value",
+        "pap"
+      ]
+    ],
+    "aruban_text": [
+      "pap",
+      "alt"
+    ],
+    "lexicon_refs": []
+  },
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
+  "primaryKey": "id",
+  "foreignKeys": [
+    {
+      "fields": "source",
+      "reference": {
+        "resource": "sources",
+        "fields": "id"
+      }
+    }
+  ]
+}
