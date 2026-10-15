@@ -1,0 +1,41 @@
+name: Gauntlet
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gauntlet:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.9', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate data
+        run: python3 tools/validate.py
+
+      - name: JSON report
+        if: always()
+        run: python3 tools/validate.py --json > gauntlet.json || true
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gauntlet-${{ matrix.python-version }}
+          path: gauntlet.json
+          if-no-files-found: ignore
