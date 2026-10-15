@@ -1,0 +1,18 @@
+key	field	value	reason
+p09-142	notes	AB 2018 prints a capital B; the 2009 Vocabulario and Papiamento.aw have bongo. See err-0003.	Explains the disputed status and links err-0003.
+p09-142	status	disputed	Probable typo in the law; the printed form is kept and the case goes to the review board (err-0003).
+p13-172	notes	AB 2018 prints a capital C; the 2009 Vocabulario and Papiamento.aw have cinematografo. See err-0004.	Explains the disputed status and links err-0004.
+p13-172	status	disputed	Probable typo in the law; the printed form is kept and the case goes to the review board (err-0004).
+p15-123	notes	AB 2018 prints a capital C; the 2009 Vocabulario and Papiamento.aw have computarisando. See err-0005.	Explains the disputed status and links err-0005.
+p15-123	status	disputed	Probable typo in the law; the printed form is kept and the case goes to the review board (err-0005).
+p15-129	notes	AB 2018 prints a capital C; the 2009 Vocabulario and Papiamento.aw have computerisando. See err-0006.	Explains the disputed status and links err-0006.
+p15-129	status	disputed	Probable typo in the law; the printed form is kept and the case goes to the review board (err-0006).
+p17-114	notes	AB 2018 gives coregiendo as the alternative; the paired entry coregimento [corigimento] points back to this word, so coregimento was probably meant. The 2009 Vocabulario and Papiamento.aw print the same. See err-0007.	Explains the disputed status and links err-0007.
+p17-114	status	disputed	Probable typo in the law; the printed form is kept and the case goes to the review board (err-0007).
+p25-048	notes	printed as encabesa/encabeza; the 2009 Vocabulario and Papiamento.aw list only encabesa	Row is flagged differs-from-papiamento.aw. The law clearly prints the slash form, so it is not a typo. The note records the difference between the sources.
+p25-049	notes	printed as encabesando/encabezando; the 2009 Vocabulario and Papiamento.aw list only encabesando	Row is flagged differs-from-papiamento.aw. The law clearly prints the slash form, so it is not a typo. The note records the difference between the sources.
+p25-050	notes	printed as encabeza/encabesa; not in the 2009 Vocabulario or Papiamento.aw, which list only encabesa	Row is flagged differs-from-papiamento.aw. This entry is new in AB 2018 and appears in the print as staged. The note records the difference between the sources.
+p25-051	notes	printed as encabezando/encabesando; not in the 2009 Vocabulario or Papiamento.aw, which list only encabesando	Row is flagged differs-from-papiamento.aw. This entry is new in AB 2018 and appears in the print as staged. The note records the difference between the sources.
+p58-188	notes	AB 2018 gives lisimbien, which is not a headword; the paired entry lisimbein [risimbein] points back to this word, so lisimbein was probably meant. The 2009 Vocabulario and Papiamento.aw print the same. See err-0008.	Explains the disputed status and links err-0008.
+p58-188	status	disputed	Probable typo in the law; the printed form is kept and the case goes to the review board (err-0008).
+p67-162	notes	The law lists both todopoderoso and Todopoderoso as separate entries.	Lowercase todopoderoso (p67-161) and capitalised Todopoderoso (p67-162) are separate printed lines on page 67, and Papiamento.aw has both too. Words are sorted case-insensitively, so the two rows will sit next to each other. The note tells a reviewer this is not an accidental duplicate. Lemma + pos + tag stays unique because the match is case-sensitive.

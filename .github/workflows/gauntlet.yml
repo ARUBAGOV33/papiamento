@@ -28,6 +28,9 @@ jobs:
       - name: Validate data
         run: python3 tools/validate.py
 
+      - name: Progress pages up to date
+        run: python3 tools/build_pages.py --check
+
       - name: JSON report
         if: always()
         run: python3 tools/validate.py --json > gauntlet.json || true
