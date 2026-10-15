@@ -8,6 +8,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- `lexicon/numbers/`: cardinals 0-99, 100, 1,000 and 1,000,000 from the AB 2018 word list; ordinals, fractions and multiples from Morfologia §9.3; clock times and worked examples from AB 2018 §10.1.3 and §11.8. 158 rows with English, Dutch and Spanish. `biyon` is left out until its value (10^9 or 10^12) is ruled on.
+- `lexicon/calendar/days.tsv` and `months.tsv`: the 7 days and 12 months, lowercase, from AB 2018 §9.6 and the word list. Public holidays wait for an official source.
+- All 29 known facts are now checked against data (none pending).
+- Number kind `multiple` in the numbers schema.
+
+### Added
+
 - English, Dutch and Spanish drafts for the 3,000 most frequent words (2,924 rows filled; 91 left empty on purpose). Drafted by one model, checked cell by cell by a second, disagreements settled by a third; no dictionaries, websites or Glosbe. 170 rows the drafting model rated uncertain carry a note asking reviewers to check them first.
 - `translated_by` column in word files: `machine` for machine drafts, otherwise GitHub usernames. The validator requires it whenever a translation is filled.
 - Translation conventions in `_meta/conventions.md`.

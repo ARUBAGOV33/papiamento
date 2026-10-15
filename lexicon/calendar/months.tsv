@@ -1,1 +1,13 @@
 id	kind	order	pap	en	nl	es	status	reviewed_by	source	page	notes
+cal-0008	month	1	januari	January	januari	enero	draft		AB2018	38	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0009	month	2	februari	February	februari	febrero	draft		AB2018	27	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0010	month	3	maart	March	maart	marzo	draft		AB2018	41	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0011	month	4	april	April	april	abril	draft		AB2018	5	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0012	month	5	mei	May	mei	mayo	draft		AB2018	43	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0013	month	6	juni	June	juni	junio	draft		AB2018	38	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0014	month	7	juli	July	juli	julio	draft		AB2018	38	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0015	month	8	augustus	August	augustus	agosto	draft		AB2018	6	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0016	month	9	september	September	september	septiembre	draft		AB2018	61	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0017	month	10	october	October	oktober	octubre	draft		AB2018	47	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0018	month	11	november	November	november	noviembre	draft		AB2018	47	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0019	month	12	december	December	december	diciembre	draft		AB2018	19	Written in lowercase (AB 2018 §9.6, gazette page 32).

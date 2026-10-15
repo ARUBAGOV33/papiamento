@@ -1,1 +1,25 @@
 id	kind	value	pap	alt	en	nl	es	status	reviewed_by	source	page	notes
+num-0109	ordinal	1	prome		first	eerste	primero	draft		MOR2010	69	The only irregular ordinal; normally used without di (MOR §9.3.1.2, note 1). Also in the AB list.
+num-0110	ordinal	2	e di dos	di dos	second	tweede	segundo	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0111	ordinal	3	e di tres	di tres	third	derde	tercero	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0112	ordinal	4	e di cuater	di cuater	fourth	vierde	cuarto	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0113	ordinal	5	e di cinco	di cinco	fifth	vijfde	quinto	draft		MOR2010	67	Printed as an example (MOR §9.2 lists e di cinco as a compound numeral). Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0114	ordinal	6	e di seis	di seis	sixth	zesde	sexto	draft		MOR2010	67	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0115	ordinal	7	e di shete	di shete	seventh	zevende	séptimo	draft		MOR2010	67	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0116	ordinal	8	e di ocho	di ocho	eighth	achtste	octavo	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0117	ordinal	9	e di nuebe	di nuebe	ninth	negende	noveno	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0118	ordinal	10	e di dies	di dies	tenth	tiende	décimo	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0119	ordinal	11	e di diesun	di diesun	eleventh	elfde	undécimo	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0120	ordinal	12	e di diesdos	di diesdos	twelfth	twaalfde	duodécimo	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0121	ordinal	13	e di diestres	di diestres	thirteenth	dertiende	decimotercero	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0122	ordinal	14	e di diescuater	di diescuater	fourteenth	veertiende	decimocuarto	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0123	ordinal	15	e di diescinco	di diescinco	fifteenth	vijftiende	decimoquinto	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0124	ordinal	16	e di diesseis	di diesseis	sixteenth	zestiende	decimosexto	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0125	ordinal	17	e di diesshete	di diesshete	seventeenth	zeventiende	decimoséptimo	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0126	ordinal	18	e di diesocho	di diesocho	eighteenth	achttiende	decimoctavo	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0127	ordinal	19	e di diesnuebe	di diesnuebe	nineteenth	negentiende	decimonoveno	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0128	ordinal	20	e di binti	di binti	twentieth	twintigste	vigésimo	draft		MOR2010	68	Formed by the rule; not printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0129	ordinal	53	e di cincuentitres	di cincuentitres	fifty-third	drieënvijftigste	quincuagésimo tercero	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0130	ordinal	72	e di setentidos	di setentidos	seventy-second	tweeënzeventigste	septuagésimo segundo	draft		MOR2010	68	Printed as an example. Ordinal = (e) + di + cardinal; e is optional (MOR §9.3.1.2).
+num-0131	ordinal	2	segunda		second (in segunda mano)	tweede (in segunda mano = tweedehands)	segunda (en segunda mano)	draft		MOR2010	69	Spanish ordinal used in set phrases such as auto segunda mano (MOR §9.3.1.2, note 2).
+num-0132	ordinal	1	primera		first (base, in baseball)	eerste (honk)	primera (base)	draft		MOR2010	69	Spanish ordinal used for bases in baseball (MOR §9.3.1.2, note 3).
