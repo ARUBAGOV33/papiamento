@@ -80,7 +80,7 @@ Start with [`_meta/conventions.md`](_meta/conventions.md). It explains the file 
 This is version 0: the skeleton.
 
 - The conventions, schemas, invariants and validator are in place.
-- The import of the AB 2018 word list is in progress. Some folders are still empty.
+- All 16,218 headwords of the AB 2018 word list are in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. Translations are being added; numbers, calendar and other tables are still empty.
 - Translations start as drafts. Some are machine-made and must be checked by a person.
 - The review board is being recruited. Until it checks a row, that row stays `draft`.
 - There is no release yet.

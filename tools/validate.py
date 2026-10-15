@@ -657,9 +657,12 @@ def check_known_facts(ctx):
             ctx.add("G5", ERROR, fact.file.rel, fact.line,
                     "%s: table %s has no column(s) %s" % (fid, target.name, ", ".join(unknown)))
             continue
+        # An empty cell means "not known yet" (conventions), so a fact only
+        # constrains rows where the field has been filled in.
         rows = [r for r in target.rows()
                 if r.get("status") != "deprecated"
-                and all(r.get(k) == v for k, v in where)]
+                and all(r.get(k) == v for k, v in where)
+                and r.get(field)]
         if not rows:
             ctx.facts_pending += 1
             continue

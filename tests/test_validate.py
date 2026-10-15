@@ -364,6 +364,12 @@ class TestG5KnownFacts(GauntletCase):
         self.assertGreater(ctx.facts_pending, 0)
         self.assertEqual(ctx.facts_checked + ctx.facts_pending, ctx.facts_total)
 
+    def test_fact_pending_when_cell_empty(self):
+        # An empty translation means "not known yet": the hopi fact waits.
+        ctx = self.check("known_fact_empty")
+        self.assertNoFinding(ctx, "G5")
+        self.assertEqual(ctx.facts_checked + ctx.facts_pending, ctx.facts_total)
+
     def test_g5_checks_is_extensible(self):
         def extra(ctx):
             ctx.add("G5", "error", "rules/x.tsv", 1, "rule test failed")
