@@ -8,6 +8,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- English, Dutch and Spanish drafts for the 3,000 most frequent words (2,924 rows filled; 91 left empty on purpose). Drafted by one model, checked cell by cell by a second, disagreements settled by a third; no dictionaries, websites or Glosbe. 170 rows the drafting model rated uncertain carry a note asking reviewers to check them first.
+- `translated_by` column in word files: `machine` for machine drafts, otherwise GitHub usernames. The validator requires it whenever a translation is filled.
+- Translation conventions in `_meta/conventions.md`.
+
+### Added
+
 - `lexicon/words/A`–`Z`: all 16,218 headwords of the AB 2018 no. 68 word list, with alternative forms, the law's own labels, part of speech where the law gives it, and the printed page. Every row is `draft`; 6 rows are `disputed` because the law appears to contain a typo (`sources/errata.tsv`, err-0003 to err-0008). Translations are empty except two confirmed by the maintainer.
 - `sources/pdf/AB2018.pdf`: the official law, from the archive.org copy uploaded by Biblioteca Nacional Aruba.
 - `tools/import_ab2018.py` and `tools/import_ab2018_overrides.tsv`: how the word list was rebuilt from the PDF, and every correction made during review.

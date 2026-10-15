@@ -7,9 +7,10 @@ Words from the official AB 2018 no. 68 word list that start with **B**. The data
 | | Count | Share |
 |---|---:|---:|
 | Words | 924 | |
-| With English | 0 | 0% |
-| With Dutch | 0 | 0% |
-| With Spanish | 0 | 0% |
+| With English | 172 | 19% |
+| With Dutch | 172 | 19% |
+| With Spanish | 172 | 19% |
+| Translations still machine drafts | 172 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 1 | |
 

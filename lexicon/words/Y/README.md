@@ -7,9 +7,10 @@ Words from the official AB 2018 no. 68 word list that start with **Y**. The data
 | | Count | Share |
 |---|---:|---:|
 | Words | 74 | |
-| With English | 0 | 0% |
-| With Dutch | 0 | 0% |
-| With Spanish | 0 | 0% |
+| With English | 20 | 27% |
+| With Dutch | 20 | 27% |
+| With Spanish | 20 | 27% |
+| Translations still machine drafts | 20 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

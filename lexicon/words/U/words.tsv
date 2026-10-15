@@ -1,75 +1,75 @@
-id	lemma	alt	pos	tag	en	nl	es	status	reviewed_by	source	page	notes
-pap-015567	ubica							draft		AB2018	69	
-pap-015568	ubicacion							draft		AB2018	69	
-pap-015569	ubicando							draft		AB2018	69	
-pap-015570	Uganda							draft		AB2018	69	
-pap-015571	Ugandes							draft		AB2018	69	
-pap-015572	ul							draft		AB2018	69	
-pap-015573	uli							draft		AB2018	69	
-pap-015574	ultimamente							draft		AB2018	69	
-pap-015575	ultimatum							draft		AB2018	69	
-pap-015576	ultimo							draft		AB2018	69	
-pap-015577	ultramoderno							draft		AB2018	69	
-pap-015578	umbe	umbes						draft		AB2018	69	
-pap-015579	umbes	umbe						draft		AB2018	69	
-pap-015580	umpire							draft		AB2018	69	
-pap-015581	un							draft		AB2018	69	
-pap-015582	unabes							draft		AB2018	69	
-pap-015583	unanimamente							draft		AB2018	69	
-pap-015584	unanime	unanimo						draft		AB2018	69	
-pap-015585	unanimidad							draft		AB2018	69	
-pap-015586	unanimo	unanime						draft		AB2018	69	
-pap-015587	unda							draft		AB2018	69	
-pap-015588	uni							draft		AB2018	69	
-pap-015589	unibel							draft		AB2018	69	
-pap-015590	unibilidad							draft		AB2018	69	
-pap-015591	unicamente							draft		AB2018	69	
-pap-015592	unico							draft		AB2018	69	
-pap-015593	unidad							draft		AB2018	69	
-pap-015594	uniendo							draft		AB2018	69	
-pap-015595	unifica							draft		AB2018	69	
-pap-015596	unificacion							draft		AB2018	69	
-pap-015597	unificando							draft		AB2018	69	
-pap-015598	uniform							draft		AB2018	69	
-pap-015599	uniforma							draft		AB2018	69	
-pap-015600	uniformacion							draft		AB2018	69	
-pap-015601	uniformando							draft		AB2018	69	
-pap-015602	uniforme							draft		AB2018	69	
-pap-015603	uniformidad							draft		AB2018	69	
-pap-015604	unilateral							draft		AB2018	69	
-pap-015605	union							draft		AB2018	69	
-pap-015606	unisex							draft		AB2018	69	
-pap-015607	universal							draft		AB2018	69	
-pap-015608	universidad							draft		AB2018	69	
-pap-015609	universitario							draft		AB2018	69	
-pap-015610	universo							draft		AB2018	69	
-pap-015611	uno							draft		AB2018	69	
-pap-015612	Urano	Uranus						draft		AB2018	69	
-pap-015613	Uranus	Urano						draft		AB2018	69	
-pap-015614	urbanisa							draft		AB2018	69	
-pap-015615	urbanisacion							draft		AB2018	69	
-pap-015616	urbanisando							draft		AB2018	69	
-pap-015617	urgencia							draft		AB2018	69	
-pap-015618	urgente							draft		AB2018	69	
-pap-015619	urgentemente							draft		AB2018	69	
-pap-015620	urgi							draft		AB2018	69	
-pap-015621	urgiendo							draft		AB2018	69	
-pap-015622	urna							draft		AB2018	69	
-pap-015623	Uruguay							draft		AB2018	69	
-pap-015624	Uruguayo							draft		AB2018	69	
-pap-015625	usual							draft		AB2018	69	
-pap-015626	usualmente							draft		AB2018	69	
-pap-015627	usuario							draft		AB2018	69	
-pap-015628	util							draft		AB2018	69	
-pap-015629	utilidad							draft		AB2018	69	
-pap-015630	utilisa							draft		AB2018	69	
-pap-015631	utilisacion							draft		AB2018	69	
-pap-015632	utilisando							draft		AB2018	69	
-pap-015633	utopia							draft		AB2018	69	
-pap-015634	utopista							draft		AB2018	69	
-pap-015635	uza							draft		AB2018	69	
-pap-015636	uzabel							draft		AB2018	69	
-pap-015637	uzado							draft		AB2018	69	
-pap-015638	uzamento							draft		AB2018	69	
-pap-015639	uzando							draft		AB2018	69	
-pap-015640	uzo							draft		AB2018	69	
+id	lemma	alt	pos	tag	en	nl	es	translated_by	status	reviewed_by	source	page	notes
+pap-015567	ubica								draft		AB2018	69	
+pap-015568	ubicacion								draft		AB2018	69	
+pap-015569	ubicando								draft		AB2018	69	
+pap-015570	Uganda								draft		AB2018	69	
+pap-015571	Ugandes								draft		AB2018	69	
+pap-015572	ul								draft		AB2018	69	
+pap-015573	uli								draft		AB2018	69	
+pap-015574	ultimamente								draft		AB2018	69	
+pap-015575	ultimatum								draft		AB2018	69	
+pap-015576	ultimo				last; latest	laatste	último	machine	draft		AB2018	69	
+pap-015577	ultramoderno								draft		AB2018	69	
+pap-015578	umbe	umbes							draft		AB2018	69	
+pap-015579	umbes	umbe							draft		AB2018	69	
+pap-015580	umpire								draft		AB2018	69	
+pap-015581	un				a, an; one	een; één	un; uno	machine	draft		AB2018	69	
+pap-015582	unabes				once; as soon as	zodra; eenmaal	una vez que	machine	draft		AB2018	69	
+pap-015583	unanimamente								draft		AB2018	69	
+pap-015584	unanime	unanimo							draft		AB2018	69	
+pap-015585	unanimidad								draft		AB2018	69	
+pap-015586	unanimo	unanime							draft		AB2018	69	
+pap-015587	unda				where	waar	dónde; donde	machine	draft		AB2018	69	
+pap-015588	uni				to unite; to join; to connect	verenigen; verbinden	unir	machine	draft		AB2018	69	
+pap-015589	unibel								draft		AB2018	69	
+pap-015590	unibilidad								draft		AB2018	69	
+pap-015591	unicamente								draft		AB2018	69	
+pap-015592	unico				only; unique	enige; uniek	único	machine	draft		AB2018	69	
+pap-015593	unidad				unit; unity	eenheid	unidad	machine	draft		AB2018	69	
+pap-015594	uniendo								draft		AB2018	69	
+pap-015595	unifica								draft		AB2018	69	
+pap-015596	unificacion								draft		AB2018	69	
+pap-015597	unificando								draft		AB2018	69	
+pap-015598	uniform								draft		AB2018	69	
+pap-015599	uniforma								draft		AB2018	69	
+pap-015600	uniformacion								draft		AB2018	69	
+pap-015601	uniformando								draft		AB2018	69	
+pap-015602	uniforme								draft		AB2018	69	
+pap-015603	uniformidad								draft		AB2018	69	
+pap-015604	unilateral								draft		AB2018	69	
+pap-015605	union				union; unity	eenheid; unie	unión	machine	draft		AB2018	69	
+pap-015606	unisex								draft		AB2018	69	
+pap-015607	universal								draft		AB2018	69	
+pap-015608	universidad				university	universiteit	universidad	machine	draft		AB2018	69	
+pap-015609	universitario								draft		AB2018	69	
+pap-015610	universo				universe	heelal; universum	universo	machine	draft		AB2018	69	
+pap-015611	uno				one	één	uno	machine	draft		AB2018	69	
+pap-015612	Urano	Uranus							draft		AB2018	69	
+pap-015613	Uranus	Urano							draft		AB2018	69	
+pap-015614	urbanisa								draft		AB2018	69	
+pap-015615	urbanisacion								draft		AB2018	69	
+pap-015616	urbanisando								draft		AB2018	69	
+pap-015617	urgencia								draft		AB2018	69	
+pap-015618	urgente				urgent	dringend; urgent	urgente	machine	draft		AB2018	69	
+pap-015619	urgentemente								draft		AB2018	69	
+pap-015620	urgi				to urge; to be urgent	aandringen; dringend zijn	urgir; instar	machine	draft		AB2018	69	
+pap-015621	urgiendo								draft		AB2018	69	
+pap-015622	urna								draft		AB2018	69	
+pap-015623	Uruguay								draft		AB2018	69	
+pap-015624	Uruguayo								draft		AB2018	69	
+pap-015625	usual								draft		AB2018	69	
+pap-015626	usualmente								draft		AB2018	69	
+pap-015627	usuario								draft		AB2018	69	
+pap-015628	util				useful	nuttig; bruikbaar	útil	machine	draft		AB2018	69	
+pap-015629	utilidad								draft		AB2018	69	
+pap-015630	utilisa								draft		AB2018	69	
+pap-015631	utilisacion								draft		AB2018	69	
+pap-015632	utilisando								draft		AB2018	69	
+pap-015633	utopia								draft		AB2018	69	
+pap-015634	utopista								draft		AB2018	69	
+pap-015635	uza				to use	gebruiken	usar; utilizar	machine	draft		AB2018	69	
+pap-015636	uzabel								draft		AB2018	69	
+pap-015637	uzado								draft		AB2018	69	
+pap-015638	uzamento								draft		AB2018	69	
+pap-015639	uzando				using	gebruikmakend van; met behulp van	usando	machine	draft		AB2018	69	
+pap-015640	uzo				use; usage	gebruik	uso	machine	draft		AB2018	69	
