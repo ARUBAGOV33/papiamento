@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **O**. The data
 | With English | 68 | 22% |
 | With Dutch | 68 | 22% |
 | With Spanish | 68 | 22% |
-| Translations still machine drafts | 68 | |
+| Rows with machine-drafted translations | 68 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

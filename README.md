@@ -108,7 +108,7 @@ Each row has a `status`:
 | `disputed` | Reviewers disagree or sources conflict. See `notes` and `sources/errata.tsv`. |
 | `deprecated` | Kept for history; no longer valid. |
 
-**If you want only verified data, keep the rows where `status == reviewed`.** Machine-made content, including AI translations, is always `draft`. In word files, `translated_by == machine` marks translations a machine drafted; filter on it to leave them out entirely.
+**If you want only verified data, keep the rows where `status == reviewed`.** Machine-made content, including AI translations, is always `draft`. In word files, a `translated_by` that includes `machine` marks translations a machine drafted; filter on it to leave them out entirely.
 
 Reading the files in Python, with no dependencies:
 

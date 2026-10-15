@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **Q**. The data
 | With English | 1 | 9% |
 | With Dutch | 1 | 9% |
 | With Spanish | 1 | 9% |
-| Translations still machine drafts | 1 | |
+| Rows with machine-drafted translations | 1 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

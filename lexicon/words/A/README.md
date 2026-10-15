@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **A**. The data
 | With English | 245 | 19% |
 | With Dutch | 244 | 19% |
 | With Spanish | 245 | 19% |
-| Translations still machine drafts | 245 | |
+| Rows with machine-drafted translations | 245 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

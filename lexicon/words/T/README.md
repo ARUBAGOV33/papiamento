@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **T**. The data
 | With English | 150 | 20% |
 | With Dutch | 150 | 20% |
 | With Spanish | 150 | 20% |
-| Translations still machine drafts | 150 | |
+| Rows with machine-drafted translations | 150 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **L**. The data
 | With English | 87 | 19% |
 | With Dutch | 87 | 19% |
 | With Spanish | 87 | 19% |
-| Translations still machine drafts | 87 | |
+| Rows with machine-drafted translations | 87 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

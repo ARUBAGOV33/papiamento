@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **M**. The data
 | With English | 177 | 19% |
 | With Dutch | 177 | 19% |
 | With Spanish | 177 | 19% |
-| Translations still machine drafts | 177 | |
+| Rows with machine-drafted translations | 177 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

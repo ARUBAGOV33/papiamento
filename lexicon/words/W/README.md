@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **W**. The data
 | With English | 24 | 17% |
 | With Dutch | 24 | 17% |
 | With Spanish | 24 | 17% |
-| Translations still machine drafts | 24 | |
+| Rows with machine-drafted translations | 24 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

@@ -74,7 +74,7 @@ Machine-made content is always `draft`. Nothing becomes `reviewed` automatically
 | `pos` | Part of speech, from the list below. Empty when unknown. |
 | `tag` | The source's own label in parentheses, copied verbatim, e.g. `s.`, `pisca`, `- la pena`. |
 | `en`, `nl`, `es` | Translations. Several senses separated by `; `. |
-| `translated_by` | Who wrote the translations: `machine` for machine drafts, otherwise GitHub usernames separated by `; `. Required whenever `en`, `nl` or `es` is filled. When you correct a machine draft, replace `machine` with your username. |
+| `translated_by` | Who wrote the translations: `machine` for machine drafts, otherwise GitHub usernames separated by `; `. Required whenever `en`, `nl` or `es` is filled. When you correct a machine draft, replace `machine` with your username; when you confirm only one language, keep both, e.g. `victorgomesrt-rgb; machine`, and say which in `notes`. |
 | `status`, `reviewed_by`, `source`, `page`, `notes` | As above. |
 
 - **Letter folders:** a word goes in the folder of its first letter, uppercased, with the accent removed. Words starting with `ñ` go in `N`, as in the AB list.

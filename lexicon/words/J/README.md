@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **J**. The data
 | With English | 11 | 18% |
 | With Dutch | 11 | 18% |
 | With Spanish | 11 | 18% |
-| Translations still machine drafts | 11 | |
+| Rows with machine-drafted translations | 11 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

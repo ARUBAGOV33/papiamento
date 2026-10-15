@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **N**. The data
 | With English | 68 | 23% |
 | With Dutch | 68 | 23% |
 | With Spanish | 68 | 23% |
-| Translations still machine drafts | 68 | |
+| Rows with machine-drafted translations | 68 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

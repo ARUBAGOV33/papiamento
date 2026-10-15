@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **C**. The data
 | With English | 398 | 21% |
 | With Dutch | 397 | 21% |
 | With Spanish | 397 | 21% |
-| Translations still machine drafts | 397 | |
+| Rows with machine-drafted translations | 397 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 4 | |
 

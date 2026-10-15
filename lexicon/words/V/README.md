@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **V**. The data
 | With English | 35 | 12% |
 | With Dutch | 35 | 12% |
 | With Spanish | 35 | 12% |
-| Translations still machine drafts | 35 | |
+| Rows with machine-drafted translations | 35 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **H**. The data
 | With English | 84 | 15% |
 | With Dutch | 83 | 15% |
 | With Spanish | 83 | 15% |
-| Translations still machine drafts | 83 | |
+| Rows with machine-drafted translations | 83 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

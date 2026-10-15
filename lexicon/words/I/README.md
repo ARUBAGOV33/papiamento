@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **I**. The data
 | With English | 131 | 16% |
 | With Dutch | 131 | 16% |
 | With Spanish | 131 | 16% |
-| Translations still machine drafts | 131 | |
+| Rows with machine-drafted translations | 131 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

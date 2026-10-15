@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **S**. The data
 | With English | 269 | 17% |
 | With Dutch | 269 | 17% |
 | With Spanish | 269 | 17% |
-| Translations still machine drafts | 269 | |
+| Rows with machine-drafted translations | 269 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

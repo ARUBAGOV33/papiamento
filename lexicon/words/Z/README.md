@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **Z**. The data
 | With English | 6 | 8% |
 | With Dutch | 6 | 8% |
 | With Spanish | 6 | 8% |
-| Translations still machine drafts | 6 | |
+| Rows with machine-drafted translations | 6 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

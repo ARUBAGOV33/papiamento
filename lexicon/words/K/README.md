@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **K**. The data
 | With English | 35 | 14% |
 | With Dutch | 35 | 14% |
 | With Spanish | 35 | 14% |
-| Translations still machine drafts | 35 | |
+| Rows with machine-drafted translations | 35 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

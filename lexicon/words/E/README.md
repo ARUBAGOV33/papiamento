@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **E**. The data
 | With English | 135 | 19% |
 | With Dutch | 135 | 19% |
 | With Spanish | 135 | 19% |
-| Translations still machine drafts | 135 | |
+| Rows with machine-drafted translations | 135 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

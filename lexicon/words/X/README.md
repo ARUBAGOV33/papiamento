@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **X**. The data
 | With English | 0 | 0% |
 | With Dutch | 0 | 0% |
 | With Spanish | 0 | 0% |
-| Translations still machine drafts | 0 | |
+| Rows with machine-drafted translations | 0 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

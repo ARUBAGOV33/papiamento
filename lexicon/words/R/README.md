@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **R**. The data
 | With English | 141 | 15% |
 | With Dutch | 141 | 15% |
 | With Spanish | 141 | 15% |
-| Translations still machine drafts | 141 | |
+| Rows with machine-drafted translations | 141 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 1 | |
 

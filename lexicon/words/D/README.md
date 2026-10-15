@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **D**. The data
 | With English | 184 | 16% |
 | With Dutch | 184 | 16% |
 | With Spanish | 184 | 16% |
-| Translations still machine drafts | 184 | |
+| Rows with machine-drafted translations | 184 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

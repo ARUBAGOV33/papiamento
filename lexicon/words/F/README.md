@@ -10,7 +10,7 @@ Words from the official AB 2018 no. 68 word list that start with **F**. The data
 | With English | 97 | 16% |
 | With Dutch | 97 | 16% |
 | With Spanish | 97 | 16% |
-| Translations still machine drafts | 97 | |
+| Rows with machine-drafted translations | 97 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 
