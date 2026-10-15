@@ -1,0 +1,3 @@
+id	source	page	section	printed	correct	explanation	status	reviewed_by	notes
+err-0001	AB2018	38	§11.8	23 > bintiseis	23 > bintitres	bintiseis is 26; 23 is bintitres. Confirmed by the maintainer.	reviewed	victorgomesrt-rgb	Page taken from the text extraction; check against the official PDF once obtained.
+err-0002	ORT2009	38	§11.8	23 > bintiseis	23 > bintitres	bintiseis is 26; 23 is bintitres. Same example as AB 2018 §11.8. Confirmed by the maintainer.	reviewed	victorgomesrt-rgb	Checked on the PDF page (PDF page 39).
