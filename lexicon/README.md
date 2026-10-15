@@ -6,7 +6,7 @@ The words of Aruban Papiamento and the small reference tables built around them.
 
 | Folder | File(s) | Content | Status |
 |---|---|---|---|
-| `words/A` … `words/Z` | `words.tsv` | Every headword of the official AB 2018 no. 68 word list, with English, Dutch and Spanish columns | import in progress |
+| `words/A` … `words/Z` | `words.tsv` | Every headword of the official AB 2018 no. 68 word list, with English, Dutch and Spanish columns | 16,218 words imported; translations to come |
 | `numbers/` | `cardinals.tsv`, `ordinals.tsv`, `fractions.tsv`, `times.tsv` | How numbers and clock times are written (AB §11.8) | empty |
 | `calendar/` | `days.tsv`, `months.tsv`, `holidays.tsv` | Days, months, public holidays | empty |
 | `barbarismos/` | `barbarismos.tsv` | Forms to avoid and the Aruban form to use instead | empty |
