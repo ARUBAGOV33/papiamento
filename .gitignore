@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Build output (release files are generated, never committed)
+dist/
+
+# Validator report written by tools/validate.py
+gauntlet.json

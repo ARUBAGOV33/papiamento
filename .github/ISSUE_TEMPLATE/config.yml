@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How to contribute
+    url: https://github.com/ARUBAGOV33/papiamento/blob/main/CONTRIBUTING.md
+    about: The contributing guide, written for teachers and linguists first.

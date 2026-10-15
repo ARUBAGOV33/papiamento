@@ -1,0 +1,88 @@
+name: Propose a rule
+description: Suggest a spelling, grammar, word-choice or style rule for Aruban Papiamento.
+title: "Rule: "
+labels: ["rule", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Describe the rule in plain words. A maintainer writes the rule file; the review board decides whether it is adopted.
+
+        Rules that are already settled are listed in `_meta/invariants.md`. A rule with a source and page is much easier to accept.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Spelling (orthography)
+        - Word forms (morphology)
+        - Sentence structure (syntax)
+        - Prepositions
+        - Word choice (barbarismos)
+        - Style
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: rule
+    attributes:
+      label: The rule in plain words
+      description: One or two sentences.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: Correct examples
+      description: Words or sentences that follow the rule. One per line.
+      placeholder: "e.g. educacion"
+    validations:
+      required: true
+
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: Incorrect examples
+      description: Words or sentences that break the rule, with the correct form next to each. One per line.
+      placeholder: "e.g. educación -> educacion"
+    validations:
+      required: true
+
+  - type: textarea
+    id: exceptions
+    attributes:
+      label: Exceptions
+      description: Cases where the rule does not apply, if any.
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: The book or document that states the rule. Leave empty if you are not sure.
+      placeholder: "e.g. Ortografia 2009"
+    validations:
+      required: false
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The page number printed on the page.
+      placeholder: "e.g. 38"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I wrote this myself or it comes from a source listed in sources/sources.tsv, and I did not copy it from a copyrighted dictionary, website, Glosbe or newspaper.
+          required: true
+        - label: I agree that my contribution is published under CC BY 4.0.
+          required: true

@@ -1,0 +1,93 @@
+name: Add or fix a translation
+description: Give an English, Dutch or Spanish translation for an Aruban Papiamento word, or correct one.
+title: "Translation: "
+labels: ["translation", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping. You do not need to edit any files: fill in this form and a maintainer turns it into a change.
+
+        - One word per form is easiest to review.
+        - Translate the **Aruban** meaning of the word.
+        - Your translation is added as `draft`. A review-board member checks it before it is marked `reviewed`.
+        - Please do not copy from copyrighted dictionaries, websites, Glosbe or newspapers. Use your own knowledge and words.
+
+  - type: input
+    id: word
+    attributes:
+      label: Aruban Papiamento word
+      description: The word as the AB 2018 word list writes it. Add the part of speech if the list has the word more than once.
+      placeholder: "e.g. famia"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What would you like to do?
+      options:
+        - Add a missing translation
+        - Correct an existing translation
+        - Both
+    validations:
+      required: true
+
+  - type: input
+    id: en
+    attributes:
+      label: English
+      description: Fill in at least one of English, Dutch or Spanish. Separate different meanings with a semicolon and a space.
+      placeholder: "e.g. house; home"
+    validations:
+      required: false
+
+  - type: input
+    id: nl
+    attributes:
+      label: Dutch (Nederlands)
+    validations:
+      required: false
+
+  - type: input
+    id: es
+    attributes:
+      label: Spanish (Español)
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: Source, if you know it
+      description: A book or document that supports this translation, for example a Departamento di Enseñansa book. Leave empty if you are not sure.
+      placeholder: "e.g. Vocabulario 2009"
+    validations:
+      required: false
+
+  - type: input
+    id: page
+    attributes:
+      label: Page, if you know it
+      description: The page number printed on the page.
+      placeholder: "e.g. 38"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything a reviewer should know, such as a difference in meaning, or a translation that is wrong today.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I wrote this myself or it comes from a source listed in sources/sources.tsv, and I did not copy it from a copyrighted dictionary, website, Glosbe or newspaper.
+          required: true
+        - label: I agree that my contribution is published under CC BY 4.0.
+          required: true

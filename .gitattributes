@@ -1,0 +1,8 @@
+# Normalise line endings to LF for every text file.
+* text=auto eol=lf
+
+# Data tables: always text, always LF.
+*.tsv text eol=lf
+
+# Source documents: never touch the bytes.
+*.pdf binary

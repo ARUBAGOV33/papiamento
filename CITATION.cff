@@ -1,0 +1,38 @@
+# Citation metadata for this dataset. Format: https://citation-file-format.github.io/
+# No release yet. Each release adds `version`, `date-released` and the Zenodo DOI
+# (under `identifiers`) here. See GOVERNANCE.md, "Releases".
+cff-version: 1.2.0
+message: >-
+  If you use this dataset, please cite it as below. If you rely on a specific
+  word or rule, also cite the source and page given in that row.
+type: dataset
+title: "Papiamento: open data for Aruban Papiamento"
+abstract: >-
+  An open, citable reference dataset for Aruban Papiamento (pap-AW), written in
+  the etymological orthography of the AB 2018 no. 68 law. It contains the
+  headwords of the AB 2018 word list with English, Dutch and Spanish
+  translations, numbers, calendar terms, barbarismos, a Curaçao-to-Aruba
+  spelling map, spelling and grammar rules, and evaluation sets. Every row cites
+  a source document and printed page, and carries a review status
+  (draft, reviewed, disputed, deprecated).
+authors:
+  - name: "Papiamento Open Data contributors"
+repository-code: "https://github.com/ARUBAGOV33/papiamento"
+url: "https://github.com/ARUBAGOV33/papiamento"
+license: CC-BY-4.0
+keywords:
+  - Papiamento
+  - Aruba
+  - Aruban Papiamento
+  - pap-AW
+  - creole language
+  - orthography
+  - spelling
+  - lexicon
+  - dictionary
+  - grammar
+  - language resources
+  - natural language processing
+  - machine translation
+  - low-resource languages
+  - open data

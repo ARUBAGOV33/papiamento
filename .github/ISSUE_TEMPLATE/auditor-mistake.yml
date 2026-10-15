@@ -1,0 +1,84 @@
+name: Writing auditor mistake or test case (auditor coming soon)
+description: Report a mistake by the writing auditor, or give a test case it must get right.
+title: "Auditor: "
+labels: ["auditor", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **The writing auditor is coming soon.** It will check Aruban Papiamento text against the rules in `rules/`.
+
+        You can already use this form to add test cases: a text with a mistake the auditor must catch, or a correct text it must leave alone. Once the auditor is available, use it to report its mistakes too.
+
+        Test cases are published in `eval/` after a review-board member checks them. **Do not include names, addresses, phone numbers or other personal details.**
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is this?
+      options:
+        - A test case - text with a mistake the auditor must catch
+        - A test case - correct text the auditor must leave alone
+        - The auditor flagged correct text
+        - The auditor missed a mistake
+        - The auditor suggested the wrong correction
+    validations:
+      required: true
+
+  - type: textarea
+    id: text
+    attributes:
+      label: The text
+      description: The sentence or short paragraph that was checked, or that should be checked.
+    validations:
+      required: true
+
+  - type: textarea
+    id: auditor-said
+    attributes:
+      label: What the auditor said
+      description: Its message and suggested correction. Leave empty if you are adding a test case without running the auditor.
+    validations:
+      required: false
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What is correct
+      description: The correct text, and which words were wrong (if any). If the text was already correct, say so.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: register
+    attributes:
+      label: Register
+      description: What kind of writing is this?
+      options:
+        - Formal (government, official letters)
+        - Semi-formal (business, school)
+        - Informal (social media, messages)
+        - Not sure
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: Source and page, if you know them
+      description: A book or document that supports the correct form.
+      placeholder: "e.g. Morfologia 2010, page 42"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: The text contains no personal information.
+          required: true
+        - label: I wrote this text myself or have the right to share it, and I did not copy it from a copyrighted dictionary, website, Glosbe or newspaper.
+          required: true
+        - label: I agree that my contribution is published under CC BY 4.0.
+          required: true

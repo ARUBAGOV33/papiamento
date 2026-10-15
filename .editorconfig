@@ -1,0 +1,28 @@
+# https://editorconfig.org
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Data tables. Cells are separated by tabs.
+# Do NOT trim trailing whitespace: a row whose last column is empty ends with
+# a tab, and trimming it would delete that column.
+[*.tsv]
+indent_style = tab
+trim_trailing_whitespace = false
+
+[*.py]
+indent_size = 4
+
+# Two trailing spaces are a line break in Markdown.
+[*.md]
+trim_trailing_whitespace = false
+
+# Licence texts are kept exactly as published.
+[{LICENSE,LICENSE-DATA}]
+trim_trailing_whitespace = false

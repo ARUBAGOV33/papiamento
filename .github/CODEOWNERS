@@ -1,0 +1,24 @@
+# Code owners for ARUBAGOV33/papiamento
+#
+# A pull request that touches a path below needs an approving review from one
+# of its owners. When several patterns match a file, the LAST one wins, so the
+# specific lines below override the default.
+#
+# Review-board members are added to the language lines (lexicon/, grammar/,
+# rules/, eval/, _meta/) as they join the board. See GOVERNANCE.md,
+# "Joining and leaving the review board". Code owners need write access.
+
+# Default: maintainers own everything.
+*                           @ARUBAGOV33 @victorgomesrt-rgb
+
+# Language content
+/lexicon/                   @ARUBAGOV33 @victorgomesrt-rgb
+/grammar/                   @ARUBAGOV33 @victorgomesrt-rgb
+/rules/                     @ARUBAGOV33 @victorgomesrt-rgb
+/eval/                      @ARUBAGOV33 @victorgomesrt-rgb
+
+# Conventions, schemas, invariants and known facts
+/_meta/                     @ARUBAGOV33 @victorgomesrt-rgb
+
+# Source registry, cards, PDFs, errata and permissions
+/sources/                   @ARUBAGOV33 @victorgomesrt-rgb

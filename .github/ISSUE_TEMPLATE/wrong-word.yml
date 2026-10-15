@@ -1,0 +1,80 @@
+name: Report a wrong word or spelling
+description: A word is misspelled, mistranslated, has the wrong part of speech, or uses a Curaçao spelling.
+title: "Wrong word: "
+labels: ["wrong-word", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting this. You do not need to edit any files.
+
+        This dataset follows the **Aruban** standard (Papiamento, etymological spelling). Curaçao and Bonaire spellings (Papiamentu) belong only in the variant map, `lexicon/variants/curacao-aruba.tsv`.
+
+        A source and page help us fix the problem quickly. If two sources disagree, tell us about both: the review board decides.
+
+  - type: input
+    id: where
+    attributes:
+      label: Where did you see it?
+      description: A file, a row id, or a link to the line on GitHub.
+      placeholder: "e.g. lexicon/words/F/words.tsv, row pap-000412"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Spelling
+        - Translation (English, Dutch or Spanish)
+        - Part of speech or label
+        - Curaçao spelling in an Aruban column
+        - Not a real word, or a duplicate
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong?
+      description: What the dataset says now, and why it is wrong.
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What is correct?
+      description: What it should say.
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: The book or document that shows the correct form, for example the AB 2018 word list or a Departamento di Enseñansa book. Leave empty if you are not sure.
+      placeholder: "e.g. AB 2018 word list"
+    validations:
+      required: false
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The page number printed on the page.
+      placeholder: "e.g. 38"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: I wrote this myself or it comes from a source listed in sources/sources.tsv, and I did not copy it from a copyrighted dictionary, website, Glosbe or newspaper.
+          required: true
+        - label: I agree that my contribution is published under CC BY 4.0.
+          required: true
