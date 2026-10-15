@@ -283,6 +283,26 @@ class TestG2Schema(GauntletCase):
         self.assertNoFinding(ctx, "G4", contains="pap-000001")  # same file: G2 only
 
 
+class TestTranslatedBy(GauntletCase):
+    def test_translation_needs_translated_by(self):
+        root = self.build_repo()
+        path = root / WORDS_A
+        lines = path.read_text(encoding="utf-8").split("\n")
+        header = lines[0].split("\t")
+        col = header.index("translated_by")
+        for i, line in enumerate(lines[1:], 1):
+            cells = line.split("\t")
+            if len(cells) == len(header) and cells[header.index("en")]:
+                cells[col] = ""
+                lines[i] = "\t".join(cells)
+                line_no = i + 1
+                break
+        path.write_text("\n".join(lines), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", WORDS_A,
+                           "translated_by is required when en", line=line_no)
+
+
 class TestG3Orthography(GauntletCase):
     def test_accented_word(self):
         ctx = self.check("accented_word")
@@ -315,7 +335,7 @@ class TestG3Orthography(GauntletCase):
         folder.mkdir()
         header = (root / WORDS_A).read_text(encoding="utf-8").split("\n")[0]
         (folder / "words.tsv").write_text(
-            header + "\npap-000020\tñapa\t\ts.\t\textra\t\t\tdraft\t\tAB2018\t30\t\n",
+            header + "\npap-000020\tñapa\t\ts.\t\textra\t\t\tmachine\tdraft\t\tAB2018\t30\t\n",
             encoding="utf-8")
         ctx = self.run_gauntlet(root)
         self.assertEqual(ctx.findings, [], dump(ctx))

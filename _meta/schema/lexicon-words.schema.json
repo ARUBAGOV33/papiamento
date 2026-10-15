@@ -66,6 +66,14 @@
       "description": "Spanish translation(s), '; '-separated"
     },
     {
+      "name": "translated_by",
+      "type": "string",
+      "description": "Who wrote the translations in en, nl and es: machine for machine drafts, otherwise GitHub usernames, separated by '; '. Required when any translation is filled.",
+      "constraints": {
+        "pattern": "^(machine|[A-Za-z0-9-]+)(; (machine|[A-Za-z0-9-]+))*$"
+      }
+    },
+    {
       "name": "status",
       "type": "string",
       "constraints": {
@@ -126,7 +134,14 @@
       "lemma",
       "alt"
     ],
-    "letter_folder": "lemma"
+    "letter_folder": "lemma",
+    "required_if_any": {
+      "translated_by": [
+        "en",
+        "nl",
+        "es"
+      ]
+    }
   },
   "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
   "primaryKey": "id",

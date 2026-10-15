@@ -1,2 +1,2 @@
-id	lemma	alt	pos	tag	en	nl	es	status	reviewed_by	source	page	notes
-pap-000000	awa		s.		water			draft		AB2018		Example row. Copy the header and this row, then replace every value.
+id	lemma	alt	pos	tag	en	nl	es	translated_by	status	reviewed_by	source	page	notes
+pap-000000	awa		s.		water			your-github-username	draft		AB2018		Example row. Copy the header and this row, then replace every value.

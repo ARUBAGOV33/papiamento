@@ -68,6 +68,7 @@ A test case counts only after a review-board member has checked the expected ans
    - **Keep the tabs.** Cells are separated by a single tab character. Do not delete tabs and do not replace them with spaces. Click inside a cell and type.
    - **Do not add or remove columns.** Do not change the first line (the header).
    - **Do not change the `id`.**
+   - **If you wrote or corrected a translation, put your GitHub username in `translated_by`** (replacing `machine` if it was there).
    - **Set `status` to `draft`** and leave `reviewed_by` empty. If the row was `reviewed`, change it back to `draft` and empty `reviewed_by`: the board checks it again.
    - **Do not delete a row.** To retire a row, set its status to `deprecated` and explain why in `notes`.
    - If you need to type a tab, first check that the editor's indent setting (above the text) says **Tabs**, not Spaces.
