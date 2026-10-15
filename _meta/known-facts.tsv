@@ -28,3 +28,7 @@ fact-0026	calendar	kind=month&order=10	pap	equals	october	victorgomesrt-rgb	2026
 fact-0027	calendar	kind=month&order=11	pap	equals	november	victorgomesrt-rgb	2026-10-15	
 fact-0028	calendar	kind=month&order=12	pap	equals	december	victorgomesrt-rgb	2026-10-15	
 fact-0029	words	lemma=nunca	en	contains	never	victorgomesrt-rgb	2026-10-16	never = nunca
+fact-0030	numbers	kind=cardinal&value=1000000000	pap	equals	biyon	victorgomesrt-rgb	2026-10-16	biyon = 10^9 (billion)
+fact-0031	words	lemma=biyon	en	contains	billion	victorgomesrt-rgb	2026-10-16	biyon = 10^9
+fact-0032	words	lemma=biyon	nl	not-contains	biljoen	victorgomesrt-rgb	2026-10-16	biljoen is 10^12; biyon is miljard
+fact-0033	words	lemma=biyon	es	not-contains	billón	victorgomesrt-rgb	2026-10-16	billón is 10^12; biyon is mil millones
