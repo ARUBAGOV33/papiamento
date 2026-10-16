@@ -32,6 +32,14 @@ OTHER_TABLES = [
     ("Cura\u00e7ao \u2192 Aruba spelling pairs", "lexicon/variants/*.tsv"),
     ("Loanwords", "lexicon/loanwords/*.tsv"),
 ]
+EMPTY_CHECKS = [
+    # (name in the "Still empty" line, globs whose rows count)
+    ("names", ["lexicon/names/*.tsv"]),
+    ("closed word classes", ["lexicon/closed-classes/*.tsv"]),
+    ("public holidays", ["lexicon/calendar/holidays.tsv"]),
+    ("the corpus", ["corpus/**/*.tsv"]),
+    ("the test sets", ["eval/**/*.tsv", "eval/**/*.jsonl"]),
+]
 THEMES = {
     "light": {"bg": "#ffffff", "border": "#d0d7de", "text": "#1f2328", "muted": "#59636e",
               "track": "#eaeef2", "tile": "#f6f8fa", "added": "#1f6fb2", "reviewed": "#1a7f37"},
@@ -150,7 +158,22 @@ def repo_stats(words):
         "grammar_reviewed": sum(1 for m in grammar if m.get("status") == "reviewed"),
         "flaggable": sum(1 for m in grammar if m.get("severity") in FLAGGABLE),
         "machine": machine,
+        "empty": [name for name, patterns in EMPTY_CHECKS if count_rows(patterns) == 0],
     }
+
+
+def count_rows(patterns):
+    n = 0
+    for pattern in patterns:
+        for path in glob.glob(os.path.join(ROOT, pattern), recursive=True):
+            with open(path, encoding="utf-8") as f:
+                lines = [l for l in f.read().split("\n") if l.strip()]
+            n += max(0, len(lines) - 1) if path.endswith(".tsv") else len(lines)
+    return n
+
+
+def join_names(names):
+    return names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
 
 
 def share(part, whole):
@@ -252,8 +275,10 @@ def readme_block(rs):
     lines += [
         "| [Grammar rules](grammar/) | %s | %s |" % (fmt(rs["grammar"]), fmt(rs["grammar_reviewed"])),
         "| [Machine checker rules](rules/) | %s | |" % fmt(rs["machine"]),
-        REPO_END,
     ]
+    if rs.get("empty"):
+        lines += ["", "Still empty: %s." % join_names(rs["empty"])]
+    lines.append(REPO_END)
     return "\n".join(lines)
 
 

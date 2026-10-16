@@ -48,6 +48,15 @@ class ProgressTest(unittest.TestCase):
         self.assertIn("| 200 | 10 |", block)
         self.assertIn("25% with English", block)
 
+    def test_still_empty_line(self):
+        rs = self.stats()
+        rs["empty"] = []
+        self.assertNotIn("Still empty", build_pages.readme_block(rs))
+        rs["empty"] = ["names"]
+        self.assertIn("Still empty: names.", build_pages.readme_block(rs))
+        rs["empty"] = ["names", "public holidays", "the corpus"]
+        self.assertIn("Still empty: names, public holidays and the corpus.", build_pages.readme_block(rs))
+
     def test_repository_pages_are_up_to_date(self):
         result = subprocess.run([sys.executable, str(REPO / "tools" / "build_pages.py"), "--check"],
                                 capture_output=True, text=True)
