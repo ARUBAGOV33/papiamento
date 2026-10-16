@@ -6,43 +6,43 @@
 <text x="812" y="36" font-size="13" fill="#59636e" text-anchor="end"><tspan fill="#1f6fb2">●</tspan> added    <tspan fill="#1a7f37">●</tspan> reviewed by the board</text>
 <rect x="28" y="56" width="187" height="86" rx="10" fill="#f6f8fa"/>
 <text x="44" y="98" font-size="30" font-weight="700" fill="#1f6fb2">16,218</text>
-<text x="44" y="124" font-size="13" fill="#59636e">words from the AB 2018 list</text>
+<text x="44" y="124" font-size="12" fill="#59636e">AB 2018 words</text>
 <rect x="227" y="56" width="187" height="86" rx="10" fill="#f6f8fa"/>
 <text x="243" y="98" font-size="30" font-weight="700" fill="#1f6fb2">18%</text>
-<text x="243" y="124" font-size="13" fill="#59636e">of words have English</text>
+<text x="243" y="124" font-size="12" fill="#59636e">with English</text>
 <rect x="426" y="56" width="187" height="86" rx="10" fill="#f6f8fa"/>
 <text x="442" y="98" font-size="30" font-weight="700" fill="#1a7f37">0%</text>
-<text x="442" y="124" font-size="13" fill="#59636e">reviewed by the board</text>
+<text x="442" y="124" font-size="12" fill="#59636e">reviewed</text>
 <rect x="625" y="56" width="187" height="86" rx="10" fill="#f6f8fa"/>
 <text x="641" y="98" font-size="30" font-weight="700" fill="#1f6fb2">49/80</text>
-<text x="641" y="124" font-size="13" fill="#59636e">rules with a machine check</text>
+<text x="641" y="124" font-size="12" fill="#59636e">rules machine-checked</text>
 <text x="28" y="180" font-size="12" font-weight="600" fill="#59636e" letter-spacing="0.8">WORDS</text>
 <text x="28" y="206" font-size="15" fill="#1f2328">With English</text>
-<rect x="330" y="196" width="290" height="10" rx="5" fill="#eaeef2"/>
-<rect x="330" y="196" width="52" height="10" rx="5" fill="#1f6fb2"/>
+<rect x="350" y="196" width="270" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="196" width="49" height="10" rx="5" fill="#1f6fb2"/>
 <text x="812" y="206" font-size="14" fill="#59636e" text-anchor="end">2,925 of 16,218<tspan font-weight="600" fill="#1f2328" dx="8">18%</tspan></text>
 <text x="28" y="236" font-size="15" fill="#1f2328">With Dutch</text>
-<rect x="330" y="226" width="290" height="10" rx="5" fill="#eaeef2"/>
-<rect x="330" y="226" width="52" height="10" rx="5" fill="#1f6fb2"/>
+<rect x="350" y="226" width="270" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="226" width="49" height="10" rx="5" fill="#1f6fb2"/>
 <text x="812" y="236" font-size="14" fill="#59636e" text-anchor="end">2,922 of 16,218<tspan font-weight="600" fill="#1f2328" dx="8">18%</tspan></text>
 <text x="28" y="266" font-size="15" fill="#1f2328">With Spanish</text>
-<rect x="330" y="256" width="290" height="10" rx="5" fill="#eaeef2"/>
-<rect x="330" y="256" width="52" height="10" rx="5" fill="#1f6fb2"/>
+<rect x="350" y="256" width="270" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="256" width="49" height="10" rx="5" fill="#1f6fb2"/>
 <text x="812" y="266" font-size="14" fill="#59636e" text-anchor="end">2,923 of 16,218<tspan font-weight="600" fill="#1f2328" dx="8">18%</tspan></text>
 <text x="28" y="296" font-size="15" fill="#1f2328">Reviewed by the board</text>
-<rect x="330" y="286" width="290" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="286" width="270" height="10" rx="5" fill="#eaeef2"/>
 <text x="812" y="296" font-size="14" fill="#59636e" text-anchor="end">0 of 16,218<tspan font-weight="600" fill="#1f2328" dx="8">0%</tspan></text>
 <text x="28" y="334" font-size="12" font-weight="600" fill="#59636e" letter-spacing="0.8">RULES</text>
 <text x="28" y="360" font-size="15" fill="#1f2328">Grammar rules reviewed</text>
-<rect x="330" y="350" width="290" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="350" width="270" height="10" rx="5" fill="#eaeef2"/>
 <text x="812" y="360" font-size="14" fill="#59636e" text-anchor="end">0 of 192<tspan font-weight="600" fill="#1f2328" dx="8">0%</tspan></text>
 <text x="28" y="390" font-size="15" fill="#1f2328">Flaggable rules with a machine check</text>
-<rect x="330" y="380" width="290" height="10" rx="5" fill="#eaeef2"/>
-<rect x="330" y="380" width="178" height="10" rx="5" fill="#1f6fb2"/>
+<rect x="350" y="380" width="270" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="380" width="165" height="10" rx="5" fill="#1f6fb2"/>
 <text x="812" y="390" font-size="14" fill="#59636e" text-anchor="end">49 of 80<tspan font-weight="600" fill="#1f2328" dx="8">61%</tspan></text>
 <text x="28" y="428" font-size="12" font-weight="600" fill="#59636e" letter-spacing="0.8">OTHER TABLES</text>
 <text x="28" y="454" font-size="15" fill="#1f2328">Rows reviewed</text>
-<rect x="330" y="444" width="290" height="10" rx="5" fill="#eaeef2"/>
+<rect x="350" y="444" width="270" height="10" rx="5" fill="#eaeef2"/>
 <text x="812" y="454" font-size="14" fill="#59636e" text-anchor="end">0 of 907<tspan font-weight="600" fill="#1f2328" dx="8">0%</tspan></text>
 </g>
 </svg>

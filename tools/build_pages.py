@@ -179,14 +179,14 @@ def progress_svg(rs, theme):
     t = THEMES[theme]
     w = rs["words"]
     width, left, right = 840, 28, 812
-    bar_x, bar_w = 330, 290
+    bar_x, bar_w = 350, 270
     out = []
     # Tiles: the four headline numbers.
     tiles = [
-        (fmt(w["words"]), "words from the AB 2018 list", "added"),
-        ("%d%%" % round(100 * share(w["en"], w["words"])), "of words have English", "added"),
-        ("%d%%" % round(100 * share(w["reviewed"], w["words"])), "reviewed by the board", "reviewed"),
-        ("%s/%s" % (fmt(rs["machine"]), fmt(rs["flaggable"])), "rules with a machine check", "added"),
+        (fmt(w["words"]), "AB 2018 words", "added"),
+        ("%d%%" % round(100 * share(w["en"], w["words"])), "with English", "added"),
+        ("%d%%" % round(100 * share(w["reviewed"], w["words"])), "reviewed", "reviewed"),
+        ("%s/%s" % (fmt(rs["machine"]), fmt(rs["flaggable"])), "rules machine-checked", "added"),
     ]
     gap = 12
     tile_w = (right - left - gap * (len(tiles) - 1)) // len(tiles)
@@ -194,7 +194,7 @@ def progress_svg(rs, theme):
         x = left + i * (tile_w + gap)
         out.append('<rect x="%d" y="56" width="%d" height="86" rx="10" fill="%s"/>' % (x, tile_w, t["tile"]))
         out.append('<text x="%d" y="98" font-size="30" font-weight="700" fill="%s">%s</text>' % (x + 16, t[kind], big))
-        out.append('<text x="%d" y="124" font-size="13" fill="%s">%s</text>' % (x + 16, t["muted"], small))
+        out.append('<text x="%d" y="124" font-size="12" fill="%s">%s</text>' % (x + 16, t["muted"], small))
     y = 172
     for label, part, whole, kind in chart_rows(rs):
         if part is None:
