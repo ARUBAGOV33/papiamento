@@ -200,6 +200,20 @@ How this works in practice:
 - When two PDFs disagree, or a PDF contains a typo, the case goes into [`sources/errata.tsv`](sources/errata.tsv) and the review board decides. Nobody picks a winner silently.
 - Nothing is copied from copyrighted dictionaries, websites, Glosbe or newspapers.
 
+## How this dataset was made
+
+People decide; machines help. Parts of this dataset were made with the help of AI models (Claude, by Anthropic):
+
+- rebuilding the AB 2018 word list from the PDF, then checking it against the printed pages and the Papiamento.aw list;
+- drafting the English, Dutch and Spanish translations;
+- restating the spelling and grammar rules from the source books, and writing the machine-readable rules and the tools.
+
+Every piece was checked by a separate run that compared it with the page images; for translations, a second model checked each cell. The maintainer decided every conflict between sources (see [`sources/errata.tsv`](sources/errata.tsv)).
+
+Anything a machine made stays `draft`, and machine translations are marked `translated_by = machine`. A row becomes `reviewed` only when a person on the review board has checked it against the source page.
+
+AI models are not listed as authors, because they cannot take responsibility for the work. Pull requests made with Claude say so in their description, and many early commits carry a "Co-Authored-By: Claude" line. See also "Machine-made content" in [GOVERNANCE.md](GOVERNANCE.md).
+
 ## Licences
 
 | What | Where | Licence | File |
