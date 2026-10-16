@@ -22,15 +22,18 @@
     {
       "name": "origin",
       "type": "string",
-      "description": "Language of origin",
+      "description": "Language of origin: nl, en, es, fr, pt, it (Italian), la (Latin), de (German), or other",
       "constraints": {
         "required": true,
         "enum": [
           "nl",
           "en",
           "es",
-          "pt",
           "fr",
+          "pt",
+          "it",
+          "la",
+          "de",
           "other"
         ]
       }

@@ -39,3 +39,5 @@ fact-0037	words	id=pap-003297	lemma	equals	computarisando	victorgomesrt-rgb	2026
 fact-0038	words	id=pap-003301	lemma	equals	computerisando	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0006)
 fact-0039	words	id=pap-003742	alt	equals	coregimento	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0007)
 fact-0040	words	id=pap-013135	alt	equals	lisimbein	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0008)
+fact-0041	loanwords	id=loan-0270	lemma	equals	dagvaard	victorgomesrt-rgb	2026-10-16	§12.2 prints dagvaar; maintainer decided dagvaard (err-0014)
+fact-0042	loanwords	id=loan-0303	lemma	equals	osterizer	victorgomesrt-rgb	2026-10-16	§12.2 prints Osterizer; maintainer decided lowercase (err-0015)
