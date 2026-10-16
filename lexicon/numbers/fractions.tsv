@@ -1,1 +1,14 @@
 id	kind	value	pap	alt	en	nl	es	status	reviewed_by	source	page	notes
+num-0133	fraction	1/2	mita	mey	half	half; helft	medio; mitad	draft		MOR2010	69	Never takes parti (MOR §9.3.1.3).
+num-0134	fraction	1/3	un di tres	un di tres parti; un tercer; un tercera; un tercer parti; un tercera parti	one third	een derde	un tercio	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0135	fraction	2/3	dos di tres	dos di tres parti	two thirds	twee derde	dos tercios	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0136	fraction	1/4	un cuart	un cuarto; un di cuater; un di cuater parti	a quarter; one fourth	een kwart; een vierde	un cuarto	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0137	fraction	1/8	un di ocho	un di ocho parti	one eighth	een achtste	un octavo	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0138	fraction	2/6	dos di seis	dos di seis parti	two sixths	twee zesde	dos sextos	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0139	fraction	4/7	cuater di shete	cuater di shete parti	four sevenths	vier zevende	cuatro séptimos	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0140	fraction	1 1/2	un y mey		one and a half	anderhalf	uno y medio	draft		MOR2010	69	Never takes parti (MOR §9.3.1.3).
+num-0141	fraction	2 1/11	dos y un di diesun	dos y un di diesun parti	two and one eleventh	twee en een elfde	dos y un onceavo	draft		MOR2010	69	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0142	fraction	5 3/10	cinco y tres di dies	cinco y tres di dies parti	five and three tenths	vijf en drie tiende	cinco y tres décimos	draft		MOR2010	67	Parti may follow (MOR §9.3.1.3); not used after mey, mita and un cuart.
+num-0143	fraction	1/10	decimo		one tenth	een tiende	un décimo	draft		AB2018	19	The AB list labels decimo with 1/10.
+num-0144	fraction	1/8	un ocho		one eighth (of an inch)	een achtste (inch)	un octavo (de pulgada)	draft		MOR2010	70	Used with a folding ruler (duimstok), from un ocho (1/8) to shete ocho (7/8) (MOR §9.3.1.3, note 2).
+num-0145	fraction	5/8	cinco ocho		five eighths (of an inch)	vijf achtste (inch)	cinco octavos (de pulgada)	draft		MOR2010	70	Duimstok use, as in un pida plywood di cinco ocho (MOR §9.3.1.3, note 2).
