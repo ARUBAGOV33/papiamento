@@ -8,6 +8,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- `rules/rules.jsonl`: 49 machine-readable checker rules (31 orthography, 9 morphology, 4 prepositions, 3 from maintainer rulings, 1 syntax, 1 style), 30 of them with an automatic fix. Every test sentence is printed in the linked grammar file or is a documented mechanical change of a printed example. Four writer agents and four independent checkers built them; the checkers judged precision on about 10,000 real Aruban sentences (no false alarms in their samples apart from foreign-language words in the no-accent rule). 31 flaggable grammar rules have no pattern because a regex cannot check them reliably; `rules/README.md` lists them with the reason.
+- Validator gate G5 tests every machine rule against its grammar file; `tools/test_rules.mjs` runs the same tests in JavaScript (the Skirbi checker's engine) in CI. Patterns may not use `\b` or `\w`, which misfire next to ñ in JavaScript.
+
+### Added
+
 - `grammar/`: 192 spelling and grammar rules rebuilt from the source PDFs (AB 2018 orthography annex, Morfologia, Preposicion y Interheccion, Sintaxis, Stilistica), one file per rule with source and printed page. Papiamento examples are quoted verbatim from the page; none were written by a machine. Eight writer agents and eight independent checkers verified every rule against the page image (33 corrections). Of the 222 old rule-pack rules, 30 are not files: duplicates merged into another rule, or statements no page supports (listed in `grammar/README.md`).
 - Validator gate for grammar rule files (front matter, source and page, file name, required section), with tests.
 - Source `RUL2026` for rules that rest on a maintainer ruling rather than a printed page.

@@ -465,3 +465,59 @@ class TestGrammarFiles(GauntletCase):
         ctx = self.run_gauntlet(root)
         self.assertFinding(ctx, "G2", "error", bad, "grammar files go in grammar/<topic>/")
         self.assertFinding(ctx, "G2", "error", nosec, "missing a '## Rule' section")
+
+
+class TestMachineRules(GauntletCase):
+    GRAMMAR = (
+        "---\nid: RULE_ORT_TEST_001\ntitle: Days in lowercase\nstatus: draft\nsource: AB2018\n"
+        "page: \"32\"\nseverity: error\nreviewed_by: \"\"\n---\n\n## Rule\n\nDays are lowercase.\n\n"
+        "## Correct\n\n- dialuna\n- Mi ta bay dialuna.\n\n## Incorrect\n\n- Dialuna → dialuna\n")
+    B = "(?<![A-Za-zÀ-ÿñÑ'])"
+    E = "(?![A-Za-zÀ-ÿñÑ'])"
+
+    def repo(self, rule, grammar=None):
+        root = self.build_repo()
+        g = root / "grammar/orthography/rule-ort-test-001.md"
+        g.parent.mkdir(parents=True, exist_ok=True)
+        g.write_text(grammar or self.GRAMMAR, encoding="utf-8")
+        r = root / "rules/rules.jsonl"
+        r.parent.mkdir(parents=True, exist_ok=True)
+        r.write_text(json.dumps(rule, ensure_ascii=False) + "\n", encoding="utf-8")
+        return root
+
+    def rule(self, **kw):
+        base = {"rule_id": "RULE_ORT_TEST_001", "pattern": self.B + "Dialuna" + self.E,
+                "message": "Days are written in lowercase.", "replacement": "dialuna",
+                "tests": {"match": ["Dialuna"], "no_match": ["dialuna", "Mi ta bay dialuna."],
+                          "fix": [{"text": "Dialuna", "expect": "dialuna"}]}}
+        base.update(kw)
+        return base
+
+    def test_valid_rule_passes(self):
+        ctx = self.run_gauntlet(self.repo(self.rule()))
+        self.assertEqual([f for f in ctx.findings if f.gate in ("G0", "G2", "G5")], [], dump(ctx))
+        self.assertEqual(ctx.rules_checked, 1)
+
+    def test_test_must_be_printed_in_grammar_file(self):
+        r = self.rule(tests={"match": ["Dialuna", "DIALUNA"], "no_match": []})
+        ctx = self.run_gauntlet(self.repo(r))
+        self.assertFinding(ctx, "G0", "error", "rules/rules.jsonl", "'DIALUNA' is not printed")
+
+    def test_rule_must_catch_and_not_overflag(self):
+        r = self.rule(pattern=self.B + "dialuna" + self.E, replacement=None,
+                      tests={"match": ["Dialuna"], "no_match": ["dialuna"]})
+        ctx = self.run_gauntlet(self.repo(r))
+        self.assertFinding(ctx, "G5", "error", "rules/rules.jsonl", "does not catch 'Dialuna'")
+        self.assertFinding(ctx, "G5", "error", "rules/rules.jsonl", "wrongly flags the correct example 'dialuna'")
+
+    def test_non_portable_pattern_and_info_rule(self):
+        r = self.rule(pattern=r"\bDialuna\b")
+        ctx = self.run_gauntlet(self.repo(r, self.GRAMMAR.replace("severity: error", "severity: info")))
+        self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "behaves differently in JavaScript")
+        self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "is an info rule")
+
+    def test_derived_test_needs_printed_basis(self):
+        r = self.rule(tests={"match": [], "no_match": ["dialuna"]},
+                      derived=[{"text": "Dialuna", "from": "diamars", "change": "capitalised", "expect": "match"}])
+        ctx = self.run_gauntlet(self.repo(r))
+        self.assertFinding(ctx, "G0", "error", "rules/rules.jsonl", "based on 'diamars'")

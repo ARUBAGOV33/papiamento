@@ -9,7 +9,8 @@ Gates
   G2 Schema         required / enum / pattern / unique, reviewed_by; grammar rule files
   G3 Orthography    accents, Curacao markers, letter folders
   G4 Integrity      ids unique repo-wide, unique_together, lexicon refs
-  G5 Known facts    rulings in _meta/known-facts.tsv (extension point: G5_CHECKS)
+  G5 Known facts    rulings in _meta/known-facts.tsv; machine rules in rules/rules.jsonl tested
+                    against their grammar files' examples (extension point: G5_CHECKS)
 
 Exit codes: 0 no errors, 1 errors found (or warnings with --strict),
 2 bad command line.
@@ -137,6 +138,7 @@ class Context(object):
         self.facts_checked = 0
         self.facts_pending = 0
         self.grammar_checked = 0
+        self.rules_checked = 0
 
     def add(self, gate, severity, path, line, message):
         self.findings.append(Finding(gate, severity, path, line, message))
@@ -785,8 +787,164 @@ def check_grammar(ctx):
             ctx.add("G2", ERROR, rel, None, "missing a '## Rule' section")
 
 
+# --------------------------------------------------------------------------
+# Machine rules: rules/rules.jsonl, tested against the grammar files' examples
+# --------------------------------------------------------------------------
+
+RULES_PATH = "rules/rules.jsonl"
+RULE_KEYS = {"rule_id", "pattern", "flags", "replacement", "message", "tests", "derived", "notes"}
+# Python-only or non-portable regex syntax. \b and \w are ASCII-only in JavaScript,
+# so they misfire next to ñ and accented letters; spell boundaries out instead.
+NON_PORTABLE = re.compile(r"\\[bBwW]|\(\?P|\(\?[aiLmsux-]+[):]|\\[AZz]|\(\?<[A-Za-z]")
+
+
+def grammar_index(ctx):
+    # type: (Context) -> Dict[str, Tuple[str, str, Dict[str, str]]]
+    out = {}  # type: Dict[str, Tuple[str, str, Dict[str, str]]]
+    base = ctx.root / "grammar"
+    if not base.is_dir():
+        return out
+    for path in sorted(base.rglob("*.md")):
+        if path.name == "README.md":
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        meta, _ = parse_front_matter(text)
+        if meta and meta.get("id"):
+            out[meta["id"]] = (path.relative_to(ctx.root).as_posix(), text, meta)
+    return out
+
+
+def section_items(text, heading):
+    # type: (str, str) -> List[str]
+    """The '- item' lines under a '## heading' section of a grammar file."""
+    items = []  # type: List[str]
+    inside = False
+    for line in text.split("\n"):
+        if line.startswith("## "):
+            inside = line.strip() == "## " + heading
+            continue
+        if inside and line.startswith("- "):
+            items.append(line[2:].strip())
+    return items
+
+
+def py_replacement(repl):
+    # type: (str) -> str
+    return re.sub(r"\$(\d)", r"\\\1", repl.replace("\\", "\\\\"))
+
+
+def check_rule_tests(ctx):
+    # type: (Context) -> None
+    path = ctx.root / RULES_PATH
+    if not path.exists():
+        return
+    try:
+        text = path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        ctx.add("G1", ERROR, RULES_PATH, None, "not valid UTF-8")
+        return
+    index = grammar_index(ctx)
+    correct_pool = [(rel, ex) for rel, gtext, _ in index.values() for ex in section_items(gtext, "Correct")]
+    seen = set()  # type: Set[str]
+    for n, line in enumerate(text.split("\n"), 1):
+        if not line.strip():
+            continue
+        try:
+            rule = json.loads(line)
+        except ValueError as exc:
+            ctx.add("G2", ERROR, RULES_PATH, n, "not valid JSON: %s" % exc)
+            continue
+        if not isinstance(rule, dict):
+            ctx.add("G2", ERROR, RULES_PATH, n, "each line must be a JSON object")
+            continue
+        ctx.rules_checked += 1
+        rid = rule.get("rule_id", "")
+        for key in ("rule_id", "pattern", "message", "tests"):
+            if not rule.get(key):
+                ctx.add("G2", ERROR, RULES_PATH, n, "%s is required" % key)
+        extra = set(rule) - RULE_KEYS
+        if extra:
+            ctx.add("G2", ERROR, RULES_PATH, n, "unknown key(s): %s" % ", ".join(sorted(extra)))
+        if rid in seen:
+            ctx.add("G4", ERROR, RULES_PATH, n, "rule %s appears twice" % rid)
+        seen.add(rid)
+        entry = index.get(rid)
+        if entry is None:
+            ctx.add("G4", ERROR, RULES_PATH, n, "no grammar file has id %s" % rid)
+            continue
+        grel, gtext, gmeta = entry
+        if gmeta.get("severity") == "info":
+            ctx.add("G2", ERROR, RULES_PATH, n, "%s is an info rule (nothing to flag); it needs no machine rule" % rid)
+        flags = rule.get("flags", "") or ""
+        if any(f not in "i" for f in flags):
+            ctx.add("G2", ERROR, RULES_PATH, n, "flags may only be 'i' (got %r)" % flags)
+        pattern = rule.get("pattern", "") or ""
+        if NON_PORTABLE.search(pattern):
+            ctx.add("G2", ERROR, RULES_PATH, n,
+                    "%s: pattern uses syntax that behaves differently in JavaScript (\\b, \\w, inline flags, named groups, \\A/\\Z)" % rid)
+        try:
+            rx = re.compile(pattern, re.IGNORECASE if "i" in flags else 0)
+        except re.error as exc:
+            ctx.add("G2", ERROR, RULES_PATH, n, "%s: pattern does not compile: %s" % (rid, exc))
+            continue
+        tests = rule.get("tests") or {}
+        if not isinstance(tests, dict):
+            ctx.add("G2", ERROR, RULES_PATH, n, "tests must be an object")
+            continue
+        positives = 0
+        for kind in ("match", "no_match"):
+            for ex in tests.get(kind) or []:
+                if ex not in gtext:
+                    ctx.add("G0", ERROR, RULES_PATH, n,
+                            "%s: test %r is not printed in %s; tests come verbatim from the grammar file" % (rid, ex, grel))
+                hit = rx.search(ex) is not None
+                if kind == "match":
+                    positives += 1
+                    if not hit:
+                        ctx.add("G5", ERROR, RULES_PATH, n, "%s: does not catch %r" % (rid, ex))
+                elif hit:
+                    ctx.add("G5", ERROR, RULES_PATH, n, "%s: wrongly flags the correct example %r" % (rid, ex))
+        for d in rule.get("derived") or []:
+            if not isinstance(d, dict) or not all(d.get(k) for k in ("text", "from", "change", "expect")):
+                ctx.add("G2", ERROR, RULES_PATH, n, "%s: each derived test needs text, from, change and expect" % rid)
+                continue
+            if d["from"] not in gtext:
+                ctx.add("G0", ERROR, RULES_PATH, n,
+                        "%s: derived test is based on %r, which is not printed in %s" % (rid, d["from"], grel))
+            hit = rx.search(d["text"]) is not None
+            if d["expect"] == "match":
+                positives += 1
+                if not hit:
+                    ctx.add("G5", ERROR, RULES_PATH, n, "%s: does not catch derived test %r" % (rid, d["text"]))
+            elif d["expect"] == "no_match":
+                if hit:
+                    ctx.add("G5", ERROR, RULES_PATH, n, "%s: wrongly flags derived test %r" % (rid, d["text"]))
+            else:
+                ctx.add("G2", ERROR, RULES_PATH, n, "%s: derived expect must be match or no_match" % rid)
+        for fx in tests.get("fix") or []:
+            if not isinstance(fx, dict) or "text" not in fx or "expect" not in fx:
+                ctx.add("G2", ERROR, RULES_PATH, n, "%s: each fix test needs text and expect" % rid)
+                continue
+            repl = rule.get("replacement")
+            if repl is None:
+                ctx.add("G2", ERROR, RULES_PATH, n, "%s: fix tests need a replacement" % rid)
+                continue
+            got = rx.sub(py_replacement(repl), fx["text"])
+            if got != fx["expect"]:
+                ctx.add("G5", ERROR, RULES_PATH, n, "%s: fixing %r gives %r, expected %r" % (rid, fx["text"], got, fx["expect"]))
+        if positives == 0:
+            ctx.add("G5", ERROR, RULES_PATH, n, "%s: needs at least one test it must catch" % rid)
+        for rel, ex in correct_pool:
+            if rel != grel and rx.search(ex):
+                ctx.add("G5", WARNING, RULES_PATH, n,
+                        "%s flags a correct example in %s: %r" % (rid, rel, ex))
+
+
 # Each G5 check takes the Context and appends findings. Rule tests go here.
-G5_CHECKS = [check_known_facts]  # type: List[Callable[[Context], None]]
+G5_CHECKS = [check_known_facts, check_rule_tests]  # type: List[Callable[[Context], None]]
 
 
 def gate_g5(ctx):
@@ -851,6 +1009,7 @@ def report_json(ctx):
         "files_checked": len(ctx.files),
         "rows_checked": ctx.rows_checked,
         "grammar_rules_checked": ctx.grammar_checked,
+        "machine_rules_checked": ctx.rules_checked,
         "known_facts": {"total": ctx.facts_total, "checked": ctx.facts_checked,
                         "pending": ctx.facts_pending},
     }
@@ -868,8 +1027,8 @@ def report_text(ctx):
     parts = ["%s %d error(s) %d warning(s)" % (g, gates[g]["errors"], gates[g]["warnings"])
              for g in GATES]
     out.append("")
-    out.append("Gauntlet: %d file(s), %d row(s), %d grammar rule(s) checked; known facts: %d checked, %d pending"
-               % (len(ctx.files), ctx.rows_checked, ctx.grammar_checked, ctx.facts_checked, ctx.facts_pending))
+    out.append("Gauntlet: %d file(s), %d row(s), %d grammar rule(s), %d machine rule(s) checked; known facts: %d checked, %d pending"
+               % (len(ctx.files), ctx.rows_checked, ctx.grammar_checked, ctx.rules_checked, ctx.facts_checked, ctx.facts_pending))
     out.append(" | ".join(parts))
     out.append("RESULT: %s" % ("PASS" if is_ok(ctx) else "FAIL"))
     return "\n".join(out)

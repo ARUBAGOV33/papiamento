@@ -31,6 +31,9 @@ jobs:
       - name: Progress pages up to date
         run: python3 tools/build_pages.py --check
 
+      - name: Rule tests in JavaScript
+        run: node tools/test_rules.mjs
+
       - name: JSON report
         if: always()
         run: python3 tools/validate.py --json > gauntlet.json || true
