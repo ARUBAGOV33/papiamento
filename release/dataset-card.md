@@ -130,6 +130,10 @@ Without the `datasets` library, every file is plain JSON Lines: one JSON object 
 
 The full list, with licences, is in the `sources` table. Nothing is copied from copyrighted dictionaries, websites or newspapers.
 
+## How it was made
+
+Parts of this dataset were made with the help of AI models (Claude, by Anthropic): rebuilding the word list from the AB 2018 PDF, drafting the translations, and restating the grammar rules and writing the machine rules. Each piece was checked by a separate run against the page images, or cell by cell for translations, and the maintainer decided every conflict between sources. Machine-made content stays `draft` until the review board checks it against the source page. AI models are not listed as authors.
+
 ## Licence
 
 The data is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Text quoted from a source, such as the grammar examples, keeps that source's terms, recorded in the `sources` table.
