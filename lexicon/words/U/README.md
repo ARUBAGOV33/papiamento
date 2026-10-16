@@ -7,9 +7,10 @@ Words from the official AB 2018 no. 68 word list that start with **U**. The data
 | | Count | Share |
 |---|---:|---:|
 | Words | 74 | |
-| With English | 0 | 0% |
-| With Dutch | 0 | 0% |
-| With Spanish | 0 | 0% |
+| With English | 17 | 23% |
+| With Dutch | 17 | 23% |
+| With Spanish | 17 | 23% |
+| Rows with machine-drafted translations | 17 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

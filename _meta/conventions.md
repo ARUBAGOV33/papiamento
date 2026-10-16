@@ -74,11 +74,23 @@ Machine-made content is always `draft`. Nothing becomes `reviewed` automatically
 | `pos` | Part of speech, from the list below. Empty when unknown. |
 | `tag` | The source's own label in parentheses, copied verbatim, e.g. `s.`, `pisca`, `- la pena`. |
 | `en`, `nl`, `es` | Translations. Several senses separated by `; `. |
+| `translated_by` | Who wrote the translations: `machine` for machine drafts, otherwise GitHub usernames separated by `; `. Required whenever `en`, `nl` or `es` is filled. When you correct a machine draft, replace `machine` with your username; when you confirm only one language, keep both, e.g. `victorgomesrt-rgb; machine`, and say which in `notes`. |
 | `status`, `reviewed_by`, `source`, `page`, `notes` | As above. |
 
 - **Letter folders:** a word goes in the folder of its first letter, uppercased, with the accent removed. Words starting with `ñ` go in `N`, as in the AB list.
 - **Homographs:** one row per entry the source lists. `bale (s.)` and `bale (- la pena)` are two rows. Lemma + pos + tag must be unique.
 - **Sort order:** by lemma (case-insensitive), then pos, tag and id.
+
+### Translations
+
+- Translate the **Aruban** meaning. Many Papiamento words look like Spanish, Dutch or English words with a different meaning: `hopi` is "a lot", not "Hopi"; `cinco` is "five".
+- At most three senses per language, most common first, separated by `; `.
+- Verbs: English with "to" (`bay` → `to go`); Dutch and Spanish in the infinitive (`gaan`, `ir`).
+- Nouns in the singular; Spanish adjectives in the masculine singular.
+- Grammatical words get a short description in parentheses when no single word fits, e.g. `(present tense marker)`.
+- Proper nouns: the usual name in each language.
+- Use the source's labels: `(pisca)` means a fish, `(mata)` a plant, `(mus.)` music.
+- **Leave the cell empty when unsure.** An empty cell is better than a wrong one.
 
 ### Part-of-speech values
 

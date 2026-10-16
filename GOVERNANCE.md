@@ -107,6 +107,7 @@ Rows that a former member reviewed stay `reviewed`, with their name in `reviewed
 - Nothing becomes `reviewed` automatically. A person on the board must check each row against its source page.
 - Machine-made content must not reproduce copyrighted sources such as dictionaries, websites, Glosbe or newspapers.
 - A pull request with machine-made content says which tool or model made it and from what input.
+- Machine-drafted translations carry `translated_by = machine`. A person who corrects one replaces it with their username; a review-board member who only confirms it leaves it as `machine` and fills `reviewed_by`.
 - AI agents working in this repository follow `CLAUDE.md` or `AGENTS.md` and the same rules as everyone else.
 - Known facts in `_meta/known-facts.tsv` guard against known machine mistakes. For example, a machine source gave "Hopi" (the people) for `hopi`, which means "a lot", and "basketball team" for `cinco`, which means "five".
 

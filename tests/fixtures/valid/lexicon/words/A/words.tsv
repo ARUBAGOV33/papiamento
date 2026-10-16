@@ -1,3 +1,3 @@
-id	lemma	alt	pos	tag	en	nl	es	status	reviewed_by	source	page	notes
-pap-000001	abo		pron.		you	jij	tú	reviewed	victorgomesrt-rgb	AB2018	12	
-pap-000002	awa		s.		water	water	agua	draft		AB2018	12	
+id	lemma	alt	pos	tag	en	nl	es	translated_by	status	reviewed_by	source	page	notes
+pap-000001	abo		pron.		you	jij	tú	machine	reviewed	victorgomesrt-rgb	AB2018	12	
+pap-000002	awa		s.		water	water	agua	machine	draft		AB2018	12	

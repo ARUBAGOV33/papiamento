@@ -35,6 +35,7 @@ def stats(rows):
         "es": n(lambda r: r.get("es")),
         "reviewed": n(lambda r: r.get("status") == "reviewed"),
         "disputed": n(lambda r: r.get("status") == "disputed"),
+        "machine": n(lambda r: "machine" in r.get("translated_by", "").split("; ")),
     }
 
 
@@ -57,6 +58,7 @@ def letter_page(letter, s):
         "| With English | %d | %s |" % (s["en"], pct(s["en"], s["words"])),
         "| With Dutch | %d | %s |" % (s["nl"], pct(s["nl"], s["words"])),
         "| With Spanish | %d | %s |" % (s["es"], pct(s["es"], s["words"])),
+        "| Rows with machine-drafted translations | %d | |" % s["machine"],
         "| Reviewed by the board | %d | %s |" % (s["reviewed"], pct(s["reviewed"], s["words"])),
         "| Disputed | %d | |" % s["disputed"],
         "",

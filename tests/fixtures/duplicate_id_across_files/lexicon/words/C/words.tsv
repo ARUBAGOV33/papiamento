@@ -1,3 +1,3 @@
-id	lemma	alt	pos	tag	en	nl	es	status	reviewed_by	source	page	notes
-pap-000001	cas		s.		house	huis	casa	draft		AB2018	14	
-pap-000004	cashon		s.		drawer	la	cajón	draft		AB2018	14	
+id	lemma	alt	pos	tag	en	nl	es	translated_by	status	reviewed_by	source	page	notes
+pap-000001	cas		s.		house	huis	casa	machine	draft		AB2018	14	
+pap-000004	cashon		s.		drawer	la	cajón	machine	draft		AB2018	14	

@@ -32,6 +32,7 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 | 23 | bintitres | bintiseis (that is 26) | Ruling, 2026-10-15; AB §11.8 typo, see `sources/errata.tsv` |
 | a lot, many, much | hopi | mucho | Ruling, 2026-10-15 |
 | five | cinco | | Ruling, 2026-10-15 |
+| never | nunca | | Ruling, 2026-10-16 |
 | all | tur | todo | Ruling |
 | family | famia | familia | Ruling |
 | there is / there are | tin | hay | Ruling |

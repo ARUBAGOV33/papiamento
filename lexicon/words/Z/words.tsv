@@ -1,76 +1,76 @@
-id	lemma	alt	pos	tag	en	nl	es	status	reviewed_by	source	page	notes
-pap-016140	zaag							draft		AB2018	72	
-pap-016141	zaagdo							draft		AB2018	72	
-pap-016142	zaagmento							draft		AB2018	72	
-pap-016143	zak							draft		AB2018	72	
-pap-016144	zakgeld							draft		AB2018	72	
-pap-016145	zakzeilo							draft		AB2018	72	
-pap-016146	zanstro							draft		AB2018	72	
-pap-016147	zebra							draft		AB2018	72	
-pap-016148	zebrapad							draft		AB2018	72	
-pap-016149	zegelpapier							draft		AB2018	72	
-pap-016150	zeilo							draft		AB2018	72	
-pap-016151	zembla							draft		AB2018	72	
-pap-016152	zemblando							draft		AB2018	72	
-pap-016153	zet							draft		AB2018	72	
-pap-016154	zeta	azeta						draft		AB2018	72	
-pap-016155	zetamento	azetamento						draft		AB2018	72	
-pap-016156	zetando	azetando						draft		AB2018	72	
-pap-016157	zetpil							draft		AB2018	72	
-pap-016158	zigzag							draft		AB2018	72	
-pap-016159	zij							draft		AB2018	72	
-pap-016160	zim							draft		AB2018	72	
-pap-016161	zink			elemento				draft		AB2018	72	
-pap-016162	zionismo							draft		AB2018	72	
-pap-016163	zionista							draft		AB2018	72	
-pap-016164	zip	ziper						draft		AB2018	72	
-pap-016165	ziper	zip						draft		AB2018	72	
-pap-016166	zjangurna							draft		AB2018	72	
-pap-016167	zjangurnando							draft		AB2018	72	
-pap-016168	zjeito							draft		AB2018	72	
-pap-016169	zjilea							draft		AB2018	72	
-pap-016170	zjiron			mata				draft		AB2018	72	
-pap-016171	zoet							draft		AB2018	72	
-pap-016172	zolder							draft		AB2018	72	
-pap-016173	zom							draft		AB2018	72	
-pap-016174	zombi							draft		AB2018	72	
-pap-016175	zomer							draft		AB2018	72	
-pap-016176	zommento							draft		AB2018	72	
-pap-016177	zona							draft		AB2018	72	
-pap-016178	zonamento							draft		AB2018	72	
-pap-016179	zonando							draft		AB2018	72	
-pap-016180	zonido							draft		AB2018	72	
-pap-016181	zonnebloem							draft		AB2018	72	
-pap-016182	zonnesteek							draft		AB2018	72	
-pap-016183	zono							draft		AB2018	72	
-pap-016184	zonza							draft		AB2018	72	
-pap-016185	zoofito							draft		AB2018	72	
-pap-016186	zoografia							draft		AB2018	72	
-pap-016187	zoolatria							draft		AB2018	72	
-pap-016188	zoologia							draft		AB2018	72	
-pap-016189	zoologico							draft		AB2018	72	
-pap-016190	zorg	soru						draft		AB2018	72	
-pap-016191	zoya							draft		AB2018	72	
-pap-016192	zoyamento							draft		AB2018	72	
-pap-016193	zoyando							draft		AB2018	72	
-pap-016194	zucchini							draft		AB2018	72	
-pap-016195	zuid	seit						draft		AB2018	72	
-pap-016196	zuidoost							draft		AB2018	72	
-pap-016197	zuidpool							draft		AB2018	72	
-pap-016198	Zuidpool			luga				draft		AB2018	72	
-pap-016199	zuidwest							draft		AB2018	72	
-pap-016200	zuiver							draft		AB2018	72	
-pap-016201	zumbi							draft		AB2018	72	
-pap-016202	zundra							draft		AB2018	72	
-pap-016203	zundramento							draft		AB2018	72	
-pap-016204	zundrando							draft		AB2018	72	
-pap-016205	zuur							draft		AB2018	72	
-pap-016206	zuurkool							draft		AB2018	72	
-pap-016207	zuurstof							draft		AB2018	72	
-pap-016208	zwaai							draft		AB2018	72	
-pap-016209	zwak	suak						draft		AB2018	72	printed as zwak/suak
-pap-016210	Zwarte Piet							draft		AB2018	72	
-pap-016211	zweef							draft		AB2018	72	
-pap-016212	zwembroek							draft		AB2018	72	
-pap-016213	zwempak							draft		AB2018	72	
-pap-016214	zwiep							draft		AB2018	72	
+id	lemma	alt	pos	tag	en	nl	es	translated_by	status	reviewed_by	source	page	notes
+pap-016140	zaag								draft		AB2018	72	
+pap-016141	zaagdo								draft		AB2018	72	
+pap-016142	zaagmento								draft		AB2018	72	
+pap-016143	zak								draft		AB2018	72	
+pap-016144	zakgeld								draft		AB2018	72	
+pap-016145	zakzeilo								draft		AB2018	72	
+pap-016146	zanstro								draft		AB2018	72	
+pap-016147	zebra								draft		AB2018	72	
+pap-016148	zebrapad								draft		AB2018	72	
+pap-016149	zegelpapier								draft		AB2018	72	
+pap-016150	zeilo								draft		AB2018	72	
+pap-016151	zembla								draft		AB2018	72	
+pap-016152	zemblando								draft		AB2018	72	
+pap-016153	zet								draft		AB2018	72	
+pap-016154	zeta	azeta			oil	olie	aceite	machine	draft		AB2018	72	
+pap-016155	zetamento	azetamento							draft		AB2018	72	
+pap-016156	zetando	azetando							draft		AB2018	72	
+pap-016157	zetpil								draft		AB2018	72	
+pap-016158	zigzag								draft		AB2018	72	
+pap-016159	zij								draft		AB2018	72	
+pap-016160	zim								draft		AB2018	72	
+pap-016161	zink			elemento	zinc	zink	zinc	machine	draft		AB2018	72	
+pap-016162	zionismo								draft		AB2018	72	
+pap-016163	zionista								draft		AB2018	72	
+pap-016164	zip	ziper							draft		AB2018	72	
+pap-016165	ziper	zip							draft		AB2018	72	
+pap-016166	zjangurna								draft		AB2018	72	
+pap-016167	zjangurnando								draft		AB2018	72	
+pap-016168	zjeito								draft		AB2018	72	
+pap-016169	zjilea								draft		AB2018	72	
+pap-016170	zjiron			mata					draft		AB2018	72	
+pap-016171	zoet								draft		AB2018	72	
+pap-016172	zolder								draft		AB2018	72	
+pap-016173	zom								draft		AB2018	72	
+pap-016174	zombi								draft		AB2018	72	
+pap-016175	zomer								draft		AB2018	72	
+pap-016176	zommento								draft		AB2018	72	
+pap-016177	zona				to sound; zone	klinken; zone	sonar; zona	machine	draft		AB2018	72	Machine translation marked uncertain; please check first.
+pap-016178	zonamento								draft		AB2018	72	
+pap-016179	zonando								draft		AB2018	72	
+pap-016180	zonido				sound	geluid; klank	sonido	machine	draft		AB2018	72	
+pap-016181	zonnebloem								draft		AB2018	72	
+pap-016182	zonnesteek								draft		AB2018	72	
+pap-016183	zono								draft		AB2018	72	
+pap-016184	zonza								draft		AB2018	72	
+pap-016185	zoofito								draft		AB2018	72	
+pap-016186	zoografia								draft		AB2018	72	
+pap-016187	zoolatria								draft		AB2018	72	
+pap-016188	zoologia								draft		AB2018	72	
+pap-016189	zoologico								draft		AB2018	72	
+pap-016190	zorg	soru			care; worry	zorg	cuidado; preocupación	machine	draft		AB2018	72	
+pap-016191	zoya								draft		AB2018	72	
+pap-016192	zoyamento								draft		AB2018	72	
+pap-016193	zoyando								draft		AB2018	72	
+pap-016194	zucchini								draft		AB2018	72	
+pap-016195	zuid	seit							draft		AB2018	72	
+pap-016196	zuidoost								draft		AB2018	72	
+pap-016197	zuidpool								draft		AB2018	72	
+pap-016198	Zuidpool			luga					draft		AB2018	72	
+pap-016199	zuidwest								draft		AB2018	72	
+pap-016200	zuiver								draft		AB2018	72	
+pap-016201	zumbi								draft		AB2018	72	
+pap-016202	zundra				to scold; to curse; to insult	uitschelden; schelden	insultar; regañar	machine	draft		AB2018	72	
+pap-016203	zundramento								draft		AB2018	72	
+pap-016204	zundrando								draft		AB2018	72	
+pap-016205	zuur								draft		AB2018	72	
+pap-016206	zuurkool								draft		AB2018	72	
+pap-016207	zuurstof								draft		AB2018	72	
+pap-016208	zwaai								draft		AB2018	72	
+pap-016209	zwak	suak							draft		AB2018	72	printed as zwak/suak
+pap-016210	Zwarte Piet								draft		AB2018	72	
+pap-016211	zweef								draft		AB2018	72	
+pap-016212	zwembroek								draft		AB2018	72	
+pap-016213	zwempak								draft		AB2018	72	
+pap-016214	zwiep								draft		AB2018	72	

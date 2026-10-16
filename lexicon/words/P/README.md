@@ -7,9 +7,10 @@ Words from the official AB 2018 no. 68 word list that start with **P**. The data
 | | Count | Share |
 |---|---:|---:|
 | Words | 1481 | |
-| With English | 0 | 0% |
-| With Dutch | 0 | 0% |
-| With Spanish | 0 | 0% |
+| With English | 299 | 20% |
+| With Dutch | 299 | 20% |
+| With Spanish | 299 | 20% |
+| Rows with machine-drafted translations | 299 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

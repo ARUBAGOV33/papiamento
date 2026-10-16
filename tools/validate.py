@@ -379,6 +379,15 @@ def check_schema(ctx, row, unique_seen):
     if table.has("status") and table.has("reviewed_by"):
         if row.get("status") == "reviewed" and row.get("reviewed_by") == "":
             ctx.add("G2", ERROR, rel, row.line, "status is reviewed but reviewed_by is empty")
+    # x-papiamento required_if_any: {"translated_by": ["en", "nl", "es"]} means
+    # translated_by must be filled whenever any of en, nl, es is.
+    for name, triggers in (table.x.get("required_if_any") or {}).items():
+        if not table.has(name) or row.get(name):
+            continue
+        filled = [t for t in triggers if table.has(t) and row.get(t)]
+        if filled:
+            ctx.add("G2", ERROR, rel, row.line,
+                    "%s is required when %s is filled" % (name, ", ".join(filled)))
 
 
 def load_files(ctx):

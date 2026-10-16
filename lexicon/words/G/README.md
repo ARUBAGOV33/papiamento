@@ -7,9 +7,10 @@ Words from the official AB 2018 no. 68 word list that start with **G**. The data
 | | Count | Share |
 |---|---:|---:|
 | Words | 537 | |
-| With English | 0 | 0% |
-| With Dutch | 0 | 0% |
-| With Spanish | 0 | 0% |
+| With English | 72 | 13% |
+| With Dutch | 72 | 13% |
+| With Spanish | 72 | 13% |
+| Rows with machine-drafted translations | 72 | |
 | Reviewed by the board | 0 | 0% |
 | Disputed | 0 | |
 

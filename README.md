@@ -80,7 +80,7 @@ Start with [`_meta/conventions.md`](_meta/conventions.md). It explains the file 
 This is version 0: the skeleton.
 
 - The conventions, schemas, invariants and validator are in place.
-- All 16,218 headwords of the AB 2018 word list are in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. Translations are being added; numbers, calendar and other tables are still empty.
+- All 16,218 headwords of the AB 2018 word list are in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The 3,000 most frequent words have machine-drafted English, Dutch and Spanish translations, checked by a second model and marked `translated_by = machine` until a person reviews them. Numbers, calendar and other tables are still empty.
 - Translations start as drafts. Some are machine-made and must be checked by a person.
 - The review board is being recruited. Until it checks a row, that row stays `draft`.
 - There is no release yet.
@@ -108,7 +108,7 @@ Each row has a `status`:
 | `disputed` | Reviewers disagree or sources conflict. See `notes` and `sources/errata.tsv`. |
 | `deprecated` | Kept for history; no longer valid. |
 
-**If you want only verified data, keep the rows where `status == reviewed`.** Machine-made content, including AI translations, is always `draft`.
+**If you want only verified data, keep the rows where `status == reviewed`.** Machine-made content, including AI translations, is always `draft`. In word files, a `translated_by` that includes `machine` marks translations a machine drafted; filter on it to leave them out entirely.
 
 Reading the files in Python, with no dependencies:
 
