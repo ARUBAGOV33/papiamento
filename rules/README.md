@@ -56,9 +56,9 @@ These flaggable rules in `grammar/` have no pattern here, because a regular expr
 | `RULE_ORT_015` | Telling a quoted independent sentence from a quoted phrase needs syntax. |
 | `RULE_ORT_016` | A regex would have to recognise the greeting at the start of a letter and the line structure. |
 | `RULE_ORT_017` | Needs a list of personal names, pet names and nicknames. lexicon/names is empty, and the page gives no list. |
-| `RULE_ORT_020` | Severity warning. |
+| `RULE_ORT_020` | An organisation may set its own spelling, and recognising institution, business and brand names needs a list. |
 | `RULE_ORT_024` | The same word is capitalised for a people (Indjan) and lowercase for a race or religion (rasgo indjan, hudiunan), so the choice depends on meaning (the file says so). |
-| `RULE_ORT_025` | Severity warning. |
+| `RULE_ORT_025` | A creator may set a title's own spelling, and titles cannot be recognised without a list. |
 | `RULE_ORT_041` | Verb + verb compounds depend on meaning. |
 | `RULE_ORT_042` | Joining depends on the compound having a single main stress, which a checker cannot hear. |
 | `RULE_ORT_047` | One stress versus two decides joined versus split reduplication (pegapega vs pega pega), and a checker cannot hear stress. |
