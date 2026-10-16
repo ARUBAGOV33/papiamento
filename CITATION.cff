@@ -21,6 +21,14 @@ abstract: >-
   deprecated).
 authors:
   - name: "Papiamento Open Data contributors"
+doi: "10.5281/zenodo.23427108"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23427108"
+    description: "All versions (always resolves to the latest version)"
+  - type: doi
+    value: "10.5281/zenodo.23427109"
+    description: "Version 0.1.0"
 repository-code: "https://github.com/ARUBAGOV33/papiamento"
 url: "https://github.com/ARUBAGOV33/papiamento"
 license: CC-BY-4.0
