@@ -693,7 +693,7 @@ pap-002891	cinemascop								draft		AB2018	13
 pap-002892	cinematograf	cinematografo							draft		AB2018	13	
 pap-002893	cinematografia								draft		AB2018	13	
 pap-002894	cinematografico								draft		AB2018	13	
-pap-002895	Cinematografo	cinematograf							disputed		AB2018	13	AB 2018 prints a capital C; the 2009 Vocabulario and Papiamento.aw have cinematografo. See err-0004.
+pap-002895	cinematografo	cinematograf							draft		AB2018	13	AB 2018 prints Cinematografo with a capital C; corrected to cinematografo by maintainer decision (err-0004).
 pap-002896	cinico								draft		AB2018	13	
 pap-002897	cinismo								draft		AB2018	13	
 pap-002898	cinta								draft		AB2018	13	
@@ -1095,11 +1095,11 @@ pap-003293	comprondemento	comprendemento							draft		AB2018	15
 pap-003294	comprondiendo	comprendiendo							draft		AB2018	15	
 pap-003295	computarisa	computerisa							draft		AB2018	15	
 pap-003296	computarisacion	computerisacion							draft		AB2018	15	
-pap-003297	Computarisando	computerisando							disputed		AB2018	15	AB 2018 prints a capital C; the 2009 Vocabulario and Papiamento.aw have computarisando. See err-0005.
+pap-003297	computarisando	computerisando							draft		AB2018	15	AB 2018 prints Computarisando with a capital C; corrected to computarisando by maintainer decision (err-0005).
 pap-003298	computer				computer	computer	computadora; ordenador	machine	draft		AB2018	15	
 pap-003299	computerisa	computarisa							draft		AB2018	15	
 pap-003300	computerisacion	computarisacion							draft		AB2018	15	
-pap-003301	Computerisando	computarisando							disputed		AB2018	15	AB 2018 prints a capital C; the 2009 Vocabulario and Papiamento.aw have computerisando. See err-0006.
+pap-003301	computerisando	computarisando							draft		AB2018	15	AB 2018 prints Computerisando with a capital C; corrected to computerisando by maintainer decision (err-0006).
 pap-003302	comun				common	gewoon; algemeen; gebruikelijk	común	machine	draft		AB2018	15	
 pap-003303	comunica				to communicate	communiceren	comunicar	machine	draft		AB2018	15	
 pap-003304	comunicacion				communication	communicatie	comunicación	machine	draft		AB2018	15	
@@ -1540,7 +1540,7 @@ pap-003738	coriente				electricity; power; current	stroom; elektriciteit	corrien
 pap-003739	corigi	coregi							draft		AB2018	17	
 pap-003740	corigibel	coregibel							draft		AB2018	17	
 pap-003741	corigiendo	coregiendo							draft		AB2018	17	
-pap-003742	corigimento	coregiendo							disputed		AB2018	17	AB 2018 gives coregiendo as the alternative; the paired entry coregimento [corigimento] points back to this word, so coregimento was probably meant. The 2009 Vocabulario and Papiamento.aw print the same. See err-0007.
+pap-003742	corigimento	coregimento							draft		AB2018	17	AB 2018 prints coregiendo as the alternative; corrected to coregimento by maintainer decision (err-0007).
 pap-003743	corki								draft		AB2018	17	
 pap-003744	cornea								draft		AB2018	17	
 pap-003745	corner								draft		AB2018	17	

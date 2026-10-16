@@ -356,7 +356,7 @@ pap-015155	tocay	tocayo							draft		AB2018	67
 pap-015156	tocayo	tocay							draft		AB2018	67	
 pap-015157	toch				still; yet; right (tag question)	toch	sin embargo; aun así; verdad (pregunta)	machine	draft		AB2018	67	
 pap-015158	tochi	touch							draft		AB2018	67	
-pap-015159	todo				all; everything	alles; al	todo	machine	draft		AB2018	67	Machine translation marked uncertain; please check first.
+pap-015159	todo				all (only in fixed expressions, e.g. en todo caso = in any case)	alle (alleen in vaste uitdrukkingen, bv. en todo caso = in elk geval)	todo (solo en expresiones fijas, p. ej. en todo caso)	victorgomesrt-rgb; machine	draft		AB2018	67	Maintainer decision (2026-10-16, err-0013): todo is used only in fixed expressions such as en todo caso; for 'all', use tur.
 pap-015160	Todopoderoso								draft		AB2018	67	The law lists both todopoderoso and Todopoderoso as separate entries.
 pap-015161	todopoderoso								draft		AB2018	67	
 pap-015162	toernooi	torneo							draft		AB2018	67	

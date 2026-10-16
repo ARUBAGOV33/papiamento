@@ -32,9 +32,9 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 | 23 | bintitres | bintiseis (that is 26) | Ruling, 2026-10-15; AB §11.8 typo, see `sources/errata.tsv` |
 | a lot, many, much | hopi | mucho | Ruling, 2026-10-15 |
 | five | cinco | | Ruling, 2026-10-15 |
-| never | nunca | | Ruling, 2026-10-16 |
+| never | nunca; hamas | | Ruling, 2026-10-16 |
 | billion (10^9) | biyon | biljoen / billón (those are 10^12) | Ruling, 2026-10-16 |
-| all | tur | todo | Ruling |
+| all | tur | todo, except in fixed expressions such as en todo caso | Ruling; err-0013 |
 | family | famia | familia | Ruling |
 | there is / there are | tin | hay | Ruling |
 | Monday–Sunday | dialuna, diamars, diaranson, diahuebs, diabierna, diasabra, diadomingo | lunes, martes … domingo | Ruling; AB §9.6 |
@@ -48,8 +48,8 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 |---|---|---|---|
 | **lo** (future) and **a** (past) never combine. Use one or the other. | mi a bay | lo a bay | Ruling |
 | Modals (kier, mester, por, sa, gusta, mag) never take **ta**. | mi kier bay | mi ta kier bay | Ruling |
-| **por** and **prefera** have no gerund. | | porndo, podiendo, preferando, prefiriendo | Ruling |
-| Aruban irregular gerunds. | drumiendo, teniendo, keriendo, sabiendo | durmiendo, drumindo, tinindo, kierndo, sabindo | Ruling |
+| **por** and **prefera** have no gerund. | | porndo, podiendo, preferando, prefiriendo | Ruling; decided against Morfologia p. 48 (err-0010, err-0011) |
+| Aruban irregular gerunds. | drumiendo, teniendo, keriendo, sabiendo | durmiendo, drumindo, tinindo, kierndo, sabindo | Ruling; AB 2018 word list; err-0009 |
 | Spanish **de la / del / de los** becomes **di**, and the article is dropped. | cas di famia | cas di la familia | Ruling |
 | Location **en** becomes **den**. | den cas | en cas | Ruling |
 | **usted / ustedes** become **bo / boso**. | | usted | Ruling |

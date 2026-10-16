@@ -32,3 +32,10 @@ fact-0030	numbers	kind=cardinal&value=1000000000	pap	equals	biyon	victorgomesrt-
 fact-0031	words	lemma=biyon	en	contains	billion	victorgomesrt-rgb	2026-10-16	biyon = 10^9
 fact-0032	words	lemma=biyon	nl	not-contains	biljoen	victorgomesrt-rgb	2026-10-16	biljoen is 10^12; biyon is miljard
 fact-0033	words	lemma=biyon	es	not-contains	billón	victorgomesrt-rgb	2026-10-16	billón is 10^12; biyon is mil millones
+fact-0034	words	lemma=hamas	en	contains	never	victorgomesrt-rgb	2026-10-16	hamas = never (ruled 2026-10-16)
+fact-0035	words	id=pap-001960	lemma	equals	bongo	victorgomesrt-rgb	2026-10-16	AB 2018 typo Bongo corrected (err-0003)
+fact-0036	words	id=pap-002895	lemma	equals	cinematografo	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0004)
+fact-0037	words	id=pap-003297	lemma	equals	computarisando	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0005)
+fact-0038	words	id=pap-003301	lemma	equals	computerisando	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0006)
+fact-0039	words	id=pap-003742	alt	equals	coregimento	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0007)
+fact-0040	words	id=pap-013135	alt	equals	lisimbein	victorgomesrt-rgb	2026-10-16	AB 2018 typo corrected (err-0008)

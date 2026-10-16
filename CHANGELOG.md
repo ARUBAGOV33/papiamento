@@ -6,6 +6,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Changed
+
+- Maintainer decisions on all open errata (2026-10-16); err-0003 to err-0013 are now `reviewed`:
+  - Six typos in the AB 2018 word list are corrected in the data (`bongo`, `cinematografo`, `computarisando`, `computerisando`; alternatives `coregimento` and `lisimbein`). Each row notes what the law prints, and a known fact guards each correction.
+  - `drumiendo` confirmed over Morfologia's `durmiendo` (new barbarismo row); `por` and `prefera` have no gerund, against Morfologia p. 48.
+  - `eigenlijk` is a valid word but should be avoided in careful writing; `todo` only in fixed expressions such as `en todo caso`, otherwise `tur`.
+  - `hamas` also means "never".
+
 ### Added
 
 - `lexicon/barbarismos/barbarismos.tsv`: 41 forms to avoid with the Aruban form to use: Spanish day and month names, familia, hay, todos, muchos, usted(es), en, de la/del/de los/de las, siete (maintainer rulings, with the correct form cited in AB 2018); tevreden and eigenlijk (Stilistica); four wrong gerund forms (Morfologia p. 48, AB 2018). Rows where the AB 2018 list itself contains the "wrong" form (todo, eigenlijk) are marked disputed with an errata entry.
