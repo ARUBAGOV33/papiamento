@@ -1,0 +1,37 @@
+{
+  "title": "Papiamento: open data for Aruban Papiamento",
+  "upload_type": "dataset",
+  "description": "<p>An open, citable reference dataset for Aruban Papiamento (pap-AW), written in the etymological orthography of the AB 2018 no. 68 law. It contains the headwords of the AB 2018 word list with English, Dutch and Spanish translations, numbers, calendar terms, barbarismos, loanwords, a Curaçao-to-Aruba spelling map, spelling and grammar rules, and machine-readable checker rules with tests. Every row cites a source document and printed page, and carries a review status (draft, reviewed, disputed, deprecated).</p><p>The data is kept and corrected at <a href=\"https://github.com/ARUBAGOV33/papiamento\">github.com/ARUBAGOV33/papiamento</a>. Each archived version is a snapshot of that repository at the release tag. The release notes give the number of rows per table and status.</p>",
+  "creators": [
+    {
+      "name": "Papiamento Open Data contributors"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Vadria Innovation Labs",
+      "type": "Sponsor"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "pap",
+  "keywords": [
+    "Papiamento",
+    "Aruba",
+    "Aruban Papiamento",
+    "pap-AW",
+    "creole language",
+    "orthography",
+    "spelling",
+    "lexicon",
+    "dictionary",
+    "grammar",
+    "language resources",
+    "natural language processing",
+    "machine translation",
+    "low-resource languages",
+    "open data"
+  ],
+  "notes": "Code in tools/, tests/ and .github/ is licensed under Apache-2.0. The files in sources/pdf/ keep their own terms, recorded in sources/sources.tsv. Text quoted from a source keeps that source's terms."
+}

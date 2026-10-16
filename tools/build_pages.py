@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Generate the progress pages for lexicon/words/.
 
-Writes lexicon/words/<LETTER>/README.md for every letter folder and refreshes
-the progress table in lexicon/words/README.md between the PROGRESS markers.
+Writes lexicon/words/<LETTER>/README.md for every letter folder, refreshes
+the progress table in lexicon/words/README.md between the PROGRESS markers,
+draws the progress chart in .github/assets/progress-light.svg and
+progress-dark.svg, and refreshes the progress block in the top-level README.md
+between the REPO-PROGRESS markers.
 These files are generated: edit this script, not the pages.
 
 Usage: python3 tools/build_pages.py [--check]
@@ -10,12 +13,31 @@ Usage: python3 tools/build_pages.py [--check]
 """
 
 import argparse
+import glob
+import json
 import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WORDS = os.path.join(ROOT, "lexicon", "words")
 START, END = "<!-- PROGRESS:START -->", "<!-- PROGRESS:END -->"
+REPO_START, REPO_END = "<!-- REPO-PROGRESS:START -->", "<!-- REPO-PROGRESS:END -->"
+ASSETS = os.path.join(ROOT, ".github", "assets")
+FLAGGABLE = ("error", "warning", "suggestion")
+OTHER_TABLES = [
+    # (label in the README table, glob)
+    ("Numbers", "lexicon/numbers/*.tsv"),
+    ("Days and months", "lexicon/calendar/*.tsv"),
+    ("Barbarismos", "lexicon/barbarismos/*.tsv"),
+    ("Cura\u00e7ao \u2192 Aruba spelling pairs", "lexicon/variants/*.tsv"),
+    ("Loanwords", "lexicon/loanwords/*.tsv"),
+]
+THEMES = {
+    "light": {"bg": "#ffffff", "border": "#d0d7de", "text": "#1f2328", "muted": "#59636e",
+              "track": "#eaeef2", "tile": "#f6f8fa", "added": "#1f6fb2", "reviewed": "#1a7f37"},
+    "dark": {"bg": "#0d1117", "border": "#30363d", "text": "#e6edf3", "muted": "#9198a1",
+             "track": "#21262d", "tile": "#161b22", "added": "#4493f8", "reviewed": "#3fb950"},
+}
 
 
 def read_rows(path):
@@ -88,6 +110,153 @@ def progress_table(all_stats):
     return "\n".join(lines)
 
 
+def fmt(n):
+    return "{:,}".format(n)
+
+
+def front_matter(path):
+    meta = {}
+    with open(path, encoding="utf-8") as f:
+        lines = f.read().split("\n")
+    if not lines or lines[0].strip() != "---":
+        return meta
+    for line in lines[1:]:
+        if line.strip() == "---":
+            break
+        if ":" in line:
+            k, v = line.split(":", 1)
+            meta[k.strip()] = v.strip()
+    return meta
+
+
+def repo_stats(words):
+    """Counts for the top-level README: words, other tables, grammar and machine rules."""
+    other = []
+    for label, pattern in OTHER_TABLES:
+        rows = []
+        for path in sorted(glob.glob(os.path.join(ROOT, pattern))):
+            rows += read_rows(path)
+        other.append((label, len(rows), sum(1 for r in rows if r.get("status") == "reviewed")))
+    grammar = [front_matter(p) for p in sorted(glob.glob(os.path.join(ROOT, "grammar", "*", "rule-*.md")))]
+    rules_path = os.path.join(ROOT, "rules", "rules.jsonl")
+    machine = 0
+    if os.path.exists(rules_path):
+        with open(rules_path, encoding="utf-8") as f:
+            machine = sum(1 for line in f if line.strip())
+    return {
+        "words": words,
+        "other": other,
+        "grammar": len(grammar),
+        "grammar_reviewed": sum(1 for m in grammar if m.get("status") == "reviewed"),
+        "flaggable": sum(1 for m in grammar if m.get("severity") in FLAGGABLE),
+        "machine": machine,
+    }
+
+
+def share(part, whole):
+    return 0.0 if not whole else float(part) / whole
+
+
+def chart_rows(rs):
+    w = rs["words"]
+    other_rows = sum(n for _, n, _ in rs["other"])
+    other_reviewed = sum(r for _, _, r in rs["other"])
+    return [
+        ("Words", None, None, None),
+        ("With English", w["en"], w["words"], "added"),
+        ("With Dutch", w["nl"], w["words"], "added"),
+        ("With Spanish", w["es"], w["words"], "added"),
+        ("Reviewed by the board", w["reviewed"], w["words"], "reviewed"),
+        ("Rules", None, None, None),
+        ("Grammar rules reviewed", rs["grammar_reviewed"], rs["grammar"], "reviewed"),
+        ("Flaggable rules with a machine check", rs["machine"], rs["flaggable"], "added"),
+        ("Other tables", None, None, None),
+        ("Rows reviewed", other_reviewed, other_rows, "reviewed"),
+    ]
+
+
+def progress_svg(rs, theme):
+    t = THEMES[theme]
+    w = rs["words"]
+    width, left, right = 840, 28, 812
+    bar_x, bar_w = 330, 290
+    out = []
+    # Tiles: the four headline numbers.
+    tiles = [
+        (fmt(w["words"]), "words from the AB 2018 list", "added"),
+        ("%d%%" % round(100 * share(w["en"], w["words"])), "of words have English", "added"),
+        ("%d%%" % round(100 * share(w["reviewed"], w["words"])), "reviewed by the board", "reviewed"),
+        ("%s/%s" % (fmt(rs["machine"]), fmt(rs["flaggable"])), "rules with a machine check", "added"),
+    ]
+    gap = 12
+    tile_w = (right - left - gap * (len(tiles) - 1)) // len(tiles)
+    for i, (big, small, kind) in enumerate(tiles):
+        x = left + i * (tile_w + gap)
+        out.append('<rect x="%d" y="56" width="%d" height="86" rx="10" fill="%s"/>' % (x, tile_w, t["tile"]))
+        out.append('<text x="%d" y="98" font-size="30" font-weight="700" fill="%s">%s</text>' % (x + 16, t[kind], big))
+        out.append('<text x="%d" y="124" font-size="13" fill="%s">%s</text>' % (x + 16, t["muted"], small))
+    y = 172
+    for label, part, whole, kind in chart_rows(rs):
+        if part is None:
+            y += 8
+            out.append('<text x="%d" y="%d" font-size="12" font-weight="600" fill="%s" letter-spacing="0.8">%s</text>'
+                       % (left, y, t["muted"], label.upper()))
+            y += 26
+            continue
+        frac = share(part, whole)
+        fill_w = 0 if part == 0 else max(10, int(round(bar_w * frac)))
+        out.append('<text x="%d" y="%d" font-size="15" fill="%s">%s</text>' % (left, y, t["text"], label))
+        out.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s"/>' % (bar_x, y - 10, bar_w, t["track"]))
+        if fill_w:
+            out.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s"/>' % (bar_x, y - 10, fill_w, t[kind]))
+        out.append('<text x="%d" y="%d" font-size="14" fill="%s" text-anchor="end">%s of %s'
+                   '<tspan font-weight="600" fill="%s" dx="8">%d%%</tspan></text>'
+                   % (right, y, t["muted"], fmt(part), fmt(whole), t["text"], int(round(100 * frac))))
+        y += 30
+    height = y + 2
+    return "\n".join([
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" role="img" '
+        'aria-label="Progress of the Papiamento open data">' % (width, height, width, height),
+        "<!-- Generated by tools/build_pages.py. Do not edit by hand. -->",
+        '<rect x="0.5" y="0.5" width="%d" height="%d" rx="14" fill="%s" stroke="%s"/>'
+        % (width - 1, height - 1, t["bg"], t["border"]),
+        "<g font-family=\"-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif\">",
+        '<text x="%d" y="36" font-size="18" font-weight="700" fill="%s">Progress</text>' % (left, t["text"]),
+        '<text x="%d" y="36" font-size="13" fill="%s" text-anchor="end">'
+        '<tspan fill="%s">\u25cf</tspan> added    <tspan fill="%s">\u25cf</tspan> reviewed by the board</text>'
+        % (right, t["muted"], t["added"], t["reviewed"]),
+    ] + out + ["</g>", "</svg>", ""])
+
+
+def readme_block(rs):
+    w = rs["words"]
+    alt = ("Progress: %s words; %d%% with English, %d%% with Dutch, %d%% with Spanish; %d%% reviewed by the board; "
+           "%s of %s flaggable grammar rules have a machine check." % (
+               fmt(w["words"]), round(100 * share(w["en"], w["words"])), round(100 * share(w["nl"], w["words"])),
+               round(100 * share(w["es"], w["words"])), round(100 * share(w["reviewed"], w["words"])),
+               fmt(rs["machine"]), fmt(rs["flaggable"])))
+    lines = [
+        REPO_START,
+        "<!-- Generated by tools/build_pages.py from the data. Do not edit by hand. -->",
+        "<picture>",
+        '  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/progress-dark.svg">',
+        '  <img alt="%s" src=".github/assets/progress-light.svg" width="100%%">' % alt,
+        "</picture>",
+        "",
+        "| Table | Rows | Reviewed by the board |",
+        "|---|---:|---:|",
+        "| [Words](lexicon/words/) (AB 2018 word list) | %s | %s |" % (fmt(w["words"]), fmt(w["reviewed"])),
+    ]
+    for label, n, reviewed in rs["other"]:
+        lines.append("| %s | %s | %s |" % (label, fmt(n), fmt(reviewed)))
+    lines += [
+        "| [Grammar rules](grammar/) | %s | %s |" % (fmt(rs["grammar"]), fmt(rs["grammar_reviewed"])),
+        "| [Machine checker rules](rules/) | %s | |" % fmt(rs["machine"]),
+        REPO_END,
+    ]
+    return "\n".join(lines)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -110,12 +279,24 @@ def main():
     else:
         text = text.rstrip("\n") + "\n\n## Progress\n\n" + block + "\n"
     outputs[index] = text
+    totals = dict((k, sum(st[k] for _, st in all_stats)) for k in ("words", "en", "nl", "es", "reviewed"))
+    rs = repo_stats(totals)
+    for theme in THEMES:
+        outputs[os.path.join(ASSETS, "progress-%s.svg" % theme)] = progress_svg(rs, theme)
+    readme = os.path.join(ROOT, "README.md")
+    with open(readme, encoding="utf-8") as f:
+        text = f.read()
+    if REPO_START not in text or REPO_END not in text:
+        sys.exit("README.md has no %s ... %s block" % (REPO_START, REPO_END))
+    outputs[readme] = (text[:text.index(REPO_START)] + readme_block(rs)
+                       + text[text.index(REPO_END) + len(REPO_END):])
     stale = []
     for path, content in sorted(outputs.items()):
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None
         if old != content:
             stale.append(os.path.relpath(path, ROOT))
             if not a.check:
+                os.makedirs(os.path.dirname(path), exist_ok=True)
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(content)
     if a.check and stale:

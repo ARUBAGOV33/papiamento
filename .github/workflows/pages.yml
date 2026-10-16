@@ -1,0 +1,49 @@
+name: Refresh progress pages
+
+# After every change to main, rebuild the generated progress pages: the chart
+# and table in README.md, .github/assets/progress-*.svg and the per-letter
+# pages in lexicon/words/. If anything changed, commit it to main.
+# Only files written by tools/build_pages.py are ever committed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'lexicon/**'
+      - 'grammar/**'
+      - 'rules/**'
+      - 'README.md'
+      - 'tools/build_pages.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-progress-pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild pages
+        run: python3 tools/build_pages.py
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet; then
+            echo "Progress pages are up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md .github/assets/progress-light.svg .github/assets/progress-dark.svg lexicon/words
+          git commit -s -m "Refresh progress pages"
+          git push
