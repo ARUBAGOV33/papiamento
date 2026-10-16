@@ -8,6 +8,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- `lexicon/barbarismos/barbarismos.tsv`: 41 forms to avoid with the Aruban form to use: Spanish day and month names, familia, hay, todos, muchos, usted(es), en, de la/del/de los/de las, siete (maintainer rulings, with the correct form cited in AB 2018); tevreden and eigenlijk (Stilistica); four wrong gerund forms (Morfologia p. 48, AB 2018). Rows where the AB 2018 list itself contains the "wrong" form (todo, eigenlijk) are marked disputed with an errata entry.
+- `lexicon/variants/curacao-aruba.tsv`: 372 Curaçao → Aruba spelling pairs. Each Curaçao form is printed on the cited page of a Curaçao-spelled source; each Aruban form is an AB 2018 headword. Checked pair by pair for false friends and non-standard spellings.
+- `sources/errata.tsv`: err-0009 to err-0013. Morfologia p. 48 lists durmiendo, podiendo and prefiriendo as gerunds, against maintainer rulings (the AB 2018 list has drumiendo); Stilistica vs AB 2018 on eigenlijk; the ruling on todo vs AB 2018.
+
+### Added
+
 - `lexicon/numbers/`: cardinals 0-99, 100, 1,000, 1,000,000 and 1,000,000,000 (`biyon`, ruled to mean 10^9) from the AB 2018 word list; ordinals, fractions and multiples from Morfologia §9.3; clock times and worked examples from AB 2018 §10.1.3 and §11.8. 159 rows with English, Dutch and Spanish.
 - `lexicon/calendar/days.tsv` and `months.tsv`: the 7 days and 12 months, lowercase, from AB 2018 §9.6 and the word list. Public holidays wait for an official source.
 - All 33 known facts are now checked against data (none pending), including the new rulings never = `nunca` and billion = `biyon`.
