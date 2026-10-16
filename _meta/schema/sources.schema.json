@@ -57,7 +57,8 @@
           "article",
           "thesis",
           "web",
-          "dataset"
+          "dataset",
+          "ruling"
         ]
       }
     },

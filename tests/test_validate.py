@@ -423,3 +423,45 @@ class TestRobustness(GauntletCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestGrammarFiles(GauntletCase):
+    GOOD = (
+        "---\nid: RULE_ORT_TEST_001\ntitle: Test rule\nstatus: draft\nsource: AB2018\n"
+        "page: \"38\"\nseverity: error\nreviewed_by: \"\"\n---\n\n## Rule\n\nA rule.\n")
+
+    def write(self, root, rel, text):
+        path = root / rel
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        return rel
+
+    def test_valid_grammar_file_passes(self):
+        root = self.build_repo()
+        self.write(root, "grammar/orthography/rule-ort-test-001.md", self.GOOD)
+        ctx = self.run_gauntlet(root)
+        self.assertEqual(ctx.findings, [], dump(ctx))
+        self.assertEqual(ctx.grammar_checked, 1)
+
+    def test_grammar_missing_field_and_unknown_source(self):
+        root = self.build_repo()
+        rel = self.write(root, "grammar/orthography/rule-ort-test-001.md",
+                         self.GOOD.replace("severity: error\n", "").replace("AB2018", "XYZ2020"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "severity is required")
+        self.assertFinding(ctx, "G0", "error", rel, "'XYZ2020' is not in sources")
+
+    def test_grammar_file_name_must_match_id(self):
+        root = self.build_repo()
+        rel = self.write(root, "grammar/orthography/wrong-name.md", self.GOOD)
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "file name must be rule-ort-test-001.md")
+
+    def test_grammar_bad_topic_and_missing_rule_section(self):
+        root = self.build_repo()
+        bad = self.write(root, "grammar/misc/rule-ort-test-001.md", self.GOOD)
+        nosec = self.write(root, "grammar/syntax/rule-ort-test-002.md",
+                           self.GOOD.replace("RULE_ORT_TEST_001", "RULE_ORT_TEST_002").replace("## Rule", "## Something"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", bad, "grammar files go in grammar/<topic>/")
+        self.assertFinding(ctx, "G2", "error", nosec, "missing a '## Rule' section")

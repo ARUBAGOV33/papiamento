@@ -2,9 +2,9 @@
 id: RULE_DOMAIN_NAME_001
 title: One-line name of the rule
 status: draft            # draft | reviewed | disputed | deprecated
-source: MOR2010          # id from sources/sources.tsv
+source: MOR2010          # id from sources/sources.tsv (RUL2026 for a maintainer ruling)
 page: "42"               # printed page number in the source PDF
-severity: error          # error | warning | suggestion
+severity: error          # error | warning | suggestion | info
 reviewed_by: ""          # review-board GitHub username(s), filled in by the board
 ---
 
