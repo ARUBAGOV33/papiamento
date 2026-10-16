@@ -11,6 +11,7 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 - Curaçao spellings go only in `lexicon/variants/curacao-aruba.tsv`.
 - When you quote a wrong form, put the correct form next to it.
 - Run `python3 tools/validate.py` before finishing. Zero errors.
+- When your change makes progress (new rows or tables, rows reviewed, a release), update "Project status" in `README.md` in the same pull request. Run `python3 tools/build_pages.py` for the generated chart, table and "still empty" line, and edit the hand-written lines under them if they no longer hold.
 
 ## What to load for each task
 

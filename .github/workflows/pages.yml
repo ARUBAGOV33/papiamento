@@ -12,6 +12,8 @@ on:
       - 'lexicon/**'
       - 'grammar/**'
       - 'rules/**'
+      - 'corpus/**'
+      - 'eval/**'
       - 'README.md'
       - 'tools/build_pages.py'
   workflow_dispatch:

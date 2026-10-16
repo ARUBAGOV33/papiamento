@@ -103,12 +103,13 @@ Version 0.1.0 is the first release. See [CHANGELOG.md](CHANGELOG.md).
 | Loanwords | 315 | 0 |
 | [Grammar rules](grammar/) | 192 | 0 |
 | [Machine checker rules](rules/) | 49 | |
+
+Still empty: names, closed word classes, public holidays, the corpus and the test sets.
 <!-- REPO-PROGRESS:END -->
 
 - Every headword of the AB 2018 word list is in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The most frequent words have machine-drafted English, Dutch and Spanish translations, marked `translated_by = machine` until a person reviews them. [Progress per letter](lexicon/words/README.md).
-- Names, closed word classes, public holidays, the corpus and the test sets are still empty.
 - The review board is being recruited. Until it checks a row, that row stays `draft`.
-- The chart and table above are rebuilt from the data after every change.
+- The chart, the table and the "still empty" line above are rebuilt from the data after every change.
 
 ## How to use it
 
