@@ -6,7 +6,7 @@ Usage: python3 tools/validate.py [--root PATH] [--json] [--strict]
 Gates
   G0 Source trace   every row cites a known source; PDFs are shareable
   G1 Format         UTF-8, NFC, LF, final newline, header, columns, cells, sort
-  G2 Schema         required / enum / pattern / unique, reviewed_by
+  G2 Schema         required / enum / pattern / unique, reviewed_by; grammar rule files
   G3 Orthography    accents, Curacao markers, letter folders
   G4 Integrity      ids unique repo-wide, unique_together, lexicon refs
   G5 Known facts    rulings in _meta/known-facts.tsv (extension point: G5_CHECKS)
@@ -136,6 +136,7 @@ class Context(object):
         self.facts_total = 0
         self.facts_checked = 0
         self.facts_pending = 0
+        self.grammar_checked = 0
 
     def add(self, gate, severity, path, line, message):
         self.findings.append(Finding(gate, severity, path, line, message))
@@ -687,6 +688,103 @@ def check_known_facts(ctx):
                            (" (ruling: %s)" % notes) if notes else ""))
 
 
+# --------------------------------------------------------------------------
+# Grammar rule files: grammar/<topic>/<rule-id>.md with front matter
+# --------------------------------------------------------------------------
+
+GRAMMAR_TOPICS = ("orthography", "morphology", "syntax", "prepositions", "style")
+GRAMMAR_REQUIRED = ("id", "title", "status", "source", "page", "severity")
+GRAMMAR_STATUS = ("draft", "reviewed", "disputed", "deprecated")
+GRAMMAR_SEVERITY = ("error", "warning", "suggestion", "info")
+RULING_SOURCE = "RUL2026"  # maintainer rulings have no page
+RULE_ID_RE = re.compile(r"^RULE_[A-Z]+_[A-Z0-9_]+$")
+GRAMMAR_PAGE_RE = re.compile(r"^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)(; ([0-9]+(-[0-9]+)?))*$")
+
+
+def parse_front_matter(text):
+    # type: (str) -> Tuple[Optional[Dict[str, str]], str]
+    """Parse a simple `key: value` front matter block. None if absent or unterminated."""
+    lines = text.split("\n")
+    if not lines or lines[0].strip() != "---":
+        return None, text
+    meta = {}  # type: Dict[str, str]
+    for i in range(1, len(lines)):
+        line = lines[i]
+        if line.strip() == "---":
+            return meta, "\n".join(lines[i + 1:])
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        key, sep, value = line.partition(":")
+        if not sep:
+            continue
+        value = value.split(" #", 1)[0].strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+            value = value[1:-1]
+        meta[key.strip()] = value
+    return None, text
+
+
+def check_grammar(ctx):
+    # type: (Context) -> None
+    base = ctx.root / "grammar"
+    if not base.is_dir():
+        return
+    seen = {}  # type: Dict[str, str]
+    for path in sorted(base.rglob("*.md")):
+        if path.name == "README.md":
+            continue
+        rel = path.relative_to(ctx.root).as_posix()
+        parts = path.relative_to(base).parts
+        if len(parts) != 2 or parts[0] not in GRAMMAR_TOPICS:
+            ctx.add("G2", ERROR, rel, None,
+                    "grammar files go in grammar/<topic>/, topic one of: %s" % ", ".join(GRAMMAR_TOPICS))
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            ctx.add("G1", ERROR, rel, None, "not valid UTF-8")
+            continue
+        ctx.grammar_checked += 1
+        if "\r" in text:
+            ctx.add("G1", ERROR, rel, None, "contains CR characters; use LF line endings")
+        if unicodedata.normalize("NFC", text) != text:
+            ctx.add("G1", ERROR, rel, None, "text is not Unicode NFC")
+        meta, body = parse_front_matter(text)
+        if meta is None:
+            ctx.add("G2", ERROR, rel, 1, "missing or unterminated front matter (--- ... ---)")
+            continue
+        for key in GRAMMAR_REQUIRED:
+            if not meta.get(key) and not (key == "page" and meta.get("source") == RULING_SOURCE):
+                ctx.add("G2", ERROR, rel, None, "front matter: %s is required" % key)
+        rid = meta.get("id", "")
+        if rid:
+            if not RULE_ID_RE.match(rid):
+                ctx.add("G2", ERROR, rel, None, "id %r must look like RULE_<DOMAIN>_<NAME>" % rid)
+            expected = rid.lower().replace("_", "-") + ".md"
+            if path.name != expected:
+                ctx.add("G2", ERROR, rel, None, "file name must be %s for id %s" % (expected, rid))
+            if rid in seen:
+                ctx.add("G4", ERROR, rel, None, "id %s is already used by %s" % (rid, seen[rid]))
+            else:
+                seen[rid] = rel
+        status = meta.get("status", "")
+        if status and status not in GRAMMAR_STATUS:
+            ctx.add("G2", ERROR, rel, None, "status %r not in %s" % (status, ", ".join(GRAMMAR_STATUS)))
+        if status == "reviewed" and not meta.get("reviewed_by"):
+            ctx.add("G2", ERROR, rel, None, "status is reviewed but reviewed_by is empty")
+        severity = meta.get("severity", "")
+        if severity and severity not in GRAMMAR_SEVERITY:
+            ctx.add("G2", ERROR, rel, None, "severity %r not in %s" % (severity, ", ".join(GRAMMAR_SEVERITY)))
+        source = meta.get("source", "")
+        if source and ctx.source_ids is not None and source not in ctx.source_ids:
+            ctx.add("G0", ERROR, rel, None, "source %r is not in sources/sources.tsv" % source)
+        page = meta.get("page", "")
+        if page and not GRAMMAR_PAGE_RE.match(page):
+            ctx.add("G2", ERROR, rel, None, "page %r should be printed page number(s), e.g. 38 or 38-39" % page)
+        if "## Rule" not in body:
+            ctx.add("G2", ERROR, rel, None, "missing a '## Rule' section")
+
+
 # Each G5 check takes the Context and appends findings. Rule tests go here.
 G5_CHECKS = [check_known_facts]  # type: List[Callable[[Context], None]]
 
@@ -712,7 +810,7 @@ def run(root, strict=False):
         ctx.add("G2", ERROR, REGISTRY_PATH, None, "validator failed to load registry: %r" % exc)
         ok = False
     if ok:
-        for gate, step in (("G3", load_allowlist), ("G1", load_files), ("G0", gate_g0),
+        for gate, step in (("G3", load_allowlist), ("G1", load_files), ("G0", gate_g0), ("G2", check_grammar),
                            ("G3", gate_g3), ("G4", gate_g4), ("G5", gate_g5)):
             try:
                 step(ctx)
@@ -752,6 +850,7 @@ def report_json(ctx):
         "findings": [f.to_dict() for f in sorted_findings(ctx)],
         "files_checked": len(ctx.files),
         "rows_checked": ctx.rows_checked,
+        "grammar_rules_checked": ctx.grammar_checked,
         "known_facts": {"total": ctx.facts_total, "checked": ctx.facts_checked,
                         "pending": ctx.facts_pending},
     }
@@ -769,8 +868,8 @@ def report_text(ctx):
     parts = ["%s %d error(s) %d warning(s)" % (g, gates[g]["errors"], gates[g]["warnings"])
              for g in GATES]
     out.append("")
-    out.append("Gauntlet: %d file(s), %d row(s) checked; known facts: %d checked, %d pending"
-               % (len(ctx.files), ctx.rows_checked, ctx.facts_checked, ctx.facts_pending))
+    out.append("Gauntlet: %d file(s), %d row(s), %d grammar rule(s) checked; known facts: %d checked, %d pending"
+               % (len(ctx.files), ctx.rows_checked, ctx.grammar_checked, ctx.facts_checked, ctx.facts_pending))
     out.append(" | ".join(parts))
     out.append("RESULT: %s" % ("PASS" if is_ok(ctx) else "FAIL"))
     return "\n".join(out)
