@@ -130,13 +130,13 @@ Releases use [semantic versioning](https://semver.org/) tags: `vMAJOR.MINOR.PATC
 
 Before version 1.0.0, the structure may still change in a MINOR release. Ids never change in any release.
 
-Release steps:
+Release steps (details in [RELEASING.md](RELEASING.md)):
 
 1. A maintainer opens a release pull request. It moves the "Unreleased" entries in `CHANGELOG.md` under the new version, and sets `version` and `date-released` in `CITATION.cff`.
 2. The gauntlet passes and the pull request is approved and merged.
 3. The maintainer tags `main` with `vX.Y.Z` and publishes a GitHub release. The release notes give the number of rows per status.
-4. Zenodo archives the GitHub release and gives it a DOI. The DOI is added to `README.md` and `CITATION.cff`.
-5. JSONL files are built from the TSV files (into `dist/`, which is never committed) and published to Hugging Face under the same version number.
+4. The release workflow builds JSONL files from the TSV files (into `dist/`, which is never committed), attaches them to the release and publishes them to Hugging Face under the same version number.
+5. Zenodo archives the GitHub release and gives it a DOI. The DOI is added to `README.md` and `CITATION.cff`.
 
 A published version is never changed. Corrections go into the next version.
 

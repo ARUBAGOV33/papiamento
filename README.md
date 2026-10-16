@@ -65,6 +65,7 @@ corpus/           Aruban text we may redistribute, with a manifest
 eval/             Test sets for the writing auditor and for AI models
 sources/          Source registry (sources.tsv), source cards, shareable PDFs,
                   errata and permission records
+release/          Template of the Hugging Face dataset card
 tools/            The validator and build scripts
 tests/            Tests for the validator
 CLAUDE.md         Routing notes for AI agents
@@ -77,13 +78,14 @@ Start with [`_meta/conventions.md`](_meta/conventions.md). It explains the file 
 
 ## Project status
 
-This is version 0: the skeleton.
+Version 0.1.0 is the first release. See [CHANGELOG.md](CHANGELOG.md).
 
 - The conventions, schemas, invariants and validator are in place.
-- All 16,218 headwords of the AB 2018 word list are in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The 3,000 most frequent words have machine-drafted English, Dutch and Spanish translations, checked by a second model and marked `translated_by = machine` until a person reviews them. Numbers, calendar and other tables are still empty.
-- Translations start as drafts. Some are machine-made and must be checked by a person.
+- All 16,218 headwords of the AB 2018 word list are in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The 3,000 most frequent words have machine-drafted English, Dutch and Spanish translations, checked by a second model and marked `translated_by = machine` until a person reviews them.
+- Numbers, days and months, 42 barbarismos, 372 Curaçao-to-Aruba spelling pairs and 315 loanwords are in `lexicon/`.
+- 192 spelling and grammar rules are in `grammar/`, and 49 of them have a machine-readable checker rule in `rules/`.
+- Names, closed word classes, public holidays, the corpus and the test sets are still empty.
 - The review board is being recruited. Until it checks a row, that row stays `draft`.
-- There is no release yet.
 
 ## How to use it
 
@@ -134,7 +136,7 @@ Please keep Aruban (`pap-AW`) and Curaçao (`pap-CW`) data separate and labelled
 
 **Do not train on `eval/`.** It holds test sets for measuring tools and models. [`eval/README.md`](eval/README.md) gives a canary string you can search for, to check that your training data does not contain them.
 
-Releases will also ship JSONL files on Hugging Face, with a DOI from Zenodo for each version. Neither exists yet; they will be linked here with the first release.
+Each release also ships the tables as JSON Lines files, with a dataset card and `rule_pack.json` for writing checkers. They are attached to the [GitHub release](https://github.com/ARUBAGOV33/papiamento/releases) and published on Hugging Face, and Zenodo gives each version a DOI. The Hugging Face and DOI links are added here once version 0.1.0 is published. To build the same files yourself, run `python3 tools/build_dist.py`; they land in `dist/`.
 
 ## How to contribute
 
@@ -194,11 +196,11 @@ To attribute the data, write: "Papiamento Open Data contributors, https://github
 
 Citation details are in [CITATION.cff](CITATION.cff). On GitHub, use the **Cite this repository** button in the right-hand sidebar to get APA or BibTeX.
 
-Until the first release:
+Until the Zenodo DOI is added here:
 
 > Papiamento Open Data contributors. *Papiamento: open data for Aruban Papiamento* [Data set]. https://github.com/ARUBAGOV33/papiamento
 
-After the first release, cite the Zenodo DOI of the version you used. If you rely on a specific word or rule, also cite the source and page given in that row.
+Once a version has a Zenodo DOI, cite the DOI of the version you used. If you rely on a specific word or rule, also cite the source and page given in that row.
 
 ## Governance
 

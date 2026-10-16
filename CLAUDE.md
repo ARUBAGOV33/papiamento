@@ -24,6 +24,7 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 | Change the validator | `tools/README.md`, `_meta/schema/`, `tests/` | data files beyond test fixtures |
 | Build evaluation sets | `eval/README.md` | — (and never train on `eval/`) |
 | Log a source typo | `sources/errata.tsv`, the source card | — |
+| Prepare a release | `RELEASING.md`, `CHANGELOG.md`, `CITATION.cff`, `release/dataset-card.md` | data files |
 
 ## Where things live
 
@@ -37,6 +38,7 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 | `corpus/` | redistributable Aruban text with a manifest |
 | `eval/` | test sets for the writing auditor (do not train on them) |
 | `sources/` | source registry, cards, shareable PDFs, errata, permissions |
+| `release/` | template of the Hugging Face dataset card |
 | `tools/` | validator and build scripts |
 
 Every folder's `README.md` is its contract: what lives there, the format, and how to add to it.

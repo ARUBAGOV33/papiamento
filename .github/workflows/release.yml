@@ -1,0 +1,86 @@
+name: Release
+
+# Runs when a maintainer publishes a GitHub release (see RELEASING.md).
+# Builds the release files, attaches them to the release, and publishes them
+# to Hugging Face when the HF_TOKEN secret is set. Run it by hand with a tag to
+# redo a failed upload.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, for example v0.1.0
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      HF_DATASET_REPO: ${{ vars.HF_DATASET_REPO || 'ARUBAGOV33/papiamento' }}
+      HAS_HF_TOKEN: ${{ secrets.HF_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tag matches CITATION.cff
+        run: |
+          version=$(sed -n 's/^version: *"\{0,1\}\([^"]*\)"\{0,1\} *$/\1/p' CITATION.cff)
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::Tag $TAG does not match version $version in CITATION.cff"
+            exit 1
+          fi
+
+      - name: Gauntlet
+        run: |
+          python3 -m unittest discover -s tests
+          python3 tools/validate.py
+          node tools/test_rules.mjs
+
+      - name: Build release files
+        run: python3 tools/build_dist.py --version "${TAG#v}"
+
+      - name: Attach files to the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          (cd dist && zip -q -r "../papiamento-$TAG.zip" .)
+          gh release upload "$TAG" dist/*.jsonl dist/rule_pack.json dist/manifest.json "papiamento-$TAG.zip" --clobber
+
+      - name: Publish to Hugging Face
+        if: env.HAS_HF_TOKEN == 'true'
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          python3 -m pip install --quiet huggingface_hub==1.8.0
+          python3 - <<'EOF'
+          import os
+          from huggingface_hub import HfApi
+
+          api = HfApi(token=os.environ["HF_TOKEN"])
+          repo, tag = os.environ["HF_DATASET_REPO"], os.environ["TAG"]
+          api.create_repo(repo, repo_type="dataset", exist_ok=True)
+          api.upload_folder(
+              repo_id=repo,
+              repo_type="dataset",
+              folder_path="dist",
+              commit_message="Release " + tag,
+              delete_patterns=["*.jsonl"],
+          )
+          api.create_tag(repo, tag=tag, repo_type="dataset", tag_message="Release " + tag, exist_ok=True)
+          print("Published https://huggingface.co/datasets/%s at %s" % (repo, tag))
+          EOF
+
+      - name: No Hugging Face token
+        if: env.HAS_HF_TOKEN != 'true'
+        run: echo "::notice::HF_TOKEN is not set, so nothing was published to Hugging Face. See RELEASING.md."

@@ -41,6 +41,28 @@ Only files that match a glob in `_meta/schema/registry.json` are checked, plus t
 
 G5 runs every function in `G5_CHECKS`; add rule tests there.
 
+## build_dist.py (release files)
+
+Builds what a release ships into `dist/`, which is never committed. Standard library only.
+
+```sh
+python3 tools/build_dist.py                    # version from CITATION.cff
+python3 tools/build_dist.py --version 0.2.0    # another version number
+python3 tools/build_dist.py --check            # build into a temporary folder and discard it (CI)
+```
+
+| File | Content |
+|---|---|
+| `<table>.jsonl` | One JSON object per row for each table in `_meta/schema/registry.json`. Multi-value cells (`alt`, `en`, `nl`, `es`, `translated_by`, `reviewed_by`, `right`, `authors`) become lists. |
+| `grammar.jsonl` | One object per grammar file: front matter, the rule text and the example lists. |
+| `rules.jsonl` | The machine rules, with severity, status, source and page from the grammar file. |
+| `rule_pack.json` | Machine rules, barbarismos and Curaçao-to-Aruba pairs in one file, for a writing checker. |
+| `README.md` | The Hugging Face dataset card, filled in from `release/dataset-card.md`. |
+| `RELEASE_NOTES.md` | Rows per table and status, then the version's section of `CHANGELOG.md`. |
+| `manifest.json` | Counts, and the size and SHA-256 of every other file. |
+
+The same input always gives byte-identical output. See [RELEASING.md](../RELEASING.md) for how a release is published.
+
 ## Tests
 
 ```sh

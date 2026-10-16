@@ -34,6 +34,9 @@ jobs:
       - name: Rule tests in JavaScript
         run: node tools/test_rules.mjs
 
+      - name: Release files build
+        run: python3 tools/build_dist.py --check
+
       - name: JSON report
         if: always()
         run: python3 tools/validate.py --json > gauntlet.json || true
