@@ -6,6 +6,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Changed
+
+- Version 0.1.0 is archived on Zenodo: README (badge, Project status, How to cite), `CITATION.cff` and the dataset card give the DOIs, 10.5281/zenodo.23427109 for 0.1.0 and 10.5281/zenodo.23427108 for all versions.
+
 ## [0.1.0] - 2026-10-16
 
 First public release. 16,218 words, 159 numbers, 19 calendar terms, 42 barbarismos, 372 Curaçao-to-Aruba pairs, 315 loanwords, 192 grammar rules and 49 machine rules. Every data row is `draft`: the review board has not reviewed any yet. The 16 errata are `reviewed` (decided by the maintainer).

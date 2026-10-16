@@ -142,13 +142,14 @@ Attribution: "Papiamento Open Data contributors, https://github.com/ARUBAGOV33/p
 
 ## Citation
 
-Each version is archived on Zenodo with its own DOI, listed in the repository's README and `CITATION.cff`. Cite the DOI of the version you used. If you rely on a specific word or rule, also cite the source and page given in that row.
+Each version is archived on Zenodo with its own DOI, listed in the repository's README and `CITATION.cff`; https://doi.org/10.5281/zenodo.23427108 always points to the latest version. Cite the DOI of the version you used. If you rely on a specific word or rule, also cite the source and page given in that row.
 
 ```bibtex
 @dataset{papiamento_open_data,
   author  = {{Papiamento Open Data contributors}},
   title   = {Papiamento: open data for Aruban Papiamento},
   version = {{{VERSION}}},
+  doi     = {10.5281/zenodo.23427108},
   url     = {https://github.com/ARUBAGOV33/papiamento}
 }
 ```
