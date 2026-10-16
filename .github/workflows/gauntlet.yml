@@ -29,7 +29,10 @@ jobs:
         run: python3 tools/validate.py
 
       - name: Progress pages up to date
-        run: python3 tools/build_pages.py --check
+        # Not blocking: the "Refresh progress pages" workflow rebuilds them on
+        # main after the merge, so a contributor who edits a file in the
+        # browser does not have to run the tool.
+        run: python3 tools/build_pages.py --check || echo "::notice::Progress pages are out of date; they are rebuilt automatically after the merge."
 
       - name: Rule tests in JavaScript
         run: node tools/test_rules.mjs

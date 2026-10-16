@@ -7,6 +7,12 @@
       "name": "Papiamento Open Data contributors"
     }
   ],
+  "contributors": [
+    {
+      "name": "Vadria Innovation Labs",
+      "type": "Sponsor"
+    }
+  ],
   "access_right": "open",
   "license": "cc-by-4.0",
   "language": "pap",

@@ -149,6 +149,10 @@ Each version is archived on Zenodo with its own DOI, listed in the repository's 
 }
 ```
 
+## Acknowledgements
+
+Supported by Vadria Innovation Labs. With thanks to the Departamento di Enseñansa and the Ministry of Education and Innovation of Aruba for permission to republish the Departamento di Enseñansa books, and to the authors and editors of the source books and the AB 2018 word list.
+
 ## Contributing
 
 Teachers, linguists and other speakers can fix a translation, report a wrong word or propose a rule through simple forms on GitHub, with no code. See the repository's [contributing guide](https://github.com/ARUBAGOV33/papiamento/blob/main/CONTRIBUTING.md).

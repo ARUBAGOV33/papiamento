@@ -41,6 +41,17 @@ Only files that match a glob in `_meta/schema/registry.json` are checked, plus t
 
 G5 runs every function in `G5_CHECKS`; add rule tests there.
 
+## build_pages.py (progress pages)
+
+Rebuilds the generated progress pages from the data: the page of each letter in `lexicon/words/`, the table in `lexicon/words/README.md`, the progress chart `.github/assets/progress-light.svg` and `progress-dark.svg`, and the table between the `REPO-PROGRESS` markers in `README.md`. Standard library only.
+
+```sh
+python3 tools/build_pages.py           # rewrite the pages
+python3 tools/build_pages.py --check   # list pages that are out of date, write nothing
+```
+
+You don't have to run it: after every merge, the "Refresh progress pages" workflow runs it on `main` and commits the result. In a pull request the check only prints a notice.
+
 ## build_dist.py (release files)
 
 Builds what a release ships into `dist/`, which is never committed. Standard library only.

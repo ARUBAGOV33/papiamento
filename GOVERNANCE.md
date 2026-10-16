@@ -140,6 +140,18 @@ Release steps (details in [RELEASING.md](RELEASING.md)):
 
 A published version is never changed. Corrections go into the next version.
 
+## Partners
+
+Organisations can support the project with time, tools or funding. A partner is credited in the README and in the Zenodo record of each release. Partners get:
+
+- no exclusive or early access: everyone gets the same data at the same time, under the same licences;
+- no say in language rulings, errata or reviews, which stay with the maintainers and the review board;
+- no control over the repository.
+
+A partner may build products on the data like anyone else, following the licences. Products must not be presented as the official source or as reviewed by the board unless the rows they use are `reviewed`.
+
+Current partners: **Vadria Innovation Labs** (supporting the project).
+
 ## Changing this document
 
 Open a pull request. Changes need approval from a maintainer and, once the board has at least two members, from a board member.
