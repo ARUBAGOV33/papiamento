@@ -6,6 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Changed
+
+- Maintainer decisions on all open errata (2026-10-16); err-0003 to err-0013 are now `reviewed`:
+  - Six typos in the AB 2018 word list are corrected in the data (`bongo`, `cinematografo`, `computarisando`, `computerisando`; alternatives `coregimento` and `lisimbein`). Each row notes what the law prints, and a known fact guards each correction.
+  - `drumiendo` confirmed over Morfologia's `durmiendo` (new barbarismo row); `por` and `prefera` have no gerund, against Morfologia p. 48.
+  - `eigenlijk` is a valid word but should be avoided in careful writing; `todo` only in fixed expressions such as `en todo caso`, otherwise `tur`.
+  - `hamas` also means "never".
+
+### Added
+
+- `lexicon/barbarismos/barbarismos.tsv`: 41 forms to avoid with the Aruban form to use: Spanish day and month names, familia, hay, todos, muchos, usted(es), en, de la/del/de los/de las, siete (maintainer rulings, with the correct form cited in AB 2018); tevreden and eigenlijk (Stilistica); four wrong gerund forms (Morfologia p. 48, AB 2018). Rows where the AB 2018 list itself contains the "wrong" form (todo, eigenlijk) are marked disputed with an errata entry.
+- `lexicon/variants/curacao-aruba.tsv`: 372 Curaçao → Aruba spelling pairs. Each Curaçao form is printed on the cited page of a Curaçao-spelled source; each Aruban form is an AB 2018 headword. Checked pair by pair for false friends and non-standard spellings.
+- `sources/errata.tsv`: err-0009 to err-0013. Morfologia p. 48 lists durmiendo, podiendo and prefiriendo as gerunds, against maintainer rulings (the AB 2018 list has drumiendo); Stilistica vs AB 2018 on eigenlijk; the ruling on todo vs AB 2018.
+
 ### Added
 
 - `lexicon/numbers/`: cardinals 0-99, 100, 1,000, 1,000,000 and 1,000,000,000 (`biyon`, ruled to mean 10^9) from the AB 2018 word list; ordinals, fractions and multiples from Morfologia §9.3; clock times and worked examples from AB 2018 §10.1.3 and §11.8. 159 rows with English, Dutch and Spanish.

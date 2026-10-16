@@ -9,8 +9,8 @@ The words of Aruban Papiamento and the small reference tables built around them.
 | `words/A` … `words/Z` | `words.tsv` | Every headword of the official AB 2018 no. 68 word list, with English, Dutch and Spanish columns | 16,218 words; machine-drafted EN/NL/ES for the 3,000 most frequent |
 | `numbers/` | `cardinals.tsv`, `ordinals.tsv`, `fractions.tsv`, `multiples.tsv`, `times.tsv`, `examples.tsv` | How numbers and clock times are written (AB §10.1, §11.8; Morfologia §9) | 159 rows |
 | `calendar/` | `days.tsv`, `months.tsv`, `holidays.tsv` | Days, months, public holidays | days and months done; holidays need an official source |
-| `barbarismos/` | `barbarismos.tsv` | Forms to avoid and the Aruban form to use instead | empty |
-| `variants/` | `curacao-aruba.tsv` | Curaçao spelling mapped to Aruban spelling | empty |
+| `barbarismos/` | `barbarismos.tsv` | Forms to avoid and the Aruban form to use instead | 41 rows |
+| `variants/` | `curacao-aruba.tsv` | Curaçao spelling mapped to Aruban spelling | 372 attested pairs |
 | `loanwords/` | `loanwords.tsv` | Loanwords, their origin and accepted Aruban form (AB §12) | empty |
 | `names/` | — | Places, institutions, demonyms | schema to come |
 | `closed-classes/` | — | Pronouns, articles, prepositions, conjunctions, tense markers | schema to come |

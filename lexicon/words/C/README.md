@@ -12,7 +12,7 @@ Words from the official AB 2018 no. 68 word list that start with **C**. The data
 | With Spanish | 397 | 21% |
 | Rows with machine-drafted translations | 397 | |
 | Reviewed by the board | 0 | 0% |
-| Disputed | 4 | |
+| Disputed | 0 | |
 
 ## How to help with C
 

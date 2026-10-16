@@ -1,1 +1,373 @@
 id	curacao	aruba	pattern	status	reviewed_by	source	page	notes
+var-0001	aseptá	acepta	s>c, accent dropped	draft		ADP2023	28	Aruban form: AB 2018 word list p. 1.
+var-0002	alkansá	alcansa	k>c, accent dropped	draft		ADP2023	37	Aruban form: AB 2018 word list p. 2.
+var-0003	algu	algo	-u>-o	draft		CURS2014	7	Aruban form: AB 2018 word list p. 3.
+var-0004	amigu	amigo	-u>-o	draft		CURS2014	8	Aruban form: AB 2018 word list p. 3.
+var-0005	amistat	amistad	-at>-ad	draft		ADP2023	36	Aruban form: AB 2018 word list p. 3.
+var-0006	antiséptiko	antiseptico	k>c, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 4.
+var-0007	anunsiá	anuncia	s>c, accent dropped	draft		ADP2023	37	Aruban form: AB 2018 word list p. 4.
+var-0008	aparensia	aparencia	s>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 4.
+var-0009	apresiá	aprecia	s>c, accent dropped	draft		ADP2023	28	Aruban form: AB 2018 word list p. 4.
+var-0010	ataka	ataca	k>c	draft		ADP2023	33	Aruban form: AB 2018 word list p. 5.
+var-0011	atenshon	atencion	-shon>-cion	draft		ADP2023	25	Aruban form: AB 2018 word list p. 5.
+var-0012	atrako	atraco	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 6.
+var-0013	ai	ay	-i>-y	draft		ADP2023	30	Aruban form: AB 2018 word list p. 6.
+var-0014	baka	baca	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 6.
+var-0015	baranka	baranca	k>c	draft		CURS2014	19	Aruban form: AB 2018 word list p. 7.
+var-0016	barku	barco	k>c, -u>-o	draft		ADP2023	47	Aruban form: AB 2018 word list p. 7.
+var-0017	barika	barica	k>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 7.
+var-0018	básiko	basico	k>c, accent dropped	draft		ADP2023	48	Aruban form: AB 2018 word list p. 7.
+var-0019	bai	bay	-i>-y	draft		CURS2014	3	Aruban form: AB 2018 word list p. 7.
+var-0020	bendishon	bendicion	-shon>-cion	draft		ADP2023	25	Aruban form: AB 2018 word list p. 8.
+var-0021	bèrdat	berdad	-at>-ad, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 8.
+var-0022	bibu	bibo	-u>-o	draft		ADP2023	34	Aruban form: AB 2018 word list p. 8.
+var-0023	bientu	biento	-u>-o	draft		CURS2014	13	Aruban form: AB 2018 word list p. 8.
+var-0024	blanku	blanco	k>c, -u>-o	draft		ADP2023	26	Aruban form: AB 2018 word list p. 9.
+var-0025	boka	boca	k>c	draft		ADP2023	29	Aruban form: AB 2018 word list p. 9.
+var-0026	brutu	bruto	-u>-o	draft		ADP2023	47	Aruban form: AB 2018 word list p. 10.
+var-0027	buska	busca	k>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 10.
+var-0028	buskando	buscando	k>c	draft		ADP2023	43	Aruban form: AB 2018 word list p. 10.
+var-0029	kaba	caba	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 10.
+var-0030	kabana	cabana	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 10.
+var-0031	kabes	cabes	k>c	draft		ADP2023	33	Aruban form: AB 2018 word list p. 10.
+var-0032	kabei	cabey	k>c, -i>-y	draft		ADP2023	46	Aruban form: AB 2018 word list p. 10.
+var-0033	kabishá	cabisha	k>c, accent dropped	draft		ADP2023	27	Aruban form: AB 2018 word list p. 10.
+var-0034	kabishando	cabishando	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 10.
+var-0035	kabuya	cabuya	k>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 10.
+var-0036	kachó	cacho	k>c, accent dropped	draft		ADP2023	47	Aruban form: AB 2018 word list p. 10. Added on the checker's correction.
+var-0037	kada	cada	k>c	draft		CURS2014	7	Aruban form: AB 2018 word list p. 10.
+var-0038	kalidat	calidad	k>c, -at>-ad	draft		ADP2023	27	Aruban form: AB 2018 word list p. 11.
+var-0039	kalma	calma	k>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 11.
+var-0040	kalor	calor	k>c	draft		CURS2014	13	Aruban form: AB 2018 word list p. 11.
+var-0041	kama	cama	k>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 11.
+var-0042	kamber	camber	k>c	draft		ADP2023	50	Aruban form: AB 2018 word list p. 11.
+var-0043	kambia	cambia	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 11.
+var-0044	kaminda	caminda	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 11.
+var-0045	kampaña	campaña	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 11. Added on the checker's correction.
+var-0046	kana	cana	k>c	draft		ADP2023	22	Aruban form: AB 2018 word list p. 11.
+var-0047	kanando	canando	k>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 11.
+var-0048	kandela	candela	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 11.
+var-0049	kansá	cansa	k>c, accent dropped	draft		CURS2014	14	Aruban form: AB 2018 word list p. 11.
+var-0050	kanta	canta	k>c	draft		CURS2014	10	Aruban form: AB 2018 word list p. 11.
+var-0051	kantante	cantante	k>c	draft		CURS2014	9	Aruban form: AB 2018 word list p. 11.
+var-0052	kantika	cantica	k>c	draft		CURS2014	19	Aruban form: AB 2018 word list p. 11.
+var-0053	kapitan	capitan	k>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 11.
+var-0054	kapricho	capricho	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 11.
+var-0055	kapta	capta	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 11.
+var-0056	kaptura	captura	k>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 11.
+var-0057	kara	cara	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 11.
+var-0058	karbon	carbon	k>c	draft		ADP2023	42	Aruban form: AB 2018 word list p. 11.
+var-0059	karchi	carchi	k>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 11.
+var-0060	kareda	careda	k>c	draft		ADP2023	33	Aruban form: AB 2018 word list p. 11.
+var-0061	karga	carga	k>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 11.
+var-0062	karisma	carisma	k>c	draft		ADP2023	43	Aruban form: AB 2018 word list p. 12.
+var-0063	karni	carni	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 12.
+var-0064	karu	caro	k>c, -u>-o	draft		CURS2014	18	Aruban form: AB 2018 word list p. 12.
+var-0065	karson	carson	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 12.
+var-0066	kas	cas	k>c	draft		CURS2014	3	Aruban form: AB 2018 word list p. 12.
+var-0067	kasá	casa	k>c, accent dropped	draft		ADP2023	33	Aruban form: AB 2018 word list p. 12.
+var-0068	kaská	casca	k>c, accent dropped	draft		ADP2023	50	Aruban form: AB 2018 word list p. 12.
+var-0069	kasero	casero	k>c	draft		ADP2023	42	Aruban form: AB 2018 word list p. 12.
+var-0070	kasi	casi	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 12.
+var-0071	kaso	caso	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 12.
+var-0072	kastigá	castiga	k>c, accent dropped	draft		ADP2023	43	Aruban form: AB 2018 word list p. 12.
+var-0073	kastigabel	castigabel	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 12.
+var-0074	kategoria	categoria	k>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 12.
+var-0075	kaweta	caweta	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 12.
+var-0076	kai	cay	k>c, -i>-y	draft		ADP2023	25	Aruban form: AB 2018 word list p. 12.
+var-0077	kaya	caya	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 12.
+var-0078	kayente	cayente	k>c	draft		CURS2014	18	Aruban form: AB 2018 word list p. 12.
+var-0079	sèl	cel	s>c, accent dropped	draft		ADP2023	36	Aruban form: AB 2018 word list p. 12.
+var-0080	selebrá	celebra	s>c, accent dropped	draft		ADP2023	25	Aruban form: AB 2018 word list p. 12.
+var-0081	sèn	cen	s>c, accent dropped	draft		ADP2023	34	Aruban form: AB 2018 word list p. 12.
+var-0082	sende	cende	s>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 12.
+var-0083	sera	cera	s>c	draft		ADP2023	28	Aruban form: AB 2018 word list p. 12.
+var-0084	serka	cerca	k>c, s>c	draft		ADP2023	22	Aruban form: AB 2018 word list p. 12.
+var-0085	serkano	cercano	k>c, s>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 12.
+var-0086	chibu	chibo	-u>-o	draft		ADP2023	50	Aruban form: AB 2018 word list p. 13.
+var-0087	chikitu	chikito	-u>-o	draft		CURS2014	18	Aruban form: AB 2018 word list p. 13.
+var-0088	siegu	ciego	s>c, -u>-o	draft		ADP2023	33	Aruban form: AB 2018 word list p. 13.
+var-0089	sinku	cinco	k>c, s>c, -u>-o	draft		CURS2014	16	Aruban form: AB 2018 word list p. 13.
+var-0090	sintura	cintura	s>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 13.
+var-0091	sírkulo	circulo	k>c, s>c, accent dropped	draft		ADP2023	23	Aruban form: AB 2018 word list p. 13.
+var-0092	kobarde	cobarde	k>c	draft		ADP2023	43	Aruban form: AB 2018 word list p. 14.
+var-0093	koko	coco	k>c	draft		ADP2023	42	Aruban form: AB 2018 word list p. 14.
+var-0094	kolegio	colegio	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 14.
+var-0095	kolmo	colmo	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 14.
+var-0096	koló	colo	k>c, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 14.
+var-0097	kolorido	colorido	k>c	draft		ADP2023	42	Aruban form: AB 2018 word list p. 14.
+var-0098	kombersá	combersa	k>c, accent dropped	draft		ADP2023	37	Aruban form: AB 2018 word list p. 14.
+var-0099	kombersashon	combersacion	k>c, -shon>-cion	draft		ADP2023	27	Aruban form: AB 2018 word list p. 14.
+var-0100	kome	come	k>c	draft		CURS2014	12	Aruban form: AB 2018 word list p. 14.
+var-0101	komentá	comenta	k>c, accent dropped	draft		ADP2023	28	Aruban form: AB 2018 word list p. 14.
+var-0102	kometé	comete	k>c, accent dropped	draft		ADP2023	35	Aruban form: AB 2018 word list p. 14.
+var-0103	komienso	comienso	k>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 15.
+var-0104	komo	como	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 15.
+var-0105	kompa	compa	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 15.
+var-0106	kompania	compania	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 15.
+var-0107	kompetí	competi	k>c, accent dropped	draft		ADP2023	48	Aruban form: AB 2018 word list p. 15.
+var-0108	kompletu	completo	k>c, -u>-o	draft		ADP2023	23	Aruban form: AB 2018 word list p. 15.
+var-0109	komprondé	compronde	k>c, accent dropped	draft		ADP2023	22	Aruban form: AB 2018 word list p. 15.
+var-0110	komunikashon	comunicacion	k>c, -shon>-cion	draft		ADP2023	37	Aruban form: AB 2018 word list p. 15.
+var-0111	kon	con	k>c	draft		ADP2023	22	Aruban form: AB 2018 word list p. 15.
+var-0112	kondena	condena	k>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 15.
+var-0113	kondenashon	condenacion	k>c, -shon>-cion	draft		ADP2023	36	Aruban form: AB 2018 word list p. 15.
+var-0114	konfó	confo	k>c, accent dropped	draft		ADP2023	42	Aruban form: AB 2018 word list p. 16.
+var-0115	konose	conoce	k>c, s>c	draft		CURS2014	13	Aruban form: AB 2018 word list p. 16.
+var-0116	konosementu	conocemento	k>c, s>c, -u>-o	draft		ADP2023	27	Aruban form: AB 2018 word list p. 16.
+var-0117	konosí	conoci	k>c, s>c, accent dropped	draft		ADP2023	24	Aruban form: AB 2018 word list p. 16.
+var-0118	konsekuensia	consecuencia	k>c, s>c	draft		ADP2023	23	Aruban form: AB 2018 word list p. 16.
+var-0119	konseho	conseho	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 16.
+var-0120	konsenshi	consenshi	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 16.
+var-0121	konsumí	consumi	k>c, accent dropped	draft		ADP2023	28	Aruban form: AB 2018 word list p. 16.
+var-0122	kontá	conta	k>c, accent dropped	draft		ADP2023	30	Aruban form: AB 2018 word list p. 16.
+var-0123	kontadó	contado	k>c, accent dropped	draft		ADP2023	45	Aruban form: AB 2018 word list p. 16.
+var-0124	kontagiá	contagia	k>c, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 16.
+var-0125	kontando	contando	k>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 16.
+var-0126	kontentu	contento	k>c, -u>-o	draft		ADP2023	48	Aruban form: AB 2018 word list p. 16.
+var-0127	konteo	conteo	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 16.
+var-0128	kontesta	contesta	k>c	draft		ADP2023	23	Aruban form: AB 2018 word list p. 16.
+var-0129	kontra	contra	k>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 16.
+var-0130	kontrario	contrario	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 17.
+var-0131	kontratá	contrata	k>c, accent dropped	draft		ADP2023	37	Aruban form: AB 2018 word list p. 17.
+var-0132	kontribushon	contribucion	k>c, -shon>-cion	draft		ADP2023	43	Aruban form: AB 2018 word list p. 17.
+var-0133	kontrolá	controla	k>c, accent dropped	draft		ADP2023	46	Aruban form: AB 2018 word list p. 17.
+var-0134	konvensé	convence	k>c, s>c, accent dropped	draft		ADP2023	34	Aruban form: AB 2018 word list p. 17.
+var-0135	konvensí	convenci	k>c, s>c, accent dropped	draft		ADP2023	50	Aruban form: AB 2018 word list p. 17.
+var-0136	kòpi	copi	k>c, accent dropped	draft		ADP2023	33	Aruban form: AB 2018 word list p. 17.
+var-0137	kòrá	cora	k>c, accent dropped	draft		ADP2023	34	Aruban form: AB 2018 word list p. 17.
+var-0138	korant	corant	k>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 17.
+var-0139	kòrda	corda	k>c, accent dropped	draft		ADP2023	22	Aruban form: AB 2018 word list p. 17.
+var-0140	kore	core	k>c	draft		CURS2014	19	Aruban form: AB 2018 word list p. 17.
+var-0141	kòrki	corki	k>c, accent dropped	draft		ADP2023	50	Aruban form: AB 2018 word list p. 17.
+var-0142	korokoro	corocoro	k>c	draft		ADP2023	33	Aruban form: AB 2018 word list p. 17.
+var-0143	korona	corona	k>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 17.
+var-0144	kòrta	corta	k>c, accent dropped	draft		ADP2023	46	Aruban form: AB 2018 word list p. 17.
+var-0145	korte	corte	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 17.
+var-0146	kortiku	cortico	k>c, -u>-o	draft		CURS2014	19	Aruban form: AB 2018 word list p. 17.
+var-0147	kos	cos	k>c	draft		CURS2014	6	Aruban form: AB 2018 word list p. 17.
+var-0148	kosechá	cosecha	k>c, accent dropped	draft		ADP2023	25	Aruban form: AB 2018 word list p. 17.
+var-0149	kosta	costa	k>c	draft		CURS2014	13	Aruban form: AB 2018 word list p. 17.
+var-0150	ku	cu	k>c	draft		CURS2014	6	Aruban form: AB 2018 word list p. 18.
+var-0151	kua	cua	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 18.
+var-0152	kual	cual	k>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 18.
+var-0153	kualke	cualke	k>c	draft		CURS2014	6	Aruban form: AB 2018 word list p. 18.
+var-0154	kuantu	cuanto	k>c, -u>-o	draft		ADP2023	21	Aruban form: AB 2018 word list p. 18.
+var-0155	kuarto	cuarto	k>c	draft		ADP2023	41	Aruban form: AB 2018 word list p. 18.
+var-0156	kuater	cuater	k>c	draft		ADP2023	50	Aruban form: AB 2018 word list p. 18.
+var-0157	kueba	cueba	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 18.
+var-0158	kuenta	cuenta	k>c	draft		ADP2023	33	Aruban form: AB 2018 word list p. 18.
+var-0159	kueru	cuero	k>c, -u>-o	draft		ADP2023	42	Aruban form: AB 2018 word list p. 18.
+var-0160	kuida	cuida	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 18.
+var-0161	kulpa	culpa	k>c	draft		ADP2023	40	Aruban form: AB 2018 word list p. 18.
+var-0162	kultivá	cultiva	k>c, accent dropped	draft		ADP2023	32	Aruban form: AB 2018 word list p. 18.
+var-0163	kultura	cultura	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 18.
+var-0164	kumbiní	cumbini	k>c, accent dropped	draft		ADP2023	49	Aruban form: AB 2018 word list p. 18.
+var-0165	kuminda	cuminda	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 18.
+var-0166	kuminsá	cuminsa	k>c, accent dropped	draft		ADP2023	34	Aruban form: AB 2018 word list p. 18.
+var-0167	kumpli	cumpli	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 18.
+var-0168	kumpra	cumpra	k>c	draft		CURS2014	7	Aruban form: AB 2018 word list p. 18.
+var-0169	kurá	cura	k>c, accent dropped	draft		ADP2023	46	Aruban form: AB 2018 word list p. 18. Added on the checker's correction.
+var-0170	kurashi	curashi	k>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 18.
+var-0171	kurason	curason	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 19.
+var-0172	kurioso	curioso	k>c	draft		ADP2023	32	Aruban form: AB 2018 word list p. 19.
+var-0173	kurpa	curpa	k>c	draft		ADP2023	23	Aruban form: AB 2018 word list p. 19.
+var-0174	kushiná	cushina	k>c, accent dropped	draft		CURS2014	19	Aruban form: AB 2018 word list p. 19.
+var-0175	kushna	cushna	k>c	draft		CURS2014	19	Aruban form: AB 2018 word list p. 19.
+var-0176	kustumber	custumber	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 19.
+var-0177	dediká	dedica	k>c, accent dropped	draft		ADP2023	29	Aruban form: AB 2018 word list p. 19.
+var-0178	definishon	definicion	-shon>-cion	draft		ADP2023	31	Aruban form: AB 2018 word list p. 19.
+var-0179	deskubrí	descubri	k>c, accent dropped	draft		ADP2023	30	Aruban form: AB 2018 word list p. 20.
+var-0180	destinashon	destinacion	-shon>-cion	draft		ADP2023	23	Aruban form: AB 2018 word list p. 21.
+var-0181	disidí	dicidi	s>c, accent dropped	draft		ADP2023	29	Aruban form: AB 2018 word list p. 22.
+var-0182	dikon	dicon	k>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 22.
+var-0183	difísil	dificil	s>c, accent dropped	draft		CURS2014	18	Aruban form: AB 2018 word list p. 22.
+var-0184	dignidat	dignidad	-at>-ad	draft		ADP2023	43	Aruban form: AB 2018 word list p. 22.
+var-0185	diskutí	discuti	k>c, accent dropped	draft		ADP2023	25	Aruban form: AB 2018 word list p. 22.
+var-0186	disgustu	disgusto	-u>-o	draft		ADP2023	26	Aruban form: AB 2018 word list p. 22.
+var-0187	disparsé	disparce	s>c, accent dropped	draft		ADP2023	23	Aruban form: AB 2018 word list p. 22.
+var-0188	distansiá	distancia	s>c, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 22.
+var-0189	diversidat	diversidad	-at>-ad	draft		ADP2023	43	Aruban form: AB 2018 word list p. 23.
+var-0190	djaka	djaca	k>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 23.
+var-0191	djei	djey	-i>-y	draft		ADP2023	50	Aruban form: AB 2018 word list p. 23.
+var-0192	duru	duro	-u>-o	draft		CURS2014	18	Aruban form: AB 2018 word list p. 24.
+var-0193	edat	edad	-at>-ad	draft		ADP2023	48	Aruban form: AB 2018 word list p. 24.
+var-0194	emoshon	emocion	-shon>-cion	draft		ADP2023	21	Aruban form: AB 2018 word list p. 25.
+var-0195	enemigu	enemigo	-u>-o	draft		ADP2023	26	Aruban form: AB 2018 word list p. 25.
+var-0196	eskultura	escultura	k>c	draft		ADP2023	30	Aruban form: AB 2018 word list p. 26.
+var-0197	esei	esey	-i>-y	draft		ADP2023	21	Aruban form: AB 2018 word list p. 26.
+var-0198	espasio	espacio	s>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 26.
+var-0199	étiko	etico	k>c, accent dropped	draft		CURS2014	2	Aruban form: AB 2018 word list p. 26.
+var-0200	eksistensia	existencia	s>c, ks>x	draft		ADP2023	50	Aruban form: AB 2018 word list p. 26.
+var-0201	eksistente	existente	ks>x	draft		ADP2023	34	Aruban form: AB 2018 word list p. 26.
+var-0202	éksito	exito	ks>x, accent dropped	draft		ADP2023	25	Aruban form: AB 2018 word list p. 26.
+var-0203	eksitoso	exitoso	ks>x	draft		ADP2023	34	Aruban form: AB 2018 word list p. 26.
+var-0204	eksperensia	experencia	s>c, ks>x	draft		ADP2023	32	Aruban form: AB 2018 word list p. 26.
+var-0205	eksplorá	explora	ks>x, accent dropped	draft		ADP2023	36	Aruban form: AB 2018 word list p. 27.
+var-0206	ekspresá	expresa	ks>x, accent dropped	draft		ADP2023	21	Aruban form: AB 2018 word list p. 27.
+var-0207	ei	ey	-i>-y	draft		ADP2023	24	Aruban form: AB 2018 word list p. 27.
+var-0208	fásil	facil	s>c, accent dropped	draft		CURS2014	18	Aruban form: AB 2018 word list p. 27.
+var-0209	fangu	fango	-u>-o	draft		ADP2023	50	Aruban form: AB 2018 word list p. 27.
+var-0210	fayesé	fayece	s>c, accent dropped	draft		ADP2023	23	Aruban form: AB 2018 word list p. 27.
+var-0211	ferfelu	ferfelo	-u>-o	draft		CURS2014	18	Aruban form: AB 2018 word list p. 28.
+var-0212	flaku	flaco	k>c, -u>-o	draft		ADP2023	48	Aruban form: AB 2018 word list p. 28.
+var-0213	floresé	florece	s>c, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 28.
+var-0214	fòrnu	forno	-u>-o, accent dropped	draft		ADP2023	42	Aruban form: AB 2018 word list p. 29.
+var-0215	frakasá	fracasa	k>c, accent dropped	draft		ADP2023	23	Aruban form: AB 2018 word list p. 29.
+var-0216	frakaso	fracaso	k>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 29.
+var-0217	frankamente	francamente	k>c	draft		ADP2023	41	Aruban form: AB 2018 word list p. 29.
+var-0218	freipòstu	freiposto	-u>-o, accent dropped	draft		ADP2023	33	Aruban form: AB 2018 word list p. 29.
+var-0219	fresku	fresco	k>c, -u>-o	draft		ADP2023	50	Aruban form: AB 2018 word list p. 29.
+var-0220	gastu	gasto	-u>-o	draft		ADP2023	46	Aruban form: AB 2018 word list p. 30.
+var-0221	gai	gay	-i>-y	draft		ADP2023	30	Aruban form: AB 2018 word list p. 30. In Curaçao texts gai is also the English loan "guy"; this pair is the rooster sense only.
+var-0222	gobièrnu	gobierno	-u>-o, accent dropped	draft		ADP2023	34	Aruban form: AB 2018 word list p. 31.
+var-0223	grasia	gracia	s>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 31.
+var-0224	gritu	grito	-u>-o	draft		ADP2023	33	Aruban form: AB 2018 word list p. 32.
+var-0225	hasi	haci	s>c	draft		CURS2014	7	Aruban form: AB 2018 word list p. 32.
+var-0226	hasiendo	haciendo	s>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 32.
+var-0227	haltu	halto	-u>-o	draft		CURS2014	18	Aruban form: AB 2018 word list p. 32.
+var-0228	hamaka	hamaca	k>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 32.
+var-0229	hechu	hecho	-u>-o	draft		ADP2023	26	Aruban form: AB 2018 word list p. 33.
+var-0230	helikòpter	helicopter	k>c, accent dropped	draft		ADP2023	47	Aruban form: AB 2018 word list p. 33.
+var-0231	hinka	hinca	k>c	draft		ADP2023	45	Aruban form: AB 2018 word list p. 33.
+var-0232	hinkando	hincando	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 33.
+var-0233	hobensita	hobencita	s>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 33.
+var-0234	honestidat	honestidad	-at>-ad	draft		ADP2023	43	Aruban form: AB 2018 word list p. 34.
+var-0235	humanidat	humanidad	-at>-ad	draft		ADP2023	21	Aruban form: AB 2018 word list p. 34.
+var-0236	hundu	hundo	-u>-o	draft		CURS2014	18	Aruban form: AB 2018 word list p. 34.
+var-0237	huntu	hunto	-u>-o	draft		ADP2023	25	Aruban form: AB 2018 word list p. 34.
+var-0238	idéntiko	identico	k>c, accent dropped	draft		ADP2023	30	Aruban form: AB 2018 word list p. 34.
+var-0239	identidat	identidad	-at>-ad	draft		ADP2023	27	Aruban form: AB 2018 word list p. 34.
+var-0240	imaginashon	imaginacion	-shon>-cion	draft		ADP2023	33	Aruban form: AB 2018 word list p. 35.
+var-0241	inkansabel	incansabel	k>c	draft		ADP2023	30	Aruban form: AB 2018 word list p. 35.
+var-0242	infansia	infancia	s>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 36.
+var-0243	influensiá	influencia	s>c, accent dropped	draft		ADP2023	36	Aruban form: AB 2018 word list p. 36.
+var-0244	informashon	informacion	-shon>-cion	draft		ADP2023	37	Aruban form: AB 2018 word list p. 36.
+var-0245	innesesario	innecesario	s>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 37.
+var-0246	inosente	inocente	s>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 37.
+var-0247	inspirashon	inspiracion	-shon>-cion	draft		ADP2023	43	Aruban form: AB 2018 word list p. 37.
+var-0248	intenshon	intencion	-shon>-cion	draft		ADP2023	47	Aruban form: AB 2018 word list p. 37.
+var-0249	interpretashon	interpretacion	-shon>-cion	draft		ADP2023	43	Aruban form: AB 2018 word list p. 37.
+var-0250	investigashon	investigacion	-shon>-cion	draft		ADP2023	47	Aruban form: AB 2018 word list p. 38.
+var-0251	keiru	keiro	-u>-o	draft		ADP2023	30	Aruban form: AB 2018 word list p. 39.
+var-0252	ketu	keto	-u>-o	draft		CURS2014	13	Aruban form: AB 2018 word list p. 39.
+var-0253	kiko	kico	k>c	draft		ADP2023	23	Aruban form: AB 2018 word list p. 39.
+var-0254	largu	largo	-u>-o	draft		CURS2014	19	Aruban form: AB 2018 word list p. 40.
+var-0255	libertat	libertad	-at>-ad	draft		ADP2023	36	Aruban form: AB 2018 word list p. 40.
+var-0256	loko	loco	k>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 41.
+var-0257	makaku	macaco	k>c, -u>-o	draft		ADP2023	34	Aruban form: AB 2018 word list p. 41.
+var-0258	malu	malo	-u>-o	draft		CURS2014	19	Aruban form: AB 2018 word list p. 42.
+var-0259	mamai	mamay	-i>-y	draft		ADP2023	30	Aruban form: AB 2018 word list p. 42.
+var-0260	manesé	manece	s>c, accent dropped	draft		ADP2023	27	Aruban form: AB 2018 word list p. 42.
+var-0261	marka	marca	k>c	draft		ADP2023	22	Aruban form: AB 2018 word list p. 42.
+var-0262	maskarada	mascarada	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 43.
+var-0263	mai	may	-i>-y	draft		ADP2023	45	Aruban form: AB 2018 word list p. 43.
+var-0264	mentalidat	mentalidad	-at>-ad	draft		ADP2023	21	Aruban form: AB 2018 word list p. 43.
+var-0265	meresé	merece	s>c, accent dropped	draft		ADP2023	32	Aruban form: AB 2018 word list p. 43.
+var-0266	meresí	mereci	s>c, accent dropped	draft		ADP2023	43	Aruban form: AB 2018 word list p. 43.
+var-0267	meskos	mescos	k>c	draft		ADP2023	40	Aruban form: AB 2018 word list p. 44.
+var-0268	miedu	miedo	-u>-o	draft		ADP2023	22	Aruban form: AB 2018 word list p. 44.
+var-0269	momentu	momento	-u>-o	draft		ADP2023	22	Aruban form: AB 2018 word list p. 45.
+var-0270	motibu	motibo	-u>-o	draft		ADP2023	36	Aruban form: AB 2018 word list p. 45.
+var-0271	motivashon	motivacion	-shon>-cion	draft		ADP2023	26	Aruban form: AB 2018 word list p. 45.
+var-0272	muchu	mucho	-u>-o	draft		ADP2023	35	Aruban form: AB 2018 word list p. 45.
+var-0273	mundu	mundo	-u>-o	draft		ADP2023	21	Aruban form: AB 2018 word list p. 45.
+var-0274	nase	nace	s>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 46.
+var-0275	nietu	nieto	-u>-o	draft		ADP2023	30	Aruban form: AB 2018 word list p. 46.
+var-0276	nifiká	nifica	k>c, accent dropped	draft		ADP2023	43	Aruban form: AB 2018 word list p. 46. Added on the checker's correction.
+var-0277	notisia	noticia	s>c	draft		CURS2014	13	Aruban form: AB 2018 word list p. 47.
+var-0278	nunka	nunca	k>c	draft		ADP2023	23	Aruban form: AB 2018 word list p. 47.
+var-0279	okupá	ocupa	k>c, accent dropped	draft		CURS2014	19	Aruban form: AB 2018 word list p. 47.
+var-0280	ofisialmente	oficialmente	s>c	draft		ADP2023	45	Aruban form: AB 2018 word list p. 47.
+var-0281	ofresé	ofrece	s>c, accent dropped	draft		ADP2023	37	Aruban form: AB 2018 word list p. 47.
+var-0282	opshon	opcion	-shon>-cion	draft		ADP2023	47	Aruban form: AB 2018 word list p. 48.
+var-0283	oportunidat	oportunidad	-at>-ad	draft		ADP2023	32	Aruban form: AB 2018 word list p. 48.
+var-0284	pakiko	pakico	k>c	draft		ADP2023	28	Aruban form: AB 2018 word list p. 48.
+var-0285	palu	palo	-u>-o	draft		ADP2023	47	Aruban form: AB 2018 word list p. 49.
+var-0286	pániko	panico	k>c, accent dropped	draft		ADP2023	28	Aruban form: AB 2018 word list p. 49.
+var-0287	papai	papay	-i>-y	draft		ADP2023	24	Aruban form: AB 2018 word list p. 49.
+var-0288	papiamentu	papiamento	-u>-o	draft		CURS2014	2	Aruban form: AB 2018 word list p. 49.
+var-0289	parse	parce	s>c	draft		CURS2014	13	Aruban form: AB 2018 word list p. 49.
+var-0290	partisipante	participante	s>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 49.
+var-0291	pasatempu	pasatempo	-u>-o	draft		ADP2023	46	Aruban form: AB 2018 word list p. 49.
+var-0292	pai	pay	-i>-y	draft		ADP2023	33	Aruban form: AB 2018 word list p. 50.
+var-0293	pensamentu	pensamento	-u>-o	draft		ADP2023	34	Aruban form: AB 2018 word list p. 50.
+var-0294	perseveransia	perseverancia	s>c	draft		ADP2023	26	Aruban form: AB 2018 word list p. 50.
+var-0295	piká	pica	k>c, accent dropped	draft		ADP2023	33	Aruban form: AB 2018 word list p. 51.
+var-0296	piska	pisca	k>c	draft		CURS2014	4	Aruban form: AB 2018 word list p. 51.
+var-0297	plaka	placa	k>c	draft		ADP2023	45	Aruban form: AB 2018 word list p. 51.
+var-0298	plasentero	placentero	s>c	draft		ADP2023	43	Aruban form: AB 2018 word list p. 51.
+var-0299	plaser	placer	s>c	draft		ADP2023	50	Aruban form: AB 2018 word list p. 51.
+var-0300	pobersitu	pobercito	s>c, -u>-o	draft		ADP2023	46	Aruban form: AB 2018 word list p. 52.
+var-0301	poko	poco	k>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 52.
+var-0302	pokopoko	pocopoco	k>c	draft		ADP2023	50	Aruban form: AB 2018 word list p. 52.
+var-0303	pòpkòrn	popcorn	k>c, accent dropped	draft		ADP2023	46	Aruban form: AB 2018 word list p. 52.
+var-0304	preokupá	preocupa	k>c, accent dropped	draft		ADP2023	22	Aruban form: AB 2018 word list p. 53.
+var-0305	pretu	preto	-u>-o	draft		ADP2023	26	Aruban form: AB 2018 word list p. 53.
+var-0306	prinsipal	principal	s>c	draft		ADP2023	34	Aruban form: AB 2018 word list p. 53.
+var-0307	produsí	produci	s>c, accent dropped	draft		ADP2023	25	Aruban form: AB 2018 word list p. 53.
+var-0308	públiko	publico	k>c, accent dropped	draft		ADP2023	29	Aruban form: AB 2018 word list p. 54.
+var-0309	puiru	puiro	-u>-o	draft		ADP2023	41	Aruban form: AB 2018 word list p. 54.
+var-0310	puru	puro	-u>-o	draft		ADP2023	43	Aruban form: AB 2018 word list p. 55.
+var-0311	ranka	ranca	k>c	draft		ADP2023	46	Aruban form: AB 2018 word list p. 55.
+var-0312	ratu	rato	-u>-o	draft		ADP2023	45	Aruban form: AB 2018 word list p. 55.
+var-0313	realidat	realidad	-at>-ad	draft		ADP2023	43	Aruban form: AB 2018 word list p. 55.
+var-0314	rekonosé	reconoce	k>c, s>c, accent dropped	draft		ADP2023	31	Aruban form: AB 2018 word list p. 56.
+var-0315	rekordá	recorda	k>c, accent dropped	draft		ADP2023	30	Aruban form: AB 2018 word list p. 56.
+var-0316	rekuperá	recupera	k>c, accent dropped	draft		ADP2023	32	Aruban form: AB 2018 word list p. 56.
+var-0317	redu	redo	-u>-o	draft		ADP2023	34	Aruban form: AB 2018 word list p. 56.
+var-0318	relashon	relacion	-shon>-cion	draft		ADP2023	37	Aruban form: AB 2018 word list p. 57.
+var-0319	renkor	rencor	k>c	draft		ADP2023	36	Aruban form: AB 2018 word list p. 57.
+var-0320	revolushon	revolucion	-shon>-cion	draft		ADP2023	43	Aruban form: AB 2018 word list p. 58.
+var-0321	rei	rey	-i>-y	draft		ADP2023	50	Aruban form: AB 2018 word list p. 58.
+var-0322	riku	rico	k>c, -u>-o	draft		CURS2014	19	Aruban form: AB 2018 word list p. 58.
+var-0323	ronká	ronca	k>c, accent dropped	draft		ADP2023	50	Aruban form: AB 2018 word list p. 59.
+var-0324	saka	saca	k>c	draft		ADP2023	25	Aruban form: AB 2018 word list p. 59.
+var-0325	saku	saco	k>c, -u>-o	draft		ADP2023	33	Aruban form: AB 2018 word list p. 59.
+var-0326	santu	santo	-u>-o	draft		ADP2023	27	Aruban form: AB 2018 word list p. 59.
+var-0327	skapa	scapa	k>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 60.
+var-0328	skol	scol	k>c	draft		CURS2014	3	Aruban form: AB 2018 word list p. 60.
+var-0329	skonde	sconde	k>c	draft		ADP2023	22	Aruban form: AB 2018 word list p. 60.
+var-0330	skondí	scondi	k>c, accent dropped	draft		ADP2023	29	Aruban form: AB 2018 word list p. 60.
+var-0331	skòp	scop	k>c, accent dropped	draft		ADP2023	48	Aruban form: AB 2018 word list p. 60.
+var-0332	skòter	scoter	k>c, accent dropped	draft		ADP2023	46	Aruban form: AB 2018 word list p. 60.
+var-0333	skucha	scucha	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 60.
+var-0334	skur	scur	k>c	draft		ADP2023	21	Aruban form: AB 2018 word list p. 60.
+var-0335	skuridat	scuridad	k>c, -at>-ad	draft		ADP2023	46	Aruban form: AB 2018 word list p. 60.
+var-0336	sebu	sebo	-u>-o	draft		ADP2023	34	Aruban form: AB 2018 word list p. 60.
+var-0337	seku	seco	k>c, -u>-o	draft		ADP2023	50	Aruban form: AB 2018 word list p. 60.
+var-0338	seru	sero	-u>-o	draft		ADP2023	42	Aruban form: AB 2018 word list p. 61.
+var-0339	sekso	sexo	ks>x	draft		ADP2023	28	Aruban form: AB 2018 word list p. 61.
+var-0340	shelu	shelo	-u>-o	draft		ADP2023	25	Aruban form: AB 2018 word list p. 61.
+var-0341	siguridat	siguridad	-at>-ad	draft		ADP2023	32	Aruban form: AB 2018 word list p. 61.
+var-0342	silensio	silencio	s>c	draft		ADP2023	27	Aruban form: AB 2018 word list p. 61.
+var-0343	sinseridat	sinceridad	s>c, -at>-ad	draft		ADP2023	28	Aruban form: AB 2018 word list p. 62.
+var-0344	situashon	situacion	-shon>-cion	draft		ADP2023	23	Aruban form: AB 2018 word list p. 62.
+var-0345	sosial	social	s>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 62.
+var-0346	sofoká	sofoca	k>c, accent dropped	draft		ADP2023	46	Aruban form: AB 2018 word list p. 63.
+var-0347	spiritu	spirito	-u>-o	draft		ADP2023	23	Aruban form: AB 2018 word list p. 63.
+var-0348	splikando	splicando	k>c	draft		ADP2023	43	Aruban form: AB 2018 word list p. 63.
+var-0349	stimashon	stimacion	-shon>-cion	draft		ADP2023	21	Aruban form: AB 2018 word list p. 64.
+var-0350	sufisiente	suficiente	s>c	draft		ADP2023	37	Aruban form: AB 2018 word list p. 65.
+var-0351	suisidio	suicidio	s>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 65.
+var-0352	superfisie	superficie	s>c	draft		ADP2023	41	Aruban form: AB 2018 word list p. 65.
+var-0353	tampoko	tampoco	k>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 66.
+var-0354	tantu	tanto	-u>-o	draft		ADP2023	23	Aruban form: AB 2018 word list p. 66.
+var-0355	tempu	tempo	-u>-o	draft		ADP2023	32	Aruban form: AB 2018 word list p. 66.
+var-0356	tèrmentu	termento	-u>-o, accent dropped	draft		ADP2023	35	Aruban form: AB 2018 word list p. 67.
+var-0357	testigu	testigo	-u>-o	draft		ADP2023	37	Aruban form: AB 2018 word list p. 67.
+var-0358	toka	toca	k>c	draft		ADP2023	42	Aruban form: AB 2018 word list p. 67.
+var-0359	tópiko	topico	k>c, accent dropped	draft		ADP2023	23	Aruban form: AB 2018 word list p. 67.
+var-0360	totalidat	totalidad	-at>-ad	draft		ADP2023	44	Aruban form: AB 2018 word list p. 67.
+var-0361	tradishon	tradicion	-shon>-cion	draft		ADP2023	25	Aruban form: AB 2018 word list p. 68.
+var-0362	trankilidat	trankilidad	-at>-ad	draft		ADP2023	27	Aruban form: AB 2018 word list p. 68.
+var-0363	trese	trece	s>c	draft		ADP2023	35	Aruban form: AB 2018 word list p. 68.
+var-0364	tripulashon	tripulacion	-shon>-cion	draft		ADP2023	47	Aruban form: AB 2018 word list p. 69.
+var-0365	tristu	tristo	-u>-o	draft		CURS2014	19	Aruban form: AB 2018 word list p. 69.
+var-0366	únikamente	unicamente	k>c, accent dropped	draft		ADP2023	26	Aruban form: AB 2018 word list p. 69.
+var-0367	úniko	unico	k>c, accent dropped	draft		ADP2023	41	Aruban form: AB 2018 word list p. 69.
+var-0368	unidat	unidad	-at>-ad	draft		ADP2023	30	Aruban form: AB 2018 word list p. 69.
+var-0369	volkan	volcan	k>c	draft		ADP2023	47	Aruban form: AB 2018 word list p. 70.
+var-0370	wòrdu	wordo	-u>-o, accent dropped	draft		ADP2023	23	Aruban form: AB 2018 word list p. 71.
+var-0371	i	y	i>y (conjunction)	draft		ADP2023	21	Aruban form: AB 2018 word list p. 71. Curaçao writes the conjunction "and" as i.
+var-0372	yoramentu	yoramento	-u>-o	draft		ADP2023	33	Aruban form: AB 2018 word list p. 71.
