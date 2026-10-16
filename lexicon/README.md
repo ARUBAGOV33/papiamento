@@ -11,7 +11,7 @@ The words of Aruban Papiamento and the small reference tables built around them.
 | `calendar/` | `days.tsv`, `months.tsv`, `holidays.tsv` | Days, months, public holidays | days and months done; holidays need an official source |
 | `barbarismos/` | `barbarismos.tsv` | Forms to avoid and the Aruban form to use instead | 41 rows |
 | `variants/` | `curacao-aruba.tsv` | Curaçao spelling mapped to Aruban spelling | 372 attested pairs |
-| `loanwords/` | `loanwords.tsv` | Loanwords, their origin and accepted Aruban form (AB §12) | 314 rows from AB 2018 §12 |
+| `loanwords/` | `loanwords.tsv` | Loanwords, their origin and accepted Aruban form (AB §12) | 315 rows from AB 2018 §12 |
 | `names/` | — | Places, institutions, demonyms | schema to come |
 | `closed-classes/` | — | Pronouns, articles, prepositions, conjunctions, tense markers | schema to come |
 

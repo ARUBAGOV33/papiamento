@@ -8,8 +8,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
-- `lexicon/loanwords/loanwords.tsv`: 314 loanwords from AB 2018 §12 (gazette pp. 41-44): Spanish words written in a set form, words keeping final z, -eza/-anza nouns; Dutch, English and French words kept in their original spelling or respelled, the two-option pairs, the sch table, special spellings and words derived from brand names; Italian, Latin and German words. Two checkers verified every row against the page images. The language of origin for §12.2 words is assigned by the editors, since the law groups Dutch, English and French.
-- `sources/errata.tsv`: err-0014 to err-0016, where §12 and the law's own word list disagree (dagvaar/dagvaard, Osterizer/osterizer, schuin/scuins).
+- `lexicon/loanwords/loanwords.tsv`: 315 loanwords from AB 2018 §12 (gazette pp. 41-44): Spanish words written in a set form, words keeping final z, -eza/-anza nouns; Dutch, English and French words kept in their original spelling or respelled, the two-option pairs, the sch table, special spellings and words derived from brand names; Italian, Latin and German words. Two checkers verified every row against the page images. The language of origin for §12.2 words is assigned by the editors, since the law groups Dutch, English and French.
+- `sources/errata.tsv`: err-0014 to err-0016, where §12 and the law's own word list disagree. Decided by the maintainer: dagvaard, osterizer in lowercase, and both schuin and scuins (new loanword row).
 - Loanword origins `it`, `la` and `de` in the schema.
 
 ### Changed
