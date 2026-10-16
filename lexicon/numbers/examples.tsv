@@ -1,0 +1,6 @@
+id	kind	value	pap	alt	en	nl	es	status	reviewed_by	source	page	notes
+num-0104	rule-example	32	trintidos		thirty-two	tweeëndertig	treinta y dos	draft		AB2018	38	Numbers 11-99 are written as one word. AB 2018 §11.8 (orthography annex, gazette page 38). The example printed next to it, 23 > bintiseis, is a misprint: 23 is bintitres (see sources/errata.tsv, err-0001).
+num-0105	rule-example	236	dos shen y trintiseis	dos shento y trintiseis; dos cien y trintiseis	two hundred thirty-six	tweehonderdzesendertig	doscientos treinta y seis	draft		AB2018	38	Numbers above 100 are written separately. The law also gives the contraction shent'y. AB 2018 §11.8 (orthography annex, gazette page 38).
+num-0106	rule-example	29233	bintinuebe mil dos shen y trintitres	bintinuebe mil dos shento y trintitres; bintinuebe mil dos cien y trintitres	twenty-nine thousand two hundred thirty-three	negenentwintigduizend tweehonderddrieëndertig	veintinueve mil doscientos treinta y tres	draft		AB2018	38	Printed as 29.233. AB 2018 §11.8 (orthography annex, gazette page 38).
+num-0107	rule-example	1600	mil seis shen		one thousand six hundred	zestienhonderd; duizend zeshonderd	mil seiscientos	draft		MOR2010	68	From an example sentence (§9.3.1.1).
+num-0108	rule-example	10000	dies mil		ten thousand	tienduizend	diez mil	draft		MOR2010	67	From the table in §9.3.

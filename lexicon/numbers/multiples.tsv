@@ -1,0 +1,6 @@
+id	kind	value	pap	alt	en	nl	es	status	reviewed_by	source	page	notes
+num-0146	multiple	2x	dobel		double	dubbel	doble	draft		MOR2010	70	MOR §9.3.1.4.
+num-0147	multiple	2x	duplo		duplicate (den duplo = in duplicate)	duplo; in tweevoud	duplicado (por duplicado)	draft		MOR2010	70	MOR §9.3.1.4.
+num-0148	multiple	3x	tripel	tribel	triple	drievoudig	triple	draft		MOR2010	70	MOR §9.3.1.4. The AB word list prints tripel [tribel] (page 69).
+num-0149	multiple	4x	cuadrupel		quadruple	viervoudig	cuádruple	draft		MOR2010	70	MOR §9.3.1.4.
+num-0150	multiple	5x	kintupel		quintuple; quintuplet	vijfvoudig; vijfling	quíntuple; quintillizo	draft		MOR2010	70	MOR §9.3.1.4.

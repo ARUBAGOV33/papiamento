@@ -33,6 +33,7 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 | a lot, many, much | hopi | mucho | Ruling, 2026-10-15 |
 | five | cinco | | Ruling, 2026-10-15 |
 | never | nunca | | Ruling, 2026-10-16 |
+| billion (10^9) | biyon | biljoen / billón (those are 10^12) | Ruling, 2026-10-16 |
 | all | tur | todo | Ruling |
 | family | famia | familia | Ruling |
 | there is / there are | tin | hay | Ruling |

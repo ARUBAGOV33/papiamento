@@ -1,1 +1,8 @@
 id	kind	order	pap	en	nl	es	status	reviewed_by	source	page	notes
+cal-0001	day	1	dialuna	Monday	maandag	lunes	draft		AB2018	22	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0002	day	2	diamars	Tuesday	dinsdag	martes	draft		AB2018	22	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0003	day	3	diaranson	Wednesday	woensdag	miércoles	draft		AB2018	22	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0004	day	4	diahuebs	Thursday	donderdag	jueves	draft		AB2018	22	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0005	day	5	diabierna	Friday	vrijdag	viernes	draft		AB2018	21	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0006	day	6	diasabra	Saturday	zaterdag	sábado	draft		AB2018	22	Written in lowercase (AB 2018 §9.6, gazette page 32).
+cal-0007	day	7	diadomingo	Sunday	zondag	domingo	draft		AB2018	21	Written in lowercase (AB 2018 §9.6, gazette page 32).
