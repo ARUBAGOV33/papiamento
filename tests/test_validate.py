@@ -103,7 +103,7 @@ class TestValidRepo(GauntletCase):
         ctx = self.check(None)
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
-        self.assertEqual(len(ctx.files), 6)  # A, C, numbers, sources, known-facts, audits
+        self.assertEqual(len(ctx.files), 7)  # A, C, numbers, sources, known-facts, audits, milestones
         self.assertGreaterEqual(ctx.facts_checked, 1)  # fact-0009: 7 -> shete
 
     def test_cli_exit_zero_and_json_shape(self):
@@ -115,7 +115,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 6)
+        self.assertEqual(report["files_checked"], 7)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):

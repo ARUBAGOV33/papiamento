@@ -50,6 +50,11 @@
       "name": "audits",
       "glob": "_meta/audits.tsv",
       "schema": "audits.schema.json"
+    },
+    {
+      "name": "milestones",
+      "glob": "_meta/milestones.tsv",
+      "schema": "milestones.schema.json"
     }
   ],
   "allowlists": {
