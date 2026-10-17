@@ -32,7 +32,7 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 
 | Path | What |
 |---|---|
-| `_meta/` | conventions, schemas, invariants, known facts, allowlists, audit log |
+| `_meta/` | conventions, schemas, invariants, known facts, allowlists, audit log, milestones |
 | `_templates/` | starter files for each contribution type |
 | `lexicon/` | words A–Z, numbers, calendar, barbarismos, variants, loanwords, names |
 | `grammar/` | rules in plain language, one small file per rule |

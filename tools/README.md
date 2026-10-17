@@ -56,9 +56,10 @@ You don't have to run it: after every merge, the "Refresh progress pages" workfl
 
 Row counts show how much has been added, not how much of it is right. The error rates come from random audits logged in [`_meta/audits.tsv`](../_meta/audits.tsv) (see the Audits section of [`_meta/conventions.md`](../_meta/conventions.md)):
 
-- The README table has a **Measured error rate** column. For each table it shows the latest audit (by date, then id): the share of sampled rows that were wrong, its 95% Wilson score interval, the sample, and the date. A table without an audit says "not audited yet". An audit of `translations` is shown on a second line in the Words row. An audit done only by `machine` says "checked by machine".
+- The README table has a **Measured error rate** column. For each table it shows the latest audit (by date, then id): the share of sampled rows that were wrong and the sample, with the 95% Wilson score interval and the date in small print under it, so the lines stay short on a phone. A table without an audit says "not audited yet". An audit of `translations` is shown under it in the Words row. An audit done only by `machine` says "checked by machine", and the note under the table explains it.
 - Once any audit is logged, the chart gets a **Quality** section: one row per audited table, with a dot for the error rate and a band for its 95% interval. The scale runs from 0 to 25%, or to 50% or 100% if an interval reaches past that.
 - Rows that the gauntlet rejects (for example `errors` greater than `sample_size`) are skipped.
+- The **Milestones** line at the top of the block comes from the hand-maintained [`_meta/milestones.tsv`](../_meta/milestones.tsv): one entry per phase, P0 to P4, with its status.
 
 Not yet: **frequency-weighted reviewed coverage**, "of every 100 words in real Aruban text, how many are reviewed entries". It needs a word-frequency list that may be published here, and the maintainer has not chosen one yet. See the TODO in `build_pages.py`; do not add frequency data until that is decided.
 

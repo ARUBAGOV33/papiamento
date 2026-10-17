@@ -116,9 +116,12 @@ class QualityTest(unittest.TestCase):
 
     def test_readme_error_rate(self):
         block = build_pages.readme_block(repo_stats(self.AUDITS))
-        self.assertIn("| 200 | 10 | 0% (95% CI 0\u20131.9%), 0 of 200 on 2026-02-01<br>Translations: "
-                      "3.3% (95% CI 0.9\u201311.4%), 2 of 60 on 2026-02-01, checked by machine |", block)
+        self.assertIn("| 200 | 10 | 0% (0 of 200)<br><sub>95% CI 0\u20131.9%, checked on 2026-02-01</sub>"
+                      "<br>Translations: 3.3% (2 of 60)<br><sub>95% CI 0.9\u201311.4%, checked by machine on "
+                      "2026-02-01</sub> |", block)
         self.assertIn("Words 0% (0 of 200); Word translations 3.3% (2 of 60).", block)  # alt text
+        self.assertIn('"Checked by machine" means', block)
+        self.assertNotIn('"Checked by machine" means', build_pages.readme_block(repo_stats(self.AUDITS[:2])))
 
     def test_quality_section_only_once_audited(self):
         for theme in build_pages.THEMES:
@@ -142,6 +145,26 @@ class QualityTest(unittest.TestCase):
         rs = repo_stats(self.AUDITS)
         self.assertEqual(build_pages.progress_svg(rs, "dark"), build_pages.progress_svg(rs, "dark"))
         self.assertEqual(build_pages.readme_block(rs), build_pages.readme_block(rs))
+
+    def test_milestones_line(self):
+        rows = [{"id": "P0", "title": "Foundation", "status": "done"},
+                {"id": "P1", "title": "Clean data", "status": "in-progress"},
+                {"id": "P3", "title": "Products", "status": "not-started"}]
+        self.assertEqual(build_pages.milestones_line(rows),
+                         "Milestones: **P0 Foundation** \u2705 done \u00b7 **P1 Clean data** \U0001f7e1 in progress"
+                         " \u00b7 **P3 Products** \u2b1c not started. [What is left](_meta/milestones.tsv)")
+        self.assertIsNone(build_pages.milestones_line([]))
+        rs = repo_stats()
+        rs["milestones"] = rows
+        block = build_pages.readme_block(rs)
+        self.assertLess(block.index("Milestones:"), block.index("<picture>"))
+        rs["milestones"] = []
+        self.assertNotIn("Milestones:", build_pages.readme_block(rs))
+
+    def test_milestone_statuses_match_the_schema(self):
+        with open(str(REPO / "_meta" / "schema" / "milestones.schema.json"), encoding="utf-8") as f:
+            fields = dict((fs["name"], fs) for fs in json.load(f)["fields"])
+        self.assertEqual(sorted(fields["status"]["constraints"]["enum"]), sorted(build_pages.MILESTONE_STATUS))
 
     def test_audit_tables_match_the_schema(self):
         with open(str(REPO / "_meta" / "schema" / "audits.schema.json"), encoding="utf-8") as f:
