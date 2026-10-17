@@ -17,12 +17,13 @@ All tables are TSV files:
 - UTF-8, Unicode NFC, LF line endings, a final newline.
 - First line is the header, with exactly the columns in the table's schema, in that order.
 - Columns are separated by a single tab. Cells never contain tabs or line breaks, and are never quoted.
+- Cells hold only visible characters and plain spaces: no control or zero-width characters, no line or paragraph separators (U+2028, U+2029), no no-break spaces.
 - No spaces at the start or end of a cell, and no double spaces.
 - Apostrophes are straight (`'`), never curly (`’`).
 - An empty cell means "not known yet".
 - Several values in one cell are separated by `; ` (semicolon, space), for example `house; home`.
 
-Schemas live in `_meta/schema/` in [Frictionless Table Schema](https://specs.frictionlessdata.io/table-schema/) format. `_meta/schema/registry.json` says which schema applies to which file.
+Schemas live in `_meta/schema/` in [Frictionless Table Schema](https://specs.frictionlessdata.io/table-schema/) format. `_meta/schema/registry.json` says which schema applies to which file. Each table's glob must match at least one file (a file with only the header is enough); a table that may have no file yet is marked `"optional": true`.
 
 ## Ids
 

@@ -12,8 +12,8 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const path = process.argv[2] || join(root, "rules", "rules.jsonl");
 if (!existsSync(path)) {
-  console.log("rules/rules.jsonl not found; nothing to test");
-  process.exit(0);
+  console.log(`${path} not found; the machine rules are required`);
+  process.exit(1);
 }
 
 let rules = 0;

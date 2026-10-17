@@ -22,6 +22,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   - `_meta/invariants.md` now follows the law on two spelling points. The -sion nouns of AB 2018 §5 (pp. 17–18) are an exception to -cion, and rooi, trei and fei (§3.2, p. 8) are exceptions to word-final y. The example hoy, which is not in the AB 2018 word list, is replaced.
   - The collective-noun invariant cites Stilistica (PDF p. 4) instead of a bare ruling, with the page's own example.
   - Barbarismo bar-0009 (del) now points to RULE_PRE_DE_001.
+- The validator closes gaps that let wrong or missing data pass with CI green (found in the 2026-10 bug hunt; the maintainer chose each policy):
+  - A registry table whose glob matches no file is an error, unless the registry marks it `"optional": true`. So is a missing `rules/rules.jsonl`, and `tools/test_rules.mjs` now fails without it. `build_dist.py` refuses to build a release in which a table, the grammar rules or the machine rules have no rows, and `build_pages.py` reads its table globs from the registry.
+  - A machine rule may not flag any `## Correct` example, including those in its own grammar file (error). A rule lists deliberate exceptions in `allow_correct_hits`.
+  - A known fact whose `where` matches no row is a warning. A fact on one row (`id=...`) is an error when that row's cell is emptied or the row is deprecated. The report lists the ids of pending facts.
+  - `barbarismos.rule_id` must be the id of a grammar file, unless it is a row-level `RULE_LEX_*` id (warning). RULE_PRN_USTED_001 (bar-0005, bar-0006) is reported until it gets a grammar file or a `RULE_LEX_` id.
+  - Rows with no source get an "untraced" warning. A PDF outside `sources/pdf/`, a hidden or line-breaking character in a cell (zero-width, U+2028, no-break space, control characters), and an unknown schema, constraint or `x-papiamento` key are errors.
 
 ## [0.1.0] - 2026-10-16
 

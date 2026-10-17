@@ -14,6 +14,7 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -120,6 +121,34 @@ class BuildDistTest(unittest.TestCase):
             build_dist.build(tmp, "9.8.7", "example/papiamento")
             for name in os.listdir(self.out):
                 self.assertEqual((self.out / name).read_bytes(), (Path(tmp) / name).read_bytes(), name)
+
+
+class EmptyTableTest(unittest.TestCase):
+    def test_empty_tables(self):
+        data = {"words": [{"id": "pap-000001"}], "names": [], "loanwords": [], "rules": []}
+        self.assertEqual(build_dist.empty_tables(data, {"names"}), ["loanwords", "rules"])
+
+    def test_build_refuses_a_table_with_no_rows(self):
+        # A glob typo used to ship loanwords.jsonl with 0 rows, exit 0.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "repo"
+            for name in ("_meta", "lexicon", "sources/sources.tsv", "sources/errata.tsv", "grammar", "rules", "CHANGELOG.md"):
+                src, dst = REPO / name, root / name
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                (shutil.copytree if src.is_dir() else shutil.copy)(str(src), str(dst))
+            registry = root / "_meta" / "schema" / "registry.json"
+            registry.write_text(registry.read_text(encoding="utf-8").replace(
+                "lexicon/loanwords/*.tsv", "lexicon/loanword/*.tsv"), encoding="utf-8")
+            out = Path(tmp) / "dist"
+            saved = build_dist.ROOT
+            build_dist.ROOT = str(root)
+            try:
+                with self.assertRaises(SystemExit) as cm:
+                    build_dist.build(str(out), "9.8.7")
+            finally:
+                build_dist.ROOT = saved
+            self.assertIn("no rows for loanwords", str(cm.exception))
+            self.assertFalse(out.exists())  # nothing half-written
 
 
 class ReleaseMetadataTest(unittest.TestCase):

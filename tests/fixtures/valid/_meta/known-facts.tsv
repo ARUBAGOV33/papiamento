@@ -1,0 +1,6 @@
+id	table	where	field	match	value	ruled_by	date	notes
+fact-0001	words	lemma=hopi	en	contains	a lot	victorgomesrt-rgb	2026-10-15	Glosbe returned "Hopi"
+fact-0002	words	lemma=hopi	en	not-contains	Hopi	victorgomesrt-rgb	2026-10-15	
+fact-0005	numbers	kind=cardinal&value=23	pap	equals	bintitres	victorgomesrt-rgb	2026-10-15	AB 2018 §11.8 p.38 prints "23 > bintiseis", a typo (see errata)
+fact-0009	numbers	kind=cardinal&value=7	pap	equals	shete	victorgomesrt-rgb	2026-10-15	never siete
+fact-0901	words	id=pap-000003	en	contains	house	victorgomesrt-rgb	2026-10-16	Test fixture: a ruling on one row, like an errata correction

@@ -149,11 +149,17 @@ def sha256(path):
     return h.hexdigest()
 
 
+def empty_tables(data, optional):
+    """Names of the tables with no rows that the registry does not mark optional."""
+    return [name for name, rows in data.items() if not rows and name not in optional]
+
+
 def build(out, version, hf_repo="ARUBAGOV33/papiamento"):
-    os.makedirs(out, exist_ok=True)
     with open(os.path.join(ROOT, "_meta", "schema", "registry.json"), encoding="utf-8") as f:
         registry = json.load(f)
     globs = dict((t["name"], t["glob"]) for t in registry["tables"])
+    optional = set(name for name, table in TABLES
+                   if any(t["name"] == table and t.get("optional") for t in registry["tables"]))
     data = {}
     for name, table in TABLES:
         rows = []
@@ -169,13 +175,19 @@ def build(out, version, hf_repo="ARUBAGOV33/papiamento"):
                 first = next((ch for ch in r["lemma"] if ch.isalpha()), "")
                 r["letter"] = validate.strip_accents(first).upper() if first else ""
         data[name] = rows
-        write_jsonl(os.path.join(out, name + ".jsonl"), rows)
     grammar = grammar_rows()
     data["grammar"] = grammar
-    write_jsonl(os.path.join(out, "grammar.jsonl"), grammar)
     rules = machine_rules(grammar)
     data["rules"] = rules
-    write_jsonl(os.path.join(out, "rules.jsonl"), rules)
+    # A glob that matches nothing, or a folder that moved, must not ship a
+    # release with an empty table. Checked before anything is written.
+    empty = empty_tables(data, optional)
+    if empty:
+        raise SystemExit("no rows for %s; check the globs in _meta/schema/registry.json "
+                         "(run python3 tools/validate.py)" % ", ".join(empty))
+    os.makedirs(out, exist_ok=True)
+    for name in data:
+        write_jsonl(os.path.join(out, name + ".jsonl"), data[name])
     pack = {
         "name": "papiamento-aruba-rule-pack",
         "version": version,
