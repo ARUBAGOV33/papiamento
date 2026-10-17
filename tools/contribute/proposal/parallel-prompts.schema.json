@@ -1,0 +1,111 @@
+{
+  "title": "Parallel corpus: English and Spanish prompts",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^prm-[0-9]{6}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "lang",
+      "type": "string",
+      "description": "Language of the prompt",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "en",
+          "es"
+        ]
+      }
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The prompt sentence, 1 to 14 words, no digits or abbreviations (Common Voice sentence rules)",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "topic",
+      "type": "string",
+      "description": "Everyday theme, e.g. home, school, shop, health, weather, government office"
+    },
+    {
+      "name": "origin",
+      "type": "string",
+      "description": "Where the prompt comes from",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "written",
+          "tatoeba-cc0"
+        ]
+      }
+    },
+    {
+      "name": "origin_ref",
+      "type": "string",
+      "description": "Id in the origin, e.g. the Tatoeba sentence id; empty for prompts written for the project"
+    },
+    {
+      "name": "author",
+      "type": "string",
+      "description": "Who wrote the prompt: machine for machine drafts, otherwise contributor handles from _meta/contributors.tsv, separated by '; '",
+      "constraints": {
+        "required": true,
+        "pattern": "^(machine|[a-z0-9-]+)(; (machine|[a-z0-9-]+))*$"
+      }
+    },
+    {
+      "name": "licence",
+      "type": "string",
+      "description": "Licence of the prompt text",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "CC0-1.0"
+        ]
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the review-board members who confirmed the row, separated by '; '. Required when status is reviewed. Never machine."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "sort_by": [
+      "id"
+    ]
+  },
+  "$comment": "PROPOSAL, not in _meta/schema/ yet. For corpus/parallel/prompts.tsv and eval/parallel/prompts.tsv. Prompts are not Aruban text, so no spelling checks and no source/page: origin, origin_ref and author record provenance. The folder decides the split: a prompt in eval/parallel/ is held out and never trained on.",
+  "primaryKey": "id"
+}

@@ -1,0 +1,13 @@
+id	lang	text	topic	origin	licence	notes
+proto-01	en	Where is the nearest bus stop?	getting around	written-for-prototype	CC0-1.0	Prototype prompt, written for this demo; not part of the dataset.
+proto-02	en	My family lives in a small house near the beach.	home	written-for-prototype	CC0-1.0	Prototype prompt. Invites famia (not familia) and den or na (not en).
+proto-03	en	There are many people at the market today.	shopping	written-for-prototype	CC0-1.0	Prototype prompt. Invites tin (not hay) and hopi (not mucho).
+proto-04	en	Can you help me carry these bags?	everyday	written-for-prototype	CC0-1.0	Prototype prompt. Modal verb.
+proto-05	en	The school closes early on Friday.	school	written-for-prototype	CC0-1.0	Prototype prompt. Day names are lowercase.
+proto-06	en	I will call you tomorrow morning.	everyday	written-for-prototype	CC0-1.0	Prototype prompt. Future marker.
+proto-07	es	¿Cuánto cuesta este pan?	shopping	written-for-prototype	CC0-1.0	Prototype prompt.
+proto-08	es	Hace mucho calor hoy.	weather	written-for-prototype	CC0-1.0	Prototype prompt. The Spanish mucho tempts a barbarismo.
+proto-09	es	Mi hermano trabaja en un hotel.	work	written-for-prototype	CC0-1.0	Prototype prompt. The Spanish en tempts a barbarismo.
+proto-10	es	No olvides cerrar la puerta, por favor.	home	written-for-prototype	CC0-1.0	Prototype prompt.
+proto-11	es	Los niños juegan en el patio de la escuela.	school	written-for-prototype	CC0-1.0	Prototype prompt. The Spanish de la tempts a barbarismo.
+proto-12	es	Nos vemos el domingo por la tarde.	everyday	written-for-prototype	CC0-1.0	Prototype prompt. The Spanish domingo tempts a barbarismo.

@@ -88,6 +88,10 @@ python3 tools/build_dist.py --check            # build into a temporary folder a
 
 The same input always gives byte-identical output. See [RELEASING.md](../RELEASING.md) for how a release is published.
 
+## contribute/ (prototype)
+
+A clickable prototype of the contribution tool for teachers and linguists (board card P2-09): checking machine translations, translating words and translating sentences, with live checks from `rules/`, `lexicon/barbarismos/` and `lexicon/variants/`. It runs from a local file and sends nothing anywhere. See [contribute/README.md](contribute/README.md) and the design in [contribute/DESIGN.md](contribute/DESIGN.md).
+
 ## Tests
 
 ```sh
