@@ -4,6 +4,7 @@ Run from the repo root: python3 -m unittest discover -s tests -v
 """
 
 import importlib.util
+import json
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
@@ -18,16 +19,26 @@ _spec.loader.exec_module(build_pages)  # type: ignore[union-attr]
 WORDS = {"words": 200, "en": 50, "nl": 40, "es": 0, "reviewed": 10}
 
 
+def audit(id_, date, table, n, errors, auditor="test-user"):
+    return {"id": id_, "date": date, "table": table, "sample_size": str(n), "errors": str(errors),
+            "method": "test", "auditor": auditor, "notes": ""}
+
+
+def repo_stats(audits=()):
+    rs = build_pages.repo_stats(dict(WORDS))
+    rs["machine"], rs["flaggable"] = 3, 4
+    rs["audits"] = build_pages.latest_audits(list(audits))
+    return rs
+
+
 class ProgressTest(unittest.TestCase):
     def stats(self):
-        rs = build_pages.repo_stats(dict(WORDS))
-        rs["machine"], rs["flaggable"] = 3, 4
-        return rs
+        return repo_stats()
 
     def test_chart_is_valid_svg_in_both_themes(self):
         for theme in build_pages.THEMES:
             with self.subTest(theme=theme):
-                svg = build_pages.progress_svg(self.stats(), theme)
+                svg = build_pages.progress_svg(repo_stats(), theme)
                 root = ET.fromstring(svg)
                 self.assertTrue(root.tag.endswith("svg"))
                 self.assertIn("50 of 200", svg)
@@ -64,6 +75,80 @@ class ProgressTest(unittest.TestCase):
         self.assertIn("Still empty: names.", build_pages.readme_block(rs))
         rs["empty"] = ["names", "public holidays", "the corpus"]
         self.assertIn("Still empty: names, public holidays and the corpus.", build_pages.readme_block(rs))
+
+
+
+class QualityTest(unittest.TestCase):
+    AUDITS = [
+        audit("aud-0001", "2026-01-01", "words", 200, 9),
+        audit("aud-0002", "2026-02-01", "words", 200, 0),
+        audit("aud-0003", "2026-02-01", "translations", 60, 2, auditor="machine"),
+    ]
+
+    def test_wilson_interval(self):
+        low, high = build_pages.wilson(2, 60)
+        self.assertAlmostEqual(low, 0.0092, places=4)
+        self.assertAlmostEqual(high, 0.1136, places=4)
+        self.assertEqual(build_pages.wilson(0, 200)[0], 0.0)
+        self.assertAlmostEqual(build_pages.wilson(0, 200)[1], 0.0188, places=4)
+        self.assertEqual(build_pages.wilson(30, 30)[1], 1.0)
+
+    def test_latest_audit_per_table(self):
+        latest = build_pages.latest_audits(self.AUDITS + [
+            audit("aud-0004", "2026-02-01", "numbers", 30, 1),
+            audit("aud-0005", "2026-02-01", "numbers", 30, 2),  # same day: the higher id wins
+            audit("aud-0006", "2026-03-01", "grammar", 5, 6),  # errors > sample_size: skipped
+            audit("aud-0007", "2026-03-01", "grammar", 0, 0),  # empty sample: skipped
+            audit("aud-0008", "2026-03-01", "calendar", "x", 0),  # not a number: skipped
+        ])
+        self.assertEqual(sorted(latest), ["numbers", "translations", "words"])
+        self.assertEqual(latest["words"]["id"], "aud-0002")
+        self.assertEqual(latest["numbers"]["id"], "aud-0005")
+
+    def test_readme_without_audits(self):
+        block = build_pages.readme_block(repo_stats())
+        self.assertIn("| Table | Rows | Reviewed by the board | Measured error rate |", block)
+        self.assertIn("| 200 | 10 | not audited yet |", block)
+        # Words, the other tables, grammar rules and machine rules
+        self.assertEqual(block.count("not audited yet"), 1 + len(build_pages.OTHER_TABLES) + 2)
+        self.assertIn("_meta/audits.tsv", block)
+        self.assertNotIn("Measured error rate in the latest", block)  # alt text
+
+    def test_readme_error_rate(self):
+        block = build_pages.readme_block(repo_stats(self.AUDITS))
+        self.assertIn("| 200 | 10 | 0% (95% CI 0\u20131.9%), 0 of 200 on 2026-02-01<br>Translations: "
+                      "3.3% (95% CI 0.9\u201311.4%), 2 of 60 on 2026-02-01, checked by machine |", block)
+        self.assertIn("Words 0% (0 of 200); Word translations 3.3% (2 of 60).", block)  # alt text
+
+    def test_quality_section_only_once_audited(self):
+        for theme in build_pages.THEMES:
+            with self.subTest(theme=theme):
+                self.assertNotIn("QUALITY", build_pages.progress_svg(repo_stats(), theme))
+                svg = build_pages.progress_svg(repo_stats(self.AUDITS), theme)
+                ET.fromstring(svg)
+                self.assertIn(">QUALITY<", svg)
+                self.assertIn("2 of 60 wrong", svg)
+                self.assertIn(">3.3%<", svg)
+                self.assertIn(">25%<", svg)
+                self.assertNotIn(">Numbers<", svg)  # only audited tables get a row
+
+    def test_quality_scale_fits_the_widest_range(self):
+        svg = build_pages.progress_svg(repo_stats([audit("aud-0001", "2026-01-01", "numbers", 30, 9)]), "light")
+        self.assertIn(">50%<", svg)  # 9 of 30: the range reaches 47.9%
+        svg = build_pages.progress_svg(repo_stats([audit("aud-0001", "2026-01-01", "numbers", 3, 3)]), "light")
+        self.assertIn(">100%<", svg)
+
+    def test_output_is_deterministic(self):
+        rs = repo_stats(self.AUDITS)
+        self.assertEqual(build_pages.progress_svg(rs, "dark"), build_pages.progress_svg(rs, "dark"))
+        self.assertEqual(build_pages.readme_block(rs), build_pages.readme_block(rs))
+
+    def test_audit_tables_match_the_schema(self):
+        with open(str(REPO / "_meta" / "schema" / "audits.schema.json"), encoding="utf-8") as f:
+            fields = dict((fs["name"], fs) for fs in json.load(f)["fields"])
+        self.assertEqual(fields["table"]["constraints"]["enum"], [k for k, _ in build_pages.AUDIT_TABLES])
+        for key, _, _ in build_pages.OTHER_TABLES:
+            self.assertIn(key, fields["table"]["constraints"]["enum"])
 
 
 if __name__ == "__main__":

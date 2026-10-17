@@ -45,6 +45,11 @@
       "name": "known-facts",
       "glob": "_meta/known-facts.tsv",
       "schema": "known-facts.schema.json"
+    },
+    {
+      "name": "audits",
+      "glob": "_meta/audits.tsv",
+      "schema": "audits.schema.json"
     }
   ],
   "allowlists": {

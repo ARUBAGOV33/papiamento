@@ -8,5 +8,6 @@ Starter files. Copy one, then replace every value.
 | `rule.md` | Write a grammar rule in `grammar/<topic>/` |
 | `source-card.md` | Register a new source in `sources/cards/` |
 | `errata-row.tsv` | Log a typo or conflict found in a source PDF |
+| `audit-row.tsv` | Log a random audit of a table in `_meta/audits.tsv` (copy the row, not the header; see the Audits section of `_meta/conventions.md`) |
 
 The example values are placeholders, not data.

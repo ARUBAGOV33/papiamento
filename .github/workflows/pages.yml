@@ -14,6 +14,7 @@ on:
       - 'rules/**'
       - 'corpus/**'
       - 'eval/**'
+      - '_meta/audits.tsv'
       - 'README.md'
       - 'tools/build_pages.py'
   workflow_dispatch:

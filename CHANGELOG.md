@@ -8,6 +8,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- `_meta/audits.tsv`, a log of random audits of each table against the source PDFs, with its schema, a template (`_templates/audit-row.tsv`) and conventions. It starts empty. The README progress table has a new "Measured error rate" column: the latest audit of each table with a 95% Wilson interval, or "not audited yet". The chart gets a Quality section once an audit is logged. The validator checks that an audit's `errors` is never greater than its `sample_size`.
 - `sources/errata.tsv`: err-0019 to err-0022, where Morfologia (pp. 42, 44, 57) and Sintaxis (p. 119) use lo a, against the ruling that lo and a never combine. The maintainer kept the ruling (2026-10-17). err-0023 (open, `draft`): Morfologia p. 39 and Sintaxis p. 31 allow ta with gusta, against the modal ruling.
 
 ### Changed
