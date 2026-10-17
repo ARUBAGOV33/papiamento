@@ -1,0 +1,52 @@
+{
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md (Milestones).",
+  "title": "Milestones: the project phases P0-P4 and where each one stands",
+  "primaryKey": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Phase, as on the project board: P0 to P9",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^P[0-9]$"
+      }
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Short name of the phase, shown in the README",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "done",
+          "in-progress",
+          "next",
+          "not-started"
+        ]
+      }
+    },
+    {
+      "name": "left",
+      "type": "string",
+      "description": "What is still to do in this phase, separated by '; '"
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "sort_by": [
+      "id"
+    ]
+  }
+}

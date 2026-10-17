@@ -139,13 +139,25 @@ An audit measures how many rows of a table are wrong. Take a random sample of th
 | `auditor` | GitHub usernames of the people who checked the sample, separated by `; `. `machine` when software or an AI model did the checking; both when a person re-checked the machine's findings, e.g. `victorgomesrt-rgb; machine`. |
 | `notes` | Rows that were doubtful but not counted, the errata or fixes the audit led to, a link to the full report. |
 
-- **Only log an audit that was carried out.** Never estimate or copy a number from somewhere else. An empty log is the honest state until the first audit.
-- **Random means random.** Draw the sample with a program and a stated seed (for example Python `random.sample` with seed 2026), or by a stated rule such as every 50th row. Rows picked by hand, or rows already known to be wrong, measure nothing.
+- **Only log an audit that was carried out.** Never estimate or copy a number from somewhere else. "Not audited yet" is better than a guess.
+- **Random means random.** Draw the sample with a program and a stated seed (for example Python `random.sample` with seed 2026), or by a stated rule such as every 50th row. Rows picked by hand, or rows already known to be wrong, measure nothing. If how a sample was drawn was not recorded, as in the 2026-10 bug hunt, say so in `method`.
 - **The page is the judge.** Check the rendered page image of the cited source page, not an OCR or text layer.
 - **An error** is a row with at least one cell that disagrees with the page. For `translations`, which no source page prints, it is a sense that is not the Aruban meaning or breaks the translation conventions above. Say in `method` if you counted differently, for example "only the lemma, alt and tag cells". Doubtful rows go in `notes`, not in `errors`.
 - **Fix what you find in a separate change.** The audit row keeps the number found at the time; later fixes do not change it. The next audit measures the table again.
 - **Rows are never edited or deleted**, except to fix a typo in the log itself. Old audits stay as the history of the table's quality.
 - Audit rows have no `status`: they record a measurement, not language content.
+
+## Milestones (`_meta/milestones.tsv`)
+
+One row per project phase, as on the project board: `P0` Foundation to `P4` Speech and AI. The README shows them on one line above the progress chart. Maintainers edit this file by hand when a phase changes.
+
+| Column | Content |
+|---|---|
+| `id` | The phase, `P0` to `P9`. Rows are sorted by it. |
+| `title` | Its short name, e.g. `Clean data`. |
+| `status` | `done`, `in-progress`, `next` or `not-started`. |
+| `left` | What is still to do, separated by `; `. A phase can be `done` with a few small items left. |
+| `notes` | Anything else, e.g. the release that closed it. |
 
 ## Files and names
 
