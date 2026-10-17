@@ -382,6 +382,10 @@ def check_schema(ctx, row, unique_seen):
     if table.has("status") and table.has("reviewed_by"):
         if row.get("status") == "reviewed" and row.get("reviewed_by") == "":
             ctx.add("G2", ERROR, rel, row.line, "status is reviewed but reviewed_by is empty")
+        bots = machine_reviewers(row.get("reviewed_by"))
+        if bots:
+            ctx.add("G2", ERROR, rel, row.line,
+                    "reviewed_by must name people, not %s: machine-made content stays draft" % ", ".join(bots))
     # x-papiamento required_if_any: {"translated_by": ["en", "nl", "es"]} means
     # translated_by must be filled whenever any of en, nl, es is.
     for name, triggers in (table.x.get("required_if_any") or {}).items():
@@ -726,6 +730,17 @@ def parse_front_matter(text):
     return None, text
 
 
+
+def machine_reviewers(cell):
+    # type: (str) -> List[str]
+    """Names in a reviewed_by cell that are not people: machine, or a [bot] account."""
+    names = [v.strip() for v in cell.split(";")]
+    return [v for v in names if v.lower() == "machine" or v.lower().endswith("[bot]")]
+
+
+RULE_SECTION_RE = re.compile(r"^## Rule\n(.*?)(?=\n## |\Z)", re.S | re.M)
+
+
 def check_grammar(ctx):
     # type: (Context) -> None
     base = ctx.root / "grammar"
@@ -774,6 +789,10 @@ def check_grammar(ctx):
             ctx.add("G2", ERROR, rel, None, "status %r not in %s" % (status, ", ".join(GRAMMAR_STATUS)))
         if status == "reviewed" and not meta.get("reviewed_by"):
             ctx.add("G2", ERROR, rel, None, "status is reviewed but reviewed_by is empty")
+        bots = machine_reviewers(meta.get("reviewed_by", ""))
+        if bots:
+            ctx.add("G2", ERROR, rel, None,
+                    "reviewed_by must name people, not %s: machine-made content stays draft" % ", ".join(bots))
         severity = meta.get("severity", "")
         if severity and severity not in GRAMMAR_SEVERITY:
             ctx.add("G2", ERROR, rel, None, "severity %r not in %s" % (severity, ", ".join(GRAMMAR_SEVERITY)))
@@ -783,8 +802,12 @@ def check_grammar(ctx):
         page = meta.get("page", "")
         if page and not GRAMMAR_PAGE_RE.match(page):
             ctx.add("G2", ERROR, rel, None, "page %r should be printed page number(s), e.g. 38 or 38-39" % page)
-        if "## Rule" not in body:
+        # Same pattern as tools/build_dist.py, which ships the section text.
+        rule = RULE_SECTION_RE.search(body)
+        if not rule:
             ctx.add("G2", ERROR, rel, None, "missing a '## Rule' section")
+        elif not rule.group(1).strip():
+            ctx.add("G2", ERROR, rel, None, "the '## Rule' section is empty")
 
 
 # --------------------------------------------------------------------------
@@ -932,7 +955,11 @@ def check_rule_tests(ctx):
             if repl is None:
                 ctx.add("G2", ERROR, RULES_PATH, n, "%s: fix tests need a replacement" % rid)
                 continue
-            got = rx.sub(py_replacement(repl), fx["text"])
+            try:
+                got = rx.sub(py_replacement(repl), fx["text"])
+            except (re.error, IndexError) as exc:
+                ctx.add("G2", ERROR, RULES_PATH, n, "%s: replacement %r cannot be applied: %s" % (rid, repl, exc))
+                continue
             if got != fx["expect"]:
                 ctx.add("G5", ERROR, RULES_PATH, n, "%s: fixing %r gives %r, expected %r" % (rid, fx["text"], got, fx["expect"]))
         if positives == 0:

@@ -14,6 +14,8 @@ import importlib.util
 import json
 import os
 import re
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -47,6 +49,16 @@ class BuildDistTest(unittest.TestCase):
     def jsonl(self, name):
         with open(self.out / name, encoding="utf-8") as f:
             return [json.loads(line) for line in f]
+
+    def test_out_refuses_a_folder_it_did_not_build(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            keep = Path(tmp) / "notes.txt"
+            keep.write_text("not a release", encoding="utf-8")
+            result = subprocess.run([sys.executable, str(REPO / "tools" / "build_dist.py"), "--out", tmp],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("refusing to delete", result.stderr)
+            self.assertTrue(keep.exists())
 
     def test_every_table_keeps_all_rows(self):
         with open(REPO / "_meta" / "schema" / "registry.json", encoding="utf-8") as f:
