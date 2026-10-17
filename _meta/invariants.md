@@ -12,9 +12,9 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 |---|---|---|---|
 | The language name is **Papiamento** (capital P, ending in -o). | Papiamento, not Papiamentu | Ruling | — |
 | **No accent marks**, except **ñ** and loanwords the AB list prints with accents (see `allowlists/accented-loans.txt`). | educacion, mas | AB 2018; ruling | no |
-| The suffix pronounced /-shon/ is written **-cion**. Words where -shon is not that suffix keep it (cashon, shon are in the AB list). | educacion, nacion | Ruling; AB list | no |
+| The suffix pronounced /-shon/ is written **-cion**. Words where -shon is not that suffix keep it (cashon, shon are in the AB list). Exception: the nouns listed under AB §5 Sh, point 2 are written with **-sion** ("Ta skirbi e letternan si pa representa e zonido [ʃ] den e siguiente sustantivonan y nan derivacionnan"): expansion, conclusion, decision, division, posesion, comprension, depresion, confesion, television, admision … (p. 17) and comision, dimension, mision, version, vision … (p. 18). | educacion, nacion; decision, television | AB §5 Sh, pp. 17–18; AB list | no |
 | **c** before a, o, u; **k** before e, i. Dutch loans keep their k (kabel, kantoor). | cas, cumpra, kere | Ruling; AB list | no |
-| A word-final i-sound after a vowel is written **y**. | bay, hoy, ley | Ruling | — |
+| A word-final i-sound after a vowel is written **y** (ay, ey, oy, uy). Exceptions: rooi, trei, fei. | bay, ley | AB §3.2, p. 8 | no |
 | Plural is **-nan** only, never -s, -os or -as. | casnan | Ruling | — |
 | No **-nan** after a bare numeral. With an article or possessive it is fine. | cinco buki; e cinco bukinan | Ruling | — |
 | Days and months are written in **lowercase**. | dialuna, januari | AB §9.6, p. 32 | no |
@@ -46,14 +46,14 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 
 | Rule | Correct | Wrong | Source |
 |---|---|---|---|
-| **lo** (future) and **a** (past) never combine. Use one or the other. | mi a bay | lo a bay | Ruling |
-| Modals (kier, mester, por, sa, gusta, mag) never take **ta**. | mi kier bay | mi ta kier bay | Ruling |
+| **lo** (future) and **a** (past) never combine. Use one or the other. | mi a bay | lo a bay | Ruling; kept on 2026-10-17 against Morfologia pp. 42, 44, 57 and Sintaxis p. 119 (err-0019 to err-0022) |
+| Modals (kier, mester, por, sa, gusta, mag) never take **ta**. | mi kier bay | mi ta kier bay | Ruling; Morfologia §6.2.3.1, p. 39. gusta is under review (err-0023): Morfologia p. 39 and Sintaxis p. 31 print "Mucha (ta) gusta core den un espacio grandi." |
 | **por** and **prefera** have no gerund. | | porndo, podiendo, preferando, prefiriendo | Ruling; decided against Morfologia p. 48 (err-0010, err-0011) |
 | Aruban irregular gerunds. | drumiendo, teniendo, keriendo, sabiendo | durmiendo, drumindo, tinindo, kierndo, sabindo | Ruling; AB 2018 word list; err-0009 |
 | Spanish **de la / del / de los** becomes **di**, and the article is dropped. | cas di famia | cas di la familia | Ruling |
-| Location **en** becomes **den**. | den cas | en cas | Ruling |
+| Location **en** becomes **den** (inside a closed or limited place) or **na** (a place in general), depending on the meaning. | den cas; Francisco ta biba na Venezuela. | en cas | Ruling, 2026-10-17; Preposicion y Interheccion §1.3.4, p. 6 (den) and §1.3.7, p. 15 (na) |
 | **usted / ustedes** become **bo / boso**. | | usted | Ruling |
-| Collective nouns are singular and take **su**. | gobierno ta presenta su plan | gobierno ta presenta nan plan | Ruling |
+| Collective nouns are singular, and so are the words that refer to them (**su**): "Palabra manera “club”, “gobierno”, “comision”, ta singular." | E comision di studiante a forma su directiva. | | Stilistica §2 point 11, PDF p. 4 |
 
 ## Variants
 

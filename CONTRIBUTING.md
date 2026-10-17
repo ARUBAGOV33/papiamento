@@ -101,9 +101,9 @@ Aruban Papiamento uses an etymological spelling: words are written according to 
 
 - The language is **Papiamento**, with a capital P and ending in -o.
 - **No accent marks**, except **ñ** and a short list of loanwords the AB 2018 list prints with accents ([`_meta/allowlists/accented-loans.txt`](_meta/allowlists/accented-loans.txt)). Write `educacion`, `mas`.
-- The ending pronounced /-shon/ is written **-cion**: `educacion`, `nacion`.
+- The ending pronounced /-shon/ is written **-cion**: `educacion`, `nacion`. A set of nouns listed in AB 2018 §5 keeps **-sion**: `decision`, `television`.
 - **c** before a, o, u; **k** before e, i: `cas`, `cumpra`, `kere`. Dutch loans keep their k: `kabel`, `kantoor`.
-- A word-final i-sound after a vowel is written **y**: `bay`, `hoy`, `ley`.
+- A word-final i-sound after a vowel is written **y**: `bay`, `ley` (exceptions: `rooi`, `trei`, `fei`).
 - The plural ending is **-nan** only: `casnan`.
 - Days and months are **lowercase**: `dialuna`, `januari`.
 - Numbers 11 to 99 are **one word**: `bintitres` (23). Seven is `shete`; five is `cinco`.

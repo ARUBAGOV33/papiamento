@@ -31,7 +31,7 @@ Maintainer ruling in `_meta/invariants.md` (Grammar table): "Spanish de la / del
 ## Notes
 
 - The ruling's wrong example has di la, not de la, so the Spanish article is dropped after di as well. It also contains familia, which is barbarismo bar-0001 (→ famia).
-- Barbarismo rows bar-0008 (de la), bar-0009 (del), bar-0010 (de los) and bar-0011 (de las) map to di. bar-0009 has an empty rule_id and should probably point here. All four cite AB 2018 word list p. 21, but "de (expr.)" is on word list Pagina 19; the rows' page needs correcting.
-- The rule pack also listed de el and de las. The ruling names only de la, del and de los, although bar-0011 (de las) already points to this rule; extending the ruling is the maintainer's call.
+- Barbarismo rows bar-0008 (de la), bar-0009 (del), bar-0010 (de los) and bar-0011 (de las) map to di and point to this rule. All four cite AB 2018 word list p. 21, where the right form di is printed, like the other ruling barbarismos (bar-0001 famia p. 27, bar-0002 tin p. 67); "de (expr.)" is on word list Pagina 19.
+- The rule pack also listed de el and de las. The ruling names only de la, del and de los; the maintainer kept bar-0011 (de las) on 2026-10-17.
 - de also appears in surnames, for example "Sr. de Cuba ta na warda." (PRE2016 p. 15). A checker should not flag names.
 - The rule pack had no citation for this rule.
