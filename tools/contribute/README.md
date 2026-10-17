@@ -20,17 +20,19 @@ python3 -m http.server 8000
 
 Then try this:
 
-1. Fill in the consent screen (any test name).
-2. Work through the modes.
-3. Use **Contributing as → + Add a person** to add a second teacher. That person can rate the first person's sentences and give the second answer on words.
-4. Add a third person and tick "review board". That person sees the **Review board** screen.
-5. **Export** shows the JSON and the TSV rows a pull request would contain. **Delete everything in this browser** resets it.
+1. Go through the four onboarding steps. The email step is a mock: type any address and any six digits. Nothing is sent and the address is not stored.
+2. Work through the three modes from Home. Each answer ends on a feedback sheet. On a laptop, word tasks use two columns.
+3. Go to **Account → Switch person → + Add a person** and add a second teacher. That person can rate the first person's sentences and give the second answer on words.
+4. Add a third person and switch on "review board". That person gets the **Review board** queue.
+5. **Account → Prototype: connection** sets Normal, Slow or Failing, to show the loading and error states.
+6. **Account → Export** downloads the JSON and previews the TSV rows a pull request would contain. **Delete everything in this browser** resets it.
 
 ## Files
 
 | File | What |
 |---|---|
-| `index.html`, `style.css`, `app.js` | The prototype. No libraries, no network. |
+| `index.html`, `style.css`, `app.js` | The prototype. No libraries, no network. Phone first, with a sidebar layout from 900 px. |
+| `assets/hero.webp` | The welcome image: a text-free slice of the README banner (`.github/assets/banner.webp`, Higgsfield artwork) |
 | `checker.js` | Live checks on Papiamento text: the repo's rules, barbarismos, Curaçao variants and the AB 2018 word list. Works in the browser and in Node. |
 | `prompts.tsv` | 12 English and Spanish prompts written for the prototype (`origin = written-for-prototype`), CC0. Not part of the dataset. |
 | `ui-strings.tsv` | Interface text: English, and a Papiamento machine draft (`pap_status = draft`) for a teacher to check |

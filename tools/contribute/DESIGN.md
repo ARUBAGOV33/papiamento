@@ -21,6 +21,7 @@ Every item gets two independent answers. A review-board member confirms them whe
 | (c) Hosting | **Static site on GitHub Pages + Supabase** (a new project, separate from Skirbi). It opens pull requests through a small **GitHub App** so the gauntlet runs on them. |
 | (d) Data model | New tables `corpus/parallel/prompts.tsv` and `pairs.tsv`, the same pair in `eval/parallel/` for a **15 % held-out split by prompt**, and `_meta/contributors.tsv`. Draft schemas are in [`proposal/`](proposal/). |
 | (e) Frequency order for "Translate words" | **Your decision.** See §5(e). The repo's own PDFs give a weak signal; the private corpus is strong but can't be published. |
+| Look and feel | Phone-first, one item per screen with a feedback sheet (Duolingo's pattern, calm styling), every screen grounded in a Mobbin reference. §8 lists them, with the states for loading, success and errors. |
 
 ## 2. Who uses it
 
@@ -274,7 +275,86 @@ The signal is weak.
   - a vowel-final verb is followed by a bare pronoun `e`. It must be contracted (`uz'e`, AB 2018 annex §10.1 point 1, p. 33) or the pronoun dropped (`controla`). The maintainer corrected three such cases in the first draft, and the repo's rules don't catch the full form.
 - That checks spelling only. **Grammar and wording need a teacher.**
 
-## 8. What the prototype does and doesn't do
+## 8. UX and visual design
+
+The interaction model is Duolingo's lesson pattern without its cartoon look:
+
+- one item per screen;
+- a close button and a thin progress bar at the top;
+- a full-width primary button at the bottom;
+- a feedback sheet that slides up after each answer.
+
+The audience is teachers, linguists and a ministry, so the look is calm: high contrast, few colours, no mascots, no confetti. The app is phone-first, because many teachers and the maintainer work from a phone. From 900 px a sidebar replaces the tab bar, word tasks split into two columns, and the board becomes a list with a detail pane.
+
+### References (Mobbin)
+
+Each screen is grounded in a well-designed app. References marked † were passed on by the coordinating session; the others were examined in this session.
+
+| Screen | What we took | References |
+|---|---|---|
+| Task flow (all modes) | Close, progress bar, one item, primary button, bottom feedback sheet with Continue | Duolingo [completing a lesson](https://mobbin.com/flows/40841c36-1296-4b96-95a1-1e1c60c64b83)†; Duolingo [incorrect answer sheet](https://mobbin.com/screens/999d36c0-e831-4345-94e1-896367f1d7fe) |
+| Live spelling check | The sheet shows the wrong form struck through next to the right one (*amigu → amigo*) and offers "Use the suggestions" or "Keep as written" | Duolingo [complete the translation](https://mobbin.com/screens/dd4176cc-8b60-49d2-bfa6-7f5f659dd262) ("Pay attention to the accents") |
+| Translate (phone) | Soft source card, a big text box, the hint under the input, a full-width check button | Babbel [inline input](https://mobbin.com/screens/fd9a34b9-ceb8-475d-b9f6-842312902258)†; Speak [source card and Check](https://mobbin.com/screens/d7165128-090f-4ebf-9e00-2edf29c9e6c5)† |
+| Translate (laptop) | Source and page crop on the left, "Write in …" fields on the right | Etsy [languages and translations](https://mobbin.com/screens/3a3422a5-b3ce-4ace-8cc3-f8dc4ef57336); Ditto [string list with status](https://mobbin.com/screens/9000cc65-c691-443f-a730-9e1dd5adefec) |
+| Sign-in | Email, then "Check your email" with six code boxes, a step counter, a fallback to change the address, no password | Shop [verify your email](https://mobbin.com/screens/f42ad150-2336-45f5-b7bd-d66f7c9f0cd5); Woolworths [step 2 of 2](https://mobbin.com/screens/c8b61ab0-b2fe-4abf-991d-fe2efe2c29c3); Taco Bell [one-time code](https://mobbin.com/screens/0f74bb48-0a88-408f-8647-ff00dfe6e6b5); Ro [magic link sent](https://mobbin.com/screens/a59b4355-5200-4e30-9f3f-c69c183f731d)†; Mesh [check your email](https://mobbin.com/screens/5d96cd3e-af3f-4eb5-b0a7-d19cc4a7989b)† |
+| Onboarding | One topic per step, role as icon tiles, large inputs, the primary button pinned at the bottom, licence consent as two plain cards | Airtasker [onboarding](https://mobbin.com/flows/93cebe6f-786f-412f-99b1-ca941bd2119d); Replika [onboarding](https://mobbin.com/flows/19470dcc-dbd6-48ae-a945-f708e3a1b3d2); LinkedIn [volunteer preferences](https://mobbin.com/flows/c8d64c4f-9cc7-40a6-8844-ed05486938c6) |
+| Home | A calm daily-goal card (ring, this week, days in a row) above a list of ways to help, each row with a count and a chevron | Coursera [daily goals](https://mobbin.com/screens/40087b17-c119-400c-8c7a-d84d50969b19); Quizlet [progress rows](https://mobbin.com/screens/439e68be-eb63-4fb8-985a-ab27b24e3ff2); Headway [streak and weekly stats](https://mobbin.com/screens/e069ee13-99bd-49bd-8d19-4cf8efbf466b). Left out: full-screen streak celebrations such as Babbel's [streak calendar](https://mobbin.com/screens/9a4520f9-45cc-4473-bacb-410dabe093c8), too game-like for this audience. |
+| End of a queue | Check icon, one sentence, three stat tiles (answered today, waiting for a second answer, confirmed by the board), Back to home | Mimo [lesson complete](https://mobbin.com/screens/b96677c5-4f73-40ff-8dee-2bda19aed27e); Withings [all missions done](https://mobbin.com/screens/c52f7e0f-41e5-4e12-96d9-84b1b420f7f9) |
+| Review board | "To decide / Decided" tabs, a list with status badges, a detail pane, Dispute and Save in a sticky footer | Reddit [mod queue](https://mobbin.com/screens/9e81dbcf-db79-45ef-8347-08e81e1b5b77); Airwallex [pending your approval](https://mobbin.com/screens/89c96631-be20-4176-be78-d24175e013ed); Calendly [list and detail](https://mobbin.com/screens/23888dde-e7ac-41d6-834c-fd316809d84a) |
+| Offline | An inline banner that says what still works, not a dead end | Alta [network offline](https://mobbin.com/screens/2b00c4b9-d2a6-4a6a-9d95-2aba49348be1); Qantas [you're not connected](https://mobbin.com/screens/18f77caf-19d5-4199-98b4-a36f34096d23) |
+| Credits | "Your contributions" as a list of counts; the board and contributors listed by name, alphabetical, not ranked | Google Maps [number of contributions](https://mobbin.com/screens/550534f8-b745-4442-98f1-29caf9fa7da2); X [moderators and members](https://mobbin.com/screens/278f2d6c-fd9c-4995-864c-77f4eea11450). Left out: ranked leaderboards such as Believe's [ranked list](https://mobbin.com/screens/13cba083-8369-4098-8800-253c652932e6). Volunteers should not compete. |
+
+### Visual system
+
+- **Colour:**
+  - Aruba blue `#1663b8` for primary actions and progress;
+  - navy `#0b3c78` for the goal card and language codes;
+  - yellow `#f9d616` as an accent only (the goal ring, the prototype banner, the draft chip), never for text on white.
+- **States:**
+  - green for "correct" and success;
+  - red for "wrong" and errors;
+  - amber for warnings and checks.
+- **Dark mode** follows the system setting.
+- **Type:** the system font on a fixed scale (12.5, 14, 16, 18, 20, 24, 28, 34).
+  - Weights are 400, 600 and 700, with tighter letter-spacing on large headings and tabular numbers for counts.
+  - Inputs use 16 px text, so iPhones don't zoom in.
+- **Sizes:**
+  - touch targets are 48 px on phones and 44 px with a mouse;
+  - buttons have 12 px corners, 16 px semibold text and a 20 px horizontal padding;
+  - cards have 18 px corners.
+- **Imagery:** the welcome screen uses a text-free slice of the README banner. That banner is Higgsfield artwork made for the repo (`.github/assets/README.md`), so the app matches the repository, and no new image was generated. Page crops are the only other images. They come from the public-domain AB 2018 law.
+
+### Motion
+
+Motion follows Emil Kowalski's rules:
+
+- **Durations:** UI motion stays under about 300 ms, except the feedback sheet's 340 ms entrance.
+- **Easing:** custom curves only: `cubic-bezier(0.23, 1, 0.32, 1)` for entering, and the iOS drawer curve for the sheet.
+- **Exits** are faster than entrances: the sheet leaves in 200 ms.
+- **Presses:** buttons and choice tiles scale to 0.97–0.98.
+- **Hover** effects apply only on devices with a fine pointer.
+- **What animates:** only `transform` and `opacity`.
+- **Frequent actions don't animate:** moving to the next word, typing, switching tabs.
+- **Rare moments may:** the end-of-queue check icon pops in.
+- **Reduce motion:** with the system setting on, movement is replaced by fades and the shimmer stops.
+
+### States
+
+| State | How it shows |
+|---|---|
+| Loading | The pressed button keeps its width, shows a fast spinner and "Saving… / Sending… / Checking…", and is disabled until the answer is accepted, so nothing is sent twice. Page crops show a shimmer placeholder until they load. |
+| Success | The bottom feedback sheet ("Saved. Thank you!" plus what happens next). Small confirmations (download, import, undo, back online) use a toast that pauses while the tab is hidden. |
+| Field errors | A red border, an icon and a message under the field, read out by screen readers. The field takes focus and the error clears as soon as the person types. Primary buttons stay disabled until a task is complete, with a one-line hint saying what is missing. |
+| Save failed | A red sheet: "Couldn't save. Your answer is still here." with Try again and Cancel. Nothing is stored until the save succeeds. |
+| Offline | A banner on every screen. In the real tool, answers queue on the device and are sent when the connection returns. |
+| Storage blocked | A banner asks the person to export before closing the page (private mode, full disk). |
+| Image failed | A plain note with a link to the whole PDF page. |
+| Empty | An icon, one sentence and one action, for example "No sentences to rate yet". |
+| Data missing | A full-page message saying how to rebuild the sample. |
+
+The prototype has no server. A **"Prototype: connection"** switch on the Account page (Normal / Slow / Failing) slows down or fails every save, so the loading and error states can be tried.
+
+## 9. What the prototype does and doesn't do
 
 **Does:**
 
@@ -282,17 +362,19 @@ The signal is weak.
 - **Live checks** while typing.
 - **Consent and credit**: the consent screen, contributor handles, credit for everyone who gave the chosen value.
 - **Export and import**: JSON export and import, and a preview of the TSV rows a pull request would contain.
-- **Language and layout**: English and a draft Papiamento interface, phone layout and dark mode.
+- **Language and layout**: English and a draft Papiamento interface, phone and laptop layouts, dark mode.
+- **Onboarding**: four steps, with a mock email-code sign-in that sends nothing and stores no address.
+- **States**: every state in §8, with a switch to simulate a slow or failing connection.
 
 **Doesn't:**
 
-- no server, sign-in or email: "Switch person" simulates several people on one device;
+- no server, real sign-in or email: "Switch person" (Account) simulates several people on one device;
 - only 8 + 8 sample words and 12 sample prompts;
 - the frequency order is a stand-in;
 - the pull-request preview is illustrative (`par-NEW` ids);
 - no Common Voice export.
 
-## 9. Proposed next steps (after your decisions)
+## 10. Proposed next steps (after your decisions)
 
 1. **Schema PR.**
    - Add the new tables and `_meta/contributors.tsv`.

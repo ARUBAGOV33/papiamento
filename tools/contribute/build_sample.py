@@ -211,8 +211,8 @@ def render_crop(doc, row, out_path, column=False):
         raise SystemExit("could not find %s %r on PDF page %d" % (row["id"], row["lemma"], pdf_index + 1))
     line_h = 12.1
     if column:
-        clip = fitz.Rect(rect.x0 - 6, max(78, rect.y0 - 5 * line_h - 0.8),
-                         min(546, rect.x0 + 116), min(778, rect.y1 + 5 * line_h + 0.8))
+        clip = fitz.Rect(rect.x0 - 6, max(78, rect.y0 - 3 * line_h - 0.8),
+                         min(546, rect.x0 + 116), min(778, rect.y1 + 3 * line_h + 0.8))
     else:
         clip = fitz.Rect(50, max(78, rect.y0 - 3 * line_h - 0.8), 546, min(778, rect.y1 + 3 * line_h + 0.8))
     dpi = 200
