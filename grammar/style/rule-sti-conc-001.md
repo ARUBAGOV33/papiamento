@@ -23,7 +23,7 @@ Stilistica di Papiamento (2008), §2 "Formulacion corecto", point 11 "Concordanc
 ## Notes
 
 - STI2008 has no printed page numbers; "4" is the PDF page.
-- Ruling (`_meta/invariants.md`): collective nouns are singular and take su (gobierno ta presenta su plan, not nan plan).
+- `_meta/invariants.md` cites this page for the collective-noun rule (since 2026-10-17), with the example quoted above, instead of a bare ruling.
 - The page's two other examples, an organisation name and gobierno, each with su, are not quoted because STI2008 is restricted. The page prints no incorrect form; the old rule pack's incorrect example (the line above with nan instead of su) is not on the page, so nothing is listed under Incorrect.
 - The page's list is open ("words such as"), so a checker needs a curated list of these nouns.
 - The old rule pack had RULE_STY_CONC_001, the same rule, which is covered here. RULE_STY_CONC_002 (number agreement with any antecedent) goes beyond the page.

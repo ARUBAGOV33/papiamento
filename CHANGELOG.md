@@ -6,10 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Added
+
+- `sources/errata.tsv`: err-0019 to err-0022, where Morfologia (pp. 42, 44, 57) and Sintaxis (p. 119) use lo a, against the ruling that lo and a never combine. The maintainer kept the ruling (2026-10-17). err-0023 (open, `draft`): Morfologia p. 39 and Sintaxis p. 31 allow ta with gusta, against the modal ruling.
+
 ### Changed
 
 - Version 0.1.0 is published on Hugging Face (https://huggingface.co/datasets/ARUBAGOV33/papiamento); the README links it.
 - Version 0.1.0 is archived on Zenodo: README (badge, Project status, How to cite), `CITATION.cff` and the dataset card give the DOIs, 10.5281/zenodo.23427109 for 0.1.0 and 10.5281/zenodo.23427108 for all versions.
+- Every rule that rested on a maintainer ruling was checked against the source pages, and the maintainer decided each one (2026-10-17):
+  - Locative en becomes den (a closed or limited place) or na (a place in general), depending on the meaning (Preposicion y Interheccion pp. 6, 15). Barbarismo bar-0007 now gives `den; na`, and RULE_PRE_EN_001 flags en cas without an automatic fix.
+  - RULE_MOR_GERUND_PREFIRIENDO no longer flags prefarando, a form from the old rule pack that no page prints.
+  - `_meta/invariants.md` now follows the law on two spelling points. The -sion nouns of AB 2018 §5 (pp. 17–18) are an exception to -cion, and rooi, trei and fei (§3.2, p. 8) are exceptions to word-final y. The example hoy, which is not in the AB 2018 word list, is replaced.
+  - The collective-noun invariant cites Stilistica (PDF p. 4) instead of a bare ruling, with the page's own example.
+  - Barbarismo bar-0009 (del) now points to RULE_PRE_DE_001.
 
 ## [0.1.0] - 2026-10-16
 

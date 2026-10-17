@@ -43,7 +43,7 @@ The rules in this folder were rebuilt from the source PDFs out of an older rule 
 | `RULE_ORT_BORROW_001` | Merged into RULE_ORT_052, RULE_ORT_053 and RULE_ORT_054 (§12.2). |
 | `RULE_ORT_001` | Merged into RULE_ORT_ACCENT_001 (same statement). |
 | `RULE_MOR_GERUND_PORNDO` | Merged into RULE_MOR_GERUND_PODIENDO: por has no gerund (err-0010). |
-| `RULE_MOR_GERUND_PREFARANDO` | Merged into RULE_MOR_GERUND_PREFIRIENDO: prefera has no gerund (err-0011). |
+| `RULE_MOR_GERUND_PREFARANDO` | Dropped by the maintainer on 2026-10-17: prefarando is printed on no page. RULE_MOR_GERUND_PREFIRIENDO covers the forms that are (err-0011). |
 | `RULE_MOR_GERUND_PREFERANDO` | Merged into RULE_MOR_GERUND_PREFIRIENDO: prefera has no gerund (err-0011). |
 | `RULE_MOR_NOUN_PLURAL_004` | Merged into RULE_MOR_NOUN_PLURAL_003: the same statement (Morfologia §2.3.4.1, p. 11). |
 | `RULE_PRE_NA_REFERENCE_002` | Merged into RULE_PRE_NA_OPINION_001: the same section (Preposicion y Interheccion §1.3.7, p. 17). |
