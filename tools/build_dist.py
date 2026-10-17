@@ -267,6 +267,8 @@ def main():
     out = tempfile.mkdtemp() if a.check else a.out
     try:
         if not a.check and os.path.isdir(out):
+            if os.listdir(out) and not os.path.isfile(os.path.join(out, "manifest.json")):
+                sys.exit("%s is not empty and has no manifest.json; refusing to delete it" % out)
             shutil.rmtree(out)
         counts, stats = build(out, version, a.hf_repo)
     finally:

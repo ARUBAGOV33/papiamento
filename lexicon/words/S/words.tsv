@@ -740,7 +740,7 @@ pap-013991	sla				lettuce	sla	lechuga	machine	draft		AB2018	62	Machine translati
 pap-013992	slaag				to pass (an exam); to succeed	slagen	aprobar; tener éxito	machine	draft		AB2018	62	
 pap-013993	slagroom								draft		AB2018	62	
 pap-013994	slang								draft		AB2018	62	
-pap-013995	slap				weak; limp; to slap	slap; zwak; een klap geven	flojo; débil; abofetear	machine	draft		AB2018	62	Machine translation marked uncertain; please check first.
+pap-013995	slap				weak; limp	slap; zwak	flojo; débil	machine	draft		AB2018	62	Machine translation marked uncertain; please check first. Machine sense 'to slap' (een klap geven, abofetear) removed (2026-10 bug hunt): a false friend; slap is the Dutch loan adjective, and the AB list prints no slapmento after it (p. 62), unlike loan verbs such as snoep, snoepmento.
 pap-013996	slaptom								draft		AB2018	62	
 pap-013997	slek								draft		AB2018	62	
 pap-013998	slenter								draft		AB2018	62	

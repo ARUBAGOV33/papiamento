@@ -274,6 +274,12 @@ class TestG2Schema(GauntletCase):
         ctx = self.check("reviewed_without_reviewer")
         self.assertFinding(ctx, "G2", "error", WORDS_A, "reviewed_by is empty", line=3)
 
+    def test_machine_is_not_a_reviewer(self):
+        root = self.build_repo()
+        rewrite(root / WORDS_A, lambda t: t.replace("reviewed\tvictorgomesrt-rgb", "reviewed\tmachine").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", WORDS_A, "reviewed_by must name people, not machine", line=2)
+
     def test_required_and_unique_within_file(self):
         root = self.build_repo()
         rewrite(root / WORDS_A, lambda t: t.replace("pap-000002\tawa", "pap-000001\t").encode("utf-8"))
@@ -421,9 +427,6 @@ class TestRobustness(GauntletCase):
         self.assertNotIn("internal error", out)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class TestGrammarFiles(GauntletCase):
     GOOD = (
@@ -465,6 +468,23 @@ class TestGrammarFiles(GauntletCase):
         ctx = self.run_gauntlet(root)
         self.assertFinding(ctx, "G2", "error", bad, "grammar files go in grammar/<topic>/")
         self.assertFinding(ctx, "G2", "error", nosec, "missing a '## Rule' section")
+
+
+    def test_rule_heading_must_be_exact_and_not_empty(self):
+        root = self.build_repo()
+        plural = self.write(root, "grammar/orthography/rule-ort-test-001.md", self.GOOD.replace("## Rule\n", "## Rules\n"))
+        empty = self.write(root, "grammar/orthography/rule-ort-test-002.md",
+                           self.GOOD.replace("RULE_ORT_TEST_001", "RULE_ORT_TEST_002").replace("A rule.\n", "## Source\n\nAB 2018.\n"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", plural, "missing a '## Rule' section")
+        self.assertFinding(ctx, "G2", "error", empty, "the '## Rule' section is empty")
+
+    def test_grammar_reviewer_must_be_a_person(self):
+        root = self.build_repo()
+        rel = self.write(root, "grammar/orthography/rule-ort-test-001.md",
+                         self.GOOD.replace("status: draft", "status: reviewed").replace('reviewed_by: ""', "reviewed_by: machine"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "reviewed_by must name people, not machine")
 
 
 class TestMachineRules(GauntletCase):
@@ -516,8 +536,20 @@ class TestMachineRules(GauntletCase):
         self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "behaves differently in JavaScript")
         self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "is an info rule")
 
+    def test_bad_replacement_is_reported_not_a_crash(self):
+        r = self.rule(replacement="$10", tests={"match": ["Dialuna"], "no_match": ["dialuna"],
+                                                 "fix": [{"text": "Dialuna", "expect": "dialuna"}]})
+        ctx = self.run_gauntlet(self.repo(r))
+        self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "cannot be applied")
+        self.assertNoFinding(ctx, contains="internal error")
+        self.assertEqual(ctx.rules_checked, 1)
+
     def test_derived_test_needs_printed_basis(self):
         r = self.rule(tests={"match": [], "no_match": ["dialuna"]},
                       derived=[{"text": "Dialuna", "from": "diamars", "change": "capitalised", "expect": "match"}])
         ctx = self.run_gauntlet(self.repo(r))
         self.assertFinding(ctx, "G0", "error", "rules/rules.jsonl", "based on 'diamars'")
+
+
+if __name__ == "__main__":
+    unittest.main()
