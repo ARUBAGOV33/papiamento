@@ -48,6 +48,7 @@ AB_SOURCE_ID = "AB2018"
 CURACAO_WORDS = {"ku", "kos", "kon", "ki"}
 CURACAO_K_RE = re.compile(r"k[aou]")
 CURLY_APOSTROPHES = ("’", "‘")
+WHOLE_NUMBER_RE = re.compile(r"[0-9]+")
 # Characters allowed in Aruban text without an allowlist entry.
 ARUBAN_ALLOWED = set(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -211,6 +212,10 @@ def load_registry(ctx):
                 except re.error as exc:
                     ctx.add("G2", ERROR, schema_rel, None,
                             "field %s has an invalid pattern: %s" % (fspec["name"], exc))
+        for pair in table.x.get("at_most") or []:
+            if not (isinstance(pair, list) and len(pair) == 2 and all(table.has(f) for f in pair)):
+                ctx.add("G2", ERROR, schema_rel, None,
+                        "at_most %r must name two fields of the table" % (pair,))
         ctx.tables[table.name] = table
     return True
 
@@ -395,6 +400,16 @@ def check_schema(ctx, row, unique_seen):
         if filled:
             ctx.add("G2", ERROR, rel, row.line,
                     "%s is required when %s is filled" % (name, ", ".join(filled)))
+    # x-papiamento at_most: [["errors", "sample_size"]] means errors can never
+    # be greater than sample_size. Cells that are not whole numbers are left
+    # to the patterns.
+    for pair in table.x.get("at_most") or []:
+        if not (isinstance(pair, list) and len(pair) == 2 and all(table.has(f) for f in pair)):
+            continue  # reported against the schema
+        small, big = row.get(pair[0]), row.get(pair[1])
+        if WHOLE_NUMBER_RE.fullmatch(small) and WHOLE_NUMBER_RE.fullmatch(big) and int(small) > int(big):
+            ctx.add("G2", ERROR, rel, row.line,
+                    "%s (%s) is greater than %s (%s)" % (pair[0], small, pair[1], big))
 
 
 def load_files(ctx):

@@ -5,7 +5,8 @@ Writes lexicon/words/<LETTER>/README.md for every letter folder, refreshes
 the progress table in lexicon/words/README.md between the PROGRESS markers,
 draws the progress chart in .github/assets/progress-light.svg and
 progress-dark.svg, and refreshes the progress block in the top-level README.md
-between the REPO-PROGRESS markers.
+between the REPO-PROGRESS markers. The measured error rates come from the
+audit log _meta/audits.tsv.
 These files are generated: edit this script, not the pages.
 
 Usage: python3 tools/build_pages.py [--check]
@@ -15,7 +16,9 @@ Usage: python3 tools/build_pages.py [--check]
 import argparse
 import glob
 import json
+import math
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,15 +29,32 @@ WORDS = os.path.join(ROOT, "lexicon", "words")
 START, END = "<!-- PROGRESS:START -->", "<!-- PROGRESS:END -->"
 REPO_START, REPO_END = "<!-- REPO-PROGRESS:START -->", "<!-- REPO-PROGRESS:END -->"
 ASSETS = os.path.join(ROOT, ".github", "assets")
+AUDITS = os.path.join(ROOT, "_meta", "audits.tsv")
 FLAGGABLE = ("error", "warning", "suggestion")
 OTHER_TABLES = [
-    # (label in the README table, glob)
-    ("Numbers", "lexicon/numbers/*.tsv"),
-    ("Days and months", "lexicon/calendar/*.tsv"),
-    ("Barbarismos", "lexicon/barbarismos/*.tsv"),
-    ("Cura\u00e7ao \u2192 Aruba spelling pairs", "lexicon/variants/*.tsv"),
-    ("Loanwords", "lexicon/loanwords/*.tsv"),
+    # (table in _meta/audits.tsv, label in the README table, glob)
+    ("numbers", "Numbers", "lexicon/numbers/*.tsv"),
+    ("calendar", "Days and months", "lexicon/calendar/*.tsv"),
+    ("barbarismos", "Barbarismos", "lexicon/barbarismos/*.tsv"),
+    ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs", "lexicon/variants/*.tsv"),
+    ("loanwords", "Loanwords", "lexicon/loanwords/*.tsv"),
 ]
+AUDIT_TABLES = [
+    # (table in _meta/audits.tsv, label in the chart's Quality section), in
+    # chart order. Must list the same values as the table enum in
+    # _meta/schema/audits.schema.json.
+    ("words", "Words"),
+    ("translations", "Word translations"),
+    ("numbers", "Numbers"),
+    ("calendar", "Days and months"),
+    ("barbarismos", "Barbarismos"),
+    ("variants", "Cura\u00e7ao \u2192 Aruba pairs"),
+    ("loanwords", "Loanwords"),
+    ("grammar", "Grammar rules"),
+    ("rules", "Machine checker rules"),
+]
+QUALITY_SCALES = (0.25, 0.5, 1.0)  # the Quality bars run from 0% to the first that fits every range
+WHOLE_NUMBER_RE = re.compile(r"[0-9]+")
 EMPTY_CHECKS = [
     # (name in the "Still empty" line, globs whose rows count)
     ("names", ["lexicon/names/*.tsv"]),
@@ -45,9 +65,11 @@ EMPTY_CHECKS = [
 ]
 THEMES = {
     "light": {"bg": "#ffffff", "border": "#d0d7de", "text": "#1f2328", "muted": "#59636e",
-              "track": "#eaeef2", "tile": "#f6f8fa", "added": "#1f6fb2", "reviewed": "#1a7f37"},
+              "track": "#eaeef2", "tile": "#f6f8fa", "added": "#1f6fb2", "reviewed": "#1a7f37",
+              "error": "#bc4c00"},
     "dark": {"bg": "#0d1117", "border": "#30363d", "text": "#e6edf3", "muted": "#9198a1",
-             "track": "#21262d", "tile": "#161b22", "added": "#4493f8", "reviewed": "#3fb950"},
+             "track": "#21262d", "tile": "#161b22", "added": "#4493f8", "reviewed": "#3fb950",
+             "error": "#f0883e"},
 }
 
 
@@ -131,14 +153,22 @@ def front_matter(path):
     return meta or {}
 
 
+# TODO(frequency-weighted coverage, board card P1-21): also show "of every 100
+# words in real Aruban text, how many are reviewed entries", i.e. the corpus
+# frequency of the reviewed words divided by the frequency of all word tokens.
+# That needs a word-frequency list whose licence lets it be published in this
+# repo. The maintainer has not chosen one yet: until then, do not add
+# frequency data, and do not derive it from an unpublished corpus.
+
+
 def repo_stats(words):
-    """Counts for the top-level README: words, other tables, grammar and machine rules."""
+    """Counts for the top-level README: words, other tables, grammar and machine rules, audits."""
     other = []
-    for label, pattern in OTHER_TABLES:
+    for key, label, pattern in OTHER_TABLES:
         rows = []
         for path in sorted(glob.glob(os.path.join(ROOT, pattern))):
             rows += read_rows(path)
-        other.append((label, len(rows), sum(1 for r in rows if r.get("status") == "reviewed")))
+        other.append((key, label, len(rows), sum(1 for r in rows if r.get("status") == "reviewed")))
     grammar = [front_matter(p) for p in sorted(glob.glob(os.path.join(ROOT, "grammar", "*", "rule-*.md")))]
     rules_path = os.path.join(ROOT, "rules", "rules.jsonl")
     machine = 0
@@ -153,7 +183,56 @@ def repo_stats(words):
         "flaggable": sum(1 for m in grammar if m.get("severity") in FLAGGABLE),
         "machine": machine,
         "empty": [name for name, patterns in EMPTY_CHECKS if count_rows(patterns) == 0],
+        "audits": latest_audits(read_rows(AUDITS) if os.path.exists(AUDITS) else []),
     }
+
+
+def latest_audits(rows):
+    """The latest audit of each table, by date and then id. Rows the gauntlet
+    rejects (sample_size or errors not a whole number, errors > sample_size)
+    are skipped."""
+    latest = {}
+    for r in rows:
+        n, e = r.get("sample_size", ""), r.get("errors", "")
+        if not (WHOLE_NUMBER_RE.fullmatch(n) and WHOLE_NUMBER_RE.fullmatch(e)):
+            continue
+        if int(n) == 0 or int(e) > int(n):
+            continue
+        key, when = r.get("table", ""), (r.get("date", ""), r.get("id", ""))
+        if key not in latest or when > (latest[key].get("date", ""), latest[key].get("id", "")):
+            latest[key] = r
+    return latest
+
+
+def wilson(errors, n, z=1.96):
+    """95% Wilson score interval for `errors` wrong out of `n`, as (low, high) shares."""
+    p = float(errors) / n
+    d = 1 + z * z / n
+    centre = (p + z * z / (2 * n)) / d
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
+    return max(0.0, centre - half), min(1.0, centre + half)
+
+
+def pct1(part):
+    """A share as a percentage with one decimal and no trailing .0: 0.0333 -> '3.3'."""
+    s = "%.1f" % (100.0 * part)
+    return s[:-2] if s.endswith(".0") else s
+
+
+def audit_numbers(audit):
+    n, e = int(audit["sample_size"]), int(audit["errors"])
+    low, high = wilson(e, n)
+    return n, e, float(e) / n, low, high
+
+
+def error_rate(audit):
+    """'3.3% (95% CI 0.9\u201311.4%), 2 of 60 on 2026-10-17' for one audit row."""
+    n, e, p, low, high = audit_numbers(audit)
+    text = "%s%% (95%% CI %s\u2013%s%%), %s of %s on %s" % (
+        pct1(p), pct1(low), pct1(high), fmt(e), fmt(n), audit.get("date", ""))
+    if [a for a in audit.get("auditor", "").split("; ") if a] == ["machine"]:
+        text += ", checked by machine"
+    return text
 
 
 def count_rows(patterns):
@@ -176,8 +255,8 @@ def share(part, whole):
 
 def chart_rows(rs):
     w = rs["words"]
-    other_rows = sum(n for _, n, _ in rs["other"])
-    other_reviewed = sum(r for _, _, r in rs["other"])
+    other_rows = sum(n for _, _, n, _ in rs["other"])
+    other_reviewed = sum(r for _, _, _, r in rs["other"])
     return [
         ("Words", None, None, None),
         ("With English", w["en"], w["words"], "added"),
@@ -230,6 +309,36 @@ def progress_svg(rs, theme):
                    '<tspan font-weight="600" fill="%s" dx="8">%d%%</tspan></text>'
                    % (right, y, t["muted"], fmt(part), fmt(whole), t["text"], int(round(100 * frac))))
         y += 30
+    audited = [(label, rs["audits"][key]) for key, label in AUDIT_TABLES if key in rs.get("audits", {})]
+    if audited:
+        # Quality: the error rate of the latest audit of each table (the dot)
+        # and its 95% interval (the band), on a scale from 0 to `scale`.
+        top = max(audit_numbers(a)[4] for _, a in audited)
+        scale = next(s for s in QUALITY_SCALES if top <= s)
+        y += 8
+        out.append('<text x="%d" y="%d" font-size="12" font-weight="600" fill="%s" letter-spacing="0.8">QUALITY</text>'
+                   % (left, y, t["muted"]))
+        out.append('<text x="%d" y="%d" font-size="11" fill="%s">0%%</text>' % (bar_x, y, t["muted"]))
+        out.append('<text x="%d" y="%d" font-size="11" fill="%s" text-anchor="middle">error rate, 95%% range</text>'
+                   % (bar_x + bar_w // 2, y, t["muted"]))
+        out.append('<text x="%d" y="%d" font-size="11" fill="%s" text-anchor="end">%d%%</text>'
+                   % (bar_x + bar_w, y, t["muted"], round(100 * scale)))
+        y += 26
+
+        def pos(part):
+            return bar_x + 5 + int(round((bar_w - 10) * part / scale))
+
+        for label, audit in audited:
+            n, e, p, low, high = audit_numbers(audit)
+            out.append('<text x="%d" y="%d" font-size="15" fill="%s">%s</text>' % (left, y, t["text"], label))
+            out.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s"/>' % (bar_x, y - 10, bar_w, t["track"]))
+            out.append('<rect x="%d" y="%d" width="%d" height="10" rx="5" fill="%s" fill-opacity="0.35"/>'
+                       % (pos(low) - 5, y - 10, pos(high) - pos(low) + 10, t["error"]))
+            out.append('<circle cx="%d" cy="%d" r="5" fill="%s"/>' % (pos(p), y - 5, t["error"]))
+            out.append('<text x="%d" y="%d" font-size="14" fill="%s" text-anchor="end">%s of %s wrong'
+                       '<tspan font-weight="600" fill="%s" dx="8">%s%%</tspan></text>'
+                       % (right, y, t["muted"], fmt(e), fmt(n), t["text"], pct1(p)))
+            y += 30
     height = y + 2
     return "\n".join([
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d" role="img" '
@@ -252,6 +361,21 @@ def readme_block(rs):
                fmt(w["words"]), round(100 * share(w["en"], w["words"])), round(100 * share(w["nl"], w["words"])),
                round(100 * share(w["es"], w["words"])), round(100 * share(w["reviewed"], w["words"])),
                fmt(rs["machine"]), fmt(rs["flaggable"])))
+    audits = rs.get("audits", {})
+    audited = []
+    for key, label in AUDIT_TABLES:
+        if key in audits:
+            n, e, p, _, _ = audit_numbers(audits[key])
+            audited.append("%s %s%% (%s of %s)" % (label, pct1(p), fmt(e), fmt(n)))
+    if audited:
+        alt += " Measured error rate in the latest random audit: %s." % "; ".join(audited)
+
+    def rate(key):
+        return error_rate(audits[key]) if key in audits else "not audited yet"
+
+    words_rate = rate("words")
+    if "translations" in audits:
+        words_rate += "<br>Translations: " + rate("translations")
     lines = [
         REPO_START,
         "<!-- Generated by tools/build_pages.py from the data. Do not edit by hand. -->",
@@ -260,15 +384,19 @@ def readme_block(rs):
         '  <img alt="%s" src=".github/assets/progress-light.svg" width="100%%">' % alt,
         "</picture>",
         "",
-        "| Table | Rows | Reviewed by the board |",
-        "|---|---:|---:|",
-        "| [Words](lexicon/words/) (AB 2018 word list) | %s | %s |" % (fmt(w["words"]), fmt(w["reviewed"])),
+        "| Table | Rows | Reviewed by the board | Measured error rate |",
+        "|---|---:|---:|---|",
+        "| [Words](lexicon/words/) (AB 2018 word list) | %s | %s | %s |" % (
+            fmt(w["words"]), fmt(w["reviewed"]), words_rate),
     ]
-    for label, n, reviewed in rs["other"]:
-        lines.append("| %s | %s | %s |" % (label, fmt(n), fmt(reviewed)))
+    for key, label, n, reviewed in rs["other"]:
+        lines.append("| %s | %s | %s | %s |" % (label, fmt(n), fmt(reviewed), rate(key)))
     lines += [
-        "| [Grammar rules](grammar/) | %s | %s |" % (fmt(rs["grammar"]), fmt(rs["grammar_reviewed"])),
-        "| [Machine checker rules](rules/) | %s | |" % fmt(rs["machine"]),
+        "| [Grammar rules](grammar/) | %s | %s | %s |" % (fmt(rs["grammar"]), fmt(rs["grammar_reviewed"]), rate("grammar")),
+        "| [Machine checker rules](rules/) | %s | | %s |" % (fmt(rs["machine"]), rate("rules")),
+        "",
+        "Measured error rate: the share of wrong rows in the latest random audit of the table against the source "
+        "PDFs, with its 95% Wilson interval (CI). The audits are logged in [`_meta/audits.tsv`](_meta/audits.tsv).",
     ]
     if rs.get("empty"):
         lines += ["", "Still empty: %s." % join_names(rs["empty"])]

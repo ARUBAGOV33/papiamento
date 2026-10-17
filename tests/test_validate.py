@@ -103,7 +103,7 @@ class TestValidRepo(GauntletCase):
         ctx = self.check(None)
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
-        self.assertEqual(len(ctx.files), 5)  # A, C, numbers, sources, known-facts
+        self.assertEqual(len(ctx.files), 6)  # A, C, numbers, sources, known-facts, audits
         self.assertGreaterEqual(ctx.facts_checked, 1)  # fact-0009: 7 -> shete
 
     def test_cli_exit_zero_and_json_shape(self):
@@ -115,7 +115,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 5)
+        self.assertEqual(report["files_checked"], 6)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):
@@ -287,6 +287,22 @@ class TestG2Schema(GauntletCase):
         self.assertFinding(ctx, "G2", "error", WORDS_A, "lemma is required", line=3)
         self.assertFinding(ctx, "G2", "error", WORDS_A, "duplicate value 'pap-000001'", line=3)
         self.assertNoFinding(ctx, "G4", contains="pap-000001")  # same file: G2 only
+
+    def test_audit_errors_at_most_sample_size(self):
+        ctx = self.check("audit_errors_exceed_sample")
+        self.assertFinding(ctx, "G2", "error", "_meta/audits.tsv",
+                           "errors (7) is greater than sample_size (5)", line=3)
+        self.assertEqual(len(self.findings(ctx, path="_meta/audits.tsv")), 1, dump(ctx))
+
+    def test_at_most_must_name_two_fields(self):
+        root = self.build_repo()
+        rel = "_meta/schema/audits.schema.json"
+        schema = json.loads((root / rel).read_text(encoding="utf-8"))
+        schema["x-papiamento"]["at_most"] = [["errors", "no_such_field"]]
+        (root / rel).write_text(json.dumps(schema), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "at_most")
+        self.assertNoFinding(ctx, contains="internal error")
 
 
 class TestTranslatedBy(GauntletCase):

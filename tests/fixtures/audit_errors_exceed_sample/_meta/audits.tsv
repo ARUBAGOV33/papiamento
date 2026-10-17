@@ -1,0 +1,3 @@
+id	date	table	sample_size	errors	method	auditor	notes
+aud-0001	2026-01-31	words	5	1	Test audit: 5 rows drawn with random.sample, seed 1	test-user	
+aud-0002	2026-01-31	numbers	5	7	Test audit: 5 rows drawn with random.sample, seed 1	machine	

@@ -55,8 +55,8 @@ This dataset keeps the two apart. Canonical columns hold Aruban Papiamento only.
 ## What's inside
 
 ```
-_meta/            Conventions, schemas, invariants, known facts, allowlists
-_templates/       Starter files: word row, grammar rule, source card, errata row
+_meta/            Conventions, schemas, invariants, known facts, allowlists, audit log
+_templates/       Starter files: word row, grammar rule, source card, errata row, audit row
 lexicon/
   words/A-Z/      words.tsv per letter: every AB 2018 headword with EN, NL, ES
   numbers/        Cardinals, ordinals, fractions and clock times
@@ -95,16 +95,18 @@ Version 0.1.0, the first release, was published on 16 October 2026: [release fil
   <img alt="Progress: 16,218 words; 18% with English, 18% with Dutch, 18% with Spanish; 0% reviewed by the board; 49 of 80 flaggable grammar rules have a machine check." src=".github/assets/progress-light.svg" width="100%">
 </picture>
 
-| Table | Rows | Reviewed by the board |
-|---|---:|---:|
-| [Words](lexicon/words/) (AB 2018 word list) | 16,218 | 0 |
-| Numbers | 159 | 0 |
-| Days and months | 19 | 0 |
-| Barbarismos | 42 | 0 |
-| Curaçao → Aruba spelling pairs | 372 | 0 |
-| Loanwords | 315 | 0 |
-| [Grammar rules](grammar/) | 192 | 0 |
-| [Machine checker rules](rules/) | 49 | |
+| Table | Rows | Reviewed by the board | Measured error rate |
+|---|---:|---:|---|
+| [Words](lexicon/words/) (AB 2018 word list) | 16,218 | 0 | not audited yet |
+| Numbers | 159 | 0 | not audited yet |
+| Days and months | 19 | 0 | not audited yet |
+| Barbarismos | 42 | 0 | not audited yet |
+| Curaçao → Aruba spelling pairs | 372 | 0 | not audited yet |
+| Loanwords | 315 | 0 | not audited yet |
+| [Grammar rules](grammar/) | 192 | 0 | not audited yet |
+| [Machine checker rules](rules/) | 49 | | not audited yet |
+
+Measured error rate: the share of wrong rows in the latest random audit of the table against the source PDFs, with its 95% Wilson interval (CI). The audits are logged in [`_meta/audits.tsv`](_meta/audits.tsv).
 
 Still empty: names, closed word classes, public holidays, the corpus and the test sets.
 <!-- REPO-PROGRESS:END -->

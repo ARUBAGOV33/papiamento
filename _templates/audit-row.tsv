@@ -1,0 +1,2 @@
+id	date	table	sample_size	errors	method	auditor	notes
+aud-0000	2026-01-31	words	100	1	Simple random sample of 100 rows (Python random.sample, seed 2026); each row checked against the page image of its cited source page; an error is a row with any cell that disagrees with the page	your-github-username	Example row. Copy the header and this row, then replace every value.

@@ -25,13 +25,14 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 | Change the validator | `tools/README.md`, `_meta/schema/`, `tests/` | data files beyond test fixtures |
 | Build evaluation sets | `eval/README.md` | — (and never train on `eval/`) |
 | Log a source typo | `sources/errata.tsv`, the source card | — |
+| Log an audit (random sample checked against the PDFs) | `_meta/conventions.md` (Audits section), `_templates/audit-row.tsv`, `_meta/audits.tsv` | — |
 | Prepare a release | `RELEASING.md`, `CHANGELOG.md`, `CITATION.cff`, `release/dataset-card.md` | data files |
 
 ## Where things live
 
 | Path | What |
 |---|---|
-| `_meta/` | conventions, schemas, invariants, known facts, allowlists |
+| `_meta/` | conventions, schemas, invariants, known facts, allowlists, audit log |
 | `_templates/` | starter files for each contribution type |
 | `lexicon/` | words A–Z, numbers, calendar, barbarismos, variants, loanwords, names |
 | `grammar/` | rules in plain language, one small file per rule |

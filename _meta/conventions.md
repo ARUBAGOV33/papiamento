@@ -37,6 +37,7 @@ Ids are assigned once, never reused and never renumbered. A word that moves to a
 | Curaçao–Aruba variants | `var-` + 4 digits | `var-0001` |
 | Loanwords | `loan-` + 4 digits | `loan-0001` |
 | Errata | `err-` + 4 digits | `err-0001` |
+| Audits | `aud-` + 4 digits | `aud-0001` |
 | Sources | short code + year | `AB2018`, `MOR2010` |
 | Rules | `RULE_<DOMAIN>_<NAME>` | `RULE_ORT_ACCENT_001` |
 
@@ -122,6 +123,29 @@ These checks apply to Aruban text columns (`lemma`, `alt`, `pap`, `right`, `arub
 ## Variants
 
 Canonical columns hold Aruban Papiamento (`pap-AW`) only. Curaçao spellings (`pap-CW`) appear only in `lexicon/variants/curacao-aruba.tsv`, as a mapping to the Aruban form.
+
+## Audits (`_meta/audits.tsv`)
+
+An audit measures how many rows of a table are wrong. Take a random sample of the table, check each sampled row against the page image of its cited source, and count the rows that are wrong. One row in `_meta/audits.tsv` records one audit of one table. The README progress table shows each table's latest audit as its measured error rate, with a 95% Wilson interval.
+
+| Column | Content |
+|---|---|
+| `id` | Stable id, `aud-0001`. |
+| `date` | The day the audit finished, `YYYY-MM-DD`. |
+| `table` | What was audited: `words`, `numbers`, `calendar`, `barbarismos`, `variants`, `loanwords`, `grammar` (the files in `grammar/`), `rules` (the machine rules in `rules/rules.jsonl`), or `translations` (the `en`, `nl` and `es` cells of word rows). |
+| `sample_size` | How many rows were checked. |
+| `errors` | How many of them were wrong. Never more than `sample_size`. |
+| `method` | How the sample was drawn, with the seed if a program drew it, and what counted as an error. |
+| `auditor` | GitHub usernames of the people who checked the sample, separated by `; `. `machine` when software or an AI model did the checking; both when a person re-checked the machine's findings, e.g. `victorgomesrt-rgb; machine`. |
+| `notes` | Rows that were doubtful but not counted, the errata or fixes the audit led to, a link to the full report. |
+
+- **Only log an audit that was carried out.** Never estimate or copy a number from somewhere else. An empty log is the honest state until the first audit.
+- **Random means random.** Draw the sample with a program and a stated seed (for example Python `random.sample` with seed 2026), or by a stated rule such as every 50th row. Rows picked by hand, or rows already known to be wrong, measure nothing.
+- **The page is the judge.** Check the rendered page image of the cited source page, not an OCR or text layer.
+- **An error** is a row with at least one cell that disagrees with the page. For `translations`, which no source page prints, it is a sense that is not the Aruban meaning or breaks the translation conventions above. Say in `method` if you counted differently, for example "only the lemma, alt and tag cells". Doubtful rows go in `notes`, not in `errors`.
+- **Fix what you find in a separate change.** The audit row keeps the number found at the time; later fixes do not change it. The next audit measures the table again.
+- **Rows are never edited or deleted**, except to fix a typo in the log itself. Old audits stay as the history of the table's quality.
+- Audit rows have no `status`: they record a measurement, not language content.
 
 ## Files and names
 

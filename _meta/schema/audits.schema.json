@@ -1,0 +1,93 @@
+{
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md (Audits).",
+  "title": "Audits: random samples of a table checked against the source PDFs",
+  "primaryKey": "id",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "unique": true,
+        "pattern": "^aud-[0-9]{4}$"
+      }
+    },
+    {
+      "name": "date",
+      "type": "string",
+      "description": "Day the audit finished, YYYY-MM-DD",
+      "constraints": {
+        "required": true,
+        "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+      }
+    },
+    {
+      "name": "table",
+      "type": "string",
+      "description": "What was audited: a table of the README progress table. translations means the en, nl and es cells of word rows; grammar the files in grammar/; rules the machine rules in rules/rules.jsonl.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "words",
+          "translations",
+          "numbers",
+          "calendar",
+          "barbarismos",
+          "variants",
+          "loanwords",
+          "grammar",
+          "rules"
+        ]
+      }
+    },
+    {
+      "name": "sample_size",
+      "type": "string",
+      "description": "Rows (or files, or rules) checked",
+      "constraints": {
+        "required": true,
+        "pattern": "^[1-9][0-9]*$"
+      }
+    },
+    {
+      "name": "errors",
+      "type": "string",
+      "description": "Sampled rows found wrong against the source page; at most sample_size",
+      "constraints": {
+        "required": true,
+        "pattern": "^(0|[1-9][0-9]*)$"
+      }
+    },
+    {
+      "name": "method",
+      "type": "string",
+      "description": "How the sample was drawn (and its seed) and what counted as an error",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "auditor",
+      "type": "string",
+      "description": "GitHub usernames of the people who checked the sample, separated by '; '; machine when software or an AI model did the checking",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string",
+      "description": "Doubtful rows, the errata or fixes the audit led to, a link to the report"
+    }
+  ],
+  "x-papiamento": {
+    "at_most": [
+      [
+        "errors",
+        "sample_size"
+      ]
+    ]
+  }
+}
