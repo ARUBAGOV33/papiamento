@@ -51,7 +51,7 @@
     {
       "name": "rule_id",
       "type": "string",
-      "description": "Rule that catches it",
+      "description": "Rule that catches it. RULE_LEX_* ids are row-level: the row itself is the rule, so they have no grammar file (grammar/README.md). Any other id must be the id of a grammar file; the validator warns when it is not.",
       "constraints": {
         "pattern": "^RULE_[A-Z]+_[A-Z0-9_]+$"
       }
@@ -109,7 +109,10 @@
     "aruban_text": [
       "right"
     ],
-    "lexicon_refs": []
+    "lexicon_refs": [],
+    "rule_refs": [
+      "rule_id"
+    ]
   },
   "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
   "primaryKey": "id",

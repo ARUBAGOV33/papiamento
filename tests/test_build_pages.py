@@ -78,6 +78,29 @@ class ProgressTest(unittest.TestCase):
 
 
 
+class RegistryTest(unittest.TestCase):
+    def test_tables_are_read_through_the_registry(self):
+        # The counts use the registry's globs, so a glob typo (which the
+        # gauntlet reports) cannot leave the README showing an old count.
+        with open(build_pages.REGISTRY, encoding="utf-8") as f:
+            registry = json.load(f)
+        self.assertGreater(len(build_pages.table_rows("loanwords")), 0)
+        for entry in registry["tables"]:
+            if entry["name"] == "loanwords":
+                entry["glob"] = "lexicon/loanword/*.tsv"
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "registry.json"
+            path.write_text(json.dumps(registry), encoding="utf-8")
+            saved = build_pages.REGISTRY
+            build_pages.REGISTRY = str(path)
+            try:
+                self.assertEqual(build_pages.table_rows("loanwords"), [])
+                with self.assertRaises(SystemExit):
+                    build_pages.table_rows("no-such-table")
+            finally:
+                build_pages.REGISTRY = saved
+
+
 class QualityTest(unittest.TestCase):
     AUDITS = [
         audit("aud-0001", "2026-01-01", "words", 200, 9),
@@ -170,7 +193,7 @@ class QualityTest(unittest.TestCase):
         with open(str(REPO / "_meta" / "schema" / "audits.schema.json"), encoding="utf-8") as f:
             fields = dict((fs["name"], fs) for fs in json.load(f)["fields"])
         self.assertEqual(fields["table"]["constraints"]["enum"], [k for k, _ in build_pages.AUDIT_TABLES])
-        for key, _, _ in build_pages.OTHER_TABLES:
+        for key, _ in build_pages.OTHER_TABLES:
             self.assertIn(key, fields["table"]["constraints"]["enum"])
 
 

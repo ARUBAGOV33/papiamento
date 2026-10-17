@@ -11,9 +11,9 @@ python3 tools/validate.py --strict   # warnings count as errors
 python3 tools/validate.py --root PATH
 ```
 
-Each finding is printed as `path:line: [GATE] SEVERITY message`, followed by a summary with error and warning counts per gate and how many known facts were checked or are still pending.
+Each finding is printed as `path:line: [GATE] SEVERITY message`, followed by a summary with error and warning counts per gate and how many known facts were checked or are still pending (with their ids).
 
-Only files that match a glob in `_meta/schema/registry.json` are checked, plus the PDFs in `sources/pdf/`.
+Only files that match a glob in `_meta/schema/registry.json` are checked, plus `rules/rules.jsonl`, the grammar files and every PDF in the repo. Every table's glob must match at least one file (a file with only the header is enough), so a typo in a glob or a moved folder cannot drop a table. A table that may have no file yet gets `"optional": true` in the registry.
 
 ### Exit codes
 
@@ -28,16 +28,19 @@ Only files that match a glob in `_meta/schema/registry.json` are checked, plus t
 | Gate | Checks | Severity |
 |---|---|---|
 | G0 Source trace | `source` is an id in `sources/sources.tsv`; `reviewed` rows have `source` and `page` | error |
-| | Non-reviewed row with a source but no page ("untraced"); `sources/sources.tsv` missing | warning |
-| | Every PDF in `sources/pdf/` is referenced by exactly one sources row; rows with a `pdf` have a shareable `licence_tier`; `permission` rows have a `permission_ref`; `pdf` and `card` paths exist | error |
-| G1 Format | UTF-8, NFC, LF only, final newline, no blank lines, header equals the schema, right number of cells, no leading/trailing/double spaces, no curly apostrophes, rows sorted by `sort_by` (case-insensitive) | error |
+| | Non-reviewed row with no source, or with a source but no page ("untraced"); `sources/sources.tsv` missing | warning |
+| | Every PDF in `sources/pdf/` is referenced by exactly one sources row; no PDF anywhere else in the repo (hidden folders other than `.github` are skipped); rows with a `pdf` have a shareable `licence_tier`; `permission` rows have a `permission_ref`; `pdf` and `card` paths exist | error |
+| G1 Format | Every registry table has a file and `rules/rules.jsonl` exists; UTF-8, NFC, LF only, final newline, no blank lines, header equals the schema, right number of cells, no leading/trailing/double spaces, no curly apostrophes, no hidden or line-breaking characters (control and zero-width characters, U+2028, no-break and other non-ASCII spaces), rows sorted by `sort_by` (case-insensitive) | error |
 | | Cell wrapped in `"` quotes | warning |
 | G2 Schema | `required`, `enum`, `pattern` (full match), `unique` within the file; `reviewed_by` set when `status` is `reviewed`; `at_most` pairs (an audit's `errors` never above its `sample_size`) | error |
+| | The schemas themselves: no unknown top-level, field or constraint keys (only `required`, `enum`, `pattern`, `unique` are checked), and every `x-papiamento` key is known and names fields of the table. A typo would otherwise switch a check off. | error |
 | G3 Orthography | In `aruban_text` columns: accented or non-Aruban characters unless the word is in `_meta/allowlists/accented-loans.txt`; word in the wrong letter folder | error |
 | | Curaçao markers (`-shon`, `k` before a/o/u, `ku`/`kos`/`kon`/`ki`), skipped for rows sourced from `AB2018` | warning |
 | G4 Integrity | `id` unique across all tables; `unique_together` across all files of a table | error |
-| | `lexicon_refs` values that are not a lemma in `lexicon/words/` (skipped while there are no word files) | warning |
-| G5 Known facts | Each row of `_meta/known-facts.tsv` holds for the matching data rows (deprecated rows are ignored). Facts with no matching row yet are counted as pending, not reported. | error |
+| | `lexicon_refs` values that are not a lemma in `lexicon/words/` (skipped while there are no word files); `rule_refs` values (`barbarismos.rule_id`) that are not the id of a grammar file. `RULE_LEX_*` ids are row-level, the row itself is the rule, so they need no grammar file. | warning |
+| G5 Known facts | Each row of `_meta/known-facts.tsv` holds for the matching data rows (deprecated rows and empty cells are ignored, and the fact is then pending). A fact on one row (`where` = `id=...`) is an error when that row's cell is empty or the row is deprecated, so a correction cannot be switched off silently. | error |
+| | A fact whose `where` matches no row at all (a typo, or a fact recorded before its row) | warning |
+| G5 Machine rules | Each rule in `rules/rules.jsonl` has a grammar file, compiles, catches its `match` tests, leaves its `no_match` tests alone and gives the expected `fix` output; tests are printed in the grammar file. No rule flags a `## Correct` example of any grammar file, its own included, unless the rule lists it in `allow_correct_hits`. | error |
 
 G5 runs every function in `G5_CHECKS`; add rule tests there.
 
@@ -65,7 +68,7 @@ Not yet: **frequency-weighted reviewed coverage**, "of every 100 words in real A
 
 ## build_dist.py (release files)
 
-Builds what a release ships into `dist/`, which is never committed. Standard library only.
+Builds what a release ships into `dist/`, which is never committed. Standard library only. It stops before writing anything if a table, the grammar rules or the machine rules have no rows (a table marked `"optional": true` in the registry may be empty).
 
 ```sh
 python3 tools/build_dist.py                    # version from CITATION.cff
@@ -91,4 +94,4 @@ The same input always gives byte-identical output. See [RELEASING.md](../RELEASI
 python3 -m unittest discover -s tests -v
 ```
 
-`tests/fixtures/valid/` is a small repo that passes. Every other folder in `tests/fixtures/` holds only the files that differ from it, so each case breaks exactly one thing. The tests copy the real `_meta/` into each fixture, so they always run against the current schemas.
+`tests/fixtures/valid/` is a small repo that passes. Every other folder in `tests/fixtures/` holds only the files that differ from it, so each case breaks exactly one thing. The tests copy the real `_meta/` into each fixture, so they always run against the current schemas. The live known facts are the exception: they name rows the small repo does not have, so `tests/fixtures/valid/_meta/known-facts.tsv` holds a few facts that match its rows.

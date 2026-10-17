@@ -16,6 +16,7 @@ on:
       - 'eval/**'
       - '_meta/audits.tsv'
       - '_meta/milestones.tsv'
+      - '_meta/schema/registry.json'
       - 'README.md'
       - 'tools/build_pages.py'
   workflow_dispatch:

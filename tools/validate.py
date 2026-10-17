@@ -4,11 +4,13 @@
 Usage: python3 tools/validate.py [--root PATH] [--json] [--strict]
 
 Gates
-  G0 Source trace   every row cites a known source; PDFs are shareable
-  G1 Format         UTF-8, NFC, LF, final newline, header, columns, cells, sort
-  G2 Schema         required / enum / pattern / unique, reviewed_by; grammar rule files
+  G0 Source trace   every row cites a known source; PDFs are shareable and only in sources/pdf/
+  G1 Format         UTF-8, NFC, LF, final newline, header, columns, cells, sort;
+                    every registry table and rules/rules.jsonl present
+  G2 Schema         required / enum / pattern / unique, reviewed_by; grammar rule files;
+                    the schemas themselves (x-papiamento and constraint keys)
   G3 Orthography    accents, Curacao markers, letter folders
-  G4 Integrity      ids unique repo-wide, unique_together, lexicon refs
+  G4 Integrity      ids unique repo-wide, unique_together, lexicon refs, rule refs
   G5 Known facts    rulings in _meta/known-facts.tsv; machine rules in rules/rules.jsonl tested
                     against their grammar files' examples (extension point: G5_CHECKS)
 
@@ -21,6 +23,7 @@ validator: every problem becomes a finding.
 
 import argparse
 import json
+import os
 import re
 import sys
 import unicodedata
@@ -54,6 +57,37 @@ ARUBAN_ALLOWED = set(
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     "ñÑ' -."
 )
+# Word-level rules (barbarismos) have RULE_LEX_* ids: the row itself is the
+# rule, so there is no grammar file for them (grammar/README.md).
+LEX_RULE_PREFIX = "RULE_LEX_"
+
+# What the validator reads from a schema. A key it does not know would
+# silently switch a check off, so unknown keys are errors.
+SCHEMA_KEYS = ("$comment", "title", "description", "fields", "primaryKey", "foreignKeys", "x-papiamento")
+FIELD_KEYS = ("name", "title", "type", "format", "description", "constraints")
+CONSTRAINT_KEYS = ("required", "enum", "pattern", "unique")
+# x-papiamento keys and the shape of their value.
+X_KEYS = {
+    "sort_by": "fields",          # ["lemma", "pos"]
+    "aruban_text": "fields",
+    "lexicon_refs": "fields",
+    "rule_refs": "fields",
+    "letter_folder": "field",     # "lemma"
+    "unique_together": "groups",  # [["lemma", "pos", "tag"]]
+    "at_most": "pairs",           # [["errors", "sample_size"]]
+    "required_if_any": "map",     # {"translated_by": ["en", "nl", "es"]}
+}
+X_SHAPES = {
+    "field": "a field name",
+    "fields": "a list of field names",
+    "groups": "a list of non-empty lists of field names",
+    "pairs": "a list of [field, field] pairs",
+    "map": "an object mapping a field name to a list of field names",
+}
+# Folders that are not part of the dataset: build output and local tool
+# folders. Hidden folders other than .github (.git, .claude worktrees, .venv)
+# are skipped too.
+SKIP_DIRS = {"dist", "node_modules", "__pycache__"}
 
 
 # --------------------------------------------------------------------------
@@ -85,9 +119,10 @@ class Finding(object):
 
 
 class Table(object):
-    def __init__(self, name, glob, schema_path, schema):
+    def __init__(self, name, glob, schema_path, schema, optional=False):
         self.name = name
         self.glob = glob
+        self.optional = optional  # may match no file (registry "optional": true)
         self.schema_path = schema_path
         self.schema = schema  # type: dict
         fields = schema.get("fields") if isinstance(schema, dict) else None
@@ -138,6 +173,8 @@ class Context(object):
         self.facts_total = 0
         self.facts_checked = 0
         self.facts_pending = 0
+        self.facts_pending_ids = []  # type: List[str]
+        self.grammar_ids = set()  # type: Set[str]
         self.grammar_checked = 0
         self.rules_checked = 0
 
@@ -196,28 +233,81 @@ def load_registry(ctx):
             ctx.add("G2", ERROR, REGISTRY_PATH, None,
                     "registry table entry needs name, glob and schema: %r" % (entry,))
             continue
+        optional = entry.get("optional", False)
+        if not isinstance(optional, bool):
+            ctx.add("G2", ERROR, REGISTRY_PATH, None,
+                    "table %s: optional must be true or false, not %r" % (entry["name"], optional))
+            optional = False
         schema_rel = (schema_dir / str(entry["schema"])).as_posix()
         schema = load_json(ctx, schema_rel)
         if not isinstance(schema, dict):
             continue
-        table = Table(str(entry["name"]), str(entry["glob"]), schema_rel, schema)
+        table = Table(str(entry["name"]), str(entry["glob"]), schema_rel, schema, optional)
         if not table.field_names:
             ctx.add("G2", ERROR, schema_rel, None, "schema has no fields")
             continue
-        for fspec in table.fields:
-            pattern = (fspec.get("constraints") or {}).get("pattern")
-            if pattern is not None:
-                try:
-                    re.compile(pattern)
-                except re.error as exc:
-                    ctx.add("G2", ERROR, schema_rel, None,
-                            "field %s has an invalid pattern: %s" % (fspec["name"], exc))
-        for pair in table.x.get("at_most") or []:
-            if not (isinstance(pair, list) and len(pair) == 2 and all(table.has(f) for f in pair)):
-                ctx.add("G2", ERROR, schema_rel, None,
-                        "at_most %r must name two fields of the table" % (pair,))
+        check_schema_keys(ctx, table)
         ctx.tables[table.name] = table
     return True
+
+
+def check_schema_keys(ctx, table):
+    # type: (Context, Table) -> None
+    """Report schema keys the validator does not know or that name no field:
+    a typo in them would silently switch a check off."""
+    rel = table.schema_path
+    unknown = sorted(set(table.schema) - set(SCHEMA_KEYS))
+    if unknown:
+        ctx.add("G2", ERROR, rel, None, "unknown schema key(s) %s (known: %s)"
+                % (", ".join(unknown), ", ".join(SCHEMA_KEYS)))
+    if "x-papiamento" in table.schema and not isinstance(table.schema["x-papiamento"], dict):
+        ctx.add("G2", ERROR, rel, None, "x-papiamento must be an object")
+    for fspec in table.fields:
+        name = fspec["name"]
+        unknown = sorted(set(fspec) - set(FIELD_KEYS))
+        if unknown:
+            ctx.add("G2", ERROR, rel, None, "field %s: unknown key(s) %s (known: %s)"
+                    % (name, ", ".join(unknown), ", ".join(FIELD_KEYS)))
+        cons = fspec.get("constraints") or {}
+        if not isinstance(cons, dict):
+            ctx.add("G2", ERROR, rel, None, "field %s: constraints must be an object" % name)
+            continue
+        unknown = sorted(set(cons) - set(CONSTRAINT_KEYS))
+        if unknown:
+            ctx.add("G2", ERROR, rel, None, "field %s: constraint(s) %s are not checked by the validator (known: %s)"
+                    % (name, ", ".join(unknown), ", ".join(CONSTRAINT_KEYS)))
+        pattern = cons.get("pattern")
+        if pattern is not None:
+            try:
+                re.compile(pattern)
+            except (re.error, TypeError) as exc:
+                ctx.add("G2", ERROR, rel, None, "field %s has an invalid pattern: %s" % (name, exc))
+    for key, value in sorted(table.x.items()):
+        shape = X_KEYS.get(key)
+        if shape is None:
+            ctx.add("G2", ERROR, rel, None, "unknown x-papiamento key %r (known: %s)"
+                    % (key, ", ".join(sorted(X_KEYS))))
+        elif not x_value_ok(table, shape, value):
+            ctx.add("G2", ERROR, rel, None, "x-papiamento %s must be %s of this table, got %s"
+                    % (key, X_SHAPES[shape], json.dumps(value, ensure_ascii=False)))
+
+
+def x_value_ok(table, shape, value):
+    # type: (Table, str, object) -> bool
+    def names(v, size=None):
+        return (isinstance(v, list) and (size is None or len(v) == size)
+                and all(isinstance(f, str) and table.has(f) for f in v))
+    if shape == "field":
+        return isinstance(value, str) and table.has(value)
+    if shape == "fields":
+        return names(value)
+    if shape == "groups":
+        return isinstance(value, list) and all(names(g) and g for g in value)
+    if shape == "pairs":
+        return isinstance(value, list) and all(names(g, 2) for g in value)
+    if shape == "map":
+        return isinstance(value, dict) and all(table.has(k) and names(v) for k, v in value.items())
+    return False
 
 
 def load_allowlist(ctx):
@@ -327,9 +417,25 @@ def check_cells(ctx, row):
         if any(c in value for c in CURLY_APOSTROPHES):
             ctx.add("G1", ERROR, rel, row.line,
                     "%s: curly apostrophe in %r; use a straight ' " % (field, value))
+        if not value.isprintable():
+            ctx.add("G1", ERROR, rel, row.line,
+                    "%s: hidden or line-breaking character(s) %s in %r; cells hold only visible "
+                    "characters and plain spaces" % (field, ", ".join(hidden_chars(value)), value))
         if len(value) >= 2 and value.startswith('"') and value.endswith('"'):
             ctx.add("G1", WARNING, rel, row.line,
                     "%s: cell is wrapped in double quotes; TSV cells are never quoted" % field)
+
+
+def hidden_chars(value):
+    # type: (str) -> List[str]
+    """Characters str.isprintable() rejects: control and format characters,
+    line and paragraph separators, and every space but U+0020 (such as the
+    no-break space), as U+XXXX NAME."""
+    out = []
+    for c in sorted(set(c for c in value if not c.isprintable())):
+        name = unicodedata.name(c, "")
+        out.append("U+%04X%s" % (ord(c), " " + name if name else ""))
+    return out
 
 
 def check_sort(ctx, tsv):
@@ -372,7 +478,7 @@ def check_schema(ctx, row, unique_seen):
         if pattern is not None:
             try:
                 ok = re.fullmatch(pattern, value) is not None
-            except re.error:
+            except (re.error, TypeError):
                 ok = True  # already reported against the schema
             if not ok:
                 ctx.add("G2", ERROR, rel, row.line,
@@ -421,6 +527,12 @@ def load_files(ctx):
             ctx.add("G2", ERROR, REGISTRY_PATH, None,
                     "bad glob %r for table %s: %s" % (table.glob, table.name, exc))
             continue
+        if not paths and not table.optional:
+            # A typo in the glob, or a moved folder, would otherwise drop the
+            # whole table from the gauntlet and the release.
+            ctx.add("G1", ERROR, REGISTRY_PATH, None,
+                    "table %s: glob %r matches no file; fix the glob or restore the files "
+                    "(a table that may have no file yet needs \"optional\": true)" % (table.name, table.glob))
         for path in paths:
             if path in seen:
                 continue
@@ -462,7 +574,10 @@ def gate_g0(ctx):
                 if not src or (has_page and not page):
                     ctx.add("G0", ERROR, tsv.rel, row.line,
                             "reviewed row must have both source and page")
-            elif src and has_page and not page:
+            elif not src:
+                ctx.add("G0", WARNING, tsv.rel, row.line,
+                        "untraced: no source%s" % (" for page %s" % page if page else ""))
+            elif has_page and not page:
                 ctx.add("G0", WARNING, tsv.rel, row.line,
                         "untraced: source %s but no page" % src)
 
@@ -495,22 +610,33 @@ def check_sources_registry(ctx, sources):
                     "%s: card %s does not exist" % (row.get("id"), card))
 
 
+def repo_files(root, suffix):
+    """Every file under root whose name ends in suffix (case-insensitive),
+    skipping SKIP_DIRS and hidden folders other than .github."""
+    for dirpath, dirnames, filenames in os.walk(str(root)):
+        dirnames[:] = sorted(d for d in dirnames
+                             if d not in SKIP_DIRS and (not d.startswith(".") or d == ".github"))
+        for name in sorted(filenames):
+            if name.lower().endswith(suffix):
+                yield Path(dirpath) / name
+
+
 def check_pdfs(ctx, sources):
-    pdf_dir_rel = ctx.registry.get("pdf_dir")
-    if not pdf_dir_rel:
-        return
-    pdf_dir = ctx.root / pdf_dir_rel
-    if not pdf_dir.is_dir():
-        return
+    pdf_dir_rel = str(ctx.registry.get("pdf_dir") or "").strip("/")
     refs = {}  # type: Dict[str, List[Row]]
     if sources is not None:
         for row in sources.rows():
             if row.get("pdf"):
                 refs.setdefault(row.get("pdf"), []).append(row)
-    for path in sorted(pdf_dir.rglob("*")):
-        if not path.is_file() or path.suffix.lower() != ".pdf":
+    for path in repo_files(ctx.root, ".pdf"):
+        if not path.is_file():
             continue
         rel = path.relative_to(ctx.root).as_posix()
+        if not pdf_dir_rel or not rel.startswith(pdf_dir_rel + "/"):
+            ctx.add("G0", ERROR, rel, None,
+                    "PDF outside %s/: source PDFs are committed only there, and only for "
+                    "shareable sources" % (pdf_dir_rel or "the registry's pdf_dir"))
+            continue
         rows = refs.get(rel, [])
         if not rows:
             ctx.add("G0", ERROR, rel, None,
@@ -606,10 +732,8 @@ def gate_g4(ctx):
 
     for table in ctx.tables.values():
         for combo in table.x.get("unique_together") or []:
-            if not isinstance(combo, list) or not all(table.has(f) for f in combo):
-                ctx.add("G4", ERROR, table.schema_path, None,
-                        "unique_together %r names unknown fields" % (combo,))
-                continue
+            if not isinstance(combo, list) or not combo or not all(table.has(f) for f in combo):
+                continue  # reported against the schema
             seen = {}  # type: Dict[Tuple[str, ...], Row]
             for row in table.rows():
                 key = tuple(row.get(f) for f in combo)
@@ -620,6 +744,18 @@ def gate_g4(ctx):
                     ctx.add("G4", ERROR, row.file.rel, row.line,
                             "%s %s duplicates %s:%d"
                             % ("+".join(combo), "|".join(key), first.file.rel, first.line))
+
+    # x-papiamento rule_refs: the cell names the grammar rule that catches the
+    # row. RULE_LEX_* ids are row-level and have no grammar file.
+    for tsv in ctx.files:
+        refs = [f for f in (tsv.table.x.get("rule_refs") or []) if tsv.table.has(f)]
+        for row in tsv.rows:
+            for field in refs:
+                value = row.get(field)
+                if value and not value.startswith(LEX_RULE_PREFIX) and value not in ctx.grammar_ids:
+                    ctx.add("G4", WARNING, tsv.rel, row.line,
+                            "%s: %r is not the id of a grammar file in grammar/ (only %s* ids are "
+                            "row-level and need none)" % (field, value, LEX_RULE_PREFIX))
 
     words = ctx.tables.get("words")
     if words is None or not words.files:
@@ -688,14 +824,28 @@ def check_known_facts(ctx):
             ctx.add("G5", ERROR, fact.file.rel, fact.line,
                     "%s: table %s has no column(s) %s" % (fid, target.name, ", ".join(unknown)))
             continue
+        matched = [r for r in target.rows() if all(r.get(k) == v for k, v in where)]
         # An empty cell means "not known yet" (conventions), so a fact only
-        # constrains rows where the field has been filled in.
-        rows = [r for r in target.rows()
-                if r.get("status") != "deprecated"
-                and all(r.get(k) == v for k, v in where)
-                and r.get(field)]
+        # constrains live rows where the field has been filled in.
+        rows = [r for r in matched if r.get("status") != "deprecated" and r.get(field)]
         if not rows:
             ctx.facts_pending += 1
+            ctx.facts_pending_ids.append(fid)
+            if not matched:
+                ctx.add("G5", WARNING, fact.file.rel, fact.line,
+                        "%s: no row of %s matches %s (a typo, or the row is not in the data yet)"
+                        % (fid, target.name, fact.get("where")))
+            elif any(k == "id" for k, _ in where):
+                # A ruling on one row (an errata correction) must not be
+                # switched off by emptying its cell or deprecating the row.
+                if all(r.get("status") == "deprecated" for r in matched):
+                    state = "is deprecated"
+                else:
+                    state = "has an empty %s" % field
+                ctx.add("G5", ERROR, fact.file.rel, fact.line,
+                        "%s: the row %s %s, so the ruling is no longer checked; restore it, "
+                        "or remove the fact if the ruling no longer applies"
+                        % (fid, fact.get("where"), state))
             continue
         ctx.facts_checked += 1
         for row in rows:
@@ -799,6 +949,7 @@ def check_grammar(ctx):
                 ctx.add("G4", ERROR, rel, None, "id %s is already used by %s" % (rid, seen[rid]))
             else:
                 seen[rid] = rel
+                ctx.grammar_ids.add(rid)
         status = meta.get("status", "")
         if status and status not in GRAMMAR_STATUS:
             ctx.add("G2", ERROR, rel, None, "status %r not in %s" % (status, ", ".join(GRAMMAR_STATUS)))
@@ -830,7 +981,8 @@ def check_grammar(ctx):
 # --------------------------------------------------------------------------
 
 RULES_PATH = "rules/rules.jsonl"
-RULE_KEYS = {"rule_id", "pattern", "flags", "replacement", "message", "tests", "derived", "notes"}
+RULE_KEYS = {"rule_id", "pattern", "flags", "replacement", "message", "tests", "derived", "notes",
+             "allow_correct_hits"}
 # Python-only or non-portable regex syntax. \b and \w are ASCII-only in JavaScript,
 # so they misfire next to ñ and accented letters; spell boundaries out instead.
 NON_PORTABLE = re.compile(r"\\[bBwW]|\(\?P|\(\?[aiLmsux-]+[):]|\\[AZz]|\(\?<[A-Za-z]")
@@ -878,6 +1030,7 @@ def check_rule_tests(ctx):
     # type: (Context) -> None
     path = ctx.root / RULES_PATH
     if not path.exists():
+        ctx.add("G1", ERROR, RULES_PATH, None, "file not found; the machine rules are required")
         return
     try:
         text = path.read_text(encoding="utf-8")
@@ -979,10 +1132,28 @@ def check_rule_tests(ctx):
                 ctx.add("G5", ERROR, RULES_PATH, n, "%s: fixing %r gives %r, expected %r" % (rid, fx["text"], got, fx["expect"]))
         if positives == 0:
             ctx.add("G5", ERROR, RULES_PATH, n, "%s: needs at least one test it must catch" % rid)
+        # Every '## Correct' example of every grammar file, the rule's own
+        # included, must pass the rule, unless the rule lists it in
+        # allow_correct_hits (an example that really contains the flagged form).
+        allow = rule.get("allow_correct_hits") or []
+        if not (isinstance(allow, list) and all(isinstance(a, str) for a in allow)):
+            ctx.add("G2", ERROR, RULES_PATH, n, "%s: allow_correct_hits must be a list of strings" % rid)
+            allow = []
+        no_match = tests.get("no_match") or []
+        flagged = set()  # type: Set[str]
         for rel, ex in correct_pool:
-            if rel != grel and rx.search(ex):
-                ctx.add("G5", WARNING, RULES_PATH, n,
-                        "%s flags a correct example in %s: %r" % (rid, rel, ex))
+            if not rx.search(ex):
+                continue
+            flagged.add(ex)
+            if ex in allow or ex in no_match:  # no_match hits are reported above
+                continue
+            ctx.add("G5", ERROR, RULES_PATH, n,
+                    "%s flags the correct example %r in %s; fix the pattern, or list the example in "
+                    "allow_correct_hits if it really contains the flagged form" % (rid, ex, rel))
+        for ex in allow:
+            if ex not in flagged:
+                ctx.add("G2", ERROR, RULES_PATH, n,
+                        "%s: allow_correct_hits %r is not a correct example this rule flags; remove it" % (rid, ex))
 
 
 # Each G5 check takes the Context and appends findings. Rule tests go here.
@@ -1053,7 +1224,7 @@ def report_json(ctx):
         "grammar_rules_checked": ctx.grammar_checked,
         "machine_rules_checked": ctx.rules_checked,
         "known_facts": {"total": ctx.facts_total, "checked": ctx.facts_checked,
-                        "pending": ctx.facts_pending},
+                        "pending": ctx.facts_pending, "pending_ids": ctx.facts_pending_ids},
     }
 
 
@@ -1069,8 +1240,9 @@ def report_text(ctx):
     parts = ["%s %d error(s) %d warning(s)" % (g, gates[g]["errors"], gates[g]["warnings"])
              for g in GATES]
     out.append("")
-    out.append("Gauntlet: %d file(s), %d row(s), %d grammar rule(s), %d machine rule(s) checked; known facts: %d checked, %d pending"
-               % (len(ctx.files), ctx.rows_checked, ctx.grammar_checked, ctx.rules_checked, ctx.facts_checked, ctx.facts_pending))
+    out.append("Gauntlet: %d file(s), %d row(s), %d grammar rule(s), %d machine rule(s) checked; known facts: %d checked, %d pending%s"
+               % (len(ctx.files), ctx.rows_checked, ctx.grammar_checked, ctx.rules_checked, ctx.facts_checked, ctx.facts_pending,
+                  " (%s)" % ", ".join(ctx.facts_pending_ids) if ctx.facts_pending_ids else ""))
     out.append(" | ".join(parts))
     out.append("RESULT: %s" % ("PASS" if is_ok(ctx) else "FAIL"))
     return "\n".join(out)

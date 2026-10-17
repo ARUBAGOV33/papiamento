@@ -18,6 +18,7 @@ One JSON object per line:
 | `tests` | `match`: examples the rule must flag. `no_match`: examples it must leave alone. `fix`: `{"text", "expect"}` pairs for the replacement. All copied verbatim from the grammar file. |
 | `derived` | Optional tests made by a mechanical change of a printed example (capitalising, splitting a joined word…): `{"text", "from", "change", "expect"}`. `from` must be printed in the grammar file. |
 | `notes` | What the rule deliberately does not catch. |
+| `allow_correct_hits` | Optional. `## Correct` examples (from any grammar file) that the rule may flag, because they really contain the form it looks for. Each entry must be an example the rule flags; remove it when it no longer is. |
 
 Severity, source and page are not repeated: they come from the grammar file.
 
@@ -32,7 +33,7 @@ The Skirbi checker runs these rules in JavaScript; the validator runs them in Py
 
 On every pull request:
 
-- `python3 tools/validate.py` (gate G5) checks that every test sentence is printed in the grammar file, that each rule flags its `match` tests and leaves its `no_match` tests alone, that fixes produce the expected text, and that no rule flags a correct example in another grammar file.
+- `python3 tools/validate.py` (gate G5) checks that every test sentence is printed in the grammar file, that each rule flags its `match` tests and leaves its `no_match` tests alone, that fixes produce the expected text, and that no rule flags a `## Correct` example of any grammar file, its own included, unless the rule lists it in `allow_correct_hits`.
 - `node tools/test_rules.mjs` runs the same tests with JavaScript's RegExp.
 
 Precision matters more than coverage. A rule that flags correct Aruban text annoys teachers and misleads AI models, so a rule is left out when a pattern cannot check it reliably.

@@ -3,7 +3,9 @@
 Fixture layout: tests/fixtures/valid/ is a complete mini repo that passes.
 Every other tests/fixtures/<case>/ holds only the files that differ from
 valid/; build_repo() copies valid/, overlays the case, and adds a copy of the
-real _meta/ so fixtures are always checked against the live schemas.
+real _meta/ so fixtures are always checked against the live schemas. The live
+known facts are the exception: they name rows the mini repo does not have, so
+valid/_meta/known-facts.tsv holds a few facts that match its rows.
 Byte-level cases (CRLF, NFD, bad UTF-8) and PDFs are written by the tests
 themselves so editors and git cannot silently "fix" them.
 
@@ -39,9 +41,10 @@ class GauntletCase(unittest.TestCase):
         self.addCleanup(self._tmp.cleanup)
 
     def build_repo(self, case=None):
-        root = Path(self._tmp.name) / "repo"
+        root = Path(tempfile.mkdtemp(dir=self._tmp.name)) / "repo"
         shutil.copytree(str(FIXTURES / "valid"), str(root))
-        shutil.copytree(str(REPO / "_meta"), str(root / "_meta"))
+        shutil.copytree(str(REPO / "_meta"), str(root / "_meta"), dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns("known-facts.tsv"))
         if case is not None:
             shutil.copytree(str(FIXTURES / case), str(root), dirs_exist_ok=True)
         return root
@@ -103,8 +106,11 @@ class TestValidRepo(GauntletCase):
         ctx = self.check(None)
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
-        self.assertEqual(len(ctx.files), 7)  # A, C, numbers, sources, known-facts, audits, milestones
-        self.assertGreaterEqual(ctx.facts_checked, 1)  # fact-0009: 7 -> shete
+        # A, C, H, numbers, calendar, barbarismos, variants, loanwords, errata,
+        # sources, known-facts, audits, milestones: every registry table has a file.
+        self.assertEqual(len(ctx.files), 13)
+        self.assertEqual(ctx.facts_checked, ctx.facts_total)  # e.g. fact-0009: 7 -> shete
+        self.assertEqual(ctx.facts_pending_ids, [])
 
     def test_cli_exit_zero_and_json_shape(self):
         root = self.build_repo()
@@ -115,7 +121,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 7)
+        self.assertEqual(report["files_checked"], 13)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):
@@ -137,6 +143,13 @@ class TestG0SourceTrace(GauntletCase):
         ctx = self.check("untraced")
         self.assertFinding(ctx, "G0", "warning", WORDS_A, "untraced", line=3)
         self.assertTrue(validate.is_ok(ctx), dump(ctx))
+
+    def test_row_without_source_is_untraced(self):
+        root = self.build_repo()
+        rewrite(root / WORDS_A, lambda t: t.replace("\tdraft\t\tAB2018\t12\t", "\tdraft\t\t\t12\t").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G0", "warning", WORDS_A, "untraced: no source for page 12", line=3)
+        self.assertTrue(validate.is_ok(ctx), dump(ctx))  # draft rows may wait for a source
 
     def test_strict_turns_warnings_into_errors(self):
         ctx = self.run_gauntlet(self.build_repo("untraced"), strict=True)
@@ -170,6 +183,20 @@ class TestG0SourceTrace(GauntletCase):
         ctx = self.run_gauntlet(root)
         self.assertFinding(ctx, "G0", "error", "sources/pdf/XYZ2020.pdf", "not referenced")
 
+    def test_pdf_outside_pdf_dir(self):
+        root = self.build_repo()
+        for rel in ("sources/cards/AB2018.pdf", "corpus/raw/scan.PDF"):
+            (root / rel).parent.mkdir(parents=True, exist_ok=True)
+            (root / rel).write_bytes(b"%PDF-1.4 fixture\n")
+        # Local tool folders (here a nested worktree) are not part of the repo.
+        nested = root / ".claude/worktrees/x/sources/pdf/NOPE.pdf"
+        nested.parent.mkdir(parents=True)
+        nested.write_bytes(b"%PDF-1.4 fixture\n")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G0", "error", "sources/cards/AB2018.pdf", "PDF outside sources/pdf/")
+        self.assertFinding(ctx, "G0", "error", "corpus/raw/scan.PDF", "PDF outside sources/pdf/")
+        self.assertNoFinding(ctx, contains="NOPE")
+
     def _with_ab_pdf(self, tier):
         root = self.build_repo()
         pdf_dir = root / "sources/pdf"
@@ -198,6 +225,46 @@ class TestG0SourceTrace(GauntletCase):
 
 
 class TestG1Format(GauntletCase):
+    def test_glob_matching_no_file_is_an_error(self):
+        root = self.build_repo()
+        rewrite(root / "_meta/schema/registry.json",
+                lambda t: t.replace("lexicon/loanwords/*.tsv", "lexicon/loanword/*.tsv").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G1", "error", validate.REGISTRY_PATH,
+                           "table loanwords: glob 'lexicon/loanword/*.tsv' matches no file")
+
+    def test_optional_table_may_have_no_file(self):
+        root = self.build_repo()
+        (root / "lexicon/loanwords/loanwords.tsv").unlink()
+        registry = json.loads((root / validate.REGISTRY_PATH).read_text(encoding="utf-8"))
+        for entry in registry["tables"]:
+            if entry["name"] == "loanwords":
+                entry["optional"] = True
+            if entry["name"] == "variants":
+                entry["optional"] = "yes"
+        (root / validate.REGISTRY_PATH).write_text(json.dumps(registry), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertNoFinding(ctx, "G1")
+        hits = self.assertFinding(ctx, "G2", "error", validate.REGISTRY_PATH, "optional must be true or false")
+        self.assertEqual(len(hits), 1)
+
+    def test_missing_known_facts_and_rules_are_errors(self):
+        root = self.build_repo()
+        (root / "_meta/known-facts.tsv").unlink()
+        (root / validate.RULES_PATH).unlink()
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G1", "error", validate.REGISTRY_PATH, "table known-facts")
+        self.assertFinding(ctx, "G1", "error", validate.RULES_PATH, "file not found")
+
+    def test_hidden_characters_in_cells(self):
+        root = self.build_repo()
+        rewrite(root / WORDS_A, lambda t: t.replace("\twater\twater\tagua\t",
+                                                    "\twater\u2028second line\twa\u00a0ter\tag\u200bua\u0007\t").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G1", "error", WORDS_A, "en: hidden or line-breaking character(s) U+2028 LINE SEPARATOR", line=3)
+        self.assertFinding(ctx, "G1", "error", WORDS_A, "nl: hidden or line-breaking character(s) U+00A0 NO-BREAK SPACE", line=3)
+        self.assertFinding(ctx, "G1", "error", WORDS_A, "es: hidden or line-breaking character(s) U+0007, U+200B ZERO WIDTH SPACE", line=3)
+
     def test_non_nfc(self):
         root = self.build_repo()
         nfd = unicodedata.normalize("NFD", "tú")
@@ -305,6 +372,27 @@ class TestG2Schema(GauntletCase):
         self.assertNoFinding(ctx, contains="internal error")
 
 
+    def test_schema_typos_are_reported(self):
+        root = self.build_repo()
+        rel = "_meta/schema/lexicon-words.schema.json"
+        schema = json.loads((root / rel).read_text(encoding="utf-8"))
+        schema["x-papiamento"]["aruban_text"] = ["lema", "alt "]
+        schema["x-papiamento"]["letter_folder"] = "lema"
+        schema["x-papiamento"]["sort_bye"] = ["lemma"]
+        schema["fields"][1]["constraints"]["maxLength"] = 40
+        schema["fields"][2]["constraint"] = {"required": True}
+        schema["x-papiamiento"] = {}
+        (root / rel).write_text(json.dumps(schema), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "x-papiamento aruban_text must be a list of field names")
+        self.assertFinding(ctx, "G2", "error", rel, "x-papiamento letter_folder must be a field name")
+        self.assertFinding(ctx, "G2", "error", rel, "unknown x-papiamento key 'sort_bye'")
+        self.assertFinding(ctx, "G2", "error", rel, "field lemma: constraint(s) maxLength are not checked")
+        self.assertFinding(ctx, "G2", "error", rel, "field alt: unknown key(s) constraint")
+        self.assertFinding(ctx, "G2", "error", rel, "unknown schema key(s) x-papiamiento")
+        self.assertNoFinding(ctx, contains="internal error")
+
+
 class TestTranslatedBy(GauntletCase):
     def test_translation_needs_translated_by(self):
         root = self.build_repo()
@@ -381,6 +469,24 @@ class TestG4Integrity(GauntletCase):
         self.assertNoFinding(ctx, "G4", contains="'cas'")
         self.assertNoFinding(ctx, severity="error")
 
+    def test_rule_refs_must_name_a_grammar_file(self):
+        root = self.build_repo()
+        grammar = root / "grammar/orthography/rule-ort-test-001.md"
+        grammar.parent.mkdir(parents=True)
+        grammar.write_text(TestGrammarFiles.GOOD, encoding="utf-8")
+        path = root / "lexicon/barbarismos/barbarismos.tsv"
+        path.write_text(path.read_text(encoding="utf-8") + "".join(
+            "bar-000%d\t%s\t%s\tes\tSpanish word.\t%s\tdraft\t\tAB2018\t12\t\n" % row for row in [
+                (1, "agua", "awa", "RULE_LEX_AGUA_001"),    # row-level id: no grammar file needed
+                (2, "casa", "cas", "RULE_ORT_TEST_001"),    # a grammar file has this id
+                (3, "usted", "bo", "RULE_PRN_USTED_001"),   # no grammar file
+            ]), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        rel = "lexicon/barbarismos/barbarismos.tsv"
+        hits = self.assertFinding(ctx, "G4", "warning", rel, "'RULE_PRN_USTED_001' is not the id of a grammar file", line=4)
+        self.assertEqual(len(self.findings(ctx, "G4", path=rel)), 1, dump(ctx))
+        self.assertTrue(validate.is_ok(ctx), dump(ctx))
+
     def test_lexicon_refs_skipped_without_words(self):
         root = self.build_repo("lexicon_ref")
         shutil.rmtree(str(root / "lexicon/words"))
@@ -400,17 +506,36 @@ class TestG5KnownFacts(GauntletCase):
         self.assertFinding(ctx, "G5", "error", path, "fact-0001", line=2)  # contains 'a lot'
         self.assertFinding(ctx, "G5", "error", path, "fact-0002", line=2)  # not-contains 'Hopi'
 
-    def test_fact_pending_when_row_absent(self):
-        ctx = self.check(None)
-        self.assertNoFinding(ctx, "G5")
-        self.assertGreater(ctx.facts_pending, 0)
+    def test_fact_matching_no_row_warns(self):
+        # A where that matches nothing is a typo, or a fact recorded before its row.
+        root = self.build_repo()
+        (root / "lexicon/words/H/words.tsv").unlink()
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G5", "warning", "_meta/known-facts.tsv",
+                           "fact-0001: no row of words matches lemma=hopi", line=2)
+        self.assertTrue(validate.is_ok(ctx), dump(ctx))
+        self.assertEqual(ctx.facts_pending_ids, ["fact-0001", "fact-0002"])
         self.assertEqual(ctx.facts_checked + ctx.facts_pending, ctx.facts_total)
+        self.assertIn("2 pending (fact-0001, fact-0002)", validate.report_text(ctx))
 
     def test_fact_pending_when_cell_empty(self):
         # An empty translation means "not known yet": the hopi fact waits.
         ctx = self.check("known_fact_empty")
         self.assertNoFinding(ctx, "G5")
+        self.assertEqual(ctx.facts_pending_ids, ["fact-0001", "fact-0002"])
         self.assertEqual(ctx.facts_checked + ctx.facts_pending, ctx.facts_total)
+
+    def test_id_fact_cannot_be_switched_off(self):
+        # fact-0901 rules on row pap-000003 (like an errata correction).
+        for change, state in (("\thouse\t", "has an empty en"), ("\tdraft\t", "is deprecated")):
+            with self.subTest(state=state):
+                root = self.build_repo()
+                path = root / "lexicon/words/C/words.tsv"
+                rewrite(path, lambda t: t.replace(
+                    change, "\t\t" if change == "\thouse\t" else "\tdeprecated\t", 1).encode("utf-8"))
+                ctx = self.run_gauntlet(root)
+                self.assertFinding(ctx, "G5", "error", "_meta/known-facts.tsv",
+                                   "fact-0901: the row id=pap-000003 %s" % state)
 
     def test_g5_checks_is_extensible(self):
         def extra(ctx):
@@ -559,6 +684,33 @@ class TestMachineRules(GauntletCase):
         self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "cannot be applied")
         self.assertNoFinding(ctx, contains="internal error")
         self.assertEqual(ctx.rules_checked, 1)
+
+    def test_rule_must_not_flag_its_own_correct_examples(self):
+        # Before, only examples listed as no_match tests were checked.
+        r = self.rule(flags="i", tests={"match": ["Dialuna"], "no_match": []})
+        ctx = self.run_gauntlet(self.repo(r))
+        rel = "grammar/orthography/rule-ort-test-001.md"
+        self.assertFinding(ctx, "G5", "error", "rules/rules.jsonl", "flags the correct example 'dialuna' in %s" % rel)
+        self.assertFinding(ctx, "G5", "error", "rules/rules.jsonl", "flags the correct example 'Mi ta bay dialuna.'")
+
+    def test_correct_hits_in_other_files_are_errors_unless_allowed(self):
+        other = ("---\nid: RULE_ORT_TEST_002\ntitle: Other\nstatus: draft\nsource: AB2018\npage: \"33\"\n"
+                 "severity: error\n---\n\n## Rule\n\nA rule.\n\n## Correct\n\n- Dialuna ta bon.\n")
+        for allow, expect_error in (([], True), (["Dialuna ta bon."], False)):
+            with self.subTest(allow=allow):
+                root = self.repo(self.rule(allow_correct_hits=allow))
+                (root / "grammar/orthography/rule-ort-test-002.md").write_text(other, encoding="utf-8")
+                ctx = self.run_gauntlet(root)
+                hits = self.findings(ctx, "G5", "error", contains="'Dialuna ta bon.' in grammar/orthography/rule-ort-test-002.md")
+                self.assertEqual(bool(hits), expect_error, dump(ctx))
+                self.assertNoFinding(ctx, "G2")
+
+    def test_allow_correct_hits_must_be_used(self):
+        ctx = self.run_gauntlet(self.repo(self.rule(allow_correct_hits=["dialuna", "nada"])))
+        self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "allow_correct_hits 'dialuna' is not a correct example this rule flags")
+        self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "allow_correct_hits 'nada'")
+        ctx = self.run_gauntlet(self.repo(self.rule(allow_correct_hits="dialuna")))
+        self.assertFinding(ctx, "G2", "error", "rules/rules.jsonl", "allow_correct_hits must be a list")
 
     def test_derived_test_needs_printed_basis(self):
         r = self.rule(tests={"match": [], "no_match": ["dialuna"]},

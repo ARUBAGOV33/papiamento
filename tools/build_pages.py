@@ -29,16 +29,15 @@ WORDS = os.path.join(ROOT, "lexicon", "words")
 START, END = "<!-- PROGRESS:START -->", "<!-- PROGRESS:END -->"
 REPO_START, REPO_END = "<!-- REPO-PROGRESS:START -->", "<!-- REPO-PROGRESS:END -->"
 ASSETS = os.path.join(ROOT, ".github", "assets")
-AUDITS = os.path.join(ROOT, "_meta", "audits.tsv")
-MILESTONES = os.path.join(ROOT, "_meta", "milestones.tsv")
+REGISTRY = os.path.join(ROOT, "_meta", "schema", "registry.json")
 FLAGGABLE = ("error", "warning", "suggestion")
 OTHER_TABLES = [
-    # (table in _meta/audits.tsv, label in the README table, glob)
-    ("numbers", "Numbers", "lexicon/numbers/*.tsv"),
-    ("calendar", "Days and months", "lexicon/calendar/*.tsv"),
-    ("barbarismos", "Barbarismos", "lexicon/barbarismos/*.tsv"),
-    ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs", "lexicon/variants/*.tsv"),
-    ("loanwords", "Loanwords", "lexicon/loanwords/*.tsv"),
+    # (table in _meta/schema/registry.json and _meta/audits.tsv, label in the README table)
+    ("numbers", "Numbers"),
+    ("calendar", "Days and months"),
+    ("barbarismos", "Barbarismos"),
+    ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs"),
+    ("loanwords", "Loanwords"),
 ]
 AUDIT_TABLES = [
     # (table in _meta/audits.tsv, label in the chart's Quality section), in
@@ -87,6 +86,18 @@ def read_rows(path):
         lines = f.read().split("\n")
     header = lines[0].split("\t")
     return [dict(zip(header, l.split("\t"))) for l in lines[1:] if l]
+
+
+def table_rows(name):
+    """Every row of a registry table, from the files its glob in _meta/schema/registry.json matches."""
+    with open(REGISTRY, encoding="utf-8") as f:
+        globs = dict((t["name"], t["glob"]) for t in json.load(f)["tables"])
+    if name not in globs:
+        sys.exit("%s has no table %r" % (os.path.relpath(REGISTRY, ROOT), name))
+    rows = []
+    for path in sorted(glob.glob(os.path.join(ROOT, globs[name]))):
+        rows += read_rows(path)
+    return rows
 
 
 def stats(rows):
@@ -173,10 +184,8 @@ def front_matter(path):
 def repo_stats(words):
     """Counts for the top-level README: words, other tables, grammar and machine rules, audits."""
     other = []
-    for key, label, pattern in OTHER_TABLES:
-        rows = []
-        for path in sorted(glob.glob(os.path.join(ROOT, pattern))):
-            rows += read_rows(path)
+    for key, label in OTHER_TABLES:
+        rows = table_rows(key)
         other.append((key, label, len(rows), sum(1 for r in rows if r.get("status") == "reviewed")))
     grammar = [front_matter(p) for p in sorted(glob.glob(os.path.join(ROOT, "grammar", "*", "rule-*.md")))]
     rules_path = os.path.join(ROOT, "rules", "rules.jsonl")
@@ -192,8 +201,8 @@ def repo_stats(words):
         "flaggable": sum(1 for m in grammar if m.get("severity") in FLAGGABLE),
         "machine": machine,
         "empty": [name for name, patterns in EMPTY_CHECKS if count_rows(patterns) == 0],
-        "audits": latest_audits(read_rows(AUDITS) if os.path.exists(AUDITS) else []),
-        "milestones": read_rows(MILESTONES) if os.path.exists(MILESTONES) else [],
+        "audits": latest_audits(table_rows("audits")),
+        "milestones": table_rows("milestones"),
     }
 
 
