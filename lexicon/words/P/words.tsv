@@ -127,7 +127,7 @@ pap-010955	papi				daddy; dad	papa; pappie	papá; papi	machine	draft		AB2018	49
 pap-010956	papia				to speak; to talk	spreken; praten	hablar	machine	draft		AB2018	49	
 pap-010957	papiado				speaker	spreker	hablante	machine	draft		AB2018	49	
 pap-010958	papiamentista								draft		AB2018	49	
-pap-010959	papiamento				Papiamento	Papiaments	papiamento	machine	draft		AB2018	49	
+pap-010959	papiamento								draft		AB2018	49	Machine translation removed (2026-10 bug hunt): it gave the language name, which is the separate entry Papiamento (idioma), pap-010960. This lowercase entry is a common noun.
 pap-010960	Papiamento			idioma	Papiamento	Papiaments	papiamento	machine	draft		AB2018	49	
 pap-010961	papiando				speaking; talking	pratend; sprekend	hablando	machine	draft		AB2018	49	
 pap-010962	papiyot								draft		AB2018	49	

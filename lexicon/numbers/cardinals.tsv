@@ -99,7 +99,7 @@ num-0097	cardinal	96	nobentiseis		ninety-six	zesennegentig	noventa y seis	draft	
 num-0098	cardinal	97	nobentishete		ninety-seven	zevenennegentig	noventa y siete	draft		AB2018	46	
 num-0099	cardinal	98	nobentiocho		ninety-eight	achtennegentig	noventa y ocho	draft		AB2018	46	
 num-0100	cardinal	99	nobentinuebe		ninety-nine	negenennegentig	noventa y nueve	draft		AB2018	46	
-num-0101	cardinal	100	cien	shen	one hundred; hundred	honderd	cien; ciento	draft		AB2018	13	AB 2018 §11.8 (gazette page 38) gives dos shen, dos shento and dos cien within the examples 236 and 29.233; shento is used before y, contracted shent'y.
+num-0101	cardinal	100	cien	shen	one hundred; hundred	honderd	cien; ciento	draft		AB2018	13	AB 2018 §11.8 (gazette page 38) gives dos shen y, dos shento y (contracted shent'y) and dos cien y within the examples 236 and 29.233. The word list prints cien/shen (p. 13) and shen/cien (p. 61).
 num-0102	cardinal	1000	mil		one thousand; thousand	duizend	mil	draft		AB2018	44	
 num-0103	cardinal	1000000	miyon		one million; million	miljoen	millón	draft		AB2018	44	
 num-0159	cardinal	1000000000	biyon		one billion; billion	miljard	mil millones	draft		AB2018	8	10^9, as ruled by the maintainer (2026-10-16). Not Spanish billón or Dutch biljoen, which are 10^12.
