@@ -19,6 +19,9 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+import validate  # noqa: E402  (front matter, parsed the same way as the gauntlet)
+
 WORDS = os.path.join(ROOT, "lexicon", "words")
 START, END = "<!-- PROGRESS:START -->", "<!-- PROGRESS:END -->"
 REPO_START, REPO_END = "<!-- REPO-PROGRESS:START -->", "<!-- REPO-PROGRESS:END -->"
@@ -123,18 +126,9 @@ def fmt(n):
 
 
 def front_matter(path):
-    meta = {}
     with open(path, encoding="utf-8") as f:
-        lines = f.read().split("\n")
-    if not lines or lines[0].strip() != "---":
-        return meta
-    for line in lines[1:]:
-        if line.strip() == "---":
-            break
-        if ":" in line:
-            k, v = line.split(":", 1)
-            meta[k.strip()] = v.strip()
-    return meta
+        meta, _ = validate.parse_front_matter(f.read())
+    return meta or {}
 
 
 def repo_stats(words):
