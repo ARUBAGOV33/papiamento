@@ -117,6 +117,7 @@ Still empty: names, closed word classes, public holidays, the corpus and the tes
 - The review board is being recruited. Until it checks a row, that row stays `draft`.
 - **Bug hunt (October 2026):** AI checker agents compared samples of each table with the page images of the source PDFs. They found 2 wrong machine translations out of 60 and no errors in the other samples. The rows found wrong were fixed in [#15](https://github.com/ARUBAGOV33/papiamento/pull/15). No person has repeated these audits yet. The results are the error rates in the table above.
 - **Rulings audit (October 2026):** every grammar rule now rests on a printed page or a dated maintainer decision. One question is still open: whether gusta can take ta (err-0023 in [`sources/errata.tsv`](sources/errata.tsv)).
+- **Parallel sentences (set up October 2026):** the tables for everyday English and Spanish sentences and their Aruban Papiamento translations are ready in `corpus/parallel/`, with 15% held out in `eval/parallel/`, under CC0 so they can go to Common Voice. They are empty until teachers start translating. Everyone credited is listed in [`_meta/contributors.tsv`](_meta/contributors.tsv).
 - The milestones line, the chart, the table and the "still empty" line above are rebuilt from the data after every change.
 
 ## How to use it
@@ -229,8 +230,9 @@ AI models are not listed as authors, because they cannot take responsibility for
 |---|---|---|---|
 | Code | `tools/`, `tests/`, `.github/` | Apache-2.0 | [LICENSE](LICENSE) |
 | Data and documentation | Everything else we author: `lexicon/`, `grammar/`, `rules/`, `corpus/`, `eval/`, `_meta/`, `_templates/`, and the cards and tables in `sources/` | CC BY 4.0 | [LICENSE-DATA](LICENSE-DATA) |
+| Parallel sentences | `corpus/parallel/`, `eval/parallel/`: English and Spanish prompts and their Aruban Papiamento translations | CC0 1.0 | [LICENSE-DATA](LICENSE-DATA) |
 | Source PDFs | `sources/pdf/` | Each file keeps its own terms, recorded in `sources/sources.tsv` | |
-| Voice sentences and recordings (planned) | | CC0 | |
+| Voice recordings (planned) | | CC0 | |
 
 The licences cover what this project's contributors wrote. Text reproduced from a source keeps that source's terms: see `sources/sources.tsv`, and `corpus/manifest.tsv` for corpus files.
 

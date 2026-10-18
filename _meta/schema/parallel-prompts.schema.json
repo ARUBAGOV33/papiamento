@@ -1,0 +1,127 @@
+{
+  "title": "Parallel sentences: English and Spanish prompts",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused. The hold-out is decided from it: the prompt belongs in eval/parallel/ when int(sha256(id), 16) mod 100 < 15.",
+      "constraints": {
+        "required": true,
+        "pattern": "^prm-[0-9]{6}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "lang",
+      "type": "string",
+      "description": "Language of the prompt",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "en",
+          "es"
+        ]
+      }
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "The prompt: one everyday sentence of 1 to 14 words, with no digits and no abbreviations (Common Voice sentence rules)",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "topic",
+      "type": "string",
+      "description": "Everyday theme, e.g. home, school, shop, health, weather"
+    },
+    {
+      "name": "origin",
+      "type": "string",
+      "description": "written: written for the project; tatoeba-cc0: from Tatoeba's CC0 export (only with the maintainer's approval of the download)",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "written",
+          "tatoeba-cc0"
+        ]
+      }
+    },
+    {
+      "name": "origin_ref",
+      "type": "string",
+      "description": "Id in the origin, e.g. the Tatoeba sentence id. Empty for prompts written for the project.",
+      "constraints": {
+        "pattern": "^[0-9]+$"
+      }
+    },
+    {
+      "name": "author",
+      "type": "string",
+      "description": "Who wrote the prompt: machine for a machine draft, otherwise handles from _meta/contributors.tsv, separated by '; '",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      }
+    },
+    {
+      "name": "batch",
+      "type": "string",
+      "description": "The batch the row arrived in: prompts-1, prompts-2 ... for prompts; contrib-YYYY-MM-DD for a contribution-tool sync. With translated_by or author it is the row's provenance.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "licence",
+      "type": "string",
+      "description": "Licence of the prompt text",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "CC0-1.0"
+        ]
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the review-board members who confirmed the row, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "sort_by": [
+      "id"
+    ],
+    "contributor_refs": [
+      "author",
+      "reviewed_by"
+    ]
+  },
+  "$comment": "For corpus/parallel/prompts.tsv and eval/parallel/prompts.tsv (the held-out split, never trained on). Prompts are English or Spanish, so they get no Aruban spelling checks, and they cite no source page: origin, author and batch are their provenance. CC0 1.0 (LICENSE-DATA). See _meta/conventions.md, Parallel sentences.",
+  "primaryKey": "id"
+}

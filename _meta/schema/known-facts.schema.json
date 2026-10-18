@@ -83,5 +83,10 @@
       "name": "notes",
       "type": "string"
     }
-  ]
+  ],
+  "x-papiamento": {
+    "contributor_refs": [
+      "ruled_by"
+    ]
+  }
 }

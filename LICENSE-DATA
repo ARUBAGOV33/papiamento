@@ -2,6 +2,7 @@ Data licence for ARUBAGOV33/papiamento
 
 Everything in this repository that we author and that is not code is licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0), reproduced below. This includes lexicon/, grammar/, rules/, corpus/, eval/, _meta/, _templates/, the documentation, and the source cards and tables in sources/.
 Code (tools/, tests/, .github/) is licensed under the Apache License 2.0. See LICENSE.
+Exception: the parallel sentences in corpus/parallel/ and eval/parallel/ (prompts and their Aruban Papiamento translations) are dedicated to the public domain under CC0 1.0 Universal (https://creativecommons.org/publicdomain/zero/1.0/), so they can be used by Mozilla Common Voice and for speech data. Contributors agree to this when they contribute. The project still credits them by name in _meta/contributors.tsv and in the release notes; that credit is a courtesy, not a licence condition.
 Exception: the files in sources/pdf/ are NOT covered by this licence. Each keeps its own terms, recorded in sources/sources.tsv (columns licence_tier and permission_ref). Text reproduced from a source elsewhere in the repository also keeps that source's terms (see sources/sources.tsv and corpus/manifest.tsv).
 Attribution: "Papiamento Open Data contributors, https://github.com/ARUBAGOV33/papiamento, CC BY 4.0".
 

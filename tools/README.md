@@ -88,6 +88,17 @@ python3 tools/build_dist.py --check            # build into a temporary folder a
 
 The same input always gives byte-identical output. See [RELEASING.md](../RELEASING.md) for how a release is published.
 
+## word_frequency.py (which words to translate first)
+
+Ranks the AB 2018 headwords by how often they occur in text the repo publishes: the shareable source PDFs in `sources/pdf/` (not the word lists AB2018 and VOC2009, which print every headword once; AB2018's orthography annex is the text of ORT2009, which is counted), blended with the Aruban sentences in `corpus/parallel/pairs.tsv` once there are any. The held-out `eval/` sentences are not used. Chosen by the maintainer on 2026-10-18; counts from private text are never published.
+
+```sh
+python3 tools/word_frequency.py --untranslated --out word-frequency.tsv
+python3 tools/word_frequency.py --no-pdf      # sentences only
+```
+
+Output columns: `id`, `lemma`, `pdf_count`, `sentence_count`, `score` (rate per million words; the average of the PDF and sentence rates once there are sentences), `translated`. Reading the PDFs needs PyMuPDF (`pip install pymupdf`), like `import_ab2018.py`. The output is not committed: the contribution tool regenerates it to order its "Translate words" queue.
+
 ## Tests
 
 ```sh

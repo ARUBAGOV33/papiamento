@@ -90,6 +90,9 @@
         "page",
         "printed"
       ]
+    ],
+    "contributor_refs": [
+      "reviewed_by"
     ]
   },
   "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
