@@ -44,6 +44,10 @@ Only files that match a glob in `_meta/schema/registry.json` are checked, plus `
 
 G5 runs every function in `G5_CHECKS`; add rule tests there.
 
+## contribute/ (prototype)
+
+The contribution tool's clickable prototype for teachers and linguists (board card P2-09): checking machine translations, translating words and translating sentences, with live checks from `rules/`, `lexicon/barbarismos/` and `lexicon/variants/`. It runs from a local file and sends nothing anywhere. See [contribute/README.md](contribute/README.md) and the design in [contribute/DESIGN.md](contribute/DESIGN.md).
+
 ## build_pages.py (progress pages)
 
 Rebuilds the generated progress pages from the data: the page of each letter in `lexicon/words/`, the table in `lexicon/words/README.md`, the progress chart `.github/assets/progress-light.svg` and `progress-dark.svg`, and the table between the `REPO-PROGRESS` markers in `README.md`. Standard library only. The same data always gives the same pages, byte for byte.

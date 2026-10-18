@@ -1,0 +1,216 @@
+key	en	pap	pap_status
+app.title	Papiamento contribution tool	Herment pa contribui na Papiamento	draft
+app.subtitle	Help build open data for Aruban Papiamento	Yuda traha dato habri pa Papiamento di Aruba	draft
+banner.prototype	Prototype. Your answers stay in this browser until you export them. Nothing is sent anywhere.	Prueba. Bo contestacionnan ta keda den e browser aki te ora bo exporta nan. Nos no ta manda nada.	draft
+nav.home	Home	Prome pagina	draft
+nav.review	Check translations	Controla traduccion	draft
+nav.translate	Translate words	Traduci palabra	draft
+nav.sentences	Translate sentences	Traduci frase	draft
+nav.rate	Rate sentences	Evalua frase	draft
+nav.board	Review board	Conseho di revision	draft
+lang.label	Screen language	Idioma di e pantaya	draft
+lang.pap_note	The Papiamento text on these screens is a machine draft. A teacher must check it before it is used.	E texto na Papiamento aki ta un concepto di mashin. Un docente mester controla prome cu nos uz'e.	draft
+lang.en_name	English	Ingles	draft
+lang.nl_name	Dutch	Hulandes	draft
+lang.es_name	Spanish	Spaño	draft
+person.switch	Switch person	Cambia persona	draft
+person.switch_note	Prototype only: add or switch people to try the tool as a second teacher or as a board member.	Solamente pa e prueba: agrega of cambia persona pa purba e herment como un otro docente of como miembro di e conseho.	draft
+person.new	Add a person	Agrega un persona	draft
+person.board_badge	board	conseho	draft
+consent.intro	Your answers help build an open, free dataset of Aruban Papiamento. Two people answer each question, and a member of the review board checks every answer before it counts.	Bo contestacionnan ta yuda traha un coleccion di dato habri y gratis di Papiamento di Aruba. Dos persona ta contesta cada pregunta, y un miembro di e conseho di revision ta controla cada contestacion prome cu e ta conta.	draft
+consent.name	Your name, as it should appear in the list of contributors	Bo nomber, manera e mester sali den e lista di hende cu a contribui	draft
+consent.role	You are a	Bo ta	draft
+role.teacher	Teacher	Docente	draft
+role.linguist	Linguist	Linguista	draft
+role.other	Other	Otro	draft
+consent.board	I am a member of the review board (prototype: switch this on to see the board screens)	Mi ta miembro di e conseho di revision (prueba: marca aki pa mira e pantaya di e conseho)	draft
+consent.words	I agree that my word translations are published under CC BY 4.0, like the rest of the dataset.	Mi ta di acuerdo cu nos ta publica mi traduccion di palabra bou di CC BY 4.0, manera e resto di e dato.	draft
+consent.sentences	I agree that my sentences are published under CC0 (public domain), so anyone, including Common Voice, may use them.	Mi ta di acuerdo cu nos ta publica mi frasenan bou di CC0 (dominio publico), pa cualkier hende, tambe Common Voice, por uza nan.	draft
+consent.credit	Show my name in the list of contributors.	Mustra mi nomber den e lista di hende cu a contribui.	draft
+consent.privacy	We keep your name and your answers. Your email address, in the real tool, is never published. In this prototype everything stays in your browser.	Nos ta warda bo nomber y bo contestacionnan. Den e herment real, nos no ta publica bo email nunca. Den e prueba aki tur cos ta keda den bo browser.	draft
+consent.need	Write your name and tick both licence boxes to start.	Skirbi bo nomber y marca e dos licencianan pa cuminsa.	draft
+home.hello	Welcome, {name}	Bonbini, {name}	draft
+home.review	Check machine-made English, Dutch and Spanish translations against the printed AB 2018 word list.	Controla traduccion na ingles, hulandes y spaño cu un mashin a traha, cu e lista di palabra di AB 2018.	draft
+home.translate	Give English, Dutch and Spanish for words that have no translation yet.	Duna ingles, hulandes y spaño pa palabra cu no tin traduccion ainda.	draft
+home.sentences	Write short everyday sentences in Aruban Papiamento.	Skirbi frase cortico di tur dia na Papiamento di Aruba.	draft
+home.rate	Read sentences other teachers wrote and say whether they are good.	Lesa frase cu otro docente a skirbi y bisa si nan ta bon.	draft
+home.board	Confirm answers when two people agree. Decide when they do not.	Confirma contestacion ora dos persona ta di acuerdo. Dicidi ora nan no ta di acuerdo.	draft
+home.waiting	{n} waiting for you	{n} ta warda bo	draft
+common.skip	Skip	Salta	draft
+common.back	Back	Bek	draft
+common.done	Nothing more is waiting for you here. Thank you!	No tin nada mas pa bo aki. Danki!	draft
+common.comment	Comment for the review board (optional)	Comentario pa e conseho di revision (si bo kier)	draft
+common.progress	{i} of {n}	{i} di {n}	draft
+common.saved	Saved. Thank you!	Nos a warda bo contestacion. Danki!	draft
+word.page	AB 2018 word list, page {page}	AB 2018, lista di palabra, pagina {page}	draft
+word.open_pdf	Open the whole page (PDF)	Habri e pagina completo (PDF)	draft
+word.uncertain	The machine was not sure about this translation. Please check it carefully.	E mashin no tabata sigur di e traduccion aki. Controla bon.	draft
+word.notes	Note in the dataset	Nota den e dato	draft
+review.intro	Is each translation right for the Aruban meaning of this word?	Cada traduccion ta corecto pa e nificacion di e palabra aki na Aruba?	draft
+review.draft	Machine draft	Concepto di mashin	draft
+review.correct	Correct	Corecto	draft
+review.wrong	Wrong	No ta corecto	draft
+review.unsure	Not sure	No ta sigur	draft
+review.fix	The right {lang}	E {lang} corecto	draft
+review.need_all	Answer all three languages, or mark them Not sure.	Contesta pa tur tres idioma, of marca nan No ta sigur.	draft
+translate.intro	Write the meaning in each language. If you are not sure, leave the box empty.	Skirbi e nificacion den cada idioma. Si bo no ta sigur, no skirbi nada.	draft
+translate.hint	Up to three meanings, the most common first, separated by a semicolon (;). English verbs start with "to", as in "to go".	Maximo tres nificacion, esun di mas uza prome, separa cu punto y coma (;). Verbo na ingles ta cuminsa cu "to", manera "to go".	draft
+translate.unknown	I don't know this word	Mi no conoce e palabra aki	draft
+translate.freq	Order: {source}	Orden: {source}	draft
+sent.intro	Write this sentence in Aruban Papiamento, the way you speak.	Skirbi e frase aki na Papiamento di Aruba, manera bo ta papia.	draft
+sent.no_draft	There is no machine suggestion here on purpose: we want your own words.	Nos no ta mustra un traduccion di mashin aki: nos kier bo mesun palabranan.	draft
+sent.written	Written for this prototype	Skirbi pa e prueba aki	draft
+sent.your	Your Papiamento	Bo Papiamento	draft
+sent.yours	You already wrote for this sentence:	Bo a skirbi caba pa e frase aki:	draft
+sent.others	{n} other people translated this sentence. You will not see their answers, so yours stays independent.	{n} otro persona a traduci e frase aki. Bo no ta mira nan contestacion, pa bo contestacion ta di bo so.	draft
+sent.checks	Spelling and grammar checks	Control di ortografia y gramatica	draft
+sent.checks_none	No problems found.	Nos no a haya ningun problema.	draft
+sent.checks_note	The checks can be wrong. If you are sure, keep what you wrote.	E control por ta robes. Si bo ta sigur, laga loke bo a skirbi.	draft
+sent.use	Use "{fix}"	Uza "{fix}"	draft
+sent.unknown	Not in the AB 2018 word list. Check the spelling (names are fine).	No ta den e lista di palabra di AB 2018. Controla e ortografia (nomber ta bon).	draft
+sent.curacao	Curaçao spelling. Aruban spelling: {right}	Ortografia di Corsou. Na Aruba: {right}	draft
+sent.barbarismo	Not Aruban Papiamento. Write: {right}	No ta Papiamento di Aruba. Skirbi: {right}	draft
+sent.barbarismo_check	Check this word. Often it should be: {right}	Controla e palabra aki. Hopi biaha e mester ta: {right}	draft
+sent.kept	{n} flagged word(s) kept as written. The board will see this.	{n} palabra cu e control a marca a keda manera bo a skirbi nan. E conseho lo mira esaki.	draft
+rate.intro	Is this a good Aruban Papiamento translation of the sentence?	Esaki ta un bon traduccion na Papiamento di Aruba?	draft
+rate.good	Good	Bon	draft
+rate.fix	Needs a fix	Mester un coreccion	draft
+rate.fix_box	Write your corrected version	Skirbi bo version corigi	draft
+rate.by	Written by another teacher	Otro docente a skirbi esaki	draft
+rate.flags	The checker marked:	E control a marca:	draft
+board.intro	Items that two people answered independently. Confirm when they agree; decide when they differ. Only review-board members see this screen.	Aki bo ta mira cos cu dos persona a contesta. Confirma ora nan ta di acuerdo; dicidi ora nan no ta di acuerdo. Solamente miembro di e conseho di revision ta mira esaki.	draft
+board.not_member	This screen is for review-board members only.	E pantaya aki ta solamente pa miembro di e conseho di revision.	draft
+board.agree	Agree	Di acuerdo	draft
+board.differ	Differ	No ta di acuerdo	draft
+board.confirm	Confirm	Confirma	draft
+board.write_own	Or write the decision	Of skirbi e decision	draft
+board.decide	Save decision	Warda e decision	draft
+board.dispute	Mark as disputed	Marca como desacuerdo	draft
+board.own	You gave one of these answers, so another board member must decide.	Bo a duna un di e contestacionnan. Un otro miembro mester dicidi.	draft
+board.decided	Decided	Dicidi	draft
+board.empty	Nothing is waiting for the board.	No tin nada cu ta warda e conseho.	draft
+board.words_review	Checked translations	Traduccion controla	draft
+board.words_translate	New word translations	Traduccion nobo di palabra	draft
+board.sentences	Sentences	Frase	draft
+board.ratings	Ratings	Evaluacion	draft
+board.answer	Answer {i}	Contestacion {i}	draft
+board.undo	Undo	Bolbe atras	draft
+export.title	Export	Exporta	draft
+export.intro	Download everything stored in this browser as one JSON file. In the real tool this happens on the server, and a pull request is opened for the maintainers.	Descarga tur loke ta warda den e browser aki como un file JSON. Den e herment real esaki ta pasa riba e server.	draft
+export.download	Download JSON	Descarga JSON	draft
+export.import	Add answers from a JSON file	Agrega contestacion for di un file JSON	draft
+export.clear	Delete everything in this browser	Kita tur cos for di e browser aki	draft
+export.clear_confirm	Delete all people and answers stored in this browser?	Kita tur persona y contestacion den e browser aki?	draft
+export.counts	{a} word answers, {t} sentences, {r} ratings, {d} board decisions	{a} contestacion di palabra, {t} frase, {r} evaluacion, {d} decision di e conseho	draft
+export.imported	Added {n} records.	Nos a agrega {n} contestacion.	draft
+about.title	About this prototype	Tocante e prueba aki	draft
+consent.github	GitHub username (board members need one to approve pull requests)	Nomber di GitHub (miembro di e conseho mester esaki pa aproba cambio)	draft
+common.show_skipped	Show the items you skipped	Mustra loke bo a salta	draft
+rate.empty_hint	Prototype: add a second person (top right) to rate the sentences the first person wrote.	Prueba: agrega un otro persona pa evalua e frasenan cu e prome persona a skirbi.	draft
+board.not_enough	Not enough answers	No tin suficiente contestacion	draft
+board.choose_each	Choose what to publish for each language, or write your own.	Scoge loke nos ta publica pa cada idioma, of skirbi esun di bo.	draft
+board.need_each	Choose or write an answer for each line.	Scoge of skirbi un contestacion pa cada liña.	draft
+export.none	Nothing yet.	Ainda no tin nada.	draft
+export.import_note	Prototype: import another browser's export to try the two-person flow.	Prueba: importa e file di un otro browser pa purba cu dos persona.	draft
+export.pr_title	What the pull request would change	Kico lo cambia den e dato	draft
+export.pr_note	A sync job would write these rows to a branch and open a pull request. The board member named in reviewed_by approves it on GitHub; no row becomes reviewed without that.	Un programa lo skirbi e liñanan aki y habri un pull request. E miembro di e conseho ta aprob'e den GitHub.	draft
+app.short	Papiamento contributions	Contribucion na Papiamento	draft
+nav.credits	Credits	Credito	draft
+nav.account	Account	Cuenta	draft
+tab.board	Board	Conseho	draft
+common.check	Check	Controla	draft
+common.close	Close	Cera	draft
+common.continue	Continue	Sigui	draft
+common.save	Save	Warda	draft
+offline.banner	You're offline. Your answers stay on this device and are sent when you're back online.	Bo no tin conexion. Bo contestacionnan ta keda den bo aparato y nos ta manda nan ora bo tin conexion atrobe.	draft
+onb.get_started	Get started	Cuminsa	draft
+onb.point1	Check and translate words from the official AB 2018 word list.	Controla y traduci palabra di e lista oficial di AB 2018.	draft
+onb.point2	Write short everyday sentences in Aruban Papiamento.	Skirbi frase cortico di tur dia na Papiamento di Aruba.	draft
+onb.point3	Two people answer each item, and the review board checks every answer.	Dos persona ta contesta cada pregunta, y e conseho di revision ta controla cada contestacion.	draft
+onb.step	Step {i} of {n}	Paso {i} di {n}	draft
+onb.email_title	Sign in with your email	Drenta cu bo email	draft
+onb.email_label	Email address	Bo email	draft
+onb.email_note	We send you a 6-digit code. No password and no GitHub account needed.	Nos ta manda bo un codigo di 6 cifra. Bo no mester un cuenta di GitHub.	draft
+onb.email_need	Write a valid email address.	Skirbi un email corecto.	draft
+onb.send_code	Send me a code	Manda mi un codigo	draft
+onb.proto_email	Prototype: no email is sent and the address is not stored.	Prueba: nos no ta manda email y nos no ta warda e adres.	draft
+onb.code_title	Check your email	Mira bo email	draft
+onb.code_sent	We sent a 6-digit code to {email}.	Nos a manda un codigo di 6 cifra na {email}.	draft
+onb.code_proto	Prototype: type any 6 digits.	Prueba: skirbi cualkier 6 cifra.	draft
+onb.code_need	Type all 6 digits.	Skirbi tur 6 cifra.	draft
+onb.change_email	Use another email	Uza un otro email	draft
+onb.profile_title	About you	Tocante bo	draft
+onb.name_need	Write your name.	Skirbi bo nomber.	draft
+onb.school	School or institution (optional)	Scol of institucion (si bo kier)	draft
+onb.licence_title	Licence and credit	Licencia y credito	draft
+onb.finish	Start contributing	Cuminsa contribui	draft
+home.goal	Today's goal	Meta di awe	draft
+home.goal_progress	{n} of {goal} answers	{n} di {goal} contestacion	draft
+home.week	this week	e siman aki	draft
+home.days	days in a row	dia tras dia	draft
+home.ways	Ways to help	Manera pa yuda	draft
+home.proto_note	Prototype: the daily goal is fixed at 10 here. In the real tool each person sets their own.	Prueba: e meta di cada dia ta 10 aki. Den e herment real cada persona ta scoge su meta.	draft
+hint.three	At most three meanings.	Maximo tres nificacion.	draft
+hint.to	English verbs start with "to".	Verbo na ingles ta cuminsa cu "to".	draft
+hint.semicolon	Separate different meanings with ; not with a comma.	Separa nificacion cu ; no cu coma.	draft
+sent.placeholder	Write it in Aruban Papiamento	Skirbi na Papiamento di Aruba	draft
+sent.another_short	Save + another way	Warda + otro manera	draft
+sent.unknown_short	Mark words not in the AB 2018 list	Marca palabra cu no ta den e lista di AB 2018	draft
+feedback.waiting	Once a second person has answered, a board member checks it.	Ora un segundo persona contesta, un miembro di e conseho ta controla.	draft
+feedback.to_board	Two people have answered. It now goes to the review board.	Dos persona a contesta. Awor e ta bay na e conseho di revision.	draft
+feedback.sentence	Another teacher will rate it.	Un otro docente lo evalua e frase.	draft
+feedback.rated	Your rating helps the board decide.	Bo evaluacion ta yuda e conseho dicidi.	draft
+feedback.check_title	Check these words	Controla e palabranan aki	draft
+feedback.check_body	The checker found these. Use the suggestions, or keep what you wrote.	E control a haya esakinan. Uza e sugerencianan, of laga loke bo a skirbi.	draft
+feedback.use_all	Use the suggestions	Uza e sugerencianan	draft
+feedback.keep	Keep as written and save	Laga manera e ta y warda	draft
+summary.title	All done for now	Tur cos ta cla pa awor	draft
+summary.today	answered today	contesta awe	draft
+summary.waiting	waiting for a second answer	ta warda un segundo contestacion	draft
+summary.confirmed	confirmed by the board	confirma pa e conseho	draft
+summary.home	Back to home	Bek na prome pagina	draft
+rate.empty_title	No sentences to rate yet	Ainda no tin frase pa evalua	draft
+board.tab_open	To decide	Pa dicidi	draft
+board.back	Back to the list	Bek na e lista	draft
+board.pick	Choose an item from the list.	Scoge un cos for di e lista.	draft
+board.yours	you answered	bo a contesta	draft
+board.empty_title	Nothing to decide	Nada pa dicidi	draft
+board.choose_sentence	Choose the sentence to publish, or write your own.	Scoge e frase cu nos ta publica, of skirbi esun di bo.	draft
+board.decision_saved	Decision saved	Nos a warda e decision	draft
+board.disputed_saved	Marked as disputed	Marca como desacuerdo	draft
+board.goes_to_pr	It goes into the next pull request, which you approve on GitHub.	E ta bay den e siguiente pull request. Bo ta aprob'e den GitHub.	draft
+count.review	Translations checked	Traduccion controla	draft
+count.translate	Words translated	Palabra traduci	draft
+count.sentences	Sentences written	Frase skirbi	draft
+count.ratings	Sentences rated	Frase evalua	draft
+count.decisions	Board decisions	Decision di conseho	draft
+credits.yours	Your contributions	Bo contribucionnan	draft
+credits.people	Contributors	Hende cu a contribui	draft
+credits.note	Listed by name, not ranked. Everyone here helped build the dataset.	Pa nomber, sin rango. Tur hende aki a yuda traha e dato.	draft
+credits.n	Contributions: {n}	Contribucion: {n}	draft
+credits.empty	No contributors yet.	Ainda no tin hende cu a contribui.	draft
+credits.board_empty	No board members yet.	Ainda no tin miembro di e conseho.	draft
+board.incomplete	Incomplete	No completo	draft
+common.cancel	Cancel	Cancela	draft
+common.checking	Checking…	Ta controla…	draft
+common.retry	Try again	Purba atrobe	draft
+common.saving	Saving…	Ta warda…	draft
+common.sending	Sending…	Ta manda…	draft
+consent.need_boxes	Tick both licence boxes to continue.	Marca e dos licencianan pa sigui.	draft
+error.image	The page image did not load.	E imagen di e pagina no a carga.	draft
+error.import	That file could not be read. Choose a JSON file exported from this tool.	Nos no por a lesa e file. Scoge un file JSON di e herment aki.	draft
+error.save_body	Your answer is still here. Check your connection and try again.	Bo contestacion ta keda aki. Controla bo conexion y purba atrobe.	draft
+error.save_title	Couldn't save	Nos no por a warda	draft
+error.send_code	We couldn't send the code. Check the address and try again.	Nos no por a manda e codigo. Controla e adres y purba atrobe.	draft
+error.storage	This browser is not saving your answers. Export them before you close this page.	E browser aki no ta warda bo contestacionnan. Exporta nan prome cu bo cera e pagina aki.	draft
+onb.github_need	Board members need a GitHub username (letters, digits and hyphens).	Miembro di e conseho mester un nomber di GitHub.	draft
+sim.title	Prototype: connection	Prueba: conexion	draft
+sim.note	Try the loading and error states: saving takes longer, or fails and offers Try again.	Purba con e herment ta traha ora e conexion ta malo.	draft
+sim.normal	Normal	Normal	draft
+sim.slow	Slow	Pocopoco	draft
+sim.fail	Failing	Ta faya	draft
+sim.set	Connection: {mode}	Conexion: {mode}	draft
+toast.downloaded	File downloaded	E file ta cla	draft
+toast.online	You're back online	Bo tin conexion atrobe	draft
+toast.undone	Decision undone	Nos a kita e decision	draft
+toast.welcome	Welcome! Start with any task.	Bonbini! Cuminsa cu cualkier tarea.	draft
