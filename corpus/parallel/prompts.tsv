@@ -1,1 +1,256 @@
 id	lang	text	topic	origin	origin_ref	author	batch	licence	status	reviewed_by	notes
+prm-000001	en	Please close the window, it is getting windy.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000002	en	My grandmother lives with us in a small house.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000003	en	The kitchen smells of fresh bread this morning.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000005	en	We painted the front door blue last weekend.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000008	en	Our neighbours are building a new wall.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000009	en	The children share one bedroom at the back.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000010	en	I need to fix the leaking tap in the bathroom.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000011	en	My sister is coming home from Holland next month.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000012	en	How many cousins do you have?	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000013	en	Grandpa tells the best stories after dinner.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000014	en	Our whole family eats together on Sunday.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000015	en	My brother and I look very much alike.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000016	en	The baby finally fell asleep.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000017	en	Her parents met at a dance many years ago.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000018	en	We are celebrating my aunt's birthday on Saturday.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000019	en	Call your mother when you get there.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000021	en	The teacher asked us to read two chapters.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000022	en	Do not forget your homework tomorrow.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000023	en	Our class is going on a trip to the cave.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000024	en	Which subject do you like most?	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000025	en	The school bell rings at half past seven.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000026	en	She got the highest mark in the exam.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000027	en	Please raise your hand before you speak.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000028	en	The library is closed during the holidays.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000030	en	We practise reading aloud every morning.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000031	en	Is the school bus late again?	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000032	en	The students planted trees behind the school.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000033	en	How much do these tomatoes cost?	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000034	en	The supermarket opens at eight on weekdays.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000035	en	I would like two kilos of fish, please.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000036	en	Do you have this shirt in a bigger size?	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000037	en	Prices have gone up again this year.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000038	en	We forgot to buy milk and eggs.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000039	en	Can I pay with my card?	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000040	en	The bakery sells out of bread by noon.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000041	en	This mango is not ripe yet.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000042	en	Keep the receipt in case you need to return it.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000043	en	The shop on the corner closed last month.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000044	en	She always bargains at the market.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000045	en	I have had a headache since yesterday.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000047	en	Where is the nearest pharmacy?	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000048	en	Drink plenty of water in this heat.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000049	en	My grandfather has an appointment at the hospital.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000050	en	Wash your hands before you eat.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000051	en	The nurse was very kind to my mother.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000052	en	My back hurts when I sit for too long.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000053	en	Did you take your medicine this morning?	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000054	en	Wear a hat, the sun is very strong.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000055	en	It has not rained for weeks.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000056	en	The wind is strong today, so the sea is rough.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000057	en	Look at those dark clouds over the hills.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000058	en	The cactus in our garden is flowering.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000060	en	The sunset was beautiful last night.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000061	en	It is cooler in the evening when the breeze comes.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000063	en	After the rain, everything turned green.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000064	en	We watched the pelicans diving for fish.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000065	en	The beach was full of seaweed this week.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000066	en	Hurricanes rarely reach our island.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000067	en	Where does this bus go?	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000068	en	The traffic was terrible on the way to work.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000070	en	I missed the last bus and had to walk.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000071	en	My car would not start this morning.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000072	en	Turn left at the next roundabout.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000074	en	The taxi is waiting outside.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000075	en	He rides his bicycle to work every day.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000076	en	Is there a parking space near the bank?	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000077	en	I start work very early tomorrow.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000078	en	My boss gave me the afternoon off.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000079	en	She works at a hotel near the beach.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000080	en	We have a meeting after lunch.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000081	en	He is looking for a new job.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000082	en	The office is closed on public holidays.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000083	en	I will send you the report by Friday.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000084	en	Many young people work in tourism.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000085	en	Can you help me move these boxes?	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000086	en	The shop needs someone who speaks four languages.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000087	en	What are we eating tonight?	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000088	en	The soup needs a little more salt.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000090	en	Breakfast is ready on the table.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000091	en	Could you pass me the bread, please?	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000092	en	My mother makes the best cake for birthdays.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000093	en	This coffee is too strong for me.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000094	en	We grilled chicken on the beach.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000095	en	Do not eat too fast.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000096	en	The restaurant is famous for its seafood.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000097	en	I am not hungry yet.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000098	en	She cooks rice and beans every Monday.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000099	en	I need to renew my passport.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000100	en	Where do I apply for a building permit?	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000101	en	The office asks for a copy of your identity card.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000102	en	You have to wait in line for your number.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000103	en	The tax form is due at the end of the month.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000104	en	Please sign here and here.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000106	en	My application is still being processed.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000107	en	Bring a recent photo and your birth certificate.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000108	en	The post office is next to the police station.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000109	en	The meeting is on Wednesday at three o'clock.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000110	en	We are going on holiday in August.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000111	en	It is a quarter to nine.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000112	en	I was born in the month of May.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000113	en	Twenty-three people came to the party.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000114	en	The market is open every Saturday.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000116	en	The year has twelve months.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000117	en	My daughter turns seven in December.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000118	en	We waited almost two hours.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000119	en	The store closes at half past six.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000120	en	Thursday is the busiest day of the week.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000121	en	Carnival is the happiest time of the year.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000122	en	My father plays the guitar on weekends.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000123	en	Let us go to the beach on Sunday.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000126	en	They sang the national anthem together.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000127	en	The festival starts after sunset.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000128	en	Our team won the football match.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000130	en	The whole street was decorated for the party.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000131	en	Have you ever been to the museum downtown?	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000134	en	I am sorry I am late.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000135	en	Could you speak a little more slowly?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000137	en	What is your name?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000138	en	Nice to meet you.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000139	en	How are you today?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000140	en	I am very tired after this long day.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000141	en	Wait for me at the door.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000142	en	Do you know where my keys are?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000144	en	Do not worry, everything will be fine.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000145	en	Can you repeat that, please?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000146	en	I want to learn to swim this year.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000147	en	Everybody was talking at the same time.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000148	en	Let me know when you arrive.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000149	en	I think it is going to be a good day.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000150	en	Good night and sleep well.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000151	es	Cierra la puerta, que entra mucho calor.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000152	es	Mi abuela vive con nosotros desde el año pasado.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000153	es	¿Dónde pusiste las llaves de la casa?	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000154	es	Hay que barrer el patio antes de la visita.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000155	es	El ventilador del cuarto ya no funciona.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000156	es	Vamos a pintar la cocina de amarillo.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000157	es	Mi hijo arregló la lámpara de la sala.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000158	es	La casa de mis padres tiene un árbol grande.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000159	es	Apaga la luz cuando salgas.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000160	es	El perro de los vecinos ladra toda la noche.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000161	es	Mis primos llegan el viernes por la noche.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000163	es	¿Cuántos hermanos tienes?	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000164	es	La familia de mi esposa es muy grande.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000165	es	Mi abuelo cumple noventa años en marzo.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000166	es	Los niños juegan con su tío en la playa.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000169	es	Mi padre me enseñó a pescar.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000170	es	Saluda a tus padres de mi parte.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000172	es	Mañana tenemos examen de matemáticas.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000173	es	Los alumnos salen al recreo a las diez.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000174	es	¿Ya terminaste tu proyecto de ciencias?	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000175	es	Mi hija aprende a leer muy rápido.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000176	es	El director habló con todos los padres.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000177	es	Necesito un cuaderno nuevo para la clase.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000178	es	Los niños cantaron una canción en la escuela.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000179	es	La biblioteca de la escuela tiene libros nuevos.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000180	es	Hoy no hay clases por la lluvia.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000183	es	¿A qué hora cierra la farmacia?	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000184	es	Quiero un kilo de arroz, por favor.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000186	es	El mercado está lleno los sábados.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000187	es	¿Tiene estos zapatos en otro color?	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000188	es	Todo está más caro que el año pasado.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000189	es	Se me olvidó la lista de compras.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000190	es	¿Aceptan pago con tarjeta?	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000191	es	La tienda tiene ofertas esta semana.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000193	es	Necesito pilas para el control remoto.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000194	es	El vendedor me dio un buen precio.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000195	es	Me duele la garganta desde ayer.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000196	es	Tengo cita con el dentista el lunes.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000198	es	Mi hijo tiene fiebre y no come.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000199	es	Hay que tomar mucha agua con este calor.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000200	es	La enfermera me tomó la presión.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000201	es	¿Dónde queda la sala de emergencias?	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000202	es	Descansa y no salgas hoy.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000203	es	Me torcí el tobillo jugando fútbol.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000204	es	Ponte crema para el sol antes de salir.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000205	es	Hoy hace mucho viento en la costa.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000209	es	Vimos un pájaro amarillo en el árbol.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000210	es	Por la noche refresca un poco.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000211	es	Hace meses que no llueve.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000212	es	Las olas están muy altas hoy.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000213	es	El aloe crece bien en este suelo.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000214	es	Desde la colina se ve todo el pueblo.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000217	es	¿Este autobús va al centro?	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000218	es	Hay mucho tráfico a esta hora.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000219	es	Se me pinchó una llanta en la carretera.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000220	es	Gira a la derecha después del semáforo.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000222	es	¿Cuánto cobra el taxi hasta el hotel?	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000223	es	Mi hermano maneja con mucho cuidado.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000224	es	Llegamos tarde porque perdimos el autobús.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000225	es	No hay dónde estacionar cerca del mercado.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000226	es	El barco llega al puerto por la mañana.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000227	es	Trabajo de lunes a viernes en una oficina.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000228	es	Mi jefe está de vacaciones esta semana.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000229	es	Ella busca trabajo en un restaurante.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000230	es	Hoy tenemos mucho trabajo en el taller.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000231	es	Mañana empiezo en mi nuevo empleo.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000232	es	Los turistas llenan los hoteles en diciembre.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000233	es	¿A qué hora sales del trabajo?	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000234	es	Mi papá trabajó muchos años en la refinería.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000235	es	Necesitamos más gente para este proyecto.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000236	es	Termina eso antes de irte a casa.	work	written		machine	prompts-1	CC0-1.0	draft		
+prm-000237	es	La sopa de pescado está deliciosa.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000238	es	¿Qué quieres desayunar mañana?	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000239	es	Mi abuela hace los mejores pasteles.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000240	es	No le pongas tanto azúcar al café.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000241	es	Comimos arroz con pollo en casa de mi tía.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000242	es	Este plato está muy picante para mí.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000244	es	Los domingos hacemos barbacoa en el patio.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000245	es	Ya no tengo hambre, gracias.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000246	es	El pan recién hecho huele muy bien.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000247	es	Lava la fruta antes de comerla.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000248	es	Prepararé la cena temprano hoy.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000249	es	Necesito renovar mi licencia de conducir.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000250	es	¿Dónde se paga la factura de la luz?	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000251	es	Traiga su cédula y una foto reciente.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000252	es	La oficina atiende solo por la mañana.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000253	es	Tienes que llenar este formulario primero.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000255	es	El correo llegó tarde esta semana.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000256	es	Hay una fila muy larga en el banco.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000257	es	La policía cerró la calle por un accidente.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000258	es	Firme aquí, por favor.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000259	es	La reunión es el jueves a las cuatro.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000260	es	Nos vamos de vacaciones en julio.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000261	es	Son las once y media de la noche.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000262	es	Mi cumpleaños es en septiembre.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000263	es	Faltan tres días para el carnaval.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000267	es	Mi hijo tiene doce años.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000268	es	Nos vemos el miércoles temprano.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000269	es	Vinieron más de cien personas a la fiesta.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000271	es	El desfile de carnaval empieza a las dos.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000273	es	¿Vamos a bailar esta noche?	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000274	es	Los niños hicieron disfraces para la fiesta.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000275	es	Ganamos el partido en el último minuto.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000276	es	Me encanta la música de mi isla.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000277	es	Fuimos al cine después de cenar.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000278	es	Los vecinos juegan dominó en la esquina.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000279	es	El museo tiene una exposición nueva.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000280	es	Cantamos el himno nacional en la escuela.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000282	es	Este fin de semana vamos a acampar.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000283	es	Muchas gracias por todo.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000284	es	Perdón, no te entendí bien.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000285	es	¿Puedes hablar un poco más alto?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000287	es	Estoy muy contento de verte.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000288	es	No te preocupes, yo te ayudo.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000289	es	¿Me prestas tu bolígrafo?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000290	es	Llámame cuando llegues a casa.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000291	es	Hoy me levanté muy temprano.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000292	es	Espérame aquí, ya vuelvo.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000293	es	¿Quién dejó la puerta abierta?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000294	es	Tengo sueño, me voy a dormir.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000295	es	Qué bonito está el día hoy.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000296	es	No sé dónde dejé el teléfono.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000297	es	Buenos días, ¿cómo amaneció?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000298	es	Te lo explico otra vez con calma.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000300	es	Que tengas un buen fin de semana.	everyday	written		machine	prompts-1	CC0-1.0	draft		

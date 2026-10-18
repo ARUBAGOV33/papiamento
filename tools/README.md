@@ -92,6 +92,15 @@ python3 tools/build_dist.py --check            # build into a temporary folder a
 
 The same input always gives byte-identical output. See [RELEASING.md](../RELEASING.md) for how a release is published.
 
+## add_prompts.py (a batch of prompts for the parallel sentences)
+
+Adds English or Spanish prompts from a text file (`lang|topic|text`, one per line) to `corpus/parallel/prompts.tsv`, or to `eval/parallel/prompts.tsv` for the held-out 15% (`int(sha256(id), 16) % 100 < 15`). It gives each prompt the next free id and refuses prompts that break the rules (1 to 14 words, no digits, no abbreviations, no characters Common Voice rejects) or are already in either table. Standard library only.
+
+```sh
+python3 tools/add_prompts.py batch.txt --batch prompts-2 --author machine --check   # report only
+python3 tools/add_prompts.py batch.txt --batch prompts-2 --author machine
+```
+
 ## word_frequency.py (which words to translate first)
 
 Ranks the AB 2018 headwords by how often they occur in text the repo publishes: the shareable source PDFs in `sources/pdf/` (not the word lists AB2018 and VOC2009, which print every headword once; AB2018's orthography annex is the text of ORT2009, which is counted), blended with the Aruban sentences in `corpus/parallel/pairs.tsv` once there are any. The held-out `eval/` sentences are not used. Chosen by the maintainer on 2026-10-18; counts from private text are never published.
