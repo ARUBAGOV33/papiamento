@@ -1,1 +1,46 @@
 id	lang	text	topic	origin	origin_ref	author	batch	licence	status	reviewed_by	notes
+prm-000004	en	Who left the lights on in the living room?	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000006	en	The water tank on the roof is almost empty.	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000007	en	Can you take the trash out tonight?	home	written		machine	prompts-1	CC0-1.0	draft		
+prm-000020	en	My uncle works on a fishing boat.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000029	en	My son is learning to write his name.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000046	en	The doctor told me to rest for a few days.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000059	en	An iguana is sitting on the wall again.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000062	en	The goats ate all the plants in the yard.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000069	en	Please drive slowly, there are children here.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000073	en	How long does it take to get to the airport?	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000089	en	I love fried fish with lime.	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000105	en	The town hall opens at eight in the morning.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000115	en	See you next Tuesday.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000124	en	The children are dancing to the music.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000125	en	Do you want to watch the game tonight?	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000129	en	She reads a book every week.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000132	en	We play dominoes with the neighbours.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000133	en	Thank you very much for your help.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000136	en	I do not understand this word.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000143	en	She was very happy with the gift.	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000162	es	Mi madre nos llama todos los domingos.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000167	es	Mi hermana estudia en Holanda.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000168	es	Toda la familia vino a la boda.	family	written		machine	prompts-1	CC0-1.0	draft		
+prm-000171	es	La maestra nos dio mucha tarea hoy.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000181	es	Siéntate en tu lugar y escucha.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000182	es	Me gusta mucho la clase de historia.	school	written		machine	prompts-1	CC0-1.0	draft		
+prm-000185	es	Estas naranjas están muy dulces.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000192	es	Compramos pescado fresco en el puerto.	shopping	written		machine	prompts-1	CC0-1.0	draft		
+prm-000197	es	El médico me recetó estas pastillas.	health	written		machine	prompts-1	CC0-1.0	draft		
+prm-000206	es	Parece que va a llover esta tarde.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000207	es	El mar está muy tranquilo hoy.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000208	es	Las cabras se comieron las flores del jardín.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000215	es	El sol sale muy temprano en verano.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000216	es	La lluvia llenó todos los pozos.	nature	written		machine	prompts-1	CC0-1.0	draft		
+prm-000221	es	El vuelo salió con una hora de retraso.	getting around	written		machine	prompts-1	CC0-1.0	draft		
+prm-000243	es	¿Me pasas la sal, por favor?	food	written		machine	prompts-1	CC0-1.0	draft		
+prm-000254	es	Mi solicitud todavía está en trámite.	public services	written		machine	prompts-1	CC0-1.0	draft		
+prm-000264	es	El martes no hay mercado.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000265	es	Esperé casi una hora en la parada.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000266	es	El mes de enero siempre es tranquilo.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000270	es	El año pasado viajamos dos veces.	time	written		machine	prompts-1	CC0-1.0	draft		
+prm-000272	es	Mi tío toca el tambor en una banda.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000281	es	Mi madre lee el periódico cada mañana.	leisure	written		machine	prompts-1	CC0-1.0	draft		
+prm-000286	es	¿Qué significa esta palabra?	everyday	written		machine	prompts-1	CC0-1.0	draft		
+prm-000299	es	Ten cuidado, el piso está mojado.	everyday	written		machine	prompts-1	CC0-1.0	draft		

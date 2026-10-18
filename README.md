@@ -110,14 +110,14 @@ Milestones: **P0 Foundation** ✅ done · **P1 Clean data** 🟡 in progress · 
 
 Measured error rate: the share of wrong rows in the latest random audit of the table against the source PDFs, with its 95% Wilson interval (CI). The audits are logged in [`_meta/audits.tsv`](_meta/audits.tsv). "Checked by machine" means software or an AI model did the checking, not yet a person.
 
-Still empty: names, closed word classes, public holidays, the corpus and the test sets.
+Still empty: names, closed word classes and public holidays.
 <!-- REPO-PROGRESS:END -->
 
 - Every headword of the AB 2018 word list is in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The most frequent words have machine-drafted English, Dutch and Spanish translations, marked `translated_by = machine` until a person reviews them. [Progress per letter](lexicon/words/README.md).
 - The review board is being recruited. Until it checks a row, that row stays `draft`.
 - **Bug hunt (October 2026):** AI checker agents compared samples of each table with the page images of the source PDFs. They found 2 wrong machine translations out of 60 and no errors in the other samples. The rows found wrong were fixed in [#15](https://github.com/ARUBAGOV33/papiamento/pull/15). No person has repeated these audits yet. The results are the error rates in the table above.
 - **Rulings audit (October 2026):** every grammar rule now rests on a printed page or a dated maintainer decision. One question is still open: whether gusta can take ta (err-0023 in [`sources/errata.tsv`](sources/errata.tsv)).
-- **Parallel sentences (set up October 2026):** the tables for everyday English and Spanish sentences and their Aruban Papiamento translations are ready in `corpus/parallel/`, with 15% held out in `eval/parallel/`, under CC0 so they can go to Common Voice. They are empty until teachers start translating. Everyone credited is listed in [`_meta/contributors.tsv`](_meta/contributors.tsv).
+- **Parallel sentences (set up October 2026):** the tables for everyday English and Spanish sentences and their Aruban Papiamento translations are ready in `corpus/parallel/`, with 15% held out in `eval/parallel/`, under CC0 so they can go to Common Voice. Batch 1 holds 300 everyday prompts (machine-drafted in English and Spanish, `draft` until a maintainer checks them): 255 in `corpus/parallel/`, 45 held out. There are no Papiamento translations yet. Teachers will write them through the contribution tool, whose prototype is in [`tools/contribute/`](tools/contribute/) and which is not live yet. Everyone credited is listed in [`_meta/contributors.tsv`](_meta/contributors.tsv).
 - The milestones line, the chart, the table and the "still empty" line above are rebuilt from the data after every change.
 
 ## How to use it

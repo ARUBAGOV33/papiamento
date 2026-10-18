@@ -8,7 +8,7 @@ Aruban Papiamento text that we are allowed to redistribute, for research and mod
 
 `parallel/prompts.tsv` holds short everyday English and Spanish sentences; `parallel/pairs.tsv` holds their translations into Aruban Papiamento, written by teachers, several per prompt. Both are tables with schemas (`_meta/schema/parallel-*.schema.json`), not text files, so they are not listed in `manifest.tsv`. They are CC0 1.0 (LICENSE-DATA). 15% of the prompts and all their translations are held out in [`eval/parallel/`](../eval/parallel/). See `_meta/conventions.md`, Parallel sentences.
 
-**Status:** set up, empty. The first prompts and the contribution tool (`tools/contribute/`) come next.
+**Status:** 255 prompts from batch 1 (machine-drafted, `draft`), no translations yet. Teachers will translate them through the contribution tool (`tools/contribute/`).
 
 ## Rules
 
