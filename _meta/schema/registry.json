@@ -55,6 +55,31 @@
       "name": "milestones",
       "glob": "_meta/milestones.tsv",
       "schema": "milestones.schema.json"
+    },
+    {
+      "name": "contributors",
+      "glob": "_meta/contributors.tsv",
+      "schema": "contributors.schema.json"
+    },
+    {
+      "name": "parallel-prompts",
+      "glob": "corpus/parallel/prompts.tsv",
+      "schema": "parallel-prompts.schema.json"
+    },
+    {
+      "name": "parallel-pairs",
+      "glob": "corpus/parallel/pairs.tsv",
+      "schema": "parallel-pairs.schema.json"
+    },
+    {
+      "name": "eval-parallel-prompts",
+      "glob": "eval/parallel/prompts.tsv",
+      "schema": "parallel-prompts.schema.json"
+    },
+    {
+      "name": "eval-parallel-pairs",
+      "glob": "eval/parallel/pairs.tsv",
+      "schema": "parallel-pairs.schema.json"
     }
   ],
   "allowlists": {

@@ -107,8 +107,10 @@ class TestValidRepo(GauntletCase):
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
         # A, C, H, numbers, calendar, barbarismos, variants, loanwords, errata,
-        # sources, known-facts, audits, milestones: every registry table has a file.
-        self.assertEqual(len(ctx.files), 13)
+        # sources, known-facts, audits, milestones, contributors, and the
+        # parallel prompts and pairs in corpus/ and eval/: every registry
+        # table has a file.
+        self.assertEqual(len(ctx.files), 18)
         self.assertEqual(ctx.facts_checked, ctx.facts_total)  # e.g. fact-0009: 7 -> shete
         self.assertEqual(ctx.facts_pending_ids, [])
 
@@ -121,7 +123,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 13)
+        self.assertEqual(report["files_checked"], 18)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):
@@ -371,6 +373,59 @@ class TestG2Schema(GauntletCase):
         self.assertFinding(ctx, "G2", "error", rel, "at_most")
         self.assertNoFinding(ctx, contains="internal error")
 
+
+    def test_unknown_contributor_handle(self):
+        root = self.build_repo()
+        rewrite(root / WORDS_A, lambda t: t.replace("\tmachine\t", "\tnew-person\t", 1).encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G4", "error", WORDS_A, "translated_by: 'new-person' is not a handle in _meta/contributors.tsv")
+
+    def test_contributor_matches_github_name_in_any_case(self):
+        root = self.build_repo()
+        rewrite(root / WORDS_A, lambda t: t.replace("reviewed\tvictorgomesrt-rgb", "reviewed\tVictorgomesrt-RGB").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertNoFinding(ctx, "G4", contains="contributors.tsv")
+
+    def write_parallel(self, root, folder, prompt_ids, pair_prompt_ids):
+        prompts_header = (root / folder / "prompts.tsv").read_text(encoding="utf-8")
+        pairs_header = (root / folder / "pairs.tsv").read_text(encoding="utf-8")
+        prompts = "".join("%s\ten\tPrompt %s.\thome\twritten\t\tmachine\tprompts-1\tCC0-1.0\tdraft\t\t\n"
+                          % (pid, n) for n, pid in enumerate(prompt_ids))
+        pairs = "".join("par-%06d\t%s\tmi kier bay\tvictorgomesrt-rgb\t\t\t\tcontrib-2026-11-01\tCC0-1.0\tdraft\t\t\n"
+                        % (n + 1, pid) for n, pid in enumerate(pair_prompt_ids))
+        (root / folder / "prompts.tsv").write_text(prompts_header + prompts, encoding="utf-8")
+        (root / folder / "pairs.tsv").write_text(pairs_header + pairs, encoding="utf-8")
+
+    def test_parallel_pairs_pass(self):
+        root = self.build_repo()
+        self.write_parallel(root, "corpus/parallel", ["prm-000001"], ["prm-000001"])
+        ctx = self.run_gauntlet(root)
+        self.assertEqual([f for f in ctx.findings if "parallel" in f.path], [], dump(ctx))
+
+    def test_pair_must_use_a_prompt_in_its_own_folder(self):
+        # A corpus/ pair on a held-out eval/ prompt would leak the test set.
+        root = self.build_repo()
+        self.write_parallel(root, "eval/parallel", ["prm-000002"], [])
+        self.write_parallel(root, "corpus/parallel", ["prm-000001"], ["prm-000002"])
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G4", "error", "corpus/parallel/pairs.tsv",
+                           "prompt_id: 'prm-000002' is not an id in corpus/parallel/prompts.tsv", line=2)
+
+    def test_pairs_never_translated_by_machine(self):
+        root = self.build_repo()
+        self.write_parallel(root, "corpus/parallel", ["prm-000001"], ["prm-000001"])
+        rewrite(root / "corpus/parallel/pairs.tsv", lambda t: t.replace("victorgomesrt-rgb", "machine").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", "corpus/parallel/pairs.tsv", "translated_by")
+
+    def test_folder_refs_must_name_a_tsv_file(self):
+        root = self.build_repo()
+        rel = "_meta/schema/parallel-pairs.schema.json"
+        schema = json.loads((root / rel).read_text(encoding="utf-8"))
+        schema["x-papiamento"]["folder_refs"] = {"prompt_id": "../prompts.tsv"}
+        (root / rel).write_text(json.dumps(schema), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "folder_refs")
 
     def test_schema_typos_are_reported(self):
         root = self.build_repo()

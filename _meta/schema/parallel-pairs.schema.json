@@ -1,0 +1,136 @@
+{
+  "title": "Parallel sentences: Aruban Papiamento translations of the prompts",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^par-[0-9]{6}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "prompt_id",
+      "type": "string",
+      "description": "The prompt this translates. It must be in prompts.tsv in the same folder, so held-out prompts and their translations stay together.",
+      "constraints": {
+        "required": true,
+        "pattern": "^prm-[0-9]{6}$"
+      }
+    },
+    {
+      "name": "pap",
+      "type": "string",
+      "description": "The sentence in Aruban Papiamento, written by a person. A prompt can have several rows: there is often more than one good translation.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "translated_by",
+      "type": "string",
+      "description": "Handle of the person who wrote the sentence (_meta/contributors.tsv). Never machine: the tool shows no machine draft.",
+      "constraints": {
+        "required": true,
+        "pattern": "^(?!(?:.*; )?machine(?:;|$))[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      }
+    },
+    {
+      "name": "checked_by",
+      "type": "string",
+      "description": "Handles of the other teachers who rated the sentence good, separated by '; '",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      }
+    },
+    {
+      "name": "fix_of",
+      "type": "string",
+      "description": "Id of the row this one corrects, when a rater proposed a fix",
+      "constraints": {
+        "pattern": "^par-[0-9]{6}$"
+      }
+    },
+    {
+      "name": "flags_kept",
+      "type": "string",
+      "description": "Checker findings the writer kept on purpose: rule ids from rules/rules.jsonl, barbarismo ids (bar-) or Curacao-Aruba ids (var-), separated by '; '",
+      "constraints": {
+        "pattern": "^(RULE_[A-Z0-9_]+|bar-[0-9]{4}|var-[0-9]{4})(; (RULE_[A-Z0-9_]+|bar-[0-9]{4}|var-[0-9]{4}))*$"
+      }
+    },
+    {
+      "name": "batch",
+      "type": "string",
+      "description": "The batch the row arrived in: prompts-1, prompts-2 ... for prompts; contrib-YYYY-MM-DD for a contribution-tool sync. With translated_by or author it is the row's provenance.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9][a-z0-9-]*$"
+      }
+    },
+    {
+      "name": "licence",
+      "type": "string",
+      "description": "Licence of the sentence",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "CC0-1.0"
+        ]
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the review-board members who confirmed the row, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "sort_by": [
+      "prompt_id",
+      "id"
+    ],
+    "aruban_text": [
+      "pap"
+    ],
+    "unique_together": [
+      [
+        "prompt_id",
+        "pap"
+      ]
+    ],
+    "contributor_refs": [
+      "translated_by",
+      "checked_by",
+      "reviewed_by"
+    ],
+    "folder_refs": {
+      "prompt_id": "prompts.tsv"
+    }
+  },
+  "$comment": "For corpus/parallel/pairs.tsv and eval/parallel/pairs.tsv. pap gets the Aruban spelling checks. No source/page: a contributed sentence has no printed page; translated_by and batch are its provenance (decided by the maintainer on 2026-10-18). CC0 1.0 (LICENSE-DATA). See _meta/conventions.md, Parallel sentences.",
+  "primaryKey": "id"
+}

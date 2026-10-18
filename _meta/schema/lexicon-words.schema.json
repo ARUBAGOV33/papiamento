@@ -141,7 +141,11 @@
         "nl",
         "es"
       ]
-    }
+    },
+    "contributor_refs": [
+      "translated_by",
+      "reviewed_by"
+    ]
   },
   "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
   "primaryKey": "id",

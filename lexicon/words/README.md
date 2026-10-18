@@ -12,7 +12,7 @@ One folder per letter, `A` to `Z`. Each holds `words.tsv`: every headword of the
 | `pos` | Part of speech (`s.`, `v.`, `adh.`, `adv.`, … see conventions). Empty if unknown. |
 | `tag` | The AB list's own label in parentheses, copied exactly. |
 | `en`, `nl`, `es` | Translations; several senses separated by `; `. |
-| `translated_by` | `machine` for machine drafts, or the GitHub username of whoever wrote the translations. Replace `machine` with your username when you correct a draft. |
+| `translated_by` | `machine` for machine drafts, or the handle of whoever wrote the translations (`_meta/contributors.tsv`; your GitHub username in lowercase). Replace `machine` with your handle when you correct a draft. |
 | `status` | `draft` until a review-board member checks it. |
 | `reviewed_by` | GitHub username of the reviewer. |
 | `source`, `page` | Where the word is printed (`AB2018` + page). |

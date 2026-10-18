@@ -88,6 +88,9 @@
         "errors",
         "sample_size"
       ]
+    ],
+    "contributor_refs": [
+      "auditor"
     ]
   }
 }

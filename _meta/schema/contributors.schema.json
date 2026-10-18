@@ -1,0 +1,92 @@
+{
+  "title": "Contributors credited in the dataset",
+  "fields": [
+    {
+      "name": "handle",
+      "type": "string",
+      "description": "The name used in translated_by, author, checked_by, reviewed_by, ruled_by and auditor. For people with a GitHub account it is their GitHub username in lowercase; otherwise a lowercase slug chosen at sign-up.",
+      "constraints": {
+        "required": true,
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+        "unique": true
+      }
+    },
+    {
+      "name": "credit_name",
+      "type": "string",
+      "description": "Name as the person wants it in credits. Empty: credit the handle."
+    },
+    {
+      "name": "github",
+      "type": "string",
+      "description": "GitHub username, as GitHub shows it. Required for review-board members and maintainers, who approve pull requests on GitHub.",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9]+(-[A-Za-z0-9]+)*$"
+      }
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "description": "contributor | board | maintainer",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "contributor",
+          "board",
+          "maintainer"
+        ]
+      }
+    },
+    {
+      "name": "licence_words",
+      "type": "string",
+      "description": "Licence the person agreed to for word translations and other data",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "CC-BY-4.0"
+        ]
+      }
+    },
+    {
+      "name": "licence_sentences",
+      "type": "string",
+      "description": "Licence the person agreed to for sentences and prompts",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "CC0-1.0"
+        ]
+      }
+    },
+    {
+      "name": "consent",
+      "type": "string",
+      "description": "How the licences were agreed: dco (Signed-off-by on their commits) or the version of the contribution tool's consent text, e.g. tool-2026-11",
+      "constraints": {
+        "required": true,
+        "pattern": "^(dco|tool-[0-9]{4}-[0-9]{2})$"
+      }
+    },
+    {
+      "name": "joined",
+      "type": "string",
+      "description": "Date of the first contribution, YYYY-MM-DD",
+      "constraints": {
+        "required": true,
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+      }
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "sort_by": [
+      "handle"
+    ]
+  },
+  "$comment": "_meta/contributors.tsv. Never put email addresses or other contact details here: they stay in the contribution tool's database and are never committed.",
+  "primaryKey": "handle"
+}

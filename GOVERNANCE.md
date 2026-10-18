@@ -33,6 +33,8 @@ Board members:
 
 Anyone who opens an issue, fills in a form, reviews a pull request or sends a change. Contributors can do everything except set a row to `reviewed`. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
+Contributors do not need a GitHub account: the contribution tool (`tools/contribute/`) lets teachers and linguists check and add translations and write sentences, and a maintainer brings their work in by pull request. Everyone the data credits is listed in [`_meta/contributors.tsv`](_meta/contributors.tsv), by name or by handle, with no contact details. Review-board members and maintainers need a GitHub account, because they approve pull requests there.
+
 ## Source precedence
 
 1. **The source PDFs decide.** These are the AB 2018 no. 68 law and its word list, the Departamento di Enseñansa books (Ortografia 2009, Vocabulario 2009, Morfologia 2010, Sintaxis 2015, Preposicion y Interheccion 2016) and the other sources in `sources/sources.tsv`. Every row cites a source and the printed page.

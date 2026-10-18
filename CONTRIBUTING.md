@@ -10,7 +10,7 @@ If you are a developer, skip to [The developer route](#the-developer-route).
 2. **Every row needs a source and a page.** The source is an id from [`sources/sources.tsv`](sources/sources.tsv), such as `AB2018`. The page is the number printed on the page, such as `38` or `38-39`. Use lowercase roman numerals for front matter, such as `iv`.
 3. **New and changed rows are `draft`.** Only review-board members set `reviewed`. See [Status rules](#status-rules).
 4. **Never paste from copyrighted dictionaries, websites, Glosbe or newspapers.** Write in your own words, or use a source listed in `sources/sources.tsv`. See [Copyright](#copyright).
-5. **What you send is published openly.** Data and documentation are published under [CC BY 4.0](LICENSE-DATA); code under [Apache-2.0](LICENSE). By contributing, you confirm you wrote the content yourself or that it comes from an allowed source.
+5. **What you send is published openly.** Data and documentation are published under [CC BY 4.0](LICENSE-DATA); sentences in `corpus/parallel/` and `eval/parallel/` under [CC0 1.0](LICENSE-DATA); code under [Apache-2.0](LICENSE). By contributing, you confirm you wrote the content yourself or that it comes from an allowed source. You are credited in [`_meta/contributors.tsv`](_meta/contributors.tsv).
 
 ## Four ways to help
 
@@ -68,7 +68,7 @@ A test case counts only after a review-board member has checked the expected ans
    - **Keep the tabs.** Cells are separated by a single tab character. Do not delete tabs and do not replace them with spaces. Click inside a cell and type.
    - **Do not add or remove columns.** Do not change the first line (the header).
    - **Do not change the `id`.**
-   - **If you wrote or corrected a translation, put your GitHub username in `translated_by`** (replacing `machine` if it was there).
+   - **If you wrote or corrected a translation, put your handle in `translated_by`** (replacing `machine` if it was there). Your handle is your GitHub username in lowercase. If it is not yet in [`_meta/contributors.tsv`](_meta/contributors.tsv), add a row there in the same pull request (copy [`_templates/contributor-row.tsv`](_templates/contributor-row.tsv)), or ask a maintainer to add it.
    - **Set `status` to `draft`** and leave `reviewed_by` empty. If the row was `reviewed`, change it back to `draft` and empty `reviewed_by`: the board checks it again.
    - **Do not delete a row.** To retire a row, set its status to `deprecated` and explain why in `notes`.
    - If you need to type a tab, first check that the editor's indent setting (above the text) says **Tabs**, not Spaces.

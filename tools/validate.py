@@ -76,6 +76,8 @@ X_KEYS = {
     "unique_together": "groups",  # [["lemma", "pos", "tag"]]
     "at_most": "pairs",           # [["errors", "sample_size"]]
     "required_if_any": "map",     # {"translated_by": ["en", "nl", "es"]}
+    "contributor_refs": "fields", # ["translated_by", "reviewed_by"]: handles in _meta/contributors.tsv
+    "folder_refs": "files",       # {"prompt_id": "prompts.tsv"}: an id in that file, same folder
 }
 X_SHAPES = {
     "field": "a field name",
@@ -83,6 +85,7 @@ X_SHAPES = {
     "groups": "a list of non-empty lists of field names",
     "pairs": "a list of [field, field] pairs",
     "map": "an object mapping a field name to a list of field names",
+    "files": "an object mapping a field name to a .tsv file name in the same folder",
 }
 # Folders that are not part of the dataset: build output and local tool
 # folders. Hidden folders other than .github (.git, .claude worktrees, .venv)
@@ -307,6 +310,9 @@ def x_value_ok(table, shape, value):
         return isinstance(value, list) and all(names(g, 2) for g in value)
     if shape == "map":
         return isinstance(value, dict) and all(table.has(k) and names(v) for k, v in value.items())
+    if shape == "files":
+        return isinstance(value, dict) and all(
+            table.has(k) and isinstance(v, str) and v.endswith(".tsv") and "/" not in v for k, v in value.items())
     return False
 
 
@@ -757,6 +763,9 @@ def gate_g4(ctx):
                             "%s: %r is not the id of a grammar file in grammar/ (only %s* ids are "
                             "row-level and need none)" % (field, value, LEX_RULE_PREFIX))
 
+    check_contributor_refs(ctx)
+    check_folder_refs(ctx)
+
     words = ctx.tables.get("words")
     if words is None or not words.files:
         return
@@ -769,6 +778,46 @@ def gate_g4(ctx):
                     if value not in lemmas:
                         ctx.add("G4", WARNING, tsv.rel, row.line,
                                 "%s: %r is not a lemma in lexicon/words" % (field, value))
+
+
+def check_contributor_refs(ctx):
+    """x-papiamento contributor_refs: every name in those cells is machine or a
+    handle (or GitHub username, any case) in _meta/contributors.tsv, so every
+    person the data credits is in the contributors list."""
+    table = ctx.tables.get("contributors")
+    known = set()
+    if table is not None:
+        for row in table.rows():
+            for field in ("handle", "github"):
+                if row.get(field):
+                    known.add(row.get(field).casefold())
+    for tsv in ctx.files:
+        refs = [f for f in (tsv.table.x.get("contributor_refs") or []) if tsv.table.has(f)]
+        for row in tsv.rows:
+            for field in refs:
+                for name in split_multi(row.get(field)):
+                    if name.casefold() != "machine" and name.casefold() not in known:
+                        ctx.add("G4", ERROR, tsv.rel, row.line,
+                                "%s: %r is not a handle in _meta/contributors.tsv (add a row there)" % (field, name))
+
+
+def check_folder_refs(ctx):
+    """x-papiamento folder_refs: {"prompt_id": "prompts.tsv"} means the cell is
+    an id in prompts.tsv in the same folder. This keeps the held-out eval/
+    pairs on eval/ prompts, and corpus/ pairs on corpus/ prompts."""
+    by_rel = dict((f.rel, f) for f in ctx.files)
+    for tsv in ctx.files:
+        for field, name in sorted((tsv.table.x.get("folder_refs") or {}).items()):
+            if not tsv.table.has(field) or not isinstance(name, str):
+                continue  # reported against the schema
+            target_rel = "/".join(tsv.rel.split("/")[:-1] + [name])
+            target = by_rel.get(target_rel)
+            ids = set(r.get("id") for r in target.rows) if target is not None else set()
+            for row in tsv.rows:
+                value = row.get(field)
+                if value and value not in ids:
+                    ctx.add("G4", ERROR, tsv.rel, row.line,
+                            "%s: %r is not an id in %s" % (field, value, target_rel))
 
 
 # --------------------------------------------------------------------------

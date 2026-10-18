@@ -6,7 +6,7 @@ How every data file in this repo is written. The validator (`tools/validate.py`)
 
 The source PDFs are the source of truth: the AB 2018 no. 68 law, Ortografia 2009, Vocabulario 2009, Morfologia, Sintaxis, Preposicion y Interheccion, and the other books listed in `sources/sources.tsv`.
 
-- Every row cites a `source` (an id from `sources/sources.tsv`) and a `page`.
+- Every row cites a `source` (an id from `sources/sources.tsv`) and a `page`. The one exception is the parallel sentences (see [Parallel sentences](#parallel-sentences-corpusparallel-evalparallel)): contributors write them, so they have no printed page. Their provenance is `translated_by` (or `author`) and `batch`.
 - OCR text, scraped data and older JSON files are working copies only. When a working copy disagrees with the PDF, the PDF wins.
 - When two PDFs disagree, or a PDF contains an obvious typo, do not pick a winner silently. Add a row to `sources/errata.tsv` and let the review board decide.
 
@@ -39,6 +39,9 @@ Ids are assigned once, never reused and never renumbered. A word that moves to a
 | Loanwords | `loan-` + 4 digits | `loan-0001` |
 | Errata | `err-` + 4 digits | `err-0001` |
 | Audits | `aud-` + 4 digits | `aud-0001` |
+| Parallel prompts | `prm-` + 6 digits | `prm-000001` |
+| Parallel sentences | `par-` + 6 digits | `par-000001` |
+| Contributors | handle: lowercase letters, digits and hyphens | `victorgomesrt-rgb` |
 | Sources | short code + year | `AB2018`, `MOR2010` |
 | Rules | `RULE_<DOMAIN>_<NAME>` | `RULE_ORT_ACCENT_001` |
 
@@ -57,7 +60,9 @@ Every data row has a `status`:
 
 Machine-made content is always `draft`. Nothing becomes `reviewed` automatically. Anyone training a model can filter to `status == reviewed`.
 
-`reviewed_by` holds GitHub usernames, separated by `; `.
+`reviewed_by` holds GitHub usernames, separated by `; `. Review-board members and maintainers need a GitHub account, because the person named in `reviewed_by` must approve the pull request on GitHub (GOVERNANCE.md). Contributors do not need one.
+
+Every name in `translated_by`, `author`, `checked_by`, `reviewed_by`, `ruled_by` and `auditor` must be `machine` (where machine work is allowed) or a handle in [`_meta/contributors.tsv`](contributors.tsv). The validator checks this (`contributor_refs` in the schemas); a GitHub username matches its handle in any case.
 
 ## Source and page
 
@@ -76,7 +81,7 @@ Machine-made content is always `draft`. Nothing becomes `reviewed` automatically
 | `pos` | Part of speech, from the list below. Empty when unknown. |
 | `tag` | The source's own label in parentheses, copied verbatim, e.g. `s.`, `pisca`, `- la pena`. |
 | `en`, `nl`, `es` | Translations. Several senses separated by `; `. |
-| `translated_by` | Who wrote the translations: `machine` for machine drafts, otherwise GitHub usernames separated by `; `. Required whenever `en`, `nl` or `es` is filled. When you correct a machine draft, replace `machine` with your username; when you confirm only one language, keep both, e.g. `victorgomesrt-rgb; machine`, and say which in `notes`. |
+| `translated_by` | Who wrote the translations: `machine` for machine drafts, otherwise contributor handles (see [Contributors](#contributors-_metacontributorstsv)) separated by `; `. Required whenever `en`, `nl` or `es` is filled. When you correct a machine draft, replace `machine` with your username; when you confirm only one language, keep both, e.g. `victorgomesrt-rgb; machine`, and say which in `notes`. |
 | `status`, `reviewed_by`, `source`, `page`, `notes` | As above. |
 
 - **Letter folders:** a word goes in the folder of its first letter, uppercased, with the accent removed. Words starting with `ñ` go in `N`, as in the AB list.
@@ -159,6 +164,36 @@ One row per project phase, as on the project board: `P0` Foundation to `P4` Spee
 | `status` | `done`, `in-progress`, `next` or `not-started`. |
 | `left` | What is still to do, separated by `; `. A phase can be `done` with a few small items left. |
 | `notes` | Anything else, e.g. the release that closed it. |
+
+## Contributors (`_meta/contributors.tsv`)
+
+Everyone the data credits has one row here, people only (`machine` is not listed). The contribution tool adds a row when someone first contributes; a person who sends a pull request adds their own row in it, or a maintainer adds it for them.
+
+| Column | Content |
+|---|---|
+| `handle` | The name the data uses in `translated_by`, `author`, `checked_by`, `reviewed_by`, `ruled_by` and `auditor`. People with a GitHub account use their GitHub username in lowercase; others get a lowercase slug of their name. Never changed once used. |
+| `credit_name` | The name to show in credits, as the person wants it. Empty: credit the handle. |
+| `github` | GitHub username as GitHub shows it. Required for review-board members and maintainers. |
+| `role` | `contributor`, `board` or `maintainer`. |
+| `licence_words` | `CC-BY-4.0`: the licence for word translations and other data. |
+| `licence_sentences` | `CC0-1.0`: the licence for prompts and sentences in the parallel tables. |
+| `consent` | How the person agreed: `dco` (the Signed-off-by line on their commits) or the version of the contribution tool's consent text, e.g. `tool-2026-11`. |
+| `joined` | Date of the first contribution, `YYYY-MM-DD`. |
+| `notes` | Anything else. |
+
+**No email addresses or other contact details**, ever. They stay in the contribution tool's database.
+
+## Parallel sentences (`corpus/parallel/`, `eval/parallel/`)
+
+Short everyday sentences in English or Spanish (the prompts) and their translations into Aruban Papiamento written by teachers (the pairs). They feed machine translation, Common Voice and, later, speech models. Decided by the maintainer on 2026-10-18 (`tools/contribute/DESIGN.md`, 5).
+
+- **Prompts** (`prompts.tsv`): `id` (`prm-000001`), `lang` (`en` or `es`), `text` (1 to 14 words, no digits, no abbreviations), `topic`, `origin` (`written` for the project, or `tatoeba-cc0` with the maintainer's approval), `origin_ref`, `author` (`machine` for machine-drafted prompts), `batch`, `licence`, `status`, `reviewed_by`, `notes`.
+- **Pairs** (`pairs.tsv`): `id` (`par-000001`), `prompt_id`, `pap` (the Aruban sentence; it gets the spelling checks), `translated_by` (a person, never `machine`), `checked_by` (the teachers who rated it good), `fix_of` (the row it corrects), `flags_kept` (checker findings the writer kept on purpose), `batch`, `licence`, `status`, `reviewed_by`, `notes`. A prompt can have several pairs: there is often more than one good translation.
+- **No machine Papiamento.** Nobody may add a machine-translated `pap` sentence, and the contribution tool shows writers no machine draft.
+- **Licence:** both tables are CC0 1.0 (LICENSE-DATA), so the sentences can go to Common Voice. Contributors are still credited by name in `_meta/contributors.tsv` and the release notes.
+- **Provenance:** no `source` or `page`. `translated_by` (or `author`) and `batch` say who wrote the row and when it arrived: `prompts-1`, `prompts-2` … for prompt batches, `contrib-YYYY-MM-DD` for a contribution-tool sync.
+- **Hold-out:** 15% of prompts are held out for evaluation. A prompt goes in `eval/parallel/` when `int(sha256(id), 16) % 100 < 15`, decided when its id is assigned and before anyone translates it. Every pair of a held-out prompt is in `eval/parallel/pairs.tsv`; the validator checks that a pair's `prompt_id` is in `prompts.tsv` in the same folder (`folder_refs`). Never train on `eval/`, and never send its sentences to Common Voice.
+- **Review:** a pair needs at least one other teacher in `checked_by` before a review-board member may set `reviewed`.
 
 ## Files and names
 
