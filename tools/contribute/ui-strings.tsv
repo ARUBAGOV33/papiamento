@@ -26,7 +26,6 @@ role.other	Other	Otro	draft
 consent.board	I am a member of the review board (prototype: switch this on to see the board screens)	Mi ta miembro di e conseho di revision (prueba: marca aki pa mira e pantaya di e conseho)	draft
 consent.words	I agree that my word translations are published under CC BY 4.0, like the rest of the dataset.	Mi ta di acuerdo cu nos ta publica mi traduccion di palabra bou di CC BY 4.0, manera e resto di e dato.	draft
 consent.sentences	I agree that my sentences are published under CC0 (public domain), so anyone, including Common Voice, may use them.	Mi ta di acuerdo cu nos ta publica mi frasenan bou di CC0 (dominio publico), pa cualkier hende, tambe Common Voice, por uza nan.	draft
-consent.pending	Not decided yet: the licence for sentences. CC0 is the recommendation.	E licencia pa frase no ta dicidi ainda. CC0 ta e recomendacion.	draft
 consent.credit	Show my name in the list of contributors.	Mustra mi nomber den e lista di hende cu a contribui.	draft
 consent.privacy	We keep your name and your answers. Your email address, in the real tool, is never published. In this prototype everything stays in your browser.	Nos ta warda bo nomber y bo contestacionnan. Den e herment real, nos no ta publica bo email nunca. Den e prueba aki tur cos ta keda den bo browser.	draft
 consent.need	Write your name and tick both licence boxes to start.	Skirbi bo nomber y marca e dos licencianan pa cuminsa.	draft

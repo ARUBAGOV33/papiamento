@@ -774,8 +774,7 @@
     var credit = el("input", { type: "checkbox", id: "c-credit", checked: true });
     var cards = el("div", { class: "stack consent-group" },
       el("label", { class: "consent-card" }, lw, el("span", null, el("strong", null, "CC BY 4.0"), el("span", null, t("consent.words")))),
-      el("label", { class: "consent-card" }, ls, el("span", null, el("strong", null, "CC0 1.0"), el("span", null, t("consent.sentences")),
-        el("span", { class: "chip sun" }, t("consent.pending")))));
+      el("label", { class: "consent-card" }, ls, el("span", null, el("strong", null, "CC0 1.0"), el("span", null, t("consent.sentences")))));
     var finishBtn = button(t("onb.finish"), finish, "primary block");
     function finish() {
       if (!lw.checked || !ls.checked) { fieldError(!lw.checked ? lw : ls, t("consent.need_boxes")); return; }
@@ -784,7 +783,7 @@
         state.people.push({
           id: id, name: pr.name, handle: makeHandle(pr.name, id), role: pr.role, school: pr.school, board: pr.board,
           github: pr.board ? pr.github : "", credit: credit.checked,
-          consent: { words: "CC-BY-4.0", sentences: "CC0-1.0 (proposed)", text_version: "prototype-2", at: now() },
+          consent: { words: "CC-BY-4.0", sentences: "CC0-1.0", text_version: "prototype-2", at: now() },
           created_at: now()
         });
         state.current = id;
@@ -1565,7 +1564,7 @@
       format: FORMAT,
       exported_at: now(),
       tool: { kind: "prototype", data_built_from_commit: SAMPLE.built_from_commit },
-      licences: { words: "CC-BY-4.0", sentences: "CC0-1.0 (proposed, not decided)" },
+      licences: { words: "CC-BY-4.0", sentences: "CC0-1.0" },
       people: state.people,
       answers: state.answers,
       translations: state.translations,
@@ -1663,7 +1662,7 @@
           el("p", { class: "small" }, t("export.pr_note")),
           el("h3", null, "lexicon/words/<L>/words.tsv"),
           tsvTable(pr.words, ["id", "lemma", "en", "nl", "es", "translated_by", "status", "reviewed_by", "notes"]),
-          el("h3", null, "corpus/parallel/pairs.tsv (proposed table)"),
+          el("h3", null, "corpus/parallel/pairs.tsv"),
           tsvTable(pr.pairs, ["id", "prompt_id", "pap", "translated_by", "checked_by", "status", "reviewed_by", "licence", "notes"]))),
       el("section", { class: "card stack prose" },
         el("h2", null, t("about.title")),
@@ -1677,7 +1676,7 @@
             CHECKS.variants.length + " Curaçao-Aruba pairs and the AB 2018 word list."),
           el("li", null, "Data built from repository commit " + SAMPLE.built_from_commit + " by tools/contribute/build_sample.py.")),
         el("p", null, "The Papiamento interface text is a machine draft (pap_status = draft in ui-strings.tsv). Every word in it is an AB 2018 headword and no repo check fires on it, but a teacher must check its grammar and wording."),
-        el("p", null, "Licences shown here are proposals: word translations CC BY 4.0 like the rest of the dataset; sentences CC0 1.0 so they can go to Common Voice.")),
+        el("p", null, "Licences, as the maintainer decided on 2026-10-18: word translations CC BY 4.0 like the rest of the dataset; sentences and prompts CC0 1.0, so they can go to Common Voice.")),
       el("section", { class: "card danger" },
         button([icon("trash"), t("export.clear")], function () {
           if (!window.confirm(t("export.clear_confirm"))) return;

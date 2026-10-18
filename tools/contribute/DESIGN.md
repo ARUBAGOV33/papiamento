@@ -1,6 +1,6 @@
-# Contribution tool: design proposal
+# Contribution tool: design
 
-Board card **P2-09**. Status: **proposal for the maintainer**. Nothing has been deployed, no accounts were made, and no data in the repository was changed. The clickable prototype is in this folder; see [README.md](README.md) to open it.
+Board card **P2-09**. Status: **decided by the maintainer on 2026-10-18** (§5). Step 1, the tables, the contributors list and the validator changes, is in [#20](https://github.com/ARUBAGOV33/papiamento/pull/20). Nothing has been deployed and no accounts were made. The clickable prototype is in this folder; see [README.md](README.md) to open it.
 
 ## 1. Summary
 
@@ -12,15 +12,15 @@ Aruban teachers and linguists need one simple website where they can do three th
 
 Every item gets two independent answers. A review-board member confirms them when they agree and decides when they differ. Only then does a sync job write the result to a pull request. A board member approves that pull request on GitHub, as GOVERNANCE.md requires.
 
-**Recommendations at a glance**
+**Decisions** (the maintainer, 2026-10-18: "a yes b yes c yes d yes e reproducible")
 
-| Decision | Recommendation |
+| Decision | What was decided |
 |---|---|
 | (a) Licence for contributed sentences | **CC0 1.0** for sentences and prompts. Word translations stay **CC BY 4.0** like the rest of the data. Contributors are still credited by name. |
-| (b) Where prompts come from | **Written for the project** (CC0), in themed batches that follow Common Voice's sentence rules. Later, optionally, Tatoeba's **CC0 export only** (needs your OK to download). No FLORES. |
-| (c) Hosting | **Static site on GitHub Pages + Supabase** (a new project, separate from Skirbi). It opens pull requests through a small **GitHub App** so the gauntlet runs on them. |
-| (d) Data model | New tables `corpus/parallel/prompts.tsv` and `pairs.tsv`, the same pair in `eval/parallel/` for a **15 % held-out split by prompt**, and `_meta/contributors.tsv`. Draft schemas are in [`proposal/`](proposal/). |
-| (e) Frequency order for "Translate words" | **Your decision.** See §5(e). The repo's own PDFs give a weak signal; the private corpus is strong but can't be published. |
+| (b) Where prompts come from | **Written for the project** (CC0), in themed batches that follow Common Voice's sentence rules. Tatoeba's **CC0 export** maybe later, and only with the maintainer's approval of the download. No FLORES. |
+| (c) Hosting | **Static site on GitHub Pages + Supabase**, in a project **separate from Skirbi**. It opens pull requests through a small **GitHub App** so the gauntlet runs on them. Setup checklist: §11. |
+| (d) Data model | Tables `corpus/parallel/prompts.tsv` and `pairs.tsv`, the same pair in `eval/parallel/` for a **15 % held-out split by prompt**, and `_meta/contributors.tsv` with no emails. Both convention changes accepted. Schemas in `_meta/schema/` ([#20](https://github.com/ARUBAGOV33/papiamento/pull/20)). |
+| (e) Frequency order for "Translate words" | **Reproducible:** `tools/word_frequency.py` counts the repo's own shareable PDFs, blended with words from contributed sentences as they arrive. Ranks from the private corpus are **never published**. |
 | Look and feel | Phone-first, one item per screen with a feedback sheet (Duolingo's pattern, calm styling), every screen grounded in a Mobbin reference. §8 lists them, with the states for loading, success and errors. |
 
 ## 2. Who uses it
@@ -144,6 +144,8 @@ The prototype implements everything in this section, on one device. "Switch pers
 
 **Recommendation: CC0 1.0 for sentences and prompts, decided before collection starts.**
 
+**Decided on 2026-10-18: CC0 1.0.** The exception is in LICENSE-DATA ([#20](https://github.com/ARUBAGOV33/papiamento/pull/20)).
+
 - Word translations stay CC BY 4.0.
 - The consent screen must say plainly that CC0 means anyone may use the sentence without naming the writer, and that the project will name them anyway.
 
@@ -157,6 +159,8 @@ The prototype implements everything in this section, on one device. "Switch pers
 | FLORES-200 / FLORES+ | CC BY-SA 4.0 | Wikipedia-style, not everyday | It is an evaluation benchmark; the FLORES+ card says it "should not be used as training data" ([card](https://huggingface.co/datasets/openlanguagedata/flores_plus)), and it already lists `pap`. Translating it here would contaminate it. **Avoid.** |
 
 **Recommendation: write the prompts for the project.**
+
+**Decided on 2026-10-18: prompts written for the project.** Tatoeba's CC0 export may come later, only after the maintainer approves the download.
 
 - Twelve sample prompts are in [`prompts.tsv`](prompts.tsv), marked `written-for-prototype`. Some deliberately tempt a barbarismo (Spanish *mucho*, *en*, *de la*, *domingo*) to show the checks.
 - Add Tatoeba's CC0 export later, if a larger pool is needed and you approve the download.
@@ -174,6 +178,8 @@ The prototype implements everything in this section, on one device. "Switch pers
 
 **Recommendation: A, Supabase plus a static site on GitHub Pages.**
 
+**Decided on 2026-10-18: option A**, with a Supabase project separate from Skirbi. The maintainer sets up the accounts himself; the checklist is in §11.
+
 - It is the only option that does all three modes, keeps answers blind and keeps emails private.
 - You already run Supabase for Skirbi. Use a separate project so dataset contributors and Skirbi users never share a database.
 - The prototype's front end carries over almost unchanged: swap `localStorage` for Supabase calls.
@@ -189,14 +195,14 @@ The prototype implements everything in this section, on one device. "Switch pers
 
 ### (d) Data model
 
-Draft schemas in the style of `_meta/schema/` are in [`proposal/`](proposal/). They are not wired into the validator, and `_meta/schema/` is untouched.
+**Decided on 2026-10-18: this model, with both convention changes below.** The schemas, empty tables, `_meta/contributors.tsv` and validator checks are in [#20](https://github.com/ARUBAGOV33/papiamento/pull/20).
 
 | File | Rows | Key columns |
 |---|---|---|
-| `corpus/parallel/prompts.tsv` ([schema](proposal/parallel-prompts.schema.json)) | English/Spanish prompts | `id` (`prm-000001`), `lang`, `text`, `topic`, `origin` (`written` / `tatoeba-cc0`), `origin_ref`, `author`, `licence`, `status`, `reviewed_by`, `notes` |
-| `corpus/parallel/pairs.tsv` ([schema](proposal/parallel-pairs.schema.json)) | Papiamento sentences, several per prompt | `id` (`par-000001`), `prompt_id`, `pap` (gets the Aruban spelling checks), `translated_by`, `checked_by`, `fix_of`, `flags_kept`, `licence`, `status`, `reviewed_by`, `notes` |
+| `corpus/parallel/prompts.tsv` (`_meta/schema/parallel-prompts.schema.json`) | English/Spanish prompts | `id` (`prm-000001`), `lang`, `text`, `topic`, `origin` (`written` / `tatoeba-cc0`), `origin_ref`, `author`, `batch`, `licence`, `status`, `reviewed_by`, `notes` |
+| `corpus/parallel/pairs.tsv` (`_meta/schema/parallel-pairs.schema.json`) | Papiamento sentences, several per prompt | `id` (`par-000001`), `prompt_id`, `pap` (gets the Aruban spelling checks), `translated_by`, `checked_by`, `fix_of`, `flags_kept`, `batch`, `licence`, `status`, `reviewed_by`, `notes` |
 | `eval/parallel/prompts.tsv`, `eval/parallel/pairs.tsv` | The held-out split, same schemas | — |
-| `_meta/contributors.tsv` ([schema](proposal/contributors.schema.json)) | Everyone credited | `handle`, `credit_name`, `github`, `role`, `licence_words`, `licence_sentences`, `consent_version`, `joined`, `notes`. **No email.** |
+| `_meta/contributors.tsv` (`_meta/schema/contributors.schema.json`) | Everyone credited | `handle`, `credit_name`, `github`, `role`, `licence_words`, `licence_sentences`, `consent`, `joined`, `notes`. **No email.** |
 
 **Held-out share:**
 
@@ -205,14 +211,16 @@ Draft schemas in the style of `_meta/schema/` are in [`proposal/`](proposal/). T
 - Held-out sentences are **never sent to Common Voice**: its text ends up in training corpora.
 - `eval/README.md`'s canary and "never train on this" already cover the folder.
 
-**Words need no new columns.** Contributor handles fit the existing `translated_by` / `reviewed_by` pattern. A later validator change should do two things:
+**Words need no new columns.** Contributor handles fit the existing `translated_by` / `reviewed_by` pattern. The validator checks two things:
 
-- check every handle against `_meta/contributors.tsv`;
-- reject `machine` in `reviewed_by` (bug hunt M2).
+- every handle is in `_meta/contributors.tsv` (`contributor_refs`, [#20](https://github.com/ARUBAGOV33/papiamento/pull/20));
+- `reviewed_by` never holds `machine` (since #19).
 
-**Two convention changes to decide** (they are proposals, not done):
+It also checks that a pair's prompt is in the same folder (`folder_refs`), so a training pair can never point at a held-out prompt.
 
-1. Contributed sentences have no printed source page. The pair tables therefore have no `source`/`page` columns; `translated_by` plus the batch id in `notes` is their provenance. `_meta/conventions.md` would need that exception.
+**Two convention changes, accepted on 2026-10-18** and written into `_meta/conventions.md` in #20:
+
+1. Contributed sentences have no printed source page. The parallel tables have no `source`/`page` columns; `translated_by` (or `author`) plus a `batch` column is their provenance.
 2. `reviewed_by` stays GitHub usernames, as GOVERNANCE.md requires. Board members need GitHub accounts; contributors don't.
 
 The tool's own working database is sketched in [`proposal/supabase-schema.sql`](proposal/supabase-schema.sql). Its row-level security policies are what enforce:
@@ -221,7 +229,7 @@ The tool's own working database is sketched in [`proposal/supabase-schema.sql`](
 - no self-rating;
 - no deciding on your own item.
 
-### (e) Where frequency ranks come from (question for you)
+### (e) Where frequency ranks come from
 
 The 2,918 machine drafts were chosen by frequency in a private Aruban text corpus (commit `cac2e2e`). That corpus can't be published, so the order it produces can't be reproduced by anyone else.
 
@@ -240,7 +248,18 @@ The signal is weak.
 | 3. Count the words teachers use in the contributed sentences (mode 3) | Yes (CC0) | Everyday register; grows over time |
 | 4. No frequency: base words before their derived forms (-ando, -cion), by AB order | Yes | Structural only |
 
-**Recommendation: 2 now, blended with 3 as sentences come in. Use 1 only if you are comfortable publishing a rank derived from text that can't be shared.** The prototype uses option 2 as a labelled stand-in.
+**Recommendation: 2 now, blended with 3 as sentences come in. Use 1 only if you are comfortable publishing a rank derived from text that can't be shared.**
+
+**Decided on 2026-10-18: the reproducible option (2 blended with 3).** Ranks from the private corpus are never published. `tools/word_frequency.py` ([#20](https://github.com/ARUBAGOV33/papiamento/pull/20)) does it:
+
+- **What it counts:** the shareable PDFs in `sources/pdf/`.
+- **What it leaves out:**
+  - VOC2009 and the AB 2018 word list, because they print every headword once;
+  - AB 2018's orthography annex, because it is the text of ORT2009, which is already counted.
+- **Scoring:** the PDF rate is averaged with the rate in `corpus/parallel/pairs.tsv` once there are sentences.
+- **First run:** 1,539 untranslated headwords occur at least once.
+
+The prototype's "Translate words" order uses the same PDFs.
 
 ## 6. Privacy, safety and copyright
 
@@ -370,21 +389,106 @@ The prototype has no server. A **"Prototype: connection"** switch on the Account
 
 - no server, real sign-in or email: "Switch person" (Account) simulates several people on one device;
 - only 8 + 8 sample words and 12 sample prompts;
-- the frequency order is a stand-in;
 - the pull-request preview is illustrative (`par-NEW` ids);
 - no Common Voice export.
 
-## 10. Proposed next steps (after your decisions)
+## 10. Next steps
 
-1. **Schema PR.**
-   - Add the new tables and `_meta/contributors.tsv`.
-   - Change the conventions and LICENSE-DATA as decided in (a) and (d).
-   - Teach the validator about handles.
-   - Language content, so it needs board approval.
-2. **Prompts, batch 1.** About 300 written prompts with the 15 % held out, checked by a maintainer.
+1. **Schema PR: [#20](https://github.com/ARUBAGOV33/papiamento/pull/20).**
+   - The new tables and `_meta/contributors.tsv`.
+   - The conventions and LICENSE-DATA as decided in (a) and (d).
+   - The validator's handle and folder checks.
+   - `tools/word_frequency.py`.
+   - It is language governance, so it needs the maintainer's approval.
+2. **Prompts, batch 1.**
+   - About 300 prompts written for the project with the 15 % held out, machine-drafted and marked `author = machine`.
+   - It opens as a pull request after #20 merges, because it needs those schemas.
 3. **Tool v1 (option A).**
-   - Supabase project and schema, email sign-in, GitHub Pages.
-   - The sync job and `tools/apply_contributions.py`.
-   - The GitHub App for pull requests.
+   - First the maintainer sets up the accounts (§11).
+   - Then: Supabase schema and email sign-in, GitHub Pages, the sync job and `tools/apply_contributions.py`, and the GitHub App for pull requests.
    - Pilot with 3–5 teachers and the first board members.
 4. **Common Voice (P2-04).** Export reviewed, CC0, non-held-out sentences that meet its rules.
+
+## 11. Setup checklist for the ARUBAGOV33 account (option A)
+
+The maintainer does these steps himself: Claude never creates accounts and never sees passwords, keys or other secrets. Menu paths come from each provider's documentation as read on 2026-10-18. Labels marked **(check)** could not be confirmed there and may be worded slightly differently on screen.
+
+Do them in this order. Each step names what to write down. Where a step says "public", the value goes into the website. Where it says "secret", the value goes only into a GitHub secret (D2), never into a file, a chat or an email.
+
+### A. Supabase project, separate from Skirbi
+
+1. Go to <https://supabase.com/dashboard> and sign in with the **project's own email address**, not the account Skirbi uses. Supabase counts its two free projects across every organisation an account administers, so a separate account keeps Skirbi's free slot safe and the two databases apart.
+2. Create an organisation for the project, then a **New project** **(check: the organisation picker at the top left)**:
+   - **Name:** `papiamento-contribute`.
+   - **Database password:** generated, and kept in a password manager.
+   - **Region:** East US (North Virginia), the general region closest to Aruba.
+   - **Plan:** Free.
+3. **Authentication → Sign In / Providers → Email:**
+   - Leave Email enabled. Email one-time codes are on by default.
+   - Set **Email OTP expiration** to 3600 seconds.
+   - Leave "Allow new users to sign up" on, because teachers sign up with their first code.
+4. **Authentication → Email Templates → "Magic link or OTP":** leave it for now. The tool v1 pull request will give the text to paste, which shows the 6-digit code with `{{ .Token }}`.
+5. **Authentication → URL Configuration:** Site URL = `https://arubagov33.github.io/papiamento/`, and add the same address under Redirect URLs.
+6. **Settings → API Keys** (or the project's **Connect** dialog), write down:
+   - the **Project URL** (public);
+   - the **publishable key**, `sb_publishable_…` (public);
+   - the **secret key**, `sb_secret_…` (**secret**).
+7. Later, when the tool v1 pull request is ready: **SQL Editor** (left sidebar) → New query → paste the migration file from that pull request → Run. The current [`proposal/supabase-schema.sql`](proposal/supabase-schema.sql) is a sketch; don't run it.
+
+### B. Email sending account (Brevo, free)
+
+Supabase's built-in mailer only reaches the project's own team, so teachers' codes need an SMTP account.
+
+1. Create a Brevo account at <https://www.brevo.com> with the project's email address.
+2. **Settings → Senders, Domains, IPs → Senders → Add a sender:**
+   - **From name:** `Papiamento contributions`;
+   - **From email:** the project address.
+   - Confirm it with the 6-digit code Brevo sends there.
+   - Without a domain of our own, Brevo may send from an `@brevosend.com` address and address-book domains such as gmail.com can't be authenticated. If the project gets a domain later, authenticate it under **Domains** on the same page.
+3. **Settings → SMTP & API → SMTP tab**, write down:
+   - the server: `smtp-relay.brevo.com`, port `587`;
+   - the **login**;
+   - a new **SMTP key** (**secret**; an SMTP key, not an API key) **(check: button label)**.
+   - The free plan sends about 300 emails a day **(check: on Brevo's pricing page)**.
+4. Back in Supabase: **Authentication → SMTP Settings** → enable custom SMTP:
+   - host, port, username (the login) and password (the SMTP key) from step 3;
+   - sender email and sender name from step 2.
+5. Supabase: **Authentication → Rate Limits**. Emails per hour start at 30 with custom SMTP. Raise it to about 100 before a workshop where many teachers sign up at once.
+
+(Resend is the alternative, with 100 emails a day free, but it needs our own domain.)
+
+### C. GitHub App that opens the sync pull requests
+
+A pull request opened with Actions' own token does not trigger the gauntlet. One opened by a GitHub App does.
+
+1. Signed in to GitHub as **ARUBAGOV33**: profile picture → **Settings → Developer settings → GitHub Apps → New GitHub App**.
+2. Fill in the form:
+   - **GitHub App name:** `papiamento-sync` (any unique name under 34 characters);
+   - **Homepage URL:** `https://github.com/ARUBAGOV33/papiamento`;
+   - **Webhook:** untick **Active**.
+3. **Repository permissions**; leave everything else at No access:
+   - **Contents:** Read and write;
+   - **Pull requests:** Read and write;
+   - **Metadata:** Read-only.
+4. **Where can this GitHub App be installed?** Only on this account → **Create GitHub App**.
+5. On the app's page, write down the **Client ID** (public). Under **Private keys**, generate a private key; it downloads a `.pem` file (**secret**).
+6. **Install App** → **Install** next to ARUBAGOV33 → **Only select repositories** → `ARUBAGOV33/papiamento` → **Install**.
+
+### D. Repository settings (ARUBAGOV33/papiamento)
+
+1. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
+2. **Settings → Secrets and variables → Actions:**
+   - **Variables** tab → New repository variable, three times **(check: tab name)**:
+     - `SYNC_APP_CLIENT_ID` = the app's Client ID (C5);
+     - `SUPABASE_URL` = the Project URL (A6);
+     - `SUPABASE_PUBLISHABLE_KEY` = the publishable key (A6).
+   - **Secrets** tab → **New repository secret**, twice:
+     - `SYNC_APP_PRIVATE_KEY` = the whole contents of the `.pem` file (C5);
+     - `SUPABASE_SECRET_KEY` = the secret key (A6).
+   - Then delete the downloaded `.pem` file.
+3. **Settings → Actions → General → Workflow permissions:** leave "Allow GitHub Actions to create and approve pull requests" **off**. The GitHub App opens the pull requests, and nothing should approve them automatically.
+4. Branch protection stays as it is. Every sync pull request waits for a maintainer's or board member's review, and the person named in `reviewed_by` approves it.
+
+### E. When it's done
+
+Tell Claude which **names** you created: the variables and secrets in D2, plus the app name. Never send the values. The tool v1 workflow reads them by those names.

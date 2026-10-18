@@ -51,8 +51,7 @@ REVIEW_IDS = [
     "pap-002563",  # cashi
 ]
 
-# Rows with no translation. Taken from the top of the stand-in frequency order
-# below, skipping Dutch and English function words that the books quote (van,
+# Rows with no translation, picked from the top of the frequency order below, skipping Dutch and English function words that the books quote (van,
 # het, in, o) and the language name.
 TRANSLATE_IDS = [
     "pap-009327",  # madushi
@@ -65,14 +64,13 @@ TRANSLATE_IDS = [
     "pap-000396",  # agricultura
 ]
 
-# Stand-in frequency source for the prototype only: token counts in the PDFs
-# that are already in this repo (AB 2018 law and orthography annex, without the
-# word list; MOR2010, ORT2009, PRE2016, SIN2015). The real source is Victor's
-# decision (see DESIGN.md, "Where frequency ranks come from").
-FREQ_PDFS = [("AB2018", range(0, 47)), ("MOR2010", None), ("ORT2009", None),
-             ("PRE2016", None), ("SIN2015", None)]
-FREQ_LABEL = ("prototype stand-in: how often the word occurs in the PDFs already "
-              "in this repo (AB 2018 annex, MOR2010, ORT2009, PRE2016, SIN2015)")
+# Frequency order, as the maintainer decided on 2026-10-18 (DESIGN.md 5(e)):
+# token counts in the shareable PDFs in this repo, the same ones
+# tools/word_frequency.py counts. AB2018 and VOC2009 are left out: their word
+# lists print every headword once, and the AB annex is the text of ORT2009.
+FREQ_PDFS = [("MOR2010", None), ("ORT2009", None), ("PRE2016", None), ("SIN2015", None)]
+FREQ_LABEL = ("how often the word occurs in the repo's shareable PDFs (MOR2010, ORT2009, "
+              "PRE2016, SIN2015); contributed sentences will be blended in")
 
 # Words in the Papiamento interface text that are not AB 2018 headwords but are
 # allowed: technical terms, names, licence codes and the past marker a.

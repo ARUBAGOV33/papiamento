@@ -40,7 +40,7 @@ Then try this:
 | `data/` | Generated; do not edit by hand. Sample words and prompts, check data, interface strings. |
 | `crops/` | Generated crops of the printed AB 2018 word-list pages: four columns, and one column for phones |
 | `test_checker.mjs` | Tests the checker against every rule test, barbarismo and Curaçao pair in the repo |
-| `proposal/` | Draft schemas for the new tables and a sketch of the tool's database (see DESIGN.md §5(d)) |
+| `proposal/` | A sketch of the tool's own database (see DESIGN.md §5(d)). The table schemas are in `_meta/schema/` (#20). |
 
 ## Rebuild and test
 
