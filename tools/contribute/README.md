@@ -79,6 +79,7 @@ Then try this:
 | `index.html`, `style.css`, `app.js` | The tool. No framework. Phone first, with a sidebar layout from 900 px. `app.js` has both backends: demo (`localStorage`) and live (supabase-js). |
 | `config.js` | Which backend to use. The committed file is the demo; the deploy replaces it. |
 | `theme.js` | Applies the saved appearance (Light, the default, Dark or Match device) before the first paint |
+| `assets/fonts/` | Inter 4, variable, Latin and Latin Extended subsets (`@fontsource-variable/inter` 5.3.0), with its licence, `OFL.txt` (SIL Open Font License 1.1) |
 | `build_site.py` | Builds the live (or a full demo) site into one folder for GitHub Pages. Tested in `tests/test_build_site.py`. |
 | `supabase/` | The database: migration, access rules, their tests, the sign-in email and the setup guide |
 | `assets/hero.webp` | The welcome image: a text-free slice of the README banner (`.github/assets/banner.webp`, Higgsfield artwork) |

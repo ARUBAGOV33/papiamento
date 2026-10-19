@@ -3,9 +3,29 @@
    Light by default (data-theme="light"), with a dark theme and "Match device"
    on the Account page (theme.js applies the choice before the first paint).
    Palette from the README banner: Aruba blue #1663b8 for actions, navy
-   #0b3c78 for text, yellow #f9d616 only as a small accent. No external fonts
-   or libraries: the font is one variable, so a self-hosted webfont is a
-   one-line change. DESIGN.md section 8 explains the system. */
+   #0b3c78 for text, yellow #f9d616 only as a small accent. The font is Inter,
+   self-hosted (assets/fonts/, SIL Open Font License), with the system font as
+   the fallback; nothing is loaded from another site. DESIGN.md section 8
+   explains the system. */
+
+/* Inter 4 (variable, weights 100-900), from @fontsource-variable/inter 5.3.0:
+   the Latin and Latin Extended subsets, which cover ñ and every accent. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("assets/fonts/inter-latin-ext-wght-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
   color-scheme: light;
@@ -60,7 +80,7 @@
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
   /* Type: one sans, one scale (12 / 13 / 14 / 16 / 18 / 20 / 24 / 28 / 32) */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", Inter, system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --fs-xs: 0.75rem;
   --fs-caption: 0.8125rem;

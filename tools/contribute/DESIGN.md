@@ -348,8 +348,11 @@ The look was redone on 2026-10-19, after the maintainer used the live tool: ligh
   - amber for warnings;
   - blue for checker suggestions.
 - **Type:**
-  - One sans-serif in one CSS variable, `--font-sans`: the system font (San Francisco, Segoe UI, Roboto) with Inter used if it is installed.
-  - A self-hosted webfont would be a one-line change, but it is a download and needs the maintainer's OK. No Google Fonts link, which would send teachers' addresses to Google.
+  - One sans-serif in one CSS variable, `--font-sans`: **Inter**, self-hosted, with the system font (San Francisco, Segoe UI, Roboto) as the fallback.
+  - The font is Inter 4, variable (weights 100–900), from the npm package `@fontsource-variable/inter` 5.3.0. Its checksum was checked against the registry before use. The maintainer approved the download on 2026-10-19.
+  - Only the Latin and Latin Extended subsets are kept: `assets/fonts/inter-latin-wght-normal.woff2` (48 KB) and `inter-latin-ext-wght-normal.woff2` (85 KB). They cover ñ and every accent.
+  - The licence is the SIL Open Font License 1.1, in `assets/fonts/OFL.txt`.
+  - No Google Fonts link, which would send teachers' addresses to Google.
   - Scale: 12, 13, 14, 16, 18, 20, 24, 28, 32 px; weights 400, 500, 600 and 700.
   - Large headings are tightened (letter-spacing down to -0.025em), body text is left at 0; tabular numbers for counts.
   - Inputs use 16 px text, so iPhones don't zoom in.
