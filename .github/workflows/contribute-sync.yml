@@ -1,0 +1,131 @@
+name: Contribution sync
+
+# Weekly, or by hand: bring the review board's decisions from the contribution
+# tool's database (Supabase) into the data files, and open ONE pull request.
+# The pull request is opened by the papiamento-sync GitHub App, so the
+# gauntlet runs on it like on any other pull request. Nothing is ever merged
+# automatically; the board member named in reviewed_by approves it.
+#
+# Needs (DESIGN.md §11): variables SUPABASE_URL and SYNC_APP_CLIENT_ID,
+# secrets SUPABASE_SECRET_KEY and SYNC_APP_PRIVATE_KEY.
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'   # Mondays 06:17 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: only show what would change, open no pull request'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: contribute-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Stop if a sync pull request is still open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --json headRefName \
+                --jq '[.[] | select(.headRefName | startswith("contrib/"))] | length')
+          echo "open=$n" >> "$GITHUB_OUTPUT"
+          if [ "$n" != "0" ]; then
+            echo "::notice::A contribution sync pull request is still open. Review or close it first; nothing to do."
+          fi
+
+      - name: Read the board's decisions from Supabase
+        if: steps.open.outputs.open == '0'
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/sync"
+          python3 tools/apply_contributions.py fetch --out "$RUNNER_TEMP/sync/snapshot.json"
+
+      - name: Write them into the data files
+        id: apply
+        if: steps.open.outputs.open == '0'
+        run: |
+          python3 tools/apply_contributions.py apply --snapshot "$RUNNER_TEMP/sync/snapshot.json" \
+            --summary "$RUNNER_TEMP/sync/pr-body.md" --ids "$RUNNER_TEMP/sync/ids.json"
+          rm -f "$RUNNER_TEMP/sync/snapshot.json"
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No decisions to export."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat
+          fi
+
+      - name: Rebuild the progress pages and run the gauntlet
+        if: steps.apply.outputs.changed == 'true'
+        run: |
+          python3 tools/build_pages.py
+          python3 tools/validate.py
+          python3 -m unittest discover -s tests
+
+      - name: Dry run, show the changes
+        if: steps.apply.outputs.changed == 'true' && env.DRY_RUN == 'true'
+        run: |
+          git diff
+          cat "$RUNNER_TEMP/sync/pr-body.md"
+          echo "::notice::Dry run: no pull request opened, no decision marked as exported."
+
+      - name: Get a token for the papiamento-sync app
+        id: app
+        if: steps.apply.outputs.changed == 'true' && env.DRY_RUN != 'true'
+        uses: actions/create-github-app-token@v3.2.0
+        with:
+          client-id: ${{ vars.SYNC_APP_CLIENT_ID }}
+          private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+
+      - name: Commit, push and open one pull request
+        id: pr
+        if: steps.apply.outputs.changed == 'true' && env.DRY_RUN != 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          APP_SLUG: ${{ steps.app.outputs.app-slug }}
+        run: |
+          today=$(date -u +%Y-%m-%d)
+          bot_id=$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq .id)
+          git config user.name "${APP_SLUG}[bot]"
+          git config user.email "${bot_id}+${APP_SLUG}[bot]@users.noreply.github.com"
+          branch="contrib/${today}-run${GITHUB_RUN_NUMBER}"
+          git switch -c "$branch"
+          git add -A lexicon corpus eval _meta README.md .github/assets
+          git commit -s -q -m "Contributions from the contribution tool (${today})" \
+            -m "Decisions made by the review board in tools/contribute/, exported by tools/apply_contributions.py."
+          git push -q "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$branch"
+          url=$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$branch" \
+                  --title "Contributions from the contribution tool (${today})" \
+                  --body-file "$RUNNER_TEMP/sync/pr-body.md")
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "::notice::Opened $url"
+
+      - name: Record the pull request on the exported decisions
+        if: steps.pr.outputs.url != ''
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          PR_URL: ${{ steps.pr.outputs.url }}
+        run: python3 tools/apply_contributions.py mark-exported --ids "$RUNNER_TEMP/sync/ids.json" --pr-url "$PR_URL"
