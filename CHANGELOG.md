@@ -8,6 +8,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- `lexicon/calendar/holidays.tsv`: Aruba's 11 public holidays with their Papiamento, English and Dutch names, a fixed date or "movable", from the Government of Aruba's holidays page (new source `GOV2026`, cited only). Capitalised as AB 2018 §9.3 i requires. Spanish stays empty: there is no official Spanish page.
 - Parallel sentences, decided by the maintainer on 2026-10-18 (contribution tool design, board card P2-09): empty tables for English and Spanish prompts and their Aruban Papiamento translations in `corpus/parallel/`, with a 15% hash-based hold-out in `eval/parallel/`; schemas `_meta/schema/parallel-prompts.schema.json` and `parallel-pairs.schema.json`. Both are CC0 1.0 (exception in LICENSE-DATA), so they can go to Common Voice. They cite no source page: `translated_by` (or `author`) and `batch` are their provenance.
 - `_meta/contributors.tsv`: everyone the data credits, by handle, credit name and role, with no contact details. Contributors no longer need a GitHub account; review-board members and maintainers still do.
 - `tools/contribute/supabase/`: the contribution tool's database for the Supabase project `papiamento-contribute`. A migration with access rules (row-level security) enforces blind double answers, no self-rating, no deciding on your own item, and the board and maintainer roles; email addresses stay in Supabase's auth only. It comes with a rollback-only test of every rule (`rls-test.sql`), the sign-in email template, a paste-once guide, and the **Contribution security check** workflow, which proves the public key alone reads and writes nothing. It replaces the sketch in `tools/contribute/proposal/`.
@@ -23,6 +24,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Changed
 
+- Project status: the table and chart show the calendar with public holidays and the parallel sentences (prompts, held-out prompts, translations and reviews), so the picture covers the contribution tool's work.
 - The contribution tool is live at https://arubagov33.github.io/papiamento/ (2026-10-19): the maintainer ran the database setup, and the access-rule test and the outside security check passed. README Project status and `_meta/milestones.tsv` say so.
 - Version 0.1.0 is published on Hugging Face (https://huggingface.co/datasets/ARUBAGOV33/papiamento); the README links it.
 - Version 0.1.0 is archived on Zenodo: README (badge, Project status, How to cite), `CITATION.cff` and the dataset card give the DOIs, 10.5281/zenodo.23427109 for 0.1.0 and 10.5281/zenodo.23427108 for all versions.

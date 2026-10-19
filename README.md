@@ -104,16 +104,18 @@ Milestones: **P0 Foundation** ✅ done · **P1 Clean data** 🟡 in progress · 
 |---|---:|---:|---|
 | [Words](lexicon/words/) (AB 2018 word list) | 16,218 | 0 | 0% (0 of 200)<br><sub>95% CI 0–1.9%, checked by machine on 2026-10-17</sub><br>Translations: 3.3% (2 of 60)<br><sub>95% CI 0.9–11.4%, checked by machine on 2026-10-17</sub> |
 | Numbers | 159 | 0 | 0% (0 of 30)<br><sub>95% CI 0–11.4%, checked by machine on 2026-10-17</sub> |
-| Days and months | 19 | 0 | not audited yet |
+| Calendar (days, months, public holidays) | 30 | 0 | not audited yet |
 | Barbarismos | 42 | 0 | not audited yet |
 | Curaçao → Aruba spelling pairs | 372 | 0 | 0% (0 of 40)<br><sub>95% CI 0–8.8%, checked by machine on 2026-10-17</sub> |
 | Loanwords | 315 | 0 | 0% (0 of 40)<br><sub>95% CI 0–8.8%, checked by machine on 2026-10-17</sub> |
+| [Sentence prompts](corpus/parallel/) (English and Spanish; 45 held out for tests) | 300 | 0 | not audited yet |
+| Aruban Papiamento sentence translations | 0 | 0 | not audited yet |
 | [Grammar rules](grammar/) | 192 | 0 | 0% (0 of 20)<br><sub>95% CI 0–16.1%, checked by machine on 2026-10-17</sub> |
 | [Machine checker rules](rules/) | 49 | | not audited yet |
 
 Measured error rate: the share of wrong rows in the latest random audit of the table against the source PDFs, with its 95% Wilson interval (CI). The audits are logged in [`_meta/audits.tsv`](_meta/audits.tsv). "Checked by machine" means software or an AI model did the checking, not yet a person.
 
-Still empty: names, closed word classes and public holidays.
+Still empty: names and closed word classes.
 <!-- REPO-PROGRESS:END -->
 
 - Every headword of the AB 2018 word list is in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The most frequent words have machine-drafted English, Dutch and Spanish translations, marked `translated_by = machine` until a person reviews them. [Progress per letter](lexicon/words/README.md).
