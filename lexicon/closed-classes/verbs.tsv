@@ -1,5 +1,5 @@
 id	class	subclass	pap	alt	features	en	status	reviewed_by	source	page	section	notes
-ccl-0006	verb	modal	gusta			to like (to)	draft		MOR2010	37	6.2.2.1	Open question: Morfologia §6.2.3.2 (p. 39) prints Mucha (ta) gusta core den un espacio grandi, against the ruling that modals never take ta (err-0023).
+ccl-0006	verb	modal	gusta			to like (to)	draft		MOR2010	37	6.2.2.1	Listed as a modal on p. 37. Unlike the other modals it is used with or without ta (Morfologia §6.2.3.2, p. 39; maintainer ruling of 2026-10-19, err-0023).
 ccl-0007	verb	modal	kier			to want (to)	draft		MOR2010	37	6.2.2.1	Takes the particle a after it, not before: kier a (§6.2.3.3, p. 40). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39).
 ccl-0008	verb	modal	mag	mag di		may; to be allowed to	draft		MOR2010	37	6.2.2.1	Printed mag (di). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39).
 ccl-0009	verb	modal	mester			must; to have to	draft		MOR2010	37	6.2.2.1	Takes the particle a after it, not before: mester a (§6.2.3.3, p. 40). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39).
