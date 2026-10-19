@@ -247,7 +247,11 @@ window.CONTRIB_STRINGS = {
   "account.download_mine": "Download my contributions",
   "account.sign_out": "Sign out",
   "about.live_title": "About this tool",
-  "toast.saved": "Saved"
+  "toast.saved": "Saved",
+  "account.appearance": "Appearance",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.system": "Match device"
  },
  "pap": {
   "app.title": "Herment pa contribui na Papiamento",
@@ -496,7 +500,11 @@ window.CONTRIB_STRINGS = {
   "account.download_mine": "Descarga mi contribucionnan",
   "account.sign_out": "Sali",
   "about.live_title": "Tocante e herment aki",
-  "toast.saved": "Nos a warda esaki"
+  "toast.saved": "Nos a warda esaki",
+  "account.appearance": "Aparencia",
+  "theme.light": "Cla",
+  "theme.dark": "Scur",
+  "theme.system": "Mescos cu bo aparato"
  },
  "pap_status": {
   "app.title": "draft",
@@ -745,6 +753,10 @@ window.CONTRIB_STRINGS = {
   "account.download_mine": "draft",
   "account.sign_out": "draft",
   "about.live_title": "draft",
-  "toast.saved": "draft"
+  "toast.saved": "draft",
+  "account.appearance": "draft",
+  "theme.light": "draft",
+  "theme.dark": "draft",
+  "theme.system": "draft"
  }
 };
