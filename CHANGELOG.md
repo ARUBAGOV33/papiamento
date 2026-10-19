@@ -35,6 +35,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   - `barbarismos.rule_id` must be the id of a grammar file, unless it is a row-level `RULE_LEX_*` id (warning). RULE_PRN_USTED_001 (bar-0005, bar-0006) is reported until it gets a grammar file or a `RULE_LEX_` id.
   - Rows with no source get an "untraced" warning. A PDF outside `sources/pdf/`, a hidden or line-breaking character in a cell (zero-width, U+2028, no-break space, control characters), and an unknown schema, constraint or `x-papiamento` key are errors.
 
+### Fixed
+
+- Rows found wrong in the 2026-10 bug hunt (checked against the page images): the false-friend sense "to slap" removed from `slap` (pap-013995), "opposition" removed from `opositor` (pap-010715), the copied language-name translation removed from lowercase `papiamento` (pap-010959); notes added to `num-0101` (shen, shento and cien before y, AB 2018 §11.8) and `var-0272` (muchu meaning "a lot" becomes hopi). The AB 2018 source card and `sources/sources.tsv` now say the +2 page offset holds only for the orthography annex.
+- `sources/errata.tsv`: err-0017 (Sintaxis p. 36 "masha feros" vs AB 2018 feroz) and err-0018 (Morfologia p. 25 "poco poco" vs AB 2018 pocopoco), open for the maintainer.
+
 ## [0.1.0] - 2026-10-16
 
 First public release. 16,218 words, 159 numbers, 19 calendar terms, 42 barbarismos, 372 Curaçao-to-Aruba pairs, 315 loanwords, 192 grammar rules and 49 machine rules. Every data row is `draft`: the review board has not reviewed any yet. The 16 errata are `reviewed` (decided by the maintainer).

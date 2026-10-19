@@ -1,6 +1,6 @@
 id	title	status	left	notes
 P0	Foundation	done	branch protection; written licence confirmation	
-P1	Clean data	in-progress	closed word classes; names; public holidays; test set	Version 0.1.0 released and audited.
-P2	Community	in-progress		Contribution app being designed; watchdog.
+P1	Clean data	in-progress	closed word classes; names; public holidays; human-checked answers for the test sets	Version 0.1.0 released and audited.
+P2	Community	in-progress	contribution tool v1 (being built); teacher pilot; review board; onboarding guide; watchdog	Contribution app being designed; watchdog.
 P3	Products	not-started		
 P4	Speech and AI	not-started		

@@ -56,7 +56,8 @@ This dataset keeps the two apart. Canonical columns hold Aruban Papiamento only.
 
 ```
 _meta/            Conventions, schemas, invariants, known facts, allowlists, audits, milestones
-_templates/       Starter files: word row, grammar rule, source card, errata row, audit row
+_templates/       Starter files: word row, grammar rule, source card, errata row,
+                  audit row, contributor row, parallel prompt row
 lexicon/
   words/A-Z/      words.tsv per letter: every AB 2018 headword with EN, NL, ES
   numbers/        Cardinals, ordinals, fractions and clock times
@@ -69,18 +70,20 @@ lexicon/
 grammar/          Rules in plain language, one file per rule: orthography,
                   morphology, syntax, prepositions, style
 rules/            Machine-readable checker rules, each with its own tests
-corpus/           Aruban text we may redistribute, with a manifest
-eval/             Test sets for the writing auditor and for AI models
+corpus/           Aruban text we may redistribute, and parallel English/Spanish →
+                  Aruban Papiamento sentences (CC0) in corpus/parallel/
+eval/             Test sets for the writing auditor and for AI models, including
+                  held-out parallel sentences
 sources/          Source registry (sources.tsv), source cards, shareable PDFs,
                   errata and permission records
 release/          Template of the Hugging Face dataset card
-tools/            The validator and build scripts
+tools/            The validator, build scripts and the contribution tool
 tests/            Tests for the validator
 CLAUDE.md         Routing notes for AI agents
 AGENTS.md         Points other AI agents to CLAUDE.md
 ```
 
-Every folder has a `README.md` that says what lives there and how to add to it.
+Every top-level folder has a `README.md` that says what lives there, including its sub-folders, and how to add to it.
 
 Start with [`_meta/conventions.md`](_meta/conventions.md). It explains the file format, ids, status values and source citations that every table follows. [`_meta/invariants.md`](_meta/invariants.md) lists the spelling and grammar rules that are not up for debate.
 
@@ -118,6 +121,7 @@ Still empty: names, closed word classes and public holidays.
 - **Bug hunt (October 2026):** AI checker agents compared samples of each table with the page images of the source PDFs. They found 2 wrong machine translations out of 60 and no errors in the other samples. The rows found wrong were fixed in [#15](https://github.com/ARUBAGOV33/papiamento/pull/15). No person has repeated these audits yet. The results are the error rates in the table above.
 - **Rulings audit (October 2026):** every grammar rule now rests on a printed page or a dated maintainer decision. One question is still open: whether gusta can take ta (err-0023 in [`sources/errata.tsv`](sources/errata.tsv)).
 - **Parallel sentences (set up October 2026):** the tables for everyday English and Spanish sentences and their Aruban Papiamento translations are ready in `corpus/parallel/`, with 15% held out in `eval/parallel/`, under CC0 so they can go to Common Voice. Batch 1 holds 300 everyday prompts (machine-drafted in English and Spanish, `draft` until a maintainer checks them): 255 in `corpus/parallel/`, 45 held out. There are no Papiamento translations yet. Teachers will write them through the contribution tool, whose prototype is in [`tools/contribute/`](tools/contribute/) and which is not live yet. Everyone credited is listed in [`_meta/contributors.tsv`](_meta/contributors.tsv).
+- **Contribution tool (in progress):** a prototype and its design are in [`tools/contribute/`](tools/contribute/). Hosting is set up (Supabase, email sign-in codes, GitHub Pages), and the first version is being built. Next: a pilot with 3–5 teachers.
 - The milestones line, the chart, the table and the "still empty" line above are rebuilt from the data after every change.
 
 ## How to use it
