@@ -306,7 +306,7 @@ The interaction model is Duolingo's lesson pattern without its cartoon look:
 - a full-width primary button at the bottom;
 - a feedback sheet that slides up after each answer.
 
-The audience is teachers, linguists and a ministry, so the look is calm: high contrast, few colours, no mascots, no confetti. The app is phone-first, because many teachers and the maintainer work from a phone. From 900 px a sidebar replaces the tab bar, word tasks split into two columns, and the board becomes a list with a detail pane.
+The audience is teachers, linguists and a ministry, so the look is calm and professional: light by default, high contrast, one accent colour, no mascots, no confetti. The app is phone-first, because many teachers and the maintainer work from a phone. From 900 px a sidebar replaces the tab bar, word tasks split into two columns, and the board becomes a list with a detail pane.
 
 ### References (Mobbin)
 
@@ -324,26 +324,46 @@ Each screen is grounded in a well-designed app. References marked † were passe
 | End of a queue | Check icon, one sentence, three stat tiles (answered today, waiting for a second answer, confirmed by the board), Back to home | Mimo [lesson complete](https://mobbin.com/screens/b96677c5-4f73-40ff-8dee-2bda19aed27e); Withings [all missions done](https://mobbin.com/screens/c52f7e0f-41e5-4e12-96d9-84b1b420f7f9) |
 | Review board | "To decide / Decided" tabs, a list with status badges, a detail pane, Dispute and Save in a sticky footer | Reddit [mod queue](https://mobbin.com/screens/9e81dbcf-db79-45ef-8347-08e81e1b5b77); Airwallex [pending your approval](https://mobbin.com/screens/89c96631-be20-4176-be78-d24175e013ed); Calendly [list and detail](https://mobbin.com/screens/23888dde-e7ac-41d6-834c-fd316809d84a) |
 | Offline | An inline banner that says what still works, not a dead end | Alta [network offline](https://mobbin.com/screens/2b00c4b9-d2a6-4a6a-9d95-2aba49348be1); Qantas [you're not connected](https://mobbin.com/screens/18f77caf-19d5-4199-98b4-a36f34096d23) |
+| App shell and cards (2026-10-19 redesign) | A light grey shell with white, thinly bordered cards and soft shadows; a quiet sidebar with small icons, the current page lifted on white; numbers large, labels small and grey | Linear [preferences](https://mobbin.com/screens/d4e47b31-9152-40c7-a400-c6725e8de647) and [workspace settings](https://mobbin.com/screens/60dd3590-48ba-4a6b-933a-7f8ef3ab8b6d); Stripe [overview cards](https://mobbin.com/screens/673e89af-fe9e-4ab9-ac27-435dedf21888) and [home](https://mobbin.com/screens/1e21365d-55d1-479d-b79a-b006622d050b) |
+| Account settings | Each setting as a row in one card, the label on the left and the control on the right (stacked on phones): screen language, then Appearance with Light, Dark and Match device | Linear [preferences, interface and theme](https://mobbin.com/screens/d4e47b31-9152-40c7-a400-c6725e8de647) |
 | Credits | "Your contributions" as a list of counts; the board and contributors listed by name, alphabetical, not ranked | Google Maps [number of contributions](https://mobbin.com/screens/550534f8-b745-4442-98f1-29caf9fa7da2); X [moderators and members](https://mobbin.com/screens/278f2d6c-fd9c-4995-864c-77f4eea11450). Left out: ranked leaderboards such as Believe's [ranked list](https://mobbin.com/screens/13cba083-8369-4098-8800-253c652932e6). Volunteers should not compete. |
 
 ### Visual system
 
+The look was redone on 2026-10-19, after the maintainer used the live tool: light by default and more professional. It was checked against Linear and Stripe (above) and Emil Kowalski's, Apple's and the "anti-slop" frontend design notes.
+
+- **Themes:**
+  - **Light is the default.** Account → **Appearance** offers Light, Dark and Match device.
+  - The choice is kept on the device and applied by `theme.js` before the first paint, so a dark choice never flashes light.
+  - Both themes keep WCAG AA contrast (4.5:1 or more) for every text colour on its background; in light, grey text on white is 5.4:1, links 6.0:1.
 - **Colour:**
-  - Aruba blue `#1663b8` for primary actions and progress;
-  - navy `#0b3c78` for the goal card and language codes;
-  - yellow `#f9d616` as an accent only (the goal ring, the prototype banner, the draft chip), never for text on white.
+  - Aruba blue `#1663b8` is the one accent: primary buttons, links, progress, selected items, counts.
+  - Navy-tinted near-black `#0b1f3a` for text, cool greys for secondary text and lines, white cards on a light grey shell (`#f6f7f9`).
+  - Yellow `#f9d616` appears only as a thin edge on the Review board card (and in the banner artwork), never as text.
+- **Name:** a plain wordmark, "Papiamento contributions" in semibold, with no logo mark; the maintainer found the old striped "P" icon unprofessional (2026-10-19).
+  - The four ways to help share the blue; their icons tell them apart.
+  - Avatars are blue initials on light blue; a board member's are white on blue, and "Review board" is a text badge on the Account page.
 - **States:**
   - green for "correct" and success;
   - red for "wrong" and errors;
-  - amber for warnings and checks.
-- **Dark mode** follows the system setting.
-- **Type:** the system font on a fixed scale (12.5, 14, 16, 18, 20, 24, 28, 34).
-  - Weights are 400, 600 and 700, with tighter letter-spacing on large headings and tabular numbers for counts.
+  - amber for warnings;
+  - blue for checker suggestions.
+- **Type:**
+  - One sans-serif in one CSS variable, `--font-sans`: **Inter**, self-hosted, with the system font (San Francisco, Segoe UI, Roboto) as the fallback.
+  - The font is Inter 4, variable (weights 100–900), from the npm package `@fontsource-variable/inter` 5.3.0. Its checksum was checked against the registry before use. The maintainer approved the download on 2026-10-19.
+  - Only the Latin and Latin Extended subsets are kept: `assets/fonts/inter-latin-wght-normal.woff2` (48 KB) and `inter-latin-ext-wght-normal.woff2` (85 KB). They cover ñ and every accent.
+  - The licence is the SIL Open Font License 1.1, in `assets/fonts/OFL.txt`.
+  - No Google Fonts link, which would send teachers' addresses to Google.
+  - Scale: 12, 13, 14, 16, 18, 20, 24, 28, 32 px; weights 400, 500, 600 and 700.
+  - Large headings are tightened (letter-spacing down to -0.025em), body text is left at 0; tabular numbers for counts.
   - Inputs use 16 px text, so iPhones don't zoom in.
-- **Sizes:**
+- **Shape and space:**
+  - spacing on a 4/8 px grid;
+  - cards have 14 px corners, a 1 px border and a soft shadow tinted to the navy (none in dark);
+  - buttons, inputs and tiles have 10 px corners; chips, badges and counts are pills;
   - touch targets are 48 px on phones and 44 px with a mouse;
-  - buttons have 12 px corners, 16 px semibold text and a 20 px horizontal padding;
-  - cards have 18 px corners.
+  - icons are one hand-drawn line set with a 1.75 px stroke.
+- **Focus:** keyboard users see a 2 px blue ring on whatever they can act on. Headings that the app focuses after each screen change, for screen readers, show no ring.
 - **Imagery:** the welcome screen uses a text-free slice of the README banner. That banner is Higgsfield artwork made for the repo (`.github/assets/README.md`), so the app matches the repository, and no new image was generated. Page crops are the only other images. They come from the public-domain AB 2018 law.
 
 ### Motion
@@ -359,6 +379,7 @@ Motion follows Emil Kowalski's rules:
 - **Frequent actions don't animate:** moving to the next word, typing, switching tabs.
 - **Rare moments may:** the end-of-queue check icon pops in.
 - **Reduce motion:** with the system setting on, movement is replaced by fades and the shimmer stops.
+- **Theme changes** fade the page background over 200 ms instead of flashing.
 
 ### States
 
@@ -368,7 +389,7 @@ Motion follows Emil Kowalski's rules:
 | Success | The bottom feedback sheet ("Saved. Thank you!" plus what happens next). Small confirmations (download, import, undo, back online) use a toast that pauses while the tab is hidden. |
 | Field errors | A red border, an icon and a message under the field, read out by screen readers. The field takes focus and the error clears as soon as the person types. Primary buttons stay disabled until a task is complete, with a one-line hint saying what is missing. |
 | Save failed | A red sheet: "Couldn't save. Your answer is still here." with Try again and Cancel. Nothing is stored until the save succeeds. |
-| Offline | A banner on every screen. In the real tool, answers queue on the device and are sent when the connection returns. |
+| Offline | A banner on every screen. The answer stays on the screen; in the live tool, saving shows "Couldn't save" with Try again until the connection returns. |
 | Storage blocked | A banner asks the person to export before closing the page (private mode, full disk). |
 | Image failed | A plain note with a link to the whole PDF page. |
 | Empty | An icon, one sentence and one action, for example "No sentences to rate yet". |

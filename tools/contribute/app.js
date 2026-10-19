@@ -110,6 +110,41 @@
   function day(iso) { return (iso || "").slice(0, 10); }
   function today() { return day(new Date().toISOString()); }
 
+  // -------------------------------------------------------------- appearance
+  // Light by default; Dark, or Match device. A per-device setting: theme.js
+  // applies the same choice before the first paint, so the page never flashes.
+
+  var THEME_KEY = "pap-contrib-theme";
+  var darkQuery = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  var themeChoice = (function () {
+    try {
+      var v = window.localStorage.getItem(THEME_KEY);
+      return v === "dark" || v === "system" ? v : "light";
+    } catch (e) { return "light"; }
+  })();
+
+  function applyTheme() {
+    var dark = themeChoice === "dark" || (themeChoice === "system" && !!darkQuery && darkQuery.matches);
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", dark ? "#0b1220" : "#f6f7f9");
+  }
+
+  function setTheme(v) {
+    themeChoice = v;
+    try { window.localStorage.setItem(THEME_KEY, v); } catch (e) { /* kept for this visit only */ }
+    applyTheme();
+  }
+
+  if (darkQuery) {
+    var onScheme = function () { if (themeChoice === "system") applyTheme(); };
+    if (darkQuery.addEventListener) darkQuery.addEventListener("change", onScheme);
+    else if (darkQuery.addListener) darkQuery.addListener(onScheme);
+    // Some browsers only report the change once the tab is shown again.
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) onScheme(); });
+  }
+  applyTheme();
+
   // ------------------------------------------------------------------- text
 
   function t(key, vars) {
@@ -186,13 +221,7 @@
 
   function icon(name, cls) {
     var span = el("span", { class: "icon " + (cls || ""), "aria-hidden": "true" });
-    span.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS[name] + "</svg>";
-    return span;
-  }
-
-  function brandMark() {
-    var span = el("span", { class: "brand-mark", "aria-hidden": "true" });
-    span.innerHTML = '<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#1663b8"/><rect x="6" y="19" width="20" height="2.6" rx="1.3" fill="#f9d616"/><rect x="6" y="23.6" width="20" height="2.6" rx="1.3" fill="#f9d616"/><path d="M11.5 16.5V7.5h5a3.5 3.5 0 0 1 0 7h-5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    span.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + ICONS[name] + "</svg>";
     return span;
   }
 
@@ -201,7 +230,9 @@
     return ((parts[0] || "?")[0] + (parts.length > 1 ? parts[parts.length - 1][0] : "")).toUpperCase();
   }
 
-  function avatar(p) { return el("span", { class: "avatar" + (p.board ? " board" : ""), "aria-hidden": "true" }, initials(p.name)); }
+  // "is-board", not "board": .board is the review board's page grid, and on a
+  // laptop its 300 px column pushed the initials out of the circle.
+  function avatar(p) { return el("span", { class: "avatar" + (p.board ? " is-board" : ""), "aria-hidden": "true" }, initials(p.name)); }
 
   // ---------------------------------------------------------------- people
 
@@ -723,7 +754,7 @@
     var body;
     if (live.status === "loading") {
       body = el("div", { class: "gate", role: "status", "aria-live": "polite" },
-        brandMark(), el("span", { class: "spinner big", "aria-hidden": "true" }), el("p", { class: "muted" }, t("common.loading")));
+        el("span", { class: "spinner big", "aria-hidden": "true" }), el("p", { class: "muted" }, t("common.loading")));
     } else {
       var kind = live.error === "config" ? "config" : live.error === "offline" ? "offline" : "load";
       body = el("div", { class: "gate" }, emptyState(kind === "offline" ? "wifioff" : "alert",
@@ -762,9 +793,9 @@
   function sidebar(current) {
     var p = me();
     return el("aside", { class: "sidebar", "aria-label": "Sections" },
-      el("a", { class: "brand", href: "#/home" }, brandMark(), el("span", null, el("strong", null, t("app.short")), el("small", null, "pap-AW"))),
-      el("nav", null, el("ul", null, navItems().map(function (it) {
-        return el("li", null, el("a", { href: "#/" + it.name, "aria-current": it.name === current ? "page" : null },
+      el("a", { class: "brand", href: "#/home" }, el("strong", null, t("app.short")), el("small", null, "Aruban Papiamento · pap-AW")),
+      el("nav", null, el("ul", null, navItems().map(function (it, i, all) {
+        return el("li", { class: i && !!all[i - 1].task !== !!it.task ? "sep" : null }, el("a", { href: "#/" + it.name, "aria-current": it.name === current ? "page" : null },
           icon(it.icon), el("span", { class: "grow" }, it.label), it.count ? el("span", { class: "count" }, it.count) : null));
       }))),
       el("div", { class: "sidebar-foot" },
@@ -775,7 +806,7 @@
     var p = me();
     var titles = { home: t("nav.home"), board: t("nav.board"), credits: t("nav.credits"), account: t("nav.account") };
     return el("header", { class: "topbar" },
-      current === "home" ? el("a", { class: "brand", href: "#/home" }, brandMark(), el("strong", null, t("app.short"))) :
+      current === "home" ? el("a", { class: "brand", href: "#/home" }, el("strong", null, t("app.short"))) :
         el("h1", { class: "topbar-title" }, titles[current] || ""),
       el("a", { class: "topbar-me", href: "#/account", "aria-label": t("nav.account") }, avatar(p)));
   }
@@ -1029,7 +1060,7 @@
     return onbFrame(o, el("div", { class: "welcome" },
       el("div", { class: "hero-art" },
         el("img", { src: "assets/hero.webp", alt: "", width: "1048", height: "592", decoding: "async" }),
-        el("div", { class: "hero-overlay" }, brandMark(), el("span", { class: "hero-tag" }, "Aruban Papiamento · pap-AW"))),
+        el("div", { class: "hero-overlay" }, el("span", { class: "hero-tag" }, "Aruban Papiamento · pap-AW"))),
       el("h1", { "data-autofocus": true, tabindex: "-1" }, t("app.subtitle")),
       el("ul", { class: "points" },
         el("li", null, icon("book"), el("span", null, t("onb.point1"))),
@@ -1238,8 +1269,8 @@
   function goalRing(n, goal) {
     var r = 26, c = 2 * Math.PI * r, f = Math.min(1, n / goal);
     var span = el("span", { class: "ring", "aria-hidden": "true" });
-    span.innerHTML = '<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="' + r + '" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="7"/>' +
-      '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="#f9d616" stroke-width="7" stroke-linecap="round" stroke-dasharray="' + (c * f) + " " + c + '" transform="rotate(-90 32 32)"/></svg>';
+    span.innerHTML = '<svg viewBox="0 0 64 64"><circle class="ring-track" cx="32" cy="32" r="' + r + '" fill="none" stroke-width="6"/>' +
+      '<circle class="ring-fill" cx="32" cy="32" r="' + r + '" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="' + (c * f) + " " + c + '" transform="rotate(-90 32 32)"/></svg>';
     span.appendChild(el("strong", null, n));
     return span;
   }
@@ -2108,14 +2139,28 @@
     toast(t("toast.downloaded"));
   }
 
-  function languageCard() {
-    return el("section", { class: "card stack" },
-      el("h2", null, t("lang.label")),
-      el("div", { class: "seg-tabs", role: "group" }, [["en", "English"], ["pap", "Papiamento (draft)"]].map(function (l) {
-        return el("button", { type: "button", "aria-pressed": state.ui_lang === l[0] ? "true" : "false",
-          onclick: function () { state.ui_lang = l[0]; save(); render(); } }, l[1]);
-      })),
-      state.ui_lang === "pap" ? el("p", { class: "muted small" }, t("lang.pap_note")) : null);
+  function settingRow(label, control, note) {
+    return el("div", { class: "setting-row" },
+      el("div", { class: "setting-label" }, el("strong", null, label), note ? el("p", { class: "muted small" }, note) : null),
+      control);
+  }
+
+  function segmented(label, options, current, onpick) {
+    return el("div", { class: "seg-tabs", role: "group", "aria-label": label }, options.map(function (o) {
+      return el("button", { type: "button", "aria-pressed": current === o[0] ? "true" : "false",
+        onclick: function () { onpick(o[0]); } }, o[1]);
+    }));
+  }
+
+  function preferencesCard() {
+    return el("section", { class: "card settings" },
+      settingRow(t("lang.label"),
+        segmented(t("lang.label"), [["en", "English"], ["pap", "Papiamento (draft)"]], state.ui_lang,
+          function (v) { state.ui_lang = v; save(); render(); }),
+        state.ui_lang === "pap" ? t("lang.pap_note") : null),
+      settingRow(t("account.appearance"),
+        segmented(t("account.appearance"), [["light", t("theme.light")], ["dark", t("theme.dark")], ["system", t("theme.system")]], themeChoice,
+          function (v) { setTheme(v); render(); })));
   }
 
   function viewAccountLive() {
@@ -2137,7 +2182,7 @@
           el("p", { class: "muted small" }, t("role." + p.role) + (p.school ? " · " + p.school : "") + " · " + p.handle),
           el("div", { class: "chips" }, el("span", { class: "chip" }, "Words: CC BY 4.0"), el("span", { class: "chip" }, "Sentences: CC0 1.0"),
             p.board ? el("span", { class: "chip lang" }, t("nav.board")) : null))),
-      languageCard(),
+      preferencesCard(),
       el("section", { class: "card stack" },
         el("h2", null, t("nav.credits")),
         el("label", { class: "switch-row" }, credit, el("span", { class: "switch", "aria-hidden": "true" }), el("span", null, t("consent.credit")))),
@@ -2187,7 +2232,7 @@
           el("p", { class: "muted small" }, t("role." + p.role) + (p.school ? " · " + p.school : "") + " · " + p.handle),
           el("div", { class: "chips" }, el("span", { class: "chip" }, "Words: CC BY 4.0"), el("span", { class: "chip" }, "Sentences: CC0 1.0"),
             p.board ? el("span", { class: "chip lang" }, t("nav.board")) : null))),
-      languageCard(),
+      preferencesCard(),
       el("section", { class: "card stack proto-card" },
         el("h2", null, t("person.switch")),
         el("p", { class: "muted small" }, t("person.switch_note")), who),

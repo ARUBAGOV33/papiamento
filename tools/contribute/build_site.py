@@ -63,7 +63,7 @@ SUPABASE_JS = {
 }
 VENDOR_PATH = "vendor/supabase-js-%s.js" % SUPABASE_JS["version"]
 
-STATIC = ["index.html", "style.css", "app.js", "checker.js", "assets"]
+STATIC = ["index.html", "style.css", "theme.js", "app.js", "checker.js", "assets"]
 REPO_URL = "https://github.com/ARUBAGOV33/papiamento"
 FREQ_LABEL = ("how often the word occurs in the repo's shareable PDFs and contributed sentences "
               "(tools/word_frequency.py)")
