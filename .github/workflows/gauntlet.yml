@@ -37,6 +37,12 @@ jobs:
       - name: Rule tests in JavaScript
         run: node tools/test_rules.mjs
 
+      - name: Contribution tool checks match the rules
+        # tools/contribute/data/checks.js is a generated copy of rules/,
+        # barbarismos and variants. Without this step a stale copy only
+        # fails the "Contribution site" deploy after the merge (PR #30).
+        run: node tools/contribute/test_checker.mjs || { echo "::error::tools/contribute/data/checks.js is out of date. Run python3 tools/contribute/build_sample.py and commit tools/contribute/data/."; exit 1; }
+
       - name: Release files build
         run: python3 tools/build_dist.py --check
 
