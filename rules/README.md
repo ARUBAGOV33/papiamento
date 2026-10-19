@@ -35,6 +35,7 @@ On every pull request:
 
 - `python3 tools/validate.py` (gate G5) checks that every test sentence is printed in the grammar file, that each rule flags its `match` tests and leaves its `no_match` tests alone, that fixes produce the expected text, and that no rule flags a `## Correct` example of any grammar file, its own included, unless the rule lists it in `allow_correct_hits`.
 - `node tools/test_rules.mjs` runs the same tests with JavaScript's RegExp.
+- After changing a rule, a barbarismo or a variant, run `python3 tools/contribute/build_sample.py` and commit `tools/contribute/data/`: the contribution tool runs its own copy of the checks. The Gauntlet fails while that copy is out of date (`node tools/contribute/test_checker.mjs`).
 
 Precision matters more than coverage. A rule that flags correct Aruban text annoys teachers and misleads AI models, so a rule is left out when a pattern cannot check it reliably.
 
