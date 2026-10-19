@@ -49,6 +49,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Barbarismos bar-0005 (usted) and bar-0006 (ustedes) point to the row-level id RULE_LEX_USTED_001 instead of RULE_PRN_USTED_001, an old Skirbi id with no grammar file, so the validator no longer warns about them.
 - RULE_ORT_S_Z_001 keeps flagging lus: it is not a Papiamento word (luz is the noun, lusa the verb; maintainer decision on 2026-10-19). Its tests now check that lusa is not flagged.
 - gusta is used with or without ta (maintainer ruling of 2026-10-19, err-0023): "E mucha ta gusta core" and "E mucha gusta core" are both correct. The modal invariant no longer lists gusta; RULE_GRA_MODAL_TA_001 keeps leaving it out and now has the book's sentence, read with and without ta, as Correct examples and tests.
+- conoce never takes ta (maintainer ruling of 2026-10-19, following Morfologia §6.2.3.1, p. 39): "Mi tata conoce nos bisiña". Sintaxis p. 31, which allows ta with conoce, is logged as err-0024. RULE_GRA_MODAL_TA_001 now also flags ta before conoce after a pronoun (mi ta conoce → mi conoce).
 - The loanword schema says what origin `other` means: AB 2018 does not tell which language the word comes from (the 21 rows' notes say why).
 
 ## [0.1.0] - 2026-10-16
