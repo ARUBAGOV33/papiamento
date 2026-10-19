@@ -27,5 +27,5 @@ Manual di Gramatica di Papiamento: Morfologia (2010), §6.2 "Clasificacion" and 
 
 - p. 37 prints the last modal as "tin cu/" at a line end followed by "tin di". p. 38 adds that keda is also used as a passive auxiliary ("Tambe sa uza keda como verbo auxiliar pasivo").
 - One verb can belong to several classes depending on the sentence; the book's example is keda, which can be independent, modal, passive auxiliary or copulative (§6.2.2.2 Nota 1, p. 38).
-- Ruling conflict: the invariant says modals (kier, mester, por, sa, gusta, mag) never take ta (_meta/invariants.md; RULE_GRA_MODAL_TA_001). §6.2.3.2 (p. 39) instead lists gusta among verbs used with or without ta ("Mucha (ta) gusta core den un espacio grandi."). The conflict is open in sources/errata.tsv (err-0023, draft), and RULE_GRA_MODAL_TA_001 leaves gusta out until the maintainer decides.
+- gusta and ta: §6.2.3.2 (p. 39) lists gusta among verbs used with or without ta ("Mucha (ta) gusta core den un espacio grandi."). The maintainer agreed on 2026-10-19 (err-0023), so the no-ta ruling for modals (_meta/invariants.md; RULE_GRA_MODAL_TA_001) covers kier, mester, por, sa and mag, not gusta.
 - A classification rule; it gives the checker nothing to flag by itself. The old rule pack's lexicon instruction (tag verb subclasses) is not in the book.
