@@ -1,0 +1,6 @@
+id	class	subclass	pap	alt	features	en	status	reviewed_by	source	page	section	notes
+ccl-0001	article	definite	e			the	draft		MOR2010	23	4.2	
+ccl-0002	article	indefinite	un			a; an	draft		MOR2010	23	4.2	
+ccl-0003	article	definite	lo		spanish	the (Spanish neuter article)	draft		MOR2010	25	4.2.2	Spanish article, used only in a few cases (Nota: Lo mas importante ta pa bo ta responsabel den bida). Papiamento has no grammatical gender; the definite article is e. The same Nota calls lo a neutral article inside the relative pronouns loke and locual. Not the future particle lo (ccl-0029), as in Notario lo bende tur e casnan na findishi (p. 43) or the maintainer's examples lo sinti and lo yama: the same spelling, a different word. Maintainer decision of 2026-10-19 to keep both rows.
+ccl-0004	article	definite	la		spanish	the (Spanish feminine article)	draft		MOR2010	25	4.2.2	Spanish article, used only in a few cases (Nota: La Reina ta na cabes di Reino Hulandes). Papiamento has no grammatical gender; the definite article is e.
+ccl-0005	article	definite	al		spanish	to the; at the (Spanish a + el)	draft		MOR2010	25	4.2.2	Spanish article, used only in a few cases (Nota: mester lel'e al instante). Papiamento has no grammatical gender; the definite article is e.

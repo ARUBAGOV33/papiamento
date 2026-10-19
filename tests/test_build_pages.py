@@ -89,6 +89,23 @@ class ProgressTest(unittest.TestCase):
         rs["empty"] = ["names", "public holidays", "the corpus"]
         self.assertIn("Still empty: names, public holidays and the corpus.", build_pages.readme_block(rs))
 
+    def test_closed_classes_are_counted(self):
+        # The closed word classes count as one of the other tables: a row in
+        # the README table, part of the chart's "Rows reviewed" bar, and no
+        # longer "still empty" once lexicon/closed-classes/ has rows.
+        rs = self.stats()
+        other = dict((key, (label, n, reviewed)) for key, label, n, reviewed in rs["other"])
+        self.assertIn("closed-classes", other)
+        label, n, reviewed = other["closed-classes"]
+        self.assertEqual(n, len(build_pages.table_rows("closed-classes")))
+        self.assertGreater(n, 0)
+        self.assertNotIn("closed word classes", rs["empty"])
+        self.assertIn("| %s | %s | %s | not audited yet |" % (label, build_pages.fmt(n), build_pages.fmt(reviewed)),
+                      build_pages.readme_block(rs))
+        svg = build_pages.progress_svg(rs, "light")
+        total = sum(count for _, _, count, _ in rs["other"])
+        self.assertIn("of %s" % build_pages.fmt(total), svg.split(">Rows reviewed<", 1)[1])
+
 
 
 class RegistryTest(unittest.TestCase):

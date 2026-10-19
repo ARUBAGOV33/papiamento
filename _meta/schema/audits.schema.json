@@ -36,6 +36,7 @@
           "barbarismos",
           "variants",
           "loanwords",
+          "closed-classes",
           "grammar",
           "rules"
         ]

@@ -1,0 +1,21 @@
+id	class	subclass	pap	alt	features	en	status	reviewed_by	source	page	section	notes
+ccl-0006	verb	modal	gusta			to like (to)	draft		MOR2010	37	6.2.2.1	Listed as a modal on p. 37. Unlike the other modals it is used with or without ta (Morfologia §6.2.3.2, p. 39; maintainer ruling of 2026-10-19, err-0023).
+ccl-0007	verb	modal	kier			to want (to)	draft		MOR2010	37	6.2.2.1	Takes the particle a after it, not before: kier a (§6.2.3.3, p. 40). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39).
+ccl-0008	verb	modal	mag	mag di		may; to be allowed to	draft		MOR2010	37	6.2.2.1	Printed mag (di). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39).
+ccl-0009	verb	modal	mester			must; to have to	draft		MOR2010	37	6.2.2.1	Takes the particle a after it, not before: mester a (§6.2.3.3, p. 40). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39).
+ccl-0010	verb	modal	por			can; to be able to	draft		MOR2010	37	6.2.2.1	Takes the particle a after it, not before: por a (§6.2.3.3, p. 40). Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39). Has no gerund (err-0010).
+ccl-0011	verb	modal	sa			(habitual) usually; to know how to	draft		MOR2010	37	6.2.2.1	Never takes ta (_meta/invariants.md; §6.2.3.1, p. 39, prints sa(bi)).
+ccl-0012	verb	modal	tin cu	tin di		to have to	draft		MOR2010	37	6.2.2.1	Printed tin cu/tin di.
+ccl-0013	verb	modal	sigui			to keep on; to continue	draft		MOR2010	38	6.2.2.1	Also used as a modal verb (Nota, p. 38: sigui, cuminsa, caba di etc.).
+ccl-0014	verb	modal	cuminsa			to begin; to start	draft		MOR2010	38	6.2.2.1	Also used as a modal verb (Nota, p. 38: sigui, cuminsa, caba di etc.).
+ccl-0015	verb	modal	caba di			to have just	draft		MOR2010	38	6.2.2.1	Also used as a modal verb (Nota, p. 38: sigui, cuminsa, caba di etc.).
+ccl-0016	verb	passive	wordo			to be (passive auxiliary)	draft		MOR2010	38	6.2.2.1	Used with the participle: Candido a wordo castiga. ser and wordo can replace each other.
+ccl-0017	verb	passive	ser			to be (passive auxiliary)	draft		MOR2010	38	6.2.2.1	Used with the participle: Hende muhe ta ser maltrata. ser and wordo can replace each other.
+ccl-0018	verb	passive	keda			to get; to be (passive, finished action)	draft		MOR2010	38	6.2.2.1	keda implies a finished action, so it cannot always replace ser or wordo (Nota 1, p. 38).
+ccl-0019	verb	copulative	bira			to become	draft		MOR2010	38	6.2.2.2	
+ccl-0020	verb	copulative	keda			to remain; to become	draft		MOR2010	38	6.2.2.2	keda can also be an independent verb, a passive auxiliary or a copulative verb (Nota 1, p. 38).
+ccl-0021	verb	copulative	mustra			to look; to seem	draft		MOR2010	38	6.2.2.2	
+ccl-0022	verb	copulative	parce			to seem; to look like	draft		MOR2010	38	6.2.2.2	
+ccl-0023	verb	copulative	sinti			to feel	draft		MOR2010	38	6.2.2.2	
+ccl-0024	verb	copulative	ta			to be	draft		MOR2010	38	6.2.2.2	ta is also the present tense/aspect particle (particles.tsv). Write Ta logico cu ..., not E ta logico cu ... (Nota 3, p. 39).
+ccl-0025	verb	copulative	yama			to be called	draft		MOR2010	38	6.2.2.2	As a copulative verb it is followed by a proper name and takes no ta: Mi ruman yama Alfredo (Nota 2, p. 39).

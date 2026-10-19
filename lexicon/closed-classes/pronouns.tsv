@@ -1,0 +1,71 @@
+id	class	subclass	pap	alt	features	en	status	reviewed_by	source	page	section	notes
+ccl-0032	pronoun	personal	mi		1sg; non-emphatic	I; me	draft		MOR2010	53	7.2.1	
+ccl-0033	pronoun	personal	ami		1sg; emphatic	I; me (emphatic)	draft		MOR2010	53	7.2.1	
+ccl-0034	pronoun	personal	bo		2sg; non-emphatic	you (singular)	draft		MOR2010	53	7.2.1	
+ccl-0035	pronoun	personal	abo		2sg; emphatic	you (singular, emphatic)	draft		MOR2010	53	7.2.1	
+ccl-0036	pronoun	personal	e	el	3sg; non-emphatic	he; she; it	draft		MOR2010	53	7.2.1	Printed e/el: e becomes el when the particle a follows, el a bisa (Nota 1, p. 54).
+ccl-0037	pronoun	personal	e	ele	3sg; emphatic	he; she; it (emphatic)	draft		MOR2010	53	7.2.1	Printed e/ele. ele is the emphatic form of e and also a variant of it (§7.2.1.1, p. 54).
+ccl-0038	pronoun	personal	nos		1pl; non-emphatic	we; us	draft		MOR2010	53	7.2.1	
+ccl-0039	pronoun	personal	anos		1pl; emphatic	we; us (emphatic)	draft		MOR2010	53	7.2.1	
+ccl-0040	pronoun	personal	boso	bosonan	2pl; non-emphatic	you (plural)	draft		MOR2010	53	7.2.1	Printed boso/bosonan.
+ccl-0041	pronoun	personal	aboso	abosonan	2pl; emphatic	you (plural, emphatic)	draft		MOR2010	53	7.2.1	Printed aboso/abosonan.
+ccl-0042	pronoun	personal	nan		3pl; non-emphatic	they; them	draft		MOR2010	53	7.2.1	
+ccl-0043	pronoun	personal	anan		3pl; emphatic	they; them (emphatic)	draft		MOR2010	53	7.2.1	
+ccl-0044	pronoun	personal	ne		3sg; after-preposition	him; her; it	draft		MOR2010	54	7.2.1	The form of e after cu and na: cu ne, na ne (Nota 2, p. 54; also p. 75).
+ccl-0045	pronoun	personal	dje		3sg; after-preposition	him; her; it	draft		MOR2010	54	7.2.1	The form of e after di, na, den and riba: di dje, na dje, den dje, riba dje (Nota 2, p. 54).
+ccl-0046	pronoun	possessive	mi		1sg; adjectival	my	draft		MOR2010	55	7.2.2	
+ccl-0047	pronoun	possessive	bo		2sg; adjectival	your (singular)	draft		MOR2010	55	7.2.2	
+ccl-0048	pronoun	possessive	su		3sg; adjectival	his; her; its	draft		MOR2010	55	7.2.2	Can also follow the possessor: Papa su barba, Meneer su cas (§7.2.2.1, p. 56).
+ccl-0049	pronoun	possessive	nos		1pl; adjectival	our	draft		MOR2010	55	7.2.2	
+ccl-0050	pronoun	possessive	boso	bosonan	2pl; adjectival	your (plural)	draft		MOR2010	55	7.2.2	Printed boso(nan).
+ccl-0051	pronoun	possessive	nan		3pl; adjectival	their	draft		MOR2010	55	7.2.2	Can also follow the possessor: E muchanan nan buki (§7.2.2.1, p. 56).
+ccl-0052	pronoun	possessive	di mi		1sg; prepositional	mine	draft		MOR2010	55	7.2.2	
+ccl-0053	pronoun	possessive	di bo		2sg; prepositional	yours (singular)	draft		MOR2010	55	7.2.2	
+ccl-0054	pronoun	possessive	di dje		3sg; prepositional	his; hers; its	draft		MOR2010	55	7.2.2	
+ccl-0055	pronoun	possessive	di nos		1pl; prepositional	ours	draft		MOR2010	55	7.2.2	
+ccl-0056	pronoun	possessive	di boso	di bosonan	2pl; prepositional	yours (plural)	draft		MOR2010	55	7.2.2	Printed di boso(nan).
+ccl-0057	pronoun	possessive	di nan		3pl; prepositional	theirs	draft		MOR2010	55	7.2.2	
+ccl-0058	pronoun	reflexive	mi		1sg; simple	myself	draft		MOR2010	57	7.2.3	
+ccl-0059	pronoun	reflexive	bo		2sg; simple	yourself	draft		MOR2010	57	7.2.3	
+ccl-0060	pronoun	reflexive	e		3sg; simple	himself; herself; itself	draft		MOR2010	57	7.2.3	
+ccl-0061	pronoun	reflexive	nos		1pl; simple	ourselves	draft		MOR2010	57	7.2.3	
+ccl-0062	pronoun	reflexive	boso		2pl; simple	yourselves	draft		MOR2010	57	7.2.3	
+ccl-0063	pronoun	reflexive	nan		3pl; simple	themselves	draft		MOR2010	57	7.2.3	
+ccl-0064	pronoun	reflexive	mi mes		1sg; compound	myself	draft		MOR2010	57	7.2.3	The compound form is the more common one (p. 57).
+ccl-0065	pronoun	reflexive	bo mes		2sg; compound	yourself	draft		MOR2010	57	7.2.3	
+ccl-0066	pronoun	reflexive	su mes		3sg; compound	himself; herself; itself	draft		MOR2010	57	7.2.3	
+ccl-0067	pronoun	reflexive	nos mes		1pl; compound	ourselves	draft		MOR2010	57	7.2.3	
+ccl-0068	pronoun	reflexive	boso mes		2pl; compound	yourselves	draft		MOR2010	57	7.2.3	
+ccl-0069	pronoun	reflexive	nan mes		3pl; compound	themselves	draft		MOR2010	57	7.2.3	
+ccl-0070	pronoun	reciprocal	otro			each other; one another	draft		MOR2010	57	7.2.4	The only reciprocal pronoun (p. 57).
+ccl-0071	pronoun	demonstrative	e ... aki		adjectival; proximal	this; these	draft		MOR2010	58	7.2.5	Printed e + sustantivo + aki; with a plural noun, e + sustantivo (plural) + aki. Near the speakers.
+ccl-0072	pronoun	demonstrative	e ... ey		adjectival; medial	that; those	draft		MOR2010	58	7.2.5	Printed e + sustantivo + ey; with a plural noun, e + sustantivo (plural) + ey. A little away from the speakers.
+ccl-0073	pronoun	demonstrative	e ... aya		adjectival; distal	that; those (over there)	draft		MOR2010	58	7.2.5	Printed e + sustantivo + aya; with a plural noun, e + sustantivo (plural) + aya. Far from the speakers.
+ccl-0074	pronoun	demonstrative	esaki		sg; independent; proximal	this (one)	draft		MOR2010	58	7.2.5	Do not replace a demonstrative with the personal pronoun e: Esaki ta un asunto..., not E ta un asunto... (Nota 3, p. 54).
+ccl-0075	pronoun	demonstrative	esun aki		sg; independent; proximal	this one	draft		MOR2010	58	7.2.5	
+ccl-0076	pronoun	demonstrative	esey		sg; independent; medial	that (one)	draft		MOR2010	58	7.2.5	
+ccl-0077	pronoun	demonstrative	esun ey		sg; independent; medial	that one	draft		MOR2010	58	7.2.5	
+ccl-0078	pronoun	demonstrative	esaya		sg; independent; distal	that (one) over there	draft		MOR2010	58	7.2.5	
+ccl-0079	pronoun	demonstrative	esun aya		sg; independent; distal	that one over there	draft		MOR2010	58	7.2.5	
+ccl-0080	pronoun	demonstrative	esakinan		pl; independent; proximal	these	draft		MOR2010	58	7.2.5	
+ccl-0081	pronoun	demonstrative	esunnan aki		pl; independent; proximal	these (ones)	draft		MOR2010	58	7.2.5	
+ccl-0082	pronoun	demonstrative	eseynan		pl; independent; medial	those	draft		MOR2010	58	7.2.5	
+ccl-0083	pronoun	demonstrative	esunnan ey		pl; independent; medial	those (ones)	draft		MOR2010	58	7.2.5	
+ccl-0084	pronoun	demonstrative	esayanan		pl; independent; distal	those over there	draft		MOR2010	58	7.2.5	
+ccl-0085	pronoun	demonstrative	esunnan aya		pl; independent; distal	those (ones) over there	draft		MOR2010	58	7.2.5	
+ccl-0086	pronoun	relative	cu			that; who; which	draft		MOR2010	59	7.2.6	Refers to people and things.
+ccl-0087	pronoun	relative	kende			who; whom	draft		MOR2010	59	7.2.6	Refers only to people. Plural kendenan when the antecedent is plural (Nota 1, p. 59).
+ccl-0088	pronoun	relative	cua	cual		which; who	draft		MOR2010	59	7.2.6	Printed cua/cual. Refers to people and things. cual takes the plural form when the antecedent is plural (Nota 1, p. 59).
+ccl-0089	pronoun	relative	loke			what; that which	draft		MOR2010	59	7.2.6	Can contain its own antecedent (p. 59).
+ccl-0090	pronoun	relative	locual			what; that which	draft		MOR2010	59	7.2.6	Can contain its own antecedent (p. 59).
+ccl-0091	pronoun	relative	unda	caminda		where	draft		MOR2010	59	7.2.6	Printed unda/caminda. Refers to a place.
+ccl-0092	pronoun	interrogative	ki	kico		what; which	draft		MOR2010	60	7.2.7	Printed ki/kico. ki is also a headword of the AB 2018 word list (p. 39), so the validator's Curacao warning on it is a false alarm.
+ccl-0093	pronoun	interrogative	cua	cual		which	draft		MOR2010	60	7.2.7	Printed cua/cual.
+ccl-0094	pronoun	interrogative	ken	kende		who	draft		MOR2010	60	7.2.7	Printed ken/kende.
+ccl-0095	pronoun	indefinite	algo		independent	something; anything	draft		MOR2010	60	7.2.8	
+ccl-0096	pronoun	indefinite	nada		independent	nothing	draft		MOR2010	60	7.2.8	
+ccl-0097	pronoun	indefinite	cada ken			each one; everyone	draft		MOR2010	60	7.2.8	
+ccl-0098	pronoun	indefinite	tur hende			everybody; everyone	draft		MOR2010	60	7.2.8	
+ccl-0099	pronoun	indefinite	tur		independent; adjectival	all; everyone	draft		MOR2010	60	7.2.8	Before a noun it is an indefinite adjective (p. 60).
+ccl-0100	pronoun	indefinite	algun		independent; adjectival	some; a few	draft		MOR2010	60	7.2.8	Before a noun it is an indefinite adjective (p. 60).
+ccl-0101	pronoun	indefinite	ningun			none; no	draft		MOR2010	60	7.2.8	

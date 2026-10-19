@@ -32,6 +32,11 @@
       "schema": "loanwords.schema.json"
     },
     {
+      "name": "closed-classes",
+      "glob": "lexicon/closed-classes/*.tsv",
+      "schema": "closed-classes.schema.json"
+    },
+    {
       "name": "errata",
       "glob": "sources/errata.tsv",
       "schema": "errata.schema.json"

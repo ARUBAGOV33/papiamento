@@ -8,6 +8,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Added
 
+- `lexicon/closed-classes/`: 181 closed-class words from Morfologia (`MOR2010`), each with the printed page and section, an English gloss and status `draft` (board card P1-12). Six files: articles (5), pronouns (70: personal, possessive, reflexive, reciprocal, demonstrative, relative, interrogative, indefinite), tense/aspect particles (6), dependent verbs (20: modal, passive and copulative), conjunctions (50) and prepositions (30: simple, compound and prepositional expressions). Forms are copied from the page images; slash and bracket variants (cua/cual, ora (cu)) go in `alt`. The book's compound particle lo a has no row, because the maintainer ruled that lo and a never combine (err-0019). New schema `_meta/schema/closed-classes.schema.json` with a fixed vocabulary for `features`, and ids `ccl-0001` onwards. The verb forms (gerunds and participles) follow in a separate change.
 - `lexicon/calendar/holidays.tsv`: Aruba's 11 public holidays with their Papiamento, English and Dutch names, a fixed date or "movable", from the Government of Aruba's holidays page (new source `GOV2026`, cited only). Capitalised as AB 2018 §9.3 i requires. Spanish stays empty: there is no official Spanish page.
 - Parallel sentences, decided by the maintainer on 2026-10-18 (contribution tool design, board card P2-09): empty tables for English and Spanish prompts and their Aruban Papiamento translations in `corpus/parallel/`, with a 15% hash-based hold-out in `eval/parallel/`; schemas `_meta/schema/parallel-prompts.schema.json` and `parallel-pairs.schema.json`. Both are CC0 1.0 (exception in LICENSE-DATA), so they can go to Common Voice. They cite no source page: `translated_by` (or `author`) and `batch` are their provenance.
 - `_meta/contributors.tsv`: everyone the data credits, by handle, credit name and role, with no contact details. Contributors no longer need a GitHub account; review-board members and maintainers still do.
@@ -25,6 +26,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Changed
 
+- Project status: the table and chart count the closed word classes, and "Still empty" now lists only names. `_meta/audits.tsv` can log an audit of the table `closed-classes`.
 - Project status: the table and chart show the calendar with public holidays and the parallel sentences (prompts, held-out prompts, translations and reviews), so the picture covers the contribution tool's work.
 - The contribution tool is live at https://arubagov33.github.io/papiamento/ (2026-10-19): the maintainer ran the database setup, and the access-rule test and the outside security check passed. README Project status and `_meta/milestones.tsv` say so.
 - Version 0.1.0 is published on Hugging Face (https://huggingface.co/datasets/ARUBAGOV33/papiamento); the README links it.

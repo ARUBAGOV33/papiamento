@@ -106,11 +106,11 @@ class TestValidRepo(GauntletCase):
         ctx = self.check(None)
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
-        # A, C, H, numbers, calendar, barbarismos, variants, loanwords, errata,
-        # sources, known-facts, audits, milestones, contributors, and the
-        # parallel prompts and pairs in corpus/ and eval/: every registry
-        # table has a file.
-        self.assertEqual(len(ctx.files), 18)
+        # A, C, H, numbers, calendar, barbarismos, variants, loanwords, closed
+        # classes, errata, sources, known-facts, audits, milestones,
+        # contributors, and the parallel prompts and pairs in corpus/ and
+        # eval/: every registry table has a file.
+        self.assertEqual(len(ctx.files), 19)
         self.assertEqual(ctx.facts_checked, ctx.facts_total)  # e.g. fact-0009: 7 -> shete
         self.assertEqual(ctx.facts_pending_ids, [])
 
@@ -123,7 +123,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 18)
+        self.assertEqual(report["files_checked"], 19)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):
@@ -338,6 +338,17 @@ class TestG2Schema(GauntletCase):
     def test_bad_id_pattern(self):
         ctx = self.check("bad_id_pattern")
         self.assertFinding(ctx, "G2", "error", WORDS_A, "'pap-12' does not match", line=3)
+
+    def test_closed_class_features_vocabulary(self):
+        # features is a '; '-separated list from a fixed vocabulary.
+        path = "lexicon/closed-classes/pronouns.tsv"
+        root = self.build_repo()
+        rewrite(root / path, lambda t: t.replace("\t3sg; non-emphatic\t", "\t3sg; nonemphatic\t").encode("utf-8"))
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", path, "'3sg; nonemphatic' does not match", line=2)
+        root = self.build_repo()
+        rewrite(root / path, lambda t: t.replace("\t3sg; non-emphatic\t", "\t3sg;non-emphatic\t").encode("utf-8"))
+        self.assertFinding(self.run_gauntlet(root), "G2", "error", path, "does not match", line=2)
 
     def test_reviewed_without_reviewer(self):
         ctx = self.check("reviewed_without_reviewer")

@@ -1,0 +1,171 @@
+{
+  "title": "Closed word classes: articles, pronouns, tense/aspect particles, modal and other dependent verbs, conjunctions, prepositions",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^ccl-[0-9]{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "description": "Word class, as in the chapters of Morfologia (MOR2010)",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "article",
+          "pronoun",
+          "particle",
+          "verb",
+          "conjunction",
+          "preposition"
+        ]
+      }
+    },
+    {
+      "name": "subclass",
+      "type": "string",
+      "description": "The source's subcategory. article: definite, indefinite. pronoun: personal, possessive, reflexive, reciprocal, demonstrative, relative, interrogative, indefinite. particle (tense/aspect): simple, compound. verb (dependent verbs): modal, passive, copulative. conjunction: copulative, disjunctive, adversative (coordinating); conditional, final, causal, consecutive, temporal, concessive, completive (subordinating). preposition: simple, compound, expression.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "definite",
+          "indefinite",
+          "personal",
+          "possessive",
+          "reflexive",
+          "reciprocal",
+          "demonstrative",
+          "relative",
+          "interrogative",
+          "simple",
+          "compound",
+          "modal",
+          "passive",
+          "copulative",
+          "disjunctive",
+          "adversative",
+          "conditional",
+          "final",
+          "causal",
+          "consecutive",
+          "temporal",
+          "concessive",
+          "completive",
+          "expression"
+        ]
+      }
+    },
+    {
+      "name": "pap",
+      "type": "string",
+      "description": "The Aruban form exactly as the source prints it. ... stands for the slot of a noun or a clause (e ... aki, ni ... ni).",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "description": "Other forms the source prints in the same place (cua/cual, ora (cu)), '; '-separated"
+    },
+    {
+      "name": "features",
+      "type": "string",
+      "description": "Grammatical features from the source, '; '-separated: person and number (1sg ... 3pl, or sg, pl), emphatic, non-emphatic, after-preposition, adjectival, prepositional, independent, simple, compound, proximal, medial, distal, spanish, coordinating, subordinating, the tense and aspect values (past, present, future, perfective, imperfective, habitual, historic, atemporal) and the relations of a preposition (space, time, opposition, company, means, possession, material, quantity, manner, cause).",
+      "constraints": {
+        "pattern": "^(1sg|2sg|3sg|1pl|2pl|3pl|sg|pl|emphatic|non-emphatic|after-preposition|adjectival|prepositional|independent|simple|compound|proximal|medial|distal|spanish|coordinating|subordinating|past|present|future|perfective|imperfective|habitual|historic|atemporal|space|time|opposition|company|means|possession|material|quantity|manner|cause)(; (1sg|2sg|3sg|1pl|2pl|3pl|sg|pl|emphatic|non-emphatic|after-preposition|adjectival|prepositional|independent|simple|compound|proximal|medial|distal|spanish|coordinating|subordinating|past|present|future|perfective|imperfective|habitual|historic|atemporal|space|time|opposition|company|means|possession|material|quantity|manner|cause))*$"
+      }
+    },
+    {
+      "name": "en",
+      "type": "string",
+      "description": "English gloss(es), '; '-separated; a short description in parentheses when no single word fits"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the reviewers, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$"
+      },
+      "description": "Source id from sources/sources.tsv."
+    },
+    {
+      "name": "page",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)$"
+      },
+      "description": "Printed page number(s), e.g. 38 or 38-39, roman for front matter."
+    },
+    {
+      "name": "section",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[0-9]+(\\.[0-9]+)*$"
+      },
+      "description": "The source's section number, e.g. 7.2.1"
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "unique_together": [
+      [
+        "class",
+        "subclass",
+        "pap",
+        "features"
+      ]
+    ],
+    "aruban_text": [
+      "pap",
+      "alt"
+    ],
+    "contributor_refs": [
+      "reviewed_by"
+    ]
+  },
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
+  "primaryKey": "id",
+  "foreignKeys": [
+    {
+      "fields": "source",
+      "reference": {
+        "resource": "sources",
+        "fields": "id"
+      }
+    }
+  ]
+}
