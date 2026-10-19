@@ -33,7 +33,23 @@ do $$ begin
   exception when insufficient_privilege then raise notice 'PASS: anonymous visitor cannot read auth.users (emails)'; end;
   begin perform public.queue_state();
         raise exception 'FAIL: anonymous visitor can call queue_state';
-  exception when insufficient_privilege then raise notice 'PASS: anonymous visitor cannot call the app functions'; end;
+  exception when insufficient_privilege then null; end;
+  begin perform * from public.rate_queue(5);
+        raise exception 'FAIL: anonymous visitor can call rate_queue';
+  exception when insufficient_privilege then null; end;
+  begin perform * from public.credits();
+        raise exception 'FAIL: anonymous visitor can call credits';
+  exception when insufficient_privilege then null; end;
+  begin perform public.rate_sentence(1, 'good');
+        raise exception 'FAIL: anonymous visitor can call rate_sentence';
+  exception when insufficient_privilege then null; end;
+  begin perform public.create_profile('x', true, '', 'teacher', 'tool-2026-10');
+        raise exception 'FAIL: anonymous visitor can call create_profile';
+  exception when insufficient_privilege then null; end;
+  begin perform contribute_private.is_board();
+        raise exception 'FAIL: anonymous visitor can call the private helpers';
+  exception when insufficient_privilege then null; end;
+  raise notice 'PASS: anonymous visitor cannot call the app functions or the private helpers';
   begin insert into public.answers (kind, ref, person_id, body) values ('review', 'pap-000001', '00000000-0000-4000-8000-00000000000a', '{}');
         raise exception 'FAIL: anonymous visitor can write an answer';
   exception when insufficient_privilege then raise notice 'PASS: anonymous visitor cannot write'; end;
@@ -70,6 +86,16 @@ begin
   begin insert into public.answers (kind, ref, person_id, body) values ('review', 'pap-000002', '00000000-0000-4000-8000-00000000000b', '{}');
         raise exception 'FAIL: A can write an answer in B''s name';
   exception when insufficient_privilege or foreign_key_violation then raise notice 'PASS: A cannot write in someone else''s name'; end;
+  begin update public.answers set body = '{}' where person_id = auth.uid();
+        raise exception 'FAIL: A can change an answer after saving it';
+  exception when insufficient_privilege then null; end;
+  begin delete from public.answers where person_id = auth.uid();
+        raise exception 'FAIL: A can delete an answer';
+  exception when insufficient_privilege then null; end;
+  raise notice 'PASS: saved answers cannot be changed or deleted through the API';
+  begin insert into public.profiles (id, handle, consent_version, role) values ('00000000-0000-4000-8000-00000000000c', 'sneaky', 'tool-2026-10', 'maintainer');
+        raise exception 'FAIL: a profile can be written directly, role included';
+  exception when insufficient_privilege then raise notice 'PASS: profiles are created only through create_profile, always as contributors'; end;
 end $$;
 
 -- ---------------------------------------------------------------- person B
