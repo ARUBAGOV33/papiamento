@@ -45,7 +45,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Fixed
 
 - Rows found wrong in the 2026-10 bug hunt (checked against the page images): the false-friend sense "to slap" removed from `slap` (pap-013995), "opposition" removed from `opositor` (pap-010715), the copied language-name translation removed from lowercase `papiamento` (pap-010959); notes added to `num-0101` (shen, shento and cien before y, AB 2018 §11.8) and `var-0272` (muchu meaning "a lot" becomes hopi). The AB 2018 source card and `sources/sources.tsv` now say the +2 page offset holds only for the orthography annex.
-- `sources/errata.tsv`: err-0017 (Sintaxis p. 36 "masha feros" vs AB 2018 feroz) and err-0018 (Morfologia p. 25 "poco poco" vs AB 2018 pocopoco), open for the maintainer.
+- `sources/errata.tsv`: err-0017 (Sintaxis p. 36 "masha feros" vs AB 2018 feroz) and err-0018 (Morfologia p. 25 "poco poco" vs AB 2018 pocopoco). The maintainer decided both on 2026-10-19: AB 2018 is right and the books have typos. Both are in `_meta/invariants.md`.
+- Barbarismos bar-0005 (usted) and bar-0006 (ustedes) point to the row-level id RULE_LEX_USTED_001 instead of RULE_PRN_USTED_001, an old Skirbi id with no grammar file, so the validator no longer warns about them.
+- RULE_ORT_S_Z_001 keeps flagging lus: it is not a Papiamento word (luz is the noun, lusa the verb; maintainer decision on 2026-10-19). Its tests now check that lusa is not flagged.
+- The loanword schema says what origin `other` means: AB 2018 does not tell which language the word comes from (the 21 rows' notes say why).
 
 ## [0.1.0] - 2026-10-16
 

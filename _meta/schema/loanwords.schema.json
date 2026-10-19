@@ -22,7 +22,7 @@
     {
       "name": "origin",
       "type": "string",
-      "description": "Language of origin: nl, en, es, fr, pt, it (Italian), la (Latin), de (German), or other",
+      "description": "Language of origin: nl, en, es, fr, pt, it (Italian), la (Latin), de (German), or other. other means AB 2018 does not tell which language the word comes from: §12.2 lists Dutch, English and French words together, and its list d (p. 44) holds words from brand or product names. The row's notes say which case applies.",
       "constraints": {
         "required": true,
         "enum": [

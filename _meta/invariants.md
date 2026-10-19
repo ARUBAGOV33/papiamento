@@ -39,6 +39,9 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 | there is / there are | tin | hay | Ruling |
 | Monday–Sunday | dialuna, diamars, diaranson, diahuebs, diabierna, diasabra, diadomingo | lunes, martes … domingo | Ruling; AB §9.6 |
 | January–December | januari, februari, maart, april, mei, juni, juli, augustus, september, october, november, december | enero, febrero … | Ruling; AB §9.6 |
+| fierce | feroz | feros | Ruling, 2026-10-19; AB §12.1, p. 41; Sintaxis p. 36 has a typo (err-0017) |
+| little by little | pocopoco | poco poco | Ruling, 2026-10-19; AB §11.10, p. 39; Morfologia p. 25 has a typo (err-0018) |
+| light (noun); to light | luz; lusa | lus | Ruling, 2026-10-19; AB 2018 word list, p. 41 |
 
 `april` is written the same in Spanish and Dutch; it is correct.
 
