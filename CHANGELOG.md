@@ -23,6 +23,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Changed
 
+- The contribution tool is live at https://arubagov33.github.io/papiamento/ (2026-10-19): the maintainer ran the database setup, and the access-rule test and the outside security check passed. README Project status and `_meta/milestones.tsv` say so.
 - Version 0.1.0 is published on Hugging Face (https://huggingface.co/datasets/ARUBAGOV33/papiamento); the README links it.
 - Version 0.1.0 is archived on Zenodo: README (badge, Project status, How to cite), `CITATION.cff` and the dataset card give the DOIs, 10.5281/zenodo.23427109 for 0.1.0 and 10.5281/zenodo.23427108 for all versions.
 - Every rule that rested on a maintainer ruling was checked against the source pages, and the maintainer decided each one (2026-10-17):
