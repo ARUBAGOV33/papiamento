@@ -112,6 +112,38 @@ python3 tools/word_frequency.py --no-pdf      # sentences only
 
 Output columns: `id`, `lemma`, `pdf_count`, `sentence_count`, `score` (rate per million words; the average of the PDF and sentence rates once there are sentences), `translated`. Reading the PDFs needs PyMuPDF (`pip install pymupdf`), like `import_ab2018.py`. The output is not committed: the contribution tool regenerates it to order its "Translate words" queue.
 
+## apply_contributions.py (contribution tool → data files)
+
+Brings the review board's decisions from the contribution tool's database (Supabase, see `tools/contribute/supabase/`) into the data files:
+
+- **word decisions** go into the `en`/`nl`/`es`, `translated_by`, `status`, `reviewed_by` and `notes` cells of `lexicon/words/<L>/words.tsv`;
+- **sentence decisions** become new rows in `corpus/parallel/pairs.tsv`, or `eval/parallel/pairs.tsv` for held-out prompts;
+- **every person it credits** gets a row in `_meta/contributors.tsv` (no email).
+
+A row becomes `reviewed` only when a board member or maintainer with a GitHub username decided it; otherwise it stays `draft`. It skips and lists, without writing:
+
+- a word already reviewed in the repo;
+- a translate decision on a word that has a translation by now;
+- a sentence with characters Aruban spelling does not allow;
+- a handle that belongs to someone else.
+
+Standard library only.
+
+```sh
+python3 tools/apply_contributions.py fetch --out snapshot.json          # needs SUPABASE_URL and SUPABASE_SECRET_KEY
+python3 tools/apply_contributions.py apply --snapshot snapshot.json --dry-run
+python3 tools/apply_contributions.py apply --snapshot snapshot.json --summary pr-body.md --ids ids.json
+python3 tools/apply_contributions.py mark-exported --ids ids.json --pr-url https://github.com/ARUBAGOV33/papiamento/pull/N
+```
+
+The **Contribution sync** workflow (`.github/workflows/contribute-sync.yml`) runs it weekly, or from the Actions tab (dry run by default):
+
+1. It fetches the decisions, writes them, rebuilds the progress pages and runs the gauntlet and the tests.
+2. It opens **one** pull request through the papiamento-sync GitHub App, so the gauntlet runs on it.
+3. Only then does it mark the decisions as exported.
+
+It does nothing while an earlier sync pull request is still open, and it never merges.
+
 ## Tests
 
 ```sh
