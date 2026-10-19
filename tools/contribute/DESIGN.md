@@ -174,7 +174,7 @@ The prototype implements everything in this section, on one device. "Switch pers
 | **Sign-in for teachers** | Email code or magic link, no password ([docs](https://supabase.com/docs/guides/auth/auth-email-passwordless)). The built-in mailer only reaches project members, so **custom SMTP** is needed ([docs](https://supabase.com/docs/guides/auth/auth-smtp)). | Needs its own login (email codes) or none (spam) | None (weak identity, so "two different people" can't be enforced) or a Google account | A Weblate account |
 | **Decisions → pull request** | A weekly GitHub Action reads board decisions, writes TSV rows (`tools/apply_contributions.py`, to be written), runs `build_pages.py` and the gauntlet, and opens a pull request. | The app opens the pull request directly | An Action reads the sheet with a service-account key and opens the pull request | Weblate's GitHub app pushes a branch and opens pull requests ([docs](https://docs.weblate.org/en/latest/admin/code-hosting.html)). Our 14-column `words.tsv` isn't a Weblate format, so a converter is needed both ways. |
 | **Fits the three modes?** | All three: crops, blind double answers, several translations per prompt, live checks, board queue | Yes, but blindness and privacy are hard | Mode 2 only. A form can't run the 49 rules and the lexicon checks, or keep answers blind. | Modes 1–2 fit well: suggestion voting with 2 votes, an Approved state, screenshots per string, machine translation can be switched off ([workflows](https://docs.weblate.org/en/latest/workflows.html)). Mode 3 does not fit: one translation per string, no repo checks (custom checks need self-hosting). |
-| **What the ARUBAGOV33 admin sets up** | 1. A Supabase project, owned by the project's email, separate from Skirbi. Note that the 2 free projects are counted across every organisation you administer. 2. Run [`proposal/supabase-schema.sql`](proposal/supabase-schema.sql). 3. Email sign-in with SMTP (an email-sending account). 4. GitHub Pages. 5. Repository secrets for the sync job. 6. A small GitHub App installed on the repo to open pull requests. | Create and install a GitHub App; host the function and its private key (another account); a private store repo | A Google account and Cloud project, a service account, the sheet shared with it, and a key as a repo secret | A Weblate account, the Libre-plan application, Weblate's GitHub app installed, components configured, crops uploaded |
+| **What the ARUBAGOV33 admin sets up** | 1. A Supabase project, owned by the project's email, separate from Skirbi. Note that the 2 free projects are counted across every organisation you administer. 2. Run [`supabase/001_contribute.sql`](supabase/001_contribute.sql). 3. Email sign-in with SMTP (an email-sending account). 4. GitHub Pages. 5. Repository secrets for the sync job. 6. A small GitHub App installed on the repo to open pull requests. | Create and install a GitHub App; host the function and its private key (another account); a private store repo | A Google account and Cloud project, a service account, the sheet shared with it, and a key as a repo secret | A Weblate account, the Libre-plan application, Weblate's GitHub app installed, components configured, crops uploaded |
 
 **Recommendation: A, Supabase plus a static site on GitHub Pages.**
 
@@ -223,11 +223,14 @@ It also checks that a pair's prompt is in the same folder (`folder_refs`), so a 
 1. Contributed sentences have no printed source page. The parallel tables have no `source`/`page` columns; `translated_by` (or `author`) plus a `batch` column is their provenance.
 2. `reviewed_by` stays GitHub usernames, as GOVERNANCE.md requires. Board members need GitHub accounts; contributors don't.
 
-The tool's own working database is sketched in [`proposal/supabase-schema.sql`](proposal/supabase-schema.sql). Its row-level security policies are what enforce:
+The tool's own working database is [`supabase/001_contribute.sql`](supabase/001_contribute.sql). Its row-level security policies are what enforce:
 
 - blind answers;
 - no self-rating;
-- no deciding on your own item.
+- no deciding on your own item;
+- maintainers doing the board's work only while the board has fewer than two members.
+
+[`supabase/README.md`](supabase/README.md) lists every guarantee and how to test them.
 
 ### (e) Where frequency ranks come from
 
@@ -373,6 +376,14 @@ Motion follows Emil Kowalski's rules:
 
 The prototype has no server. A **"Prototype: connection"** switch on the Account page (Normal / Slow / Failing) slows down or fails every save, so the loading and error states can be tried.
 
+The live tool adds:
+
+- a loading screen while it connects;
+- an error screen with Try again when it can't;
+- "Someone else was first" when another person gave the second answer, or the board decided, during an answer;
+- "Please sign in again" when a sign-in has expired;
+- "Not allowed" when the database refuses a write.
+
 ## 9. What the prototype does and doesn't do
 
 **Does:**
@@ -404,9 +415,12 @@ The prototype has no server. A **"Prototype: connection"** switch on the Account
    - About 300 prompts written for the project with the 15 % held out, machine-drafted and marked `author = machine`.
    - It opens as a pull request after #20 merges, because it needs those schemas.
 3. **Tool v1 (option A).**
-   - First the maintainer sets up the accounts (§11).
-   - Then: Supabase schema and email sign-in, GitHub Pages, the sync job and `tools/apply_contributions.py`, and the GitHub App for pull requests.
-   - Pilot with 3–5 teachers and the first board members.
+   - The maintainer set up the accounts on 2026-10-19 (§11).
+   - Three pull requests, which merge in any order:
+     - the database: [`supabase/`](supabase/), with its access rules, their tests and the sign-in email;
+     - the live site: supabase-js in `app.js`, `build_site.py`, and the Pages deploy;
+     - the sync job: `tools/apply_contributions.py` and its weekly workflow, which opens one pull request through the GitHub App.
+   - Then a pilot with 3–5 teachers and the first board members.
 4. **Common Voice (P2-04).** Export reviewed, CC0, non-held-out sentences that meet its rules.
 
 ## 11. Setup checklist for the ARUBAGOV33 account (option A)
@@ -427,13 +441,13 @@ Do them in this order. Each step names what to write down. Where a step says "pu
    - Leave Email enabled. Email one-time codes are on by default.
    - Set **Email OTP expiration** to 3600 seconds.
    - Leave "Allow new users to sign up" on, because teachers sign up with their first code.
-4. **Authentication → Email Templates → "Magic link or OTP":** leave it for now. The tool v1 pull request will give the text to paste, which shows the 6-digit code with `{{ .Token }}`.
+4. **Authentication → Email Templates → "Magic link or OTP":** paste the text in [`supabase/email-template.html`](supabase/email-template.html), which shows the 6-digit code with `{{ .Token }}` ([`supabase/README.md`](supabase/README.md), step 2).
 5. **Authentication → URL Configuration:** Site URL = `https://arubagov33.github.io/papiamento/`, and add the same address under Redirect URLs.
 6. **Settings → API Keys** (or the project's **Connect** dialog), write down:
    - the **Project URL** (public);
    - the **publishable key**, `sb_publishable_…` (public);
    - the **secret key**, `sb_secret_…` (**secret**).
-7. Later, when the tool v1 pull request is ready: **SQL Editor** (left sidebar) → New query → paste the migration file from that pull request → Run. The current [`proposal/supabase-schema.sql`](proposal/supabase-schema.sql) is a sketch; don't run it.
+7. **SQL Editor** (left sidebar) → New query → paste [`supabase/001_contribute.sql`](supabase/001_contribute.sql) → Run. The steps after it (the email template, making yourself a maintainer, the access-rule test) are in [`supabase/README.md`](supabase/README.md).
 
 ### B. Email sending account (Brevo, free)
 

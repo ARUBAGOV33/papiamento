@@ -1,12 +1,19 @@
-// Contribution tool prototype for ARUBAGOV33/papiamento (board card P2-09).
+// Contribution tool for ARUBAGOV33/papiamento (board card P2-09).
 //
 // Three modes (check machine translations, translate words, translate
 // sentences), rating, a review-board queue, credits and an account page.
 // Phone first: one item per screen with a progress bar, a full-width primary
 // button and a feedback sheet (the Duolingo lesson pattern, without its
 // cartoon look). On a laptop a sidebar replaces the tab bar and word tasks
-// use two columns. Everything is stored in this browser (localStorage) and
-// can be exported as JSON. No network calls. See DESIGN.md.
+// use two columns. See DESIGN.md.
+//
+// Two backends, chosen by config.js:
+// - demo (the prototype): everything stays in this browser (localStorage) and
+//   can be exported as JSON. No network calls.
+// - live (the published site): sign-in by emailed code and the database in
+//   Supabase, through supabase-js. The database's access rules
+//   (supabase/001_contribute.sql) decide what each person may read or write;
+//   this file only shows it.
 
 (function () {
   "use strict";
@@ -29,10 +36,25 @@
   var TASKS = { review: 1, translate: 1, sentences: 1, rate: 1 };
   var P = Checker.prepare(CHECKS);
   var SIM_DELAY = { normal: 450, slow: 1800, fail: 1000 };
+  var CONFIG = window.CONTRIB_CONFIG || { mode: "demo" };
+  var LIVE = CONFIG.mode === "live";
+  var CONSENT_VERSION = "tool-2026-10";   // profiles.consent_version: the consent text people agree to
+  var PREFS_KEY = "pap-contrib-prefs-v1"; // live: only the screen language and the checker switch stay in the browser
+  var RESEND_SECONDS = 60;
 
   var storageBlocked = false;
   var state = load();
   var session = freshSession();
+
+  // Live backend state. status: loading, error, signed_out, needs_profile, ready.
+  var live = {
+    status: "loading", error: null, client: null, user: null,
+    qs: null,                       // queue_state(): ids and counts only
+    closed: { review: new Set(), translate: new Set() },
+    promptN: {},                    // prompt id -> number of sentences written for it
+    rateList: [],                   // rate_queue(): sentences to rate, without authors
+    credits: null, creditsError: false
+  };
 
   function freshSession() {
     return {
@@ -56,6 +78,10 @@
     try {
       window.localStorage.setItem(KEY + "-probe", "1");
       window.localStorage.removeItem(KEY + "-probe");
+      if (LIVE) {
+        var prefs = JSON.parse(window.localStorage.getItem(PREFS_KEY) || "{}") || {};
+        return Object.assign(blank(), { ui_lang: prefs.ui_lang === "pap" ? "pap" : "en", show_unknown: prefs.show_unknown !== false });
+      }
       var raw = window.localStorage.getItem(KEY);
       if (raw) {
         var s = JSON.parse(raw);
@@ -66,10 +92,14 @@
   }
 
   // Storage can be blocked (private mode, full disk). Keep working in memory
-  // and tell the person to export before closing the tab.
+  // and tell the person to export before closing the tab. Live, answers are
+  // in the database: only the two preferences are stored here.
   function save() {
-    try { window.localStorage.setItem(KEY, JSON.stringify(state)); storageBlocked = false; }
-    catch (e) { storageBlocked = true; }
+    try {
+      if (LIVE) window.localStorage.setItem(PREFS_KEY, JSON.stringify({ ui_lang: state.ui_lang, show_unknown: state.show_unknown }));
+      else window.localStorage.setItem(KEY, JSON.stringify(state));
+      storageBlocked = false;
+    } catch (e) { storageBlocked = true; }
   }
 
   function newId(prefix) {
@@ -211,7 +241,10 @@
     return null;
   }
 
+  // Live, a contributor cannot read other people's answers: queue_state()
+  // lists the words closed to them (two answers, a decision, or their own).
   function openForMe(kind, item) {
+    if (LIVE) return !live.closed[kind].has(item);
     var ans = answersFor(kind, item);
     return ans.length < 2 && !decisionFor(kind, item) &&
       !ans.some(function (a) { return a.by === state.current; });
@@ -224,17 +257,26 @@
     return state.translations.filter(function (tr) { return tr.prompt === promptId; });
   }
 
+  function sentencesFor(promptId) {
+    return LIVE ? live.promptN[promptId] || 0 : translationsOf(promptId).length;
+  }
+
   function sentenceQueue() {
-    var mine = function (p) { return translationsOf(p.id).some(function (tr) { return tr.by === state.current; }); };
-    return SAMPLE.prompts.filter(function (p) { return !mine(p); })
-      .sort(function (a, b) { return translationsOf(a.id).length - translationsOf(b.id).length; });
+    var mine = new Set(state.translations.filter(function (tr) { return tr.by === state.current; }).map(function (tr) { return tr.prompt; }));
+    return SAMPLE.prompts.filter(function (p) { return !mine.has(p.id); })
+      .sort(function (a, b) { return sentencesFor(a.id) - sentencesFor(b.id); });
   }
 
   function ratingsOf(trId) {
     return state.ratings.filter(function (r) { return r.translation === trId; });
   }
 
+  // Live: rate_queue() returns other people's sentences without their authors.
   function rateQueue() {
+    if (LIVE) {
+      var rated = new Set(state.ratings.filter(function (r) { return r.by === state.current; }).map(function (r) { return r.translation; }));
+      return live.rateList.filter(function (tr) { return !rated.has(tr.id); });
+    }
     return state.translations.filter(function (tr) {
       var rs = ratingsOf(tr.id);
       return tr.by !== state.current && rs.length < 2 && !decisionFor("sentence", tr.id) &&
@@ -242,20 +284,307 @@
     });
   }
 
+  function rateCount() { return LIVE ? Math.max(rateQueue().length, (live.qs && live.qs.rate_open) || 0) : rateQueue().length; }
+
   function promptById(id) {
     for (var i = 0; i < SAMPLE.prompts.length; i++) if (SAMPLE.prompts[i].id === id) return SAMPLE.prompts[i];
     return null;
   }
 
-  function wordById(id) {
-    var all = SAMPLE.review.concat(SAMPLE.translate);
-    for (var i = 0; i < all.length; i++) if (all[i].id === id) return all[i];
-    return null;
-  }
+  var WORDS = {};
+  SAMPLE.review.concat(SAMPLE.translate).forEach(function (w) { WORDS[w.id] = w; });
+  function wordById(id) { return WORDS[id] || null; }
 
   function translationById(id) {
     for (var i = 0; i < state.translations.length; i++) if (state.translations[i].id === id) return state.translations[i];
     return null;
+  }
+
+  // ------------------------------------------------------------ live: reading
+  // Rows come from the database through the access rules. Every value is
+  // shaped here before a screen uses it, and screens only ever set text, never
+  // HTML, so nothing in a row can change the page.
+
+  function str(v) { return typeof v === "string" ? v : ""; }
+
+  function fromAnswer(r) {
+    var b = r.body && typeof r.body === "object" ? r.body : {};
+    var a = { id: r.id, kind: r.kind, item: r.ref, by: r.person_id, at: r.created_at, comment: str(r.comment) };
+    if (r.kind === "review") {
+      a.verdicts = {};
+      LANGS.forEach(function (l) {
+        var v = (b.verdicts && b.verdicts[l]) || {};
+        a.verdicts[l] = { verdict: ["correct", "wrong", "unsure"].indexOf(v.verdict) >= 0 ? v.verdict : "unsure", fix: str(v.fix) };
+      });
+    } else {
+      a.unknown = b.unknown === true;
+      a.values = {};
+      LANGS.forEach(function (l) { a.values[l] = str(b.values && b.values[l]); });
+    }
+    return a;
+  }
+
+  function fromFlags(list) {
+    return (Array.isArray(list) ? list : []).filter(function (f) { return f && typeof f === "object"; }).map(function (f) {
+      return { id: str(f.id), text: str(f.text), fixes: Array.isArray(f.fixes) ? f.fixes.map(String) : [] };
+    });
+  }
+
+  function fromTranslation(r) {
+    return { id: r.id, prompt: r.prompt_ref, by: r.person_id, at: r.created_at, text: str(r.text), flags_kept: fromFlags(r.flags_kept), fix_of: r.fix_of };
+  }
+
+  function fromRating(r) {
+    return { id: r.id, translation: r.translation_id, by: r.person_id, at: r.created_at, verdict: r.verdict,
+             fix_translation: r.fix_translation_id, comment: str(r.comment) };
+  }
+
+  // Decision values as the sync job reads them (tools/apply_contributions.py):
+  // words {en: {value, from}, ...}, from = "machine", "board" or person ids;
+  // sentences {text, from, translation_id}.
+  function fromDecision(r) {
+    var v = r.value && typeof r.value === "object" ? r.value : null;
+    var values = null;
+    if (v && r.kind === "sentence") values = { pap: { value: str(v.text), from: v.from, translation: v.translation_id || null } };
+    else if (v) {
+      values = {};
+      LANGS.forEach(function (l) { if (v[l] && typeof v[l] === "object") values[l] = { value: str(v[l].value), from: v[l].from }; });
+    }
+    return { id: r.id, kind: r.kind, item: r.kind === "sentence" ? r.translation_id : r.word_ref, by: r.board_id, at: r.created_at,
+             outcome: r.outcome, values: values, note: str(r.note), exported_in: r.exported_in || null };
+  }
+
+  function toDecisionValue(kind, values) {
+    if (!values) return null;
+    if (kind === "sentence") {
+      var v = values.pap;
+      return { text: v.value, from: v.from, translation_id: v.translation || null, flags: v.flags || [] };
+    }
+    var out = {};
+    LANGS.forEach(function (l) { if (values[l]) out[l] = { value: values[l].value, from: values[l].from }; });
+    return out;
+  }
+
+  function fromProfile(r) {
+    var mine = live.user && r.id === live.user.id;
+    return { id: r.id, name: str(r.credit_name) || r.handle, handle: r.handle, role: r.occupation, school: str(r.school),
+             credit: r.credit !== false, github: str(r.github), db_role: r.role, consent_version: r.consent_version,
+             // Whether I do the board's work comes from the database (maintainers only while the board is small).
+             board: mine ? !!(live.qs && live.qs.board) : r.role === "board" };
+  }
+
+  function db(query) {
+    return Promise.resolve(query).then(function (res) { if (res.error) throw res.error; return res.data; });
+  }
+
+  // The API returns at most 1000 rows per request.
+  function selectAll(table, filter) {
+    var rows = [];
+    function page(from) {
+      var q = live.client.from(table).select("*").order(table === "profiles" ? "handle" : "id").range(from, from + 999);
+      if (filter) q = filter(q);
+      return db(q).then(function (data) { rows = rows.concat(data || []); return data && data.length === 1000 ? page(from + 1000) : rows; });
+    }
+    return page(0);
+  }
+
+  function loadQueue() {
+    return db(live.client.rpc("queue_state")).then(function (qs) {
+      qs = qs || {};
+      live.qs = qs;
+      live.closed = { review: new Set(qs.review_closed || []), translate: new Set(qs.translate_closed || []) };
+      live.promptN = {};
+      (qs.prompts || []).forEach(function (p) { live.promptN[p.ref] = p.n; });
+    });
+  }
+
+  function loadRateList() {
+    return db(live.client.rpc("rate_queue", { p_limit: 50 })).then(function (rows) {
+      live.rateList = (rows || []).map(function (r) {
+        return { id: r.id, prompt: r.prompt_ref, text: str(r.text), flags_kept: fromFlags(r.flags_kept), by: null };
+      });
+    });
+  }
+
+  // Everything the screens need. A contributor gets their own rows; the board
+  // (as the database decides) gets everyone's, without emails.
+  function loadData() {
+    return loadQueue().then(function () {
+      var uid = live.user.id;
+      var all = !!live.qs.board;
+      var mine = function (q) { return q.eq("person_id", uid); };
+      return Promise.all([
+        selectAll("profiles", all ? null : function (q) { return q.eq("id", uid); }),
+        selectAll("answers", all ? null : mine),
+        selectAll("translations", all ? null : mine),
+        selectAll("ratings", all ? null : mine),
+        all ? selectAll("decisions") : [],
+        loadRateList()
+      ]);
+    }).then(function (r) {
+      var people = r[0].map(fromProfile);
+      if (!people.some(function (p) { return p.id === live.user.id; })) {
+        live.status = "needs_profile";
+        state.people = []; state.current = null;
+        return;
+      }
+      state.people = people;
+      state.current = live.user.id;
+      state.answers = r[1].map(fromAnswer);
+      state.translations = r[2].map(fromTranslation);
+      state.ratings = r[3].map(fromRating);
+      state.decisions = r[4].map(fromDecision);
+      live.status = "ready";
+    });
+  }
+
+  function loadCredits() {
+    live.creditsError = false;
+    live.creditsLoading = true;
+    return db(live.client.rpc("credits")).then(function (rows) {
+      live.credits = rows || []; live.creditsAt = Date.now();
+    }, function () { live.creditsError = true; }).then(function () {
+      live.creditsLoading = false;
+      if (route().name === "credits") render();
+    });
+  }
+
+  // After a write the database has accepted: reload, but a failed reload must
+  // not turn the saved answer into an error.
+  function refreshAfterWrite() {
+    return loadData().catch(function () {});
+  }
+
+  function loadScript(src) {
+    if (window.supabase && window.supabase.createClient) return Promise.resolve();
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.onload = function () { window.supabase && window.supabase.createClient ? resolve() : reject(new Error("supabase-js")); };
+      s.onerror = function () { s.remove(); reject(new Error("supabase-js")); };
+      document.head.appendChild(s);
+    });
+  }
+
+  function startLive() {
+    live.status = "loading"; live.error = null;
+    render();
+    if (!CONFIG.supabaseUrl || !CONFIG.supabaseKey || !CONFIG.supabaseJs) { live.status = "error"; live.error = "config"; render(); return; }
+    loadScript(CONFIG.supabaseJs).then(function () {
+      if (!live.client) {
+        live.client = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.supabaseKey, {
+          auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false, storageKey: "pap-contrib-auth" }
+        });
+        live.client.auth.onAuthStateChange(function (event) { if (event === "SIGNED_OUT") signedOut(); });
+      }
+      return live.client.auth.getSession();
+    }).then(function (res) {
+      var s = res && res.data && res.data.session;
+      if (!s) { live.status = "signed_out"; render(); return; }
+      live.user = s.user;
+      return loadData().then(function () {
+        if (live.status === "needs_profile") session.onb.step = 3;
+        render();
+      });
+    }).catch(function () {
+      live.status = "error";
+      live.error = navigator.onLine ? "load" : "offline";
+      render();
+    });
+  }
+
+  function signedOut() {
+    if (live.status === "signed_out" && !live.user) return;
+    live.user = null; live.qs = null; live.rateList = []; live.credits = null;
+    live.closed = { review: new Set(), translate: new Set() }; live.promptN = {};
+    var keep = { ui_lang: state.ui_lang, show_unknown: state.show_unknown };
+    state = Object.assign(blank(), keep);
+    session = freshSession();
+    live.status = "signed_out";
+    go("onboarding");
+  }
+
+  function signOut(btn) {
+    var restore = busy(btn, t("common.loading"));
+    live.client.auth.signOut({ scope: "local" }).then(function () { restore(); signedOut(); }, function () { restore(); signedOut(); });
+  }
+
+  // --------------------------------------------------------------- writing
+  // Demo: change the state in this browser. Live: write to the database
+  // first; the screens change only once it has accepted (persist() reloads).
+
+  // Someone else gave the second answer or rating first, or the board decided.
+  function tooLate(e) { return !!e && (e.hint === "full" || e.hint === "decided" || e.code === "23505"); }
+
+  function after(result, fn) { return result && typeof result.then === "function" ? result.then(fn) : fn(); }
+
+  function saveAnswer(kind, item, body, comment) {
+    if (!LIVE) {
+      state.answers.push(Object.assign({ id: newId("ans"), kind: kind, item: item, by: state.current, at: now() }, body, { comment: comment }));
+      return;
+    }
+    return db(live.client.from("answers").insert({ kind: kind, ref: item, body: body, comment: comment }).select().single())
+      .then(function (row) { state.answers.push(fromAnswer(row)); live.closed[kind].add(item); },
+            function (err) { if (tooLate(err)) live.closed[kind].add(item); throw err; });
+  }
+
+  function saveTranslation(promptId, text, kept) {
+    if (!LIVE) {
+      state.translations.push({ id: newId("tr"), prompt: promptId, by: state.current, at: now(), text: text, flags_kept: kept, fix_of: null });
+      return;
+    }
+    return db(live.client.from("translations").insert({ prompt_ref: promptId, text: text, flags_kept: kept }).select().single())
+      .then(function (row) { state.translations.push(fromTranslation(row)); live.promptN[promptId] = (live.promptN[promptId] || 0) + 1; });
+  }
+
+  // A rating and its corrected version are saved together (rate_sentence):
+  // if the rating is refused, the correction is not kept either.
+  function saveRating(tr, verdict, fixText, kept, comment) {
+    if (!LIVE) {
+      var fixId = null;
+      if (verdict === "fix") {
+        fixId = newId("tr");
+        state.translations.push({ id: fixId, prompt: tr.prompt, by: state.current, at: now(), text: fixText, flags_kept: kept, fix_of: tr.id });
+      }
+      state.ratings.push({ id: newId("rat"), translation: tr.id, by: state.current, at: now(), verdict: verdict, fix_translation: fixId, comment: comment });
+      return;
+    }
+    return db(live.client.rpc("rate_sentence", { p_translation: tr.id, p_verdict: verdict, p_fix_text: verdict === "fix" ? fixText : null,
+                                                  p_fix_flags: kept || [], p_comment: comment }))
+      .then(function (id) {
+        state.ratings.push({ id: id, translation: tr.id, by: state.current, at: now(), verdict: verdict, fix_translation: null, comment: comment });
+      }, function (err) {
+        if (tooLate(err)) live.rateList = live.rateList.filter(function (x) { return x.id !== tr.id; });
+        throw err;
+      });
+  }
+
+  function saveDecision(x, outcome, values) {
+    if (!LIVE) {
+      state.decisions.push({ id: newId("dec"), kind: x.kind, item: x.item, by: state.current, at: now(),
+                             outcome: outcome, values: values || null, note: "",
+                             based_on: (x.answers || []).map(function (a) { return a.id; })
+                               .concat(x.tr ? ratingsOf(x.tr.id).map(function (r) { return r.id; }) : []) });
+      return;
+    }
+    var row = { kind: x.kind, outcome: outcome, value: toDecisionValue(x.kind, values), note: "" };
+    if (x.kind === "sentence") row.translation_id = x.item; else row.word_ref = x.item;
+    return db(live.client.from("decisions").insert(row).select().single())
+      .then(function (r) { state.decisions.push(fromDecision(r)); });
+  }
+
+  function undoDecision(d) {
+    if (!LIVE) {
+      state.decisions = state.decisions.filter(function (x) { return x.id !== d.id; });
+      save();
+      return Promise.resolve();
+    }
+    // The access rules delete only the board member's own decision before it is exported.
+    return db(live.client.from("decisions").delete().eq("id", d.id).select()).then(function (rows) {
+      if (!rows || !rows.length) throw { code: "42501" };
+      state.decisions = state.decisions.filter(function (x) { return x.id !== d.id; });
+      return refreshAfterWrite();
+    });
   }
 
   // My activity: every record I made, with its date.
@@ -358,12 +687,14 @@
   // ------------------------------------------------------------------ shell
 
   function render() {
+    if (LIVE && (live.status === "loading" || live.status === "error")) { renderGate(); return; }
     var r = route();
     if (!me() && r.name !== "onboarding") { go("onboarding"); return; }
+    if (LIVE && me() && r.name === "onboarding") { go("home"); return; }
     if (r.name === "export" || r.name === "about") r.name = "account";
     if (!VIEWS[r.name]) r.name = "home";
     document.documentElement.lang = state.ui_lang === "pap" ? "pap" : "en";
-    document.title = t("app.title") + " (prototype)";
+    document.title = LIVE ? t("app.title") : t("app.title") + " (prototype)";
     var app = document.getElementById("app");
     app.innerHTML = "";
     var mode = r.name === "onboarding" ? "onb" : TASKS[r.name] ? "task" : "page";
@@ -384,11 +715,32 @@
     window.scrollTo(0, 0);
   }
 
+  // Live: the whole screen while the tool connects, or when it cannot.
+  function renderGate() {
+    document.documentElement.lang = state.ui_lang === "pap" ? "pap" : "en";
+    document.title = t("app.title");
+    document.body.className = "mode-onb";
+    var body;
+    if (live.status === "loading") {
+      body = el("div", { class: "gate", role: "status", "aria-live": "polite" },
+        brandMark(), el("span", { class: "spinner big", "aria-hidden": "true" }), el("p", { class: "muted" }, t("common.loading")));
+    } else {
+      var kind = live.error === "config" ? "config" : live.error === "offline" ? "offline" : "load";
+      body = el("div", { class: "gate" }, emptyState(kind === "offline" ? "wifioff" : "alert",
+        t(kind === "config" ? "error.config_title" : "error.load_title"),
+        t(kind === "config" ? "error.config" : kind === "offline" ? "offline.load" : "error.load_body"),
+        kind === "config" ? null : [button(t("common.retry"), startLive, "primary")]));
+    }
+    document.getElementById("app").replaceChildren(el("div", { class: "onb-col" }, el("main", { id: "main" }, body)));
+    var b = document.querySelector(".gate .btn");
+    if (b) b.focus({ preventScroll: true });
+  }
+
   function banners() {
     return el("div", { class: "banners" },
-      storageBlocked ? el("p", { class: "banner offline", role: "alert" }, icon("alert"), el("span", null, t("error.storage"))) : null,
-      !navigator.onLine ? el("p", { class: "banner offline", role: "status" }, icon("wifioff"), el("span", null, t("offline.banner"))) : null,
-      el("p", { class: "banner proto" }, icon("info"), el("span", null, t("banner.prototype"))),
+      storageBlocked ? el("p", { class: "banner offline", role: "alert" }, icon("alert"), el("span", null, t(LIVE ? "error.storage_live" : "error.storage"))) : null,
+      !navigator.onLine ? el("p", { class: "banner offline", role: "status" }, icon("wifioff"), el("span", null, t(LIVE ? "offline.banner_live" : "offline.banner"))) : null,
+      LIVE ? null : el("p", { class: "banner proto" }, icon("info"), el("span", null, t("banner.prototype"))),
       state.ui_lang === "pap" ? el("p", { class: "banner draft" }, icon("globe"), el("span", null, t("lang.pap_note"))) : null);
   }
 
@@ -399,7 +751,7 @@
       { name: "review", icon: "book", label: t("nav.review"), count: reviewQueue().length, task: true },
       { name: "translate", icon: "languages", label: t("nav.translate"), count: translateQueue().length, task: true },
       { name: "sentences", icon: "chat", label: t("nav.sentences"), count: sentenceQueue().length, task: true },
-      { name: "rate", icon: "star", label: t("nav.rate"), count: rateQueue().length, task: true }
+      { name: "rate", icon: "star", label: t("nav.rate"), count: rateCount(), task: true }
     ];
     if (p && p.board) items.push({ name: "board", icon: "shield", label: t("nav.board"), count: boardCount() });
     items.push({ name: "credits", icon: "users", label: t("nav.credits") });
@@ -530,19 +882,44 @@
     };
   }
 
-  // Save through api(): loading state on the button, then success or a retry sheet.
-  // commit() changes state only once the "server" has accepted it.
+  // Save: loading state on the button, then success or an error sheet.
+  // Demo: commit() changes state once api() (the stand-in server) has accepted.
+  // Live: commit() is the database write itself; then everything reloads.
   function persist(btn, commit, onDone, retry, label) {
     var restore = busy(btn, label);
-    api().then(function () {
-      commit();
-      save();
+    var work = LIVE ? Promise.resolve().then(commit).then(refreshAfterWrite)
+                    : api().then(function () { commit(); save(); });
+    work.then(function () {
       restore();
       onDone();
-    }, function () {
+    }, function (err) {
       restore();
-      errorSheet(retry);
+      failSheet(err, retry);
     });
+  }
+
+  // What the database said, in words a teacher can act on.
+  function failSheet(err, retry) {
+    var e = err || {};
+    if (LIVE && tooLate(e)) {
+      showSheet({ tone: "warn", icon: "info", title: t("error.quicker_title"), body: el("p", null, t("error.quicker_body")),
+        actions: [button(t("common.continue"), function (ev) {
+          var restore = busy(ev.currentTarget, t("common.loading"));
+          refreshAfterWrite().then(function () { restore(); closeSheet(); session.stayOn = null; render(); });
+        }, "primary block")] });
+      return;
+    }
+    if (LIVE && (e.status === 401 || /^PGRST30/.test(e.code || "") || /JWT/i.test(e.message || ""))) {
+      showSheet({ tone: "bad", icon: "user", title: t("error.session_title"), body: el("p", null, t("error.session_body")),
+        actions: [button(t("onb.email_title"), function (ev) { closeSheet(true); signOut(ev.currentTarget); }, "primary block")] });
+      return;
+    }
+    if (LIVE && e.code === "42501") {
+      showSheet({ tone: "bad", icon: "alert", title: t("error.not_allowed_title"), dismissable: true, body: el("p", null, t("error.not_allowed")),
+        actions: [button(t("common.close"), closeSheet, "primary block")] });
+      return;
+    }
+    errorSheet(retry);
   }
 
   function errorSheet(retry) {
@@ -593,10 +970,10 @@
     var r = myRecords();
     var all = [].concat(r.review, r.translate, r.sentences, r.ratings);
     var todayN = all.filter(function (x) { return day(x.at) === today(); }).length;
-    var waiting = r.review.concat(r.translate).filter(function (a) {
+    var waiting = LIVE ? live.qs.my_waiting || 0 : r.review.concat(r.translate).filter(function (a) {
       return answersFor(a.kind, a.item).length < 2 && !decisionFor(a.kind, a.item);
     }).length + r.sentences.filter(function (tr) { return !ratingsOf(tr.id).length; }).length;
-    var confirmed = r.review.concat(r.translate).filter(function (a) {
+    var confirmed = LIVE ? live.qs.my_confirmed || 0 : r.review.concat(r.translate).filter(function (a) {
       var d = decisionFor(a.kind, a.item); return d && d.outcome === "reviewed";
     }).length + r.sentences.filter(function (tr) { var d = decisionFor("sentence", tr.id); return d && d.outcome === "reviewed"; }).length;
     return taskFrame({
@@ -661,6 +1038,12 @@
       [button(t("onb.get_started"), function () { o.step = 1; render(); }, "primary block")]);
   }
 
+  // Live: Supabase emails a 6-digit code (supabase/email-template.html).
+  function sendCode(email) {
+    if (!LIVE) return api();
+    return db(live.client.auth.signInWithOtp({ email: email, options: { shouldCreateUser: true } }));
+  }
+
   function onbEmail(o, adding) {
     var input = el("input", { type: "email", id: "onb-email", autocomplete: "email", inputmode: "email", value: o.email, "data-autofocus": true,
                               placeholder: "name@example.com", spellcheck: "false", autocapitalize: "off" });
@@ -669,8 +1052,8 @@
       var v = input.value.trim();
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { fieldError(input, t("onb.email_need")); return; }
       var restore = busy(sendBtn, t("common.sending"));
-      api().then(function () { o.email = v; o.step = 2; render(); },
-                 function () { restore(); fieldError(input, t("error.send_code")); });
+      sendCode(v).then(function () { o.email = v; o.sentAt = Date.now(); o.step = 2; render(); },
+                       function (err) { restore(); fieldError(input, t(err && err.status === 429 ? "error.code_wait" : "error.send_code")); });
     }
     input.addEventListener("keydown", function (e) { if (e.key === "Enter") next(); });
     return onbFrame(o, el("div", { class: "stack" },
@@ -678,7 +1061,7 @@
       el("h1", null, t("onb.email_title")),
       el("p", { class: "muted" }, t("onb.email_note")),
       el("div", { class: "field" }, el("label", { for: "onb-email" }, t("onb.email_label")), input),
-      el("p", { class: "note small" }, icon("info"), el("span", null, t("onb.proto_email")))),
+      el("p", { class: "note small" }, icon("info"), el("span", null, t(LIVE ? "onb.email_live" : "onb.proto_email")))),
       [sendBtn], !adding);
   }
 
@@ -720,16 +1103,57 @@
       }
       checking = true;
       var restore = busy(okBtn, t("common.checking"));
-      api().then(function () { o.step = 3; render(); },
-                 function () { checking = false; restore(); fieldError(boxes[5], t("error.save_body")); });
+      if (!LIVE) {
+        api().then(function () { o.step = 3; render(); },
+                   function () { checking = false; restore(); fieldError(boxes[5], t("error.save_body")); });
+        return;
+      }
+      var verified = false;
+      db(live.client.auth.verifyOtp({ email: o.email, token: code, type: "email" })).then(function (data) {
+        verified = true;
+        live.user = (data && data.user) || (data && data.session && data.session.user);
+        return loadData();
+      }).then(function () {
+        if (live.status === "ready") {
+          session.onb = { step: 0, email: "", profile: null };
+          go("home");
+          toast(t("toast.welcome_back"));
+        } else { o.step = 3; render(); }
+      }).catch(function (err) {
+        if (verified) { live.status = "error"; live.error = navigator.onLine ? "load" : "offline"; render(); return; }
+        checking = false; restore();
+        row.setAttribute("aria-invalid", "true");
+        var wrong = err && (err.status === 400 || err.status === 401 || err.status === 403 || /expired|invalid|otp/i.test(err.message || ""));
+        fieldError(boxes[5], t(wrong ? "error.code_wrong" : err && err.status === 429 ? "error.code_wait" : "error.save_body"));
+      });
+    }
+
+    // Live: a new code after a minute, with the seconds counting down.
+    var resend = null;
+    if (LIVE) {
+      resend = button(t("onb.resend"), function () {
+        var restore = busy(resend, t("common.sending"));
+        sendCode(o.email).then(function () { o.sentAt = Date.now(); restore(); tick(); toast(t("onb.code_sent", { email: o.email }), "info"); },
+                               function (err) { restore(); tick(); toast(t(err && err.status === 429 ? "error.code_wait" : "error.send_code"), "bad"); });
+      }, "text-btn");
+      var tick = function (first) {
+        if (first !== true && !resend.isConnected) return;
+        var left = Math.ceil((RESEND_SECONDS * 1000 - (Date.now() - (o.sentAt || 0))) / 1000);
+        if (resend.getAttribute("aria-busy")) return;
+        resend.disabled = left > 0;
+        resend.textContent = left > 0 ? t("onb.resend_wait", { s: left }) : t("onb.resend");
+        if (left > 0) setTimeout(tick, 1000);
+      };
+      tick(true);
     }
     return onbFrame(o, el("div", { class: "stack center" },
       el("span", { class: "hero-icon" }, icon("mail")),
       el("h1", null, t("onb.code_title")),
       el("p", { class: "muted" }, t("onb.code_sent", { email: o.email })),
       row,
-      el("p", { class: "note small" }, icon("info"), el("span", null, t("onb.code_proto"))),
-      button(t("onb.change_email"), function () { o.step = 1; render(); }, "text-btn")),
+      el("p", { class: "note small" }, icon("info"), el("span", null, t(LIVE ? "onb.code_live" : "onb.code_proto"))),
+      el("div", { class: "row-actions center" }, resend,
+        button(t("onb.change_email"), function () { o.step = 1; render(); }, "text-btn"))),
       [okBtn], true);
   }
 
@@ -739,6 +1163,8 @@
     var school = el("input", { type: "text", id: "onb-school", autocomplete: "organization", value: pr.school });
     var gh = el("input", { type: "text", id: "onb-gh", autocomplete: "off", value: pr.github, placeholder: "github-username", spellcheck: "false", autocapitalize: "off" });
     var ghRow = el("div", { class: "field", hidden: !pr.board }, el("label", { for: "onb-gh" }, t("consent.github")), gh);
+    // Live, a maintainer makes someone a board member in the database (supabase/README.md).
+    if (LIVE) pr.board = false;
     var board = el("input", { type: "checkbox", id: "onb-board", checked: pr.board,
       onchange: function () { ghRow.hidden = !board.checked; } });
     var roles = [["teacher", "school"], ["linguist", "pen"], ["other", "user"]];
@@ -762,9 +1188,9 @@
       el("div", { class: "field" }, el("label", { for: "onb-name" }, t("consent.name")), name),
       el("fieldset", { class: "field" }, el("legend", null, t("consent.role")), roleTiles),
       el("div", { class: "field" }, el("label", { for: "onb-school" }, t("onb.school")), school),
-      el("label", { class: "switch-row" }, board, el("span", { class: "switch", "aria-hidden": "true" }), el("span", null, t("consent.board"))),
-      ghRow),
-      [button(t("common.continue"), next, "primary block")], true);
+      LIVE ? null : el("label", { class: "switch-row" }, board, el("span", { class: "switch", "aria-hidden": "true" }), el("span", null, t("consent.board"))),
+      LIVE ? null : ghRow),
+      [button(t("common.continue"), next, "primary block")], !LIVE);
   }
 
   function onbConsent(o) {
@@ -779,6 +1205,10 @@
     function finish() {
       if (!lw.checked || !ls.checked) { fieldError(!lw.checked ? lw : ls, t("consent.need_boxes")); return; }
       persist(finishBtn, function () {
+        if (LIVE) {
+          return db(live.client.rpc("create_profile", { p_name: pr.name, p_credit: credit.checked, p_school: pr.school,
+                                                         p_occupation: pr.role, p_consent_version: CONSENT_VERSION }));
+        }
         var id = newId("person");
         state.people.push({
           id: id, name: pr.name, handle: makeHandle(pr.name, id), role: pr.role, school: pr.school, board: pr.board,
@@ -789,6 +1219,7 @@
         state.current = id;
       }, function () {
         session.onb = { step: 0, email: "", profile: null };
+        if (LIVE && live.status !== "ready") { live.status = "error"; live.error = navigator.onLine ? "load" : "offline"; render(); return; }
         go("home");
         toast(t("toast.welcome"));
       }, finish);
@@ -798,7 +1229,7 @@
       el("p", { class: "muted" }, t("consent.intro")),
       cards,
       el("label", { class: "switch-row" }, credit, el("span", { class: "switch", "aria-hidden": "true" }), el("span", null, t("consent.credit"))),
-      el("p", { class: "muted small" }, t("consent.privacy"))),
+      el("p", { class: "muted small" }, t(LIVE ? "consent.privacy_live" : "consent.privacy"))),
       [finishBtn], true);
   }
 
@@ -823,7 +1254,7 @@
       ["review", "book", "nav.review", "home.review", reviewQueue().length, "blue"],
       ["translate", "languages", "nav.translate", "home.translate", translateQueue().length, "teal"],
       ["sentences", "chat", "nav.sentences", "home.sentences", sentenceQueue().length, "sun"],
-      ["rate", "star", "nav.rate", "home.rate", rateQueue().length, "violet"]
+      ["rate", "star", "nav.rate", "home.rate", rateCount(), "violet"]
     ];
     return el("div", { class: "home" },
       el("h1", { class: "hello", "data-autofocus": true, tabindex: "-1" }, t("home.hello", { name: p.name.split(" ")[0] })),
@@ -849,7 +1280,7 @@
             el("span", { class: "pill-short", "aria-hidden": "true" }, m[4])),
           icon("chevron", "chev")));
       })),
-      el("p", { class: "muted small foot-note" }, t("home.proto_note")));
+      LIVE ? null : el("p", { class: "muted small foot-note" }, t("home.proto_note")));
   }
 
   // ------------------------------------------------------------------- word card
@@ -875,6 +1306,10 @@
   // A crop of the printed page: shimmer while it loads, a plain fallback with
   // the PDF link if it fails. Phones and laptops get the one-column crop.
   function pageCrop(w, cls, media) {
+    if (!w.crop) {
+      return el("div", { class: "img-frame failed " + (cls || "") }, el("p", { class: "img-fallback" }, icon("alert"),
+        el("span", null, t("error.image") + " "), el("a", { href: SAMPLE.pdf_href + "#page=" + w.pdf_page, target: "_blank", rel: "noopener" }, t("word.open_pdf"))));
+    }
     var frame = el("div", { class: "img-frame " + (cls || "") });
     var img = el("img", { src: w.crop, width: w.crop_w, height: w.crop_h, decoding: "async",
                           alt: "AB 2018 word list, page " + w.page + ", with " + w.lemma + " highlighted" });
@@ -890,8 +1325,14 @@
     return frame;
   }
 
-  function progressOf(kind, items) {
-    return items.filter(function (w) { return answersFor(kind, w.id).some(function (a) { return a.by === state.current; }); }).length;
+  function progressOf(kind) {
+    return state.answers.filter(function (a) { return a.kind === kind && a.by === state.current; }).length;
+  }
+
+  // After saving a word: live, a contributor cannot see whether theirs was the second answer.
+  function wordFeedback(kind, item) {
+    if (LIVE) return t("feedback.word_live");
+    return t(answersFor(kind, item).length >= 2 ? "feedback.to_board" : "feedback.waiting");
   }
 
   // Big choice buttons: radio inputs styled as buttons.
@@ -941,16 +1382,14 @@
       var out = {};
       LANGS.forEach(function (l) { out[l] = { verdict: verdicts[l], fix: verdicts[l] === "wrong" ? normGloss(fixes[l].value) : "" }; });
       persist(saveBtn, function () {
-        state.answers.push({ id: newId("ans"), kind: "review", item: w.id, by: state.current, at: now(),
-                             verdicts: out, comment: Checker.normalise(comment.value) });
+        return saveAnswer("review", w.id, { verdicts: out }, Checker.normalise(comment.value));
       }, function () {
-        var n = answersFor("review", w.id).length;
-        savedSheet(el("p", null, t(n >= 2 ? "feedback.to_board" : "feedback.waiting")), render);
+        savedSheet(el("p", null, wordFeedback("review", w.id)), render);
       }, submit);
     }
 
     return taskFrame({
-      title: t("nav.review"), icon: "book", done: progressOf("review", SAMPLE.review), total: SAMPLE.review.length, wide: true,
+      title: t("nav.review"), icon: "book", done: progressOf("review"), total: progressOf("review") + queue.length, wide: true,
       onSkip: function () { session.skipped.review.add(w.id); render(); },
       body: el("div", { class: "split" },
         el("div", { class: "split-left" }, wordCard(w)),
@@ -997,17 +1436,15 @@
       var vals = {};
       LANGS.forEach(function (l) { vals[l] = normGloss(inputs[l].value); });
       persist(saveBtn, function () {
-        state.answers.push({ id: newId("ans"), kind: "translate", item: w.id, by: state.current, at: now(),
-                             values: unknown.checked ? { en: "", nl: "", es: "" } : vals, unknown: unknown.checked,
-                             comment: Checker.normalise(comment.value) });
+        return saveAnswer("translate", w.id, { values: unknown.checked ? { en: "", nl: "", es: "" } : vals, unknown: unknown.checked },
+                          Checker.normalise(comment.value));
       }, function () {
-        var n = answersFor("translate", w.id).length;
-        savedSheet(el("p", null, t(n >= 2 ? "feedback.to_board" : "feedback.waiting")), render);
+        savedSheet(el("p", null, wordFeedback("translate", w.id)), render);
       }, submit);
     }
 
     return taskFrame({
-      title: t("nav.translate"), icon: "languages", done: progressOf("translate", SAMPLE.translate), total: SAMPLE.translate.length, wide: true,
+      title: t("nav.translate"), icon: "languages", done: progressOf("translate"), total: progressOf("translate") + queue.length, wide: true,
       onSkip: function () { session.skipped.translate.add(w.id); render(); },
       body: el("div", { class: "split" },
         el("div", { class: "split-left" }, wordCard(w),
@@ -1140,8 +1577,8 @@
       p = queue[0];
     }
     var mine = translationsOf(p.id).filter(function (tr) { return tr.by === state.current; });
-    var others = new Set(translationsOf(p.id).filter(function (tr) { return tr.by !== state.current; })
-      .map(function (tr) { return tr.by; })).size;
+    var others = LIVE ? Math.max(0, sentencesFor(p.id) - mine.length) :
+      new Set(translationsOf(p.id).filter(function (tr) { return tr.by !== state.current; }).map(function (tr) { return tr.by; })).size;
     var ta = el("textarea", { id: "pap-text", rows: 3, lang: "pap", spellcheck: "false", autocapitalize: "sentences",
                               autocomplete: "off", "aria-describedby": "no-draft", value: session.draft[p.id] || "", "data-autofocus": true,
                               placeholder: t("sent.placeholder") });
@@ -1152,13 +1589,14 @@
       saveBtn.disabled = anotherBtn.disabled = !ta.value.trim();
     });
     var panel = checkerPanel(ta);
-    var doneN = SAMPLE.prompts.filter(function (x) { return translationsOf(x.id).some(function (tr) { return tr.by === state.current; }); }).length;
+    var doneN = new Set(state.translations.filter(function (tr) { return tr.by === state.current; }).map(function (tr) { return tr.prompt; })).size;
 
     function store(text, kept, stay, btn) {
       persist(btn, function () {
-        state.translations.push({ id: newId("tr"), prompt: p.id, by: state.current, at: now(), text: text, flags_kept: kept, fix_of: null });
-        delete session.draft[p.id];
-        session.stayOn = stay ? p.id : null;
+        return after(saveTranslation(p.id, text, kept), function () {
+          delete session.draft[p.id];
+          session.stayOn = stay ? p.id : null;
+        });
       }, function () {
         savedSheet([el("p", null, t("feedback.sentence")),
                     kept.length ? el("p", { class: "muted small" }, t("sent.kept", { n: kept.length })) : null], render);
@@ -1166,7 +1604,7 @@
     }
 
     return taskFrame({
-      title: t("nav.sentences"), icon: "chat", done: doneN, total: SAMPLE.prompts.length,
+      title: t("nav.sentences"), icon: "chat", done: doneN, total: doneN + sentenceQueue().length,
       onSkip: function () { session.skipped.sentences.add(p.id); session.stayOn = null; render(); },
       body: el("div", { class: "stack" },
         promptCard(p),
@@ -1185,16 +1623,16 @@
     var queue = rateQueue().filter(function (tr) { return !session.skipped.rate.has(tr.id); });
     var ratedByMe = state.ratings.filter(function (r) { return r.by === state.current; }).length;
     if (!queue.length) {
-      var anyOthers = state.translations.some(function (tr) { return tr.by !== state.current; });
+      var anyOthers = LIVE ? rateCount() > 0 : state.translations.some(function (tr) { return tr.by !== state.current; });
       if (!anyOthers && !ratedByMe) {
         return taskFrame({ title: t("nav.rate"), icon: "star", done: 0, total: 0,
-          body: emptyState("star", t("rate.empty_title"), t("rate.empty_hint")),
+          body: emptyState("star", t("rate.empty_title"), t(LIVE ? "rate.empty_hint_live" : "rate.empty_hint")),
           actions: [button(t("summary.home"), function () { go("home"); }, "primary block")] });
       }
       return doneScreen("rate", t("nav.rate"), "star");
     }
     var tr = queue[0];
-    var p = promptById(tr.prompt);
+    var p = promptById(tr.prompt) || { id: tr.prompt, lang: "en", text: tr.prompt, origin: "" };
     var verdict = null;
     var fixTa = el("textarea", { rows: 3, lang: "pap", spellcheck: "false", "aria-label": t("rate.fix_box"), value: tr.text });
     var fixPanel = checkerPanel(fixTa);
@@ -1211,13 +1649,7 @@
 
     function finish(fixText, kept) {
       persist(saveBtn, function () {
-        var fixId = null;
-        if (verdict === "fix") {
-          fixId = newId("tr");
-          state.translations.push({ id: fixId, prompt: tr.prompt, by: state.current, at: now(), text: fixText, flags_kept: kept, fix_of: tr.id });
-        }
-        state.ratings.push({ id: newId("rat"), translation: tr.id, by: state.current, at: now(), verdict: verdict,
-                             fix_translation: fixId, comment: Checker.normalise(comment.value) });
+        return saveRating(tr, verdict, fixText, kept, Checker.normalise(comment.value));
       }, function () { savedSheet(el("p", null, t("feedback.rated")), render); },
       function () { finish(fixText, kept); });
     }
@@ -1227,7 +1659,7 @@
     }
 
     return taskFrame({
-      title: t("nav.rate"), icon: "star", done: ratedByMe, total: ratedByMe + queue.length,
+      title: t("nav.rate"), icon: "star", done: ratedByMe, total: ratedByMe + Math.max(queue.length, rateCount()),
       onSkip: function () { session.skipped.rate.add(tr.id); render(); },
       body: el("div", { class: "stack" },
         promptCard(p),
@@ -1244,23 +1676,28 @@
 
   // ------------------------------------------------------------------ board
 
+  // Words with two answers, and sentences with at least one rating. Built from
+  // the answers, not the word list, so it stays quick with thousands of words.
   function boardItems() {
-    var items = [];
-    SAMPLE.review.forEach(function (w) {
-      var a = answersFor("review", w.id);
-      if (a.length >= 2) items.push({ kind: "review", item: w.id, word: w, answers: a });
+    var groups = {}, keys = [];
+    state.answers.forEach(function (a) {
+      var k = a.kind + ":" + a.item;
+      if (!groups[k]) { groups[k] = []; keys.push(k); }
+      groups[k].push(a);
     });
-    SAMPLE.translate.forEach(function (w) {
-      var a = answersFor("translate", w.id);
-      if (a.length >= 2) items.push({ kind: "translate", item: w.id, word: w, answers: a });
+    var words = [];
+    keys.forEach(function (k) {
+      var a = groups[k], w = wordById(a[0].item);
+      if (a.length >= 2 && w) words.push({ kind: a[0].kind, item: a[0].item, word: w, answers: a });
     });
-    state.translations.forEach(function (tr) {
-      if (ratingsOf(tr.id).length >= 1) items.push({ kind: "sentence", item: tr.id, tr: tr });
-    });
-    return items;
+    words.sort(function (x, y) { return (x.kind === "review" ? 0 : 1) - (y.kind === "review" ? 0 : 1); });
+    var rated = new Set(state.ratings.map(function (r) { return r.translation; }));
+    return words.concat(state.translations.filter(function (tr) { return rated.has(tr.id); })
+      .map(function (tr) { return { kind: "sentence", item: tr.id, tr: tr }; }));
   }
 
   function boardCount() {
+    if (LIVE) return (live.qs && live.qs.board_open) || 0;
     return boardItems().filter(function (x) { return !decisionFor(x.kind, x.item); }).length;
   }
 
@@ -1304,12 +1741,8 @@
   }
 
   function decide(x, outcome, values, btn) {
-    persist(btn, function () {
-      state.decisions.push({ id: newId("dec"), kind: x.kind, item: x.item, by: state.current, at: now(),
-                             outcome: outcome, values: values || null, note: "",
-                             based_on: (x.answers || []).map(function (a) { return a.id; })
-                               .concat(x.tr ? ratingsOf(x.tr.id).map(function (r) { return r.id; }) : []) });
-    }, function () { decidedSheet(outcome); }, function () { decide(x, outcome, values, btn); });
+    persist(btn, function () { return saveDecision(x, outcome, values); },
+      function () { decidedSheet(outcome); }, function () { decide(x, outcome, values, btn); });
   }
 
   function decidedSheet(outcome) {
@@ -1381,9 +1814,12 @@
       el("p", { class: "muted small" }, done.outcome === "disputed" ? t("board.dispute") :
         x.kind === "sentence" ? (done.values && done.values.pap ? done.values.pap.value : "") :
         LANGS.map(function (l) { return l.toUpperCase() + ": " + ((done.values && done.values[l] && done.values[l].value) || "—"); }).join(" · ")),
-      button(t("board.undo"), function () {
-        state.decisions = state.decisions.filter(function (d) { return d.id !== done.id; }); save(); render();
-        toast(t("toast.undone"), "info");
+      done.exported_in ? el("p", { class: "muted small" }, t("board.exported")) :
+      LIVE && done.by !== state.current ? null :
+      button(t("board.undo"), function (ev) {
+        var restore = busy(ev.currentTarget, t("common.saving"));
+        undoDecision(done).then(function () { render(); toast(t("toast.undone"), "info"); },
+                                function (err) { restore(); failSheet(err, render); });
       }, "ghost small"));
   }
 
@@ -1479,6 +1915,40 @@
 
   // ---------------------------------------------------------------- credits
 
+  function creditRole(role) {
+    return role === "board" ? t("nav.board") : role === "maintainer" ? t("role.maintainer") : "";
+  }
+
+  // Live: credits() returns names (or handles, for people who chose not to be
+  // named) and counts. No email, no school.
+  function liveCreditLists() {
+    if (!live.creditsLoading && (!live.credits || Date.now() - (live.creditsAt || 0) > 60000) && !live.creditsError) loadCredits();
+    if (!live.credits) {
+      if (live.creditsError) {
+        return [el("section", { class: "card" }, emptyState("alert", t("error.load_title"), t("error.load_body"),
+          [button(t("common.retry"), function (ev) { busy(ev.currentTarget, t("common.loading")); loadCredits(); }, "primary")]))];
+      }
+      return [el("section", { class: "card", "aria-busy": "true" }, el("div", { class: "gate small", role: "status" },
+        el("span", { class: "spinner big", "aria-hidden": "true" }), el("p", { class: "muted" }, t("common.loading"))))];
+    }
+    var row = function (c) {
+      return el("li", { class: "person-row" }, avatar({ name: c.name, board: c.role === "board" }),
+        el("span", { class: "grow" }, el("strong", null, c.name), creditRole(c.role) ? el("span", { class: "muted small" }, creditRole(c.role)) : null),
+        el("span", { class: "muted small" }, t("credits.n", { n: c.contributions })));
+    };
+    var board = live.credits.filter(function (c) { return c.role === "board"; });
+    var people = live.credits.filter(function (c) { return c.role !== "board"; });
+    return [
+      el("section", { class: "card" },
+        el("h2", null, t("nav.board")),
+        board.length ? el("ul", { class: "people" }, board.map(row)) : el("p", { class: "muted" }, t("credits.board_empty"))),
+      el("section", { class: "card" },
+        el("h2", null, t("credits.people")),
+        el("p", { class: "muted small" }, t("credits.note")),
+        people.length ? el("ul", { class: "people" }, people.map(row)) : el("p", { class: "muted" }, t("credits.empty")))
+    ];
+  }
+
   function viewCredits() {
     var r = myRecords();
     var rows = [
@@ -1495,12 +1965,14 @@
           el("span", { class: "muted small" }, t("role." + p.role) + (p.school ? " · " + p.school : ""))),
         el("span", { class: "muted small" }, t("credits.n", { n: myCount(p.id) })));
     };
+    var yours = el("section", { class: "card" },
+      el("h2", { "data-autofocus": true, tabindex: "-1" }, t("credits.yours")),
+      el("ul", { class: "count-list" }, rows.map(function (x) {
+        return el("li", null, icon(x[0]), el("span", { class: "grow" }, x[1]), el("strong", null, x[2]));
+      })));
+    if (LIVE) return el("div", { class: "stack-lg" }, yours, liveCreditLists());
     return el("div", { class: "stack-lg" },
-      el("section", { class: "card" },
-        el("h2", { "data-autofocus": true, tabindex: "-1" }, t("credits.yours")),
-        el("ul", { class: "count-list" }, rows.map(function (x) {
-          return el("li", null, icon(x[0]), el("span", { class: "grow" }, x[1]), el("strong", null, x[2]));
-        }))),
+      yours,
       el("section", { class: "card" },
         el("h2", null, t("nav.board")),
         board.length ? el("ul", { class: "people" }, board.map(personRow)) : el("p", { class: "muted" }, t("credits.board_empty"))),
@@ -1613,7 +2085,89 @@
       el("tbody", null, rows.map(function (r) { return el("tr", null, cols.map(function (c) { return el("td", null, r[c] || ""); })); }))));
   }
 
+  // Live: my own records only, never anyone else's (a board member reads
+  // everyone's answers, but this file holds only their own).
+  function downloadMine() {
+    var p = me(), mine = function (x) { return x.by === state.current; };
+    var data = {
+      format: "pap-contrib-mine/1",
+      exported_at: now(),
+      licences: { words: "CC-BY-4.0", sentences: "CC0-1.0" },
+      profile: { handle: p.handle, name: p.name, credit: p.credit, occupation: p.role, school: p.school, role: p.db_role,
+                 consent_version: p.consent_version },
+      answers: state.answers.filter(mine),
+      translations: state.translations.filter(mine),
+      ratings: state.ratings.filter(mine),
+      decisions: state.decisions.filter(mine)
+    };
+    var blob = new Blob([JSON.stringify(data, null, 2) + "\n"], { type: "application/json" });
+    var a = el("a", { href: URL.createObjectURL(blob), download: "my-papiamento-contributions-" + today() + ".json" });
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    toast(t("toast.downloaded"));
+  }
+
+  function languageCard() {
+    return el("section", { class: "card stack" },
+      el("h2", null, t("lang.label")),
+      el("div", { class: "seg-tabs", role: "group" }, [["en", "English"], ["pap", "Papiamento (draft)"]].map(function (l) {
+        return el("button", { type: "button", "aria-pressed": state.ui_lang === l[0] ? "true" : "false",
+          onclick: function () { state.ui_lang = l[0]; save(); render(); } }, l[1]);
+      })),
+      state.ui_lang === "pap" ? el("p", { class: "muted small" }, t("lang.pap_note")) : null);
+  }
+
+  function viewAccountLive() {
+    var p = me();
+    var r = myRecords();
+    var credit = el("input", { type: "checkbox", id: "acc-credit", checked: p.credit, onchange: function () {
+      var want = credit.checked;
+      credit.disabled = true;
+      db(live.client.from("profiles").update({ credit: want }).eq("id", p.id)).then(function () {
+        p.credit = want; credit.disabled = false; live.credits = null; toast(t("toast.saved"));
+      }, function () {
+        credit.checked = !want; credit.disabled = false; toast(t("error.save_title"), "bad");
+      });
+    } });
+    return el("div", { class: "stack-lg" },
+      el("section", { class: "card profile" },
+        avatar(p),
+        el("div", { class: "grow" }, el("h2", { "data-autofocus": true, tabindex: "-1" }, p.name),
+          el("p", { class: "muted small" }, t("role." + p.role) + (p.school ? " · " + p.school : "") + " · " + p.handle),
+          el("div", { class: "chips" }, el("span", { class: "chip" }, "Words: CC BY 4.0"), el("span", { class: "chip" }, "Sentences: CC0 1.0"),
+            p.board ? el("span", { class: "chip lang" }, t("nav.board")) : null))),
+      languageCard(),
+      el("section", { class: "card stack" },
+        el("h2", null, t("nav.credits")),
+        el("label", { class: "switch-row" }, credit, el("span", { class: "switch", "aria-hidden": "true" }), el("span", null, t("consent.credit")))),
+      el("section", { class: "card stack" },
+        el("h2", null, t("account.data_title")),
+        el("p", { class: "muted" }, t("account.mine_intro")),
+        el("p", { class: "small" }, t("export.counts", { a: r.review.length + r.translate.length, t: r.sentences.length, r: r.ratings.length, d: r.decisions.length })),
+        el("div", { class: "row-actions" }, button([icon("download"), t("account.download_mine")], downloadMine, "primary"))),
+      el("section", { class: "card stack prose" },
+        el("h2", null, t("about.live_title")),
+        el("p", null, "Teachers and linguists check and add translations and write sentences here, without a GitHub account. " +
+          "Two people answer each item on their own; a review-board member checks the answers. Each week a job turns the board's " +
+          "decisions into one pull request on GitHub, which the board member approves there. Contributors are credited by name, " +
+          "or by handle if they prefer."),
+        el("p", null, "Your email address is used only to send you sign-in codes. It is never published, and other contributors never see it."),
+        el("ul", null,
+          el("li", null, "Check translations: " + SAMPLE.review.length + " machine-drafted rows from lexicon/words/, with a crop of the printed AB 2018 word-list page."),
+          el("li", null, "Translate words: " + SAMPLE.translate.length + " rows with no translation. Order: " + SAMPLE.translate_order + "."),
+          el("li", null, "Translate sentences: " + SAMPLE.prompts.length + " English and Spanish prompts (CC0). No Papiamento is shown or prefilled."),
+          el("li", null, "Live checks: " + CHECKS.rules.length + " rules, " + CHECKS.barbarismos.length + " barbarismos, " +
+            CHECKS.variants.length + " Curaçao-Aruba pairs and the AB 2018 word list.")),
+        el("p", null, "Data built from repository commit " + (SAMPLE.built_from_commit || "?") + ". ",
+          el("a", { href: CONFIG.repo + "/blob/main/tools/contribute/DESIGN.md", target: "_blank", rel: "noopener" }, "How the tool works"), " · ",
+          el("a", { href: CONFIG.repo, target: "_blank", rel: "noopener" }, "The dataset on GitHub"))),
+      el("section", { class: "card" },
+        button([icon("close"), t("account.sign_out")], function (ev) { signOut(ev.currentTarget); }, "block")));
+  }
+
   function viewAccount() {
+    if (LIVE) return viewAccountLive();
     var p = me();
     var pr = pullRequestPreview();
     var file = el("input", { type: "file", accept: "application/json,.json", id: "imp", class: "sr-only",
@@ -1633,13 +2187,7 @@
           el("p", { class: "muted small" }, t("role." + p.role) + (p.school ? " · " + p.school : "") + " · " + p.handle),
           el("div", { class: "chips" }, el("span", { class: "chip" }, "Words: CC BY 4.0"), el("span", { class: "chip" }, "Sentences: CC0 1.0"),
             p.board ? el("span", { class: "chip lang" }, t("nav.board")) : null))),
-      el("section", { class: "card stack" },
-        el("h2", null, t("lang.label")),
-        el("div", { class: "seg-tabs", role: "group" }, [["en", "English"], ["pap", "Papiamento (draft)"]].map(function (l) {
-          return el("button", { type: "button", "aria-pressed": state.ui_lang === l[0] ? "true" : "false",
-            onclick: function () { state.ui_lang = l[0]; save(); render(); } }, l[1]);
-        })),
-        state.ui_lang === "pap" ? el("p", { class: "muted small" }, t("lang.pap_note")) : null),
+      languageCard(),
       el("section", { class: "card stack proto-card" },
         el("h2", null, t("person.switch")),
         el("p", { class: "muted small" }, t("person.switch_note")), who),
@@ -1687,10 +2235,13 @@
   // ------------------------------------------------------------------- boot
 
   window.addEventListener("hashchange", function () { closeSheet(); render(); });
-  window.addEventListener("online", function () { render(); toast(t("toast.online")); });
-  window.addEventListener("offline", function () { render(); toast(t("offline.banner"), "bad"); });
+  window.addEventListener("online", function () {
+    if (LIVE && live.status === "error" && live.error === "offline") { startLive(); return; }
+    render(); toast(t("toast.online"));
+  });
+  window.addEventListener("offline", function () { render(); toast(t(LIVE ? "offline.banner_live" : "offline.banner"), "bad"); });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && document.querySelector(".sheet")) closeSheet();
   });
-  render();
+  if (LIVE) startLive(); else render();
 })();
