@@ -26,6 +26,10 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 | Build evaluation sets | `eval/README.md` | — (and never train on `eval/`) |
 | Log a source typo | `sources/errata.tsv`, the source card | — |
 | Log an audit (random sample checked against the PDFs) | `_meta/conventions.md` (Audits section), `_templates/audit-row.tsv`, `_meta/audits.tsv` | — |
+| Add or edit parallel sentences (prompts, translations) | `_meta/conventions.md` (Parallel sentences section), `corpus/README.md`, `_templates/parallel-prompt-row.tsv`, `_meta/contributors.tsv` | `eval/parallel/` (held out; never copy from it) |
+| Credit a contributor | `_meta/conventions.md` (Contributors section), `_templates/contributor-row.tsv`, `_meta/contributors.tsv` | emails or other contact details (never stored) |
+| Work on the contribution tool | `tools/contribute/README.md`, `tools/contribute/DESIGN.md` | secrets: never read, print or ask for keys |
+| Update Project status or milestones | `_meta/milestones.tsv`, the hand-written lines under "Project status" in `README.md`; run `python3 tools/build_pages.py` for the generated part | — |
 | Prepare a release | `RELEASING.md`, `CHANGELOG.md`, `CITATION.cff`, `release/dataset-card.md` | data files |
 
 ## Where things live
@@ -37,10 +41,10 @@ You are in **ARUBAGOV33/papiamento**, the open reference dataset for **Aruban** 
 | `lexicon/` | words A–Z, numbers, calendar, barbarismos, variants, loanwords, names |
 | `grammar/` | rules in plain language, one small file per rule |
 | `rules/` | machine-readable checker rules and their tests |
-| `corpus/` | redistributable Aruban text with a manifest |
-| `eval/` | test sets for the writing auditor (do not train on them) |
+| `corpus/` | redistributable Aruban text, and parallel English/Spanish → Aruban Papiamento sentences (CC0) in `corpus/parallel/` |
+| `eval/` | test sets for the writing auditor and AI models, including held-out parallel sentences (do not train on them) |
 | `sources/` | source registry, cards, shareable PDFs, errata, permissions |
 | `release/` | template of the Hugging Face dataset card |
-| `tools/` | validator and build scripts |
+| `tools/` | validator, build scripts, and the contribution tool (`tools/contribute/`) |
 
-Every folder's `README.md` is its contract: what lives there, the format, and how to add to it.
+Every top-level folder's `README.md` is its contract (it also covers its sub-folders): what lives there, the format, and how to add to it.
