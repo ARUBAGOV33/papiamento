@@ -71,6 +71,8 @@ Every name in `translated_by`, `author`, `checked_by`, `reviewed_by`, `ruled_by`
 - A `reviewed` row must have both.
 - **AB 2018 page numbers restart** in each part of the law: the law itself, the orthography annex (same numbering as ORT2009) and the word list (pages 1–72, same as VOC2009). For words, `page` is the word-list page. For rules, also give the section (e.g. §11.8) so the page is unambiguous.
 
+A web page has no page numbers. Cite it as page `1`, meaning the whole page, and say so on its source card (see `sources/cards/GOV2026.md`).
+
 ## Words (`lexicon/words/<LETTER>/words.tsv`)
 
 | Column | Content |

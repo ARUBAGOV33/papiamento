@@ -1,1 +1,12 @@
 id	kind	order	pap	en	nl	es	status	reviewed_by	source	page	notes
+cal-0020	holiday	01-01	Aña Nobo	New Year's Day	Nieuwjaarsdag		draft		GOV2026	1	1 January. The page's current list writes 'aña Nobo'; capital A as in its yearly tables and AB 2018 §9.3 i (gazette p. 31).
+cal-0021	holiday	01-25	Dia di Betico	Betico Day; Betico Croes Day	Dia di Betico		draft		GOV2026	1	25 January.
+cal-0022	holiday	movable	Dialuna prome cu diaranson di shinish	Monday before Ash Wednesday; Carnival Monday	Maandag voor Aswoensdag		draft		GOV2026	1	The Monday before Ash Wednesday. Until 2022 the page called it 'Dialuna despues di Carnaval Grandi'.
+cal-0023	holiday	03-18	Dia di Himno y Bandera	National Flag and Anthem Day; National Anthem and Flag Day	Dia di Himno y Bandera		draft		GOV2026	1	18 March. Also an example in AB 2018 §9.3 i (gazette p. 31).
+cal-0024	holiday	movable	Bierna Santo	Good Friday	Goede Vrijdag		draft		GOV2026	1	The Friday before Easter.
+cal-0025	holiday	movable	Di dos dia di Pasco di Resureccion	Easter Monday	Tweede Paasdag		draft		GOV2026	1	The Monday after Easter. The page's current list writes 'e di dos dia di Pasco di Resureccion'.
+cal-0026	holiday	movable	Dia di Asuncion	Ascension Day	Hemelvaartsdag		draft		GOV2026	1	Forty days after Easter, a Thursday. The government page uses 'Dia di Asuncion' for Ascension Day; AB 2018 §9.3 i (gazette p. 31) lists 'Asuncion' among feast days.
+cal-0027	holiday	04-27	Aña di Rey	King's Day	Koningsdag		draft		GOV2026	1	27 April. The page's current list says 'aña di Rey'; its yearly tables for 2021-2023 say 'Dia di Rey'.
+cal-0028	holiday	05-01	Dia di Obrero	Labor Day	Dag van de Arbeid		draft		GOV2026	1	1 May. The page's yearly tables write 'Dia di Labor/Dia di Obrero'.
+cal-0029	holiday	12-25	Pasco di Nacemento	Christmas Day	Eerste Kerstdag		draft		GOV2026	1	25 December. The current list names both days together: 'prome y di dos dia di Pasco di Nacemento'; the Dutch page writes 'Eerste en Tweede Kerstdag'.
+cal-0030	holiday	12-26	Di dos dia di Pasco di Nacemento	Boxing Day; Day after Christmas	Tweede Kerstdag		draft		GOV2026	1	26 December.

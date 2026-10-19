@@ -58,6 +58,19 @@ class ProgressTest(unittest.TestCase):
         self.assertIn("| 200 | 10 |", block)
         self.assertIn("25% with English", block)
 
+    def test_sentence_rows(self):
+        rs = self.stats()
+        rs["sentences"] = {"prompts": 300, "prompts_reviewed": 7, "held_out": 45, "translated": 12, "pairs": 20, "pairs_reviewed": 5}
+        block = build_pages.readme_block(rs)
+        self.assertIn("| [Sentence prompts](corpus/parallel/) (English and Spanish; 45 held out for tests) | 300 | 7 |", block)
+        self.assertIn("| Aruban Papiamento sentence translations | 20 | 5 |", block)
+        svg = build_pages.progress_svg(rs, "light")
+        self.assertIn("SENTENCES", svg)
+        self.assertIn("12 of 300", svg)
+        rs["sentences"] = {"prompts": 0, "held_out": 0, "translated": 0, "pairs": 0, "pairs_reviewed": 0}
+        self.assertNotIn("Sentence prompts", build_pages.readme_block(rs))
+        self.assertNotIn("SENTENCES", build_pages.progress_svg(rs, "light"))
+
     def test_front_matter_matches_the_gauntlet(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "rule-ort-test-001.md"
@@ -129,11 +142,13 @@ class QualityTest(unittest.TestCase):
         self.assertEqual(latest["numbers"]["id"], "aud-0005")
 
     def test_readme_without_audits(self):
-        block = build_pages.readme_block(repo_stats())
+        rs = repo_stats()
+        block = build_pages.readme_block(rs)
         self.assertIn("| Table | Rows | Reviewed by the board | Measured error rate |", block)
         self.assertIn("| 200 | 10 | not audited yet |", block)
         # Words, the other tables, grammar rules and machine rules
-        self.assertEqual(block.count("not audited yet"), 1 + len(build_pages.OTHER_TABLES) + 2)
+        sentence_rows = 2 if rs.get("sentences", {}).get("prompts") else 0
+        self.assertEqual(block.count("not audited yet"), 1 + len(build_pages.OTHER_TABLES) + 2 + sentence_rows)
         self.assertIn("_meta/audits.tsv", block)
         self.assertNotIn("Measured error rate in the latest", block)  # alt text
 

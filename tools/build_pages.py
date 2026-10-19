@@ -34,7 +34,7 @@ FLAGGABLE = ("error", "warning", "suggestion")
 OTHER_TABLES = [
     # (table in _meta/schema/registry.json and _meta/audits.tsv, label in the README table)
     ("numbers", "Numbers"),
-    ("calendar", "Days and months"),
+    ("calendar", "Calendar (days, months, public holidays)"),
     ("barbarismos", "Barbarismos"),
     ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs"),
     ("loanwords", "Loanwords"),
@@ -46,7 +46,7 @@ AUDIT_TABLES = [
     ("words", "Words"),
     ("translations", "Word translations"),
     ("numbers", "Numbers"),
-    ("calendar", "Days and months"),
+    ("calendar", "Calendar"),
     ("barbarismos", "Barbarismos"),
     ("variants", "Cura\u00e7ao \u2192 Aruba pairs"),
     ("loanwords", "Loanwords"),
@@ -203,6 +203,22 @@ def repo_stats(words):
         "empty": [name for name, patterns in EMPTY_CHECKS if count_rows(patterns) == 0],
         "audits": latest_audits(table_rows("audits")),
         "milestones": table_rows("milestones"),
+        "sentences": sentence_stats(),
+    }
+
+
+def sentence_stats():
+    """Parallel sentences: English/Spanish prompts (corpus and held out) and
+    the Aruban Papiamento translations teachers write for them."""
+    prompts = table_rows("parallel-prompts") + table_rows("eval-parallel-prompts")
+    pairs = table_rows("parallel-pairs") + table_rows("eval-parallel-pairs")
+    return {
+        "prompts": len(prompts),
+        "prompts_reviewed": sum(1 for p in prompts if p.get("status") == "reviewed"),
+        "held_out": len(table_rows("eval-parallel-prompts")),
+        "translated": len(set(p.get("prompt_id") for p in pairs if p.get("prompt_id"))),
+        "pairs": len(pairs),
+        "pairs_reviewed": sum(1 for p in pairs if p.get("status") == "reviewed"),
     }
 
 
@@ -299,6 +315,16 @@ def chart_rows(rs):
         ("Flaggable rules with a machine check", rs["machine"], rs["flaggable"], "added"),
         ("Other tables", None, None, None),
         ("Rows reviewed", other_reviewed, other_rows, "reviewed"),
+    ] + sentence_chart_rows(rs.get("sentences"))
+
+
+def sentence_chart_rows(s):
+    if not s or not s["prompts"]:
+        return []
+    return [
+        ("Sentences", None, None, None),
+        ("Prompts with a Papiamento translation", s["translated"], s["prompts"], "added"),
+        ("Translations reviewed", s["pairs_reviewed"], s["pairs"], "reviewed"),
     ]
 
 
@@ -427,6 +453,12 @@ def readme_block(rs):
     ]
     for key, label, n, reviewed in rs["other"]:
         lines.append("| %s | %s | %s | %s |" % (label, fmt(n), fmt(reviewed), rate(key)))
+    s = rs.get("sentences")
+    if s and s["prompts"]:
+        lines.append("| [Sentence prompts](corpus/parallel/) (English and Spanish; %s held out for tests) | %s | %s | not audited yet |" % (
+            fmt(s["held_out"]), fmt(s["prompts"]), fmt(s.get("prompts_reviewed", 0))))
+        lines.append("| Aruban Papiamento sentence translations | %s | %s | not audited yet |" % (
+            fmt(s["pairs"]), fmt(s["pairs_reviewed"])))
     lines += [
         "| [Grammar rules](grammar/) | %s | %s | %s |" % (fmt(rs["grammar"]), fmt(rs["grammar_reviewed"]), rate("grammar")),
         "| [Machine checker rules](rules/) | %s | | %s |" % (fmt(rs["machine"]), rate("rules")),
