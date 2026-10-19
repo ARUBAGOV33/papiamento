@@ -10,6 +10,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 - Parallel sentences, decided by the maintainer on 2026-10-18 (contribution tool design, board card P2-09): empty tables for English and Spanish prompts and their Aruban Papiamento translations in `corpus/parallel/`, with a 15% hash-based hold-out in `eval/parallel/`; schemas `_meta/schema/parallel-prompts.schema.json` and `parallel-pairs.schema.json`. Both are CC0 1.0 (exception in LICENSE-DATA), so they can go to Common Voice. They cite no source page: `translated_by` (or `author`) and `batch` are their provenance.
 - `_meta/contributors.tsv`: everyone the data credits, by handle, credit name and role, with no contact details. Contributors no longer need a GitHub account; review-board members and maintainers still do.
+- `tools/contribute/supabase/`: the contribution tool's database for the Supabase project `papiamento-contribute`. A migration with access rules (row-level security) enforces blind double answers, no self-rating, no deciding on your own item, and the board and maintainer roles; email addresses stay in Supabase's auth only. It comes with a rollback-only test of every rule (`rls-test.sql`), the sign-in email template, a paste-once guide, and the **Contribution security check** workflow, which proves the public key alone reads and writes nothing. It replaces the sketch in `tools/contribute/proposal/`.
 - Prompts batch 1: 300 everyday English and Spanish sentences written for the project (machine-drafted, `author = machine`, `draft` until a maintainer checks them), on home, family, school, shopping, health, nature, transport, work, food, public services, time, leisure and everyday talk. 255 are in `corpus/parallel/prompts.tsv` and 45 (15%) are held out in `eval/parallel/prompts.tsv`. `tools/add_prompts.py` adds a batch, assigns the hold-out and refuses prompts that break the rules or repeat.
 - `tools/word_frequency.py`: ranks headwords by how often they occur in the shareable source PDFs, blended with contributed sentences, to order the words to translate first.
 - The validator checks that every name in `translated_by`, `author`, `checked_by`, `reviewed_by`, `ruled_by` and `auditor` is `machine` or a handle in `_meta/contributors.tsv` (new schema key `contributor_refs`), and that a parallel pair's prompt is in the same folder, so held-out prompts never mix with training data (`folder_refs`).
@@ -35,6 +36,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   - A known fact whose `where` matches no row is a warning. A fact on one row (`id=...`) is an error when that row's cell is emptied or the row is deprecated. The report lists the ids of pending facts.
   - `barbarismos.rule_id` must be the id of a grammar file, unless it is a row-level `RULE_LEX_*` id (warning). RULE_PRN_USTED_001 (bar-0005, bar-0006) is reported until it gets a grammar file or a `RULE_LEX_` id.
   - Rows with no source get an "untraced" warning. A PDF outside `sources/pdf/`, a hidden or line-breaking character in a cell (zero-width, U+2028, no-break space, control characters), and an unknown schema, constraint or `x-papiamento` key are errors.
+
+### Fixed
+
+- Rows found wrong in the 2026-10 bug hunt (checked against the page images): the false-friend sense "to slap" removed from `slap` (pap-013995), "opposition" removed from `opositor` (pap-010715), the copied language-name translation removed from lowercase `papiamento` (pap-010959); notes added to `num-0101` (shen, shento and cien before y, AB 2018 §11.8) and `var-0272` (muchu meaning "a lot" becomes hopi). The AB 2018 source card and `sources/sources.tsv` now say the +2 page offset holds only for the orthography annex.
+- `sources/errata.tsv`: err-0017 (Sintaxis p. 36 "masha feros" vs AB 2018 feroz) and err-0018 (Morfologia p. 25 "poco poco" vs AB 2018 pocopoco), open for the maintainer.
 
 ## [0.1.0] - 2026-10-16
 

@@ -1,0 +1,15 @@
+<!--
+  Sign-in email for the contribution tool. Paste into Supabase:
+  Authentication → Email Templates → "Magic link or OTP" (and the same into
+  "Confirm signup"), replacing the whole message body.
+  Subject:  Your sign-in code for Papiamento contributions
+  {{ .Token }} is Supabase's 6-digit code. English only until a teacher has
+  checked a Papiamento version (tools/contribute/ui-strings.tsv).
+-->
+<div style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #0f1b2d;">
+  <p style="font-size: 16px; margin: 0 0 12px;">Your sign-in code for the Papiamento contribution tool:</p>
+  <p style="font-size: 32px; font-weight: 700; letter-spacing: 8px; margin: 0 0 16px; color: #0b3c78;">{{ .Token }}</p>
+  <p style="font-size: 16px; margin: 0 0 12px;">Type it in the tool. It works for one hour.</p>
+  <p style="font-size: 14px; margin: 0 0 24px; color: #5d6a7d;">If you did not ask for this code, you can ignore this email. Nobody can sign in without it.</p>
+  <p style="font-size: 13px; margin: 0; color: #5d6a7d;">Papiamento contributions · open data for Aruban Papiamento · github.com/ARUBAGOV33/papiamento</p>
+</div>
