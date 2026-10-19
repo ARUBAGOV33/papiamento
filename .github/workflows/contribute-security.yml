@@ -1,0 +1,33 @@
+name: Contribution security check
+
+# Proves that the contribution tool's public (publishable) key, without
+# signing in, can read and write nothing in the Supabase project: no answers,
+# sentences, ratings, decisions, profiles or email addresses.
+# Uses only the two public repository variables; no secrets.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * 1'   # Mondays 05:41 UTC
+  push:
+    branches: [main]
+    paths:
+      - 'tools/contribute/supabase/**'
+      - '.github/workflows/contribute-security.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  anonymous-access:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check what the public key can reach
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+        run: node tools/contribute/supabase/check_anon_access.mjs
