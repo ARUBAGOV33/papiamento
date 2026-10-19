@@ -92,6 +92,7 @@ TOKEN_ALLOWLIST = {
     "github": "name (GitHub)",
     "pull": "technical term (pull request)",
     "request": "technical term (pull request)",
+    "spam": "technical term (spam folder)",
 }
 
 LETTER = "A-Za-zÀ-ÿñÑ"

@@ -87,10 +87,10 @@ X_SHAPES = {
     "map": "an object mapping a field name to a list of field names",
     "files": "an object mapping a field name to a .tsv file name in the same folder",
 }
-# Folders that are not part of the dataset: build output and local tool
+# Folders that are not part of the dataset: build output (dist, _site) and local tool
 # folders. Hidden folders other than .github (.git, .claude worktrees, .venv)
 # are skipped too.
-SKIP_DIRS = {"dist", "node_modules", "__pycache__"}
+SKIP_DIRS = {"dist", "_site", "node_modules", "__pycache__"}
 
 
 # --------------------------------------------------------------------------

@@ -6,8 +6,9 @@ __pycache__/
 *.pyc
 .venv/
 
-# Build output (release files are generated, never committed)
+# Build output (release files and the contribution site are generated, never committed)
 dist/
+_site/
 
 # Validator report written by tools/validate.py
 gauntlet.json
