@@ -156,8 +156,6 @@ strong, .stat strong, .count, .pill, .badge, .goal-stats strong, .ring strong { 
 
 .icon { display: inline-flex; width: 20px; height: 20px; flex: none; }
 .icon svg { width: 100%; height: 100%; }
-.brand-mark { display: inline-flex; width: 32px; height: 32px; flex: none; }
-.brand-mark svg { width: 100%; height: 100%; }
 
 /* Focus: a ring for keyboard users on things they can act on. Headings that
    receive focus from the app (tabindex="-1", for screen readers after each
@@ -246,8 +244,9 @@ strong, .stat strong, .count, .pill, .badge, .goal-stats strong, .ring strong { 
 .page-col { min-height: 100vh; padding: 0 var(--s4) calc(96px + env(safe-area-inset-bottom)); max-width: 760px; margin: 0 auto; }
 .page-col .banners { margin: var(--s1) 0 var(--s4); }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s3) 0; min-height: 64px; }
-.topbar .brand { display: flex; align-items: center; gap: var(--s3); color: var(--ink); text-decoration: none; font-size: var(--fs-md); }
-.topbar .brand strong { font-weight: 650; letter-spacing: -0.01em; }
+/* The name is the brand: a plain wordmark, no logo mark. */
+.topbar .brand { display: flex; align-items: center; color: var(--ink); text-decoration: none; }
+.topbar .brand strong { font-size: var(--fs-lg); font-weight: 650; letter-spacing: -0.015em; }
 .topbar-title { font-size: var(--fs-xl); font-weight: 650; }
 .topbar-me { text-decoration: none; border-radius: 50%; }
 
@@ -296,9 +295,8 @@ strong, .stat strong, .count, .pill, .badge, .goal-stats strong, .ring strong { 
     position: sticky; top: 0; height: 100vh;
     padding: var(--s4) var(--s3); background: var(--sidebar-bg); border-right: 1px solid var(--line);
   }
-  .sidebar .brand { display: flex; align-items: center; gap: var(--s3); padding: var(--s2) var(--s2) var(--s1); color: var(--ink); text-decoration: none; }
-  .sidebar .brand > span:last-child { display: flex; flex-direction: column; line-height: 1.25; }
-  .sidebar .brand strong { font-size: var(--fs-sm); font-weight: 650; }
+  .sidebar .brand { display: flex; flex-direction: column; gap: 2px; padding: var(--s2) var(--s3) var(--s1); color: var(--ink); text-decoration: none; line-height: 1.25; }
+  .sidebar .brand strong { font-size: var(--fs-md); font-weight: 650; letter-spacing: -0.015em; }
   .sidebar .brand small { color: var(--muted); font-size: var(--fs-xs); }
   .sidebar nav { flex: 1; overflow: auto; }
   .sidebar nav ul { display: grid; gap: 2px; }
@@ -408,9 +406,8 @@ legend { padding: 0; }
 .welcome { display: grid; gap: var(--s6); padding-top: var(--s2); }
 .hero-art { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 9; background: #1c8ec0; box-shadow: var(--shadow); }
 .hero-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: var(--s4);
+.hero-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: var(--s4);
   background: linear-gradient(115deg, rgba(11, 60, 120, .82) 0%, rgba(11, 60, 120, .45) 45%, rgba(11, 60, 120, 0) 75%); }
-.hero-overlay .brand-mark { width: 44px; height: 44px; filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .2)); }
 .hero-tag { align-self: flex-start; color: #fff; font-size: var(--fs-caption); font-weight: 600; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .35); border-radius: 999px; padding: 4px 12px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .welcome h1 { font-size: var(--fs-4xl); line-height: 1.15; letter-spacing: -0.025em; }
 .points { display: grid; gap: var(--s4); }
@@ -612,7 +609,6 @@ legend { padding: 0; }
 /* Live: the screen while the tool connects to its database, or when it cannot. */
 .gate { min-height: 70vh; min-height: 70dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--s4); text-align: center; }
 .gate.small { min-height: 0; padding: var(--s8) 0; }
-.gate .brand-mark { width: 48px; height: 48px; }
 .spinner.big { width: 24px; height: 24px; border-width: 2.5px; color: var(--blue); }
 .row-actions.center { justify-content: center; }
 

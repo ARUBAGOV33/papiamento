@@ -225,12 +225,6 @@
     return span;
   }
 
-  function brandMark() {
-    var span = el("span", { class: "brand-mark", "aria-hidden": "true" });
-    span.innerHTML = '<svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#1663b8"/><rect x="6" y="19" width="20" height="2.6" rx="1.3" fill="#f9d616"/><rect x="6" y="23.6" width="20" height="2.6" rx="1.3" fill="#f9d616"/><path d="M11.5 16.5V7.5h5a3.5 3.5 0 0 1 0 7h-5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    return span;
-  }
-
   function initials(name) {
     var parts = (name || "?").trim().split(/\s+/);
     return ((parts[0] || "?")[0] + (parts.length > 1 ? parts[parts.length - 1][0] : "")).toUpperCase();
@@ -760,7 +754,7 @@
     var body;
     if (live.status === "loading") {
       body = el("div", { class: "gate", role: "status", "aria-live": "polite" },
-        brandMark(), el("span", { class: "spinner big", "aria-hidden": "true" }), el("p", { class: "muted" }, t("common.loading")));
+        el("span", { class: "spinner big", "aria-hidden": "true" }), el("p", { class: "muted" }, t("common.loading")));
     } else {
       var kind = live.error === "config" ? "config" : live.error === "offline" ? "offline" : "load";
       body = el("div", { class: "gate" }, emptyState(kind === "offline" ? "wifioff" : "alert",
@@ -799,7 +793,7 @@
   function sidebar(current) {
     var p = me();
     return el("aside", { class: "sidebar", "aria-label": "Sections" },
-      el("a", { class: "brand", href: "#/home" }, brandMark(), el("span", null, el("strong", null, t("app.short")), el("small", null, "pap-AW"))),
+      el("a", { class: "brand", href: "#/home" }, el("strong", null, t("app.short")), el("small", null, "Aruban Papiamento · pap-AW")),
       el("nav", null, el("ul", null, navItems().map(function (it, i, all) {
         return el("li", { class: i && !!all[i - 1].task !== !!it.task ? "sep" : null }, el("a", { href: "#/" + it.name, "aria-current": it.name === current ? "page" : null },
           icon(it.icon), el("span", { class: "grow" }, it.label), it.count ? el("span", { class: "count" }, it.count) : null));
@@ -812,7 +806,7 @@
     var p = me();
     var titles = { home: t("nav.home"), board: t("nav.board"), credits: t("nav.credits"), account: t("nav.account") };
     return el("header", { class: "topbar" },
-      current === "home" ? el("a", { class: "brand", href: "#/home" }, brandMark(), el("strong", null, t("app.short"))) :
+      current === "home" ? el("a", { class: "brand", href: "#/home" }, el("strong", null, t("app.short"))) :
         el("h1", { class: "topbar-title" }, titles[current] || ""),
       el("a", { class: "topbar-me", href: "#/account", "aria-label": t("nav.account") }, avatar(p)));
   }
@@ -1066,7 +1060,7 @@
     return onbFrame(o, el("div", { class: "welcome" },
       el("div", { class: "hero-art" },
         el("img", { src: "assets/hero.webp", alt: "", width: "1048", height: "592", decoding: "async" }),
-        el("div", { class: "hero-overlay" }, brandMark(), el("span", { class: "hero-tag" }, "Aruban Papiamento · pap-AW"))),
+        el("div", { class: "hero-overlay" }, el("span", { class: "hero-tag" }, "Aruban Papiamento · pap-AW"))),
       el("h1", { "data-autofocus": true, tabindex: "-1" }, t("app.subtitle")),
       el("ul", { class: "points" },
         el("li", null, icon("book"), el("span", null, t("onb.point1"))),

@@ -339,7 +339,8 @@ The look was redone on 2026-10-19, after the maintainer used the live tool: ligh
 - **Colour:**
   - Aruba blue `#1663b8` is the one accent: primary buttons, links, progress, selected items, counts.
   - Navy-tinted near-black `#0b1f3a` for text, cool greys for secondary text and lines, white cards on a light grey shell (`#f6f7f9`).
-  - Yellow `#f9d616` appears only in the logo and as a thin edge on the Review board card, never as text.
+  - Yellow `#f9d616` appears only as a thin edge on the Review board card (and in the banner artwork), never as text.
+- **Name:** a plain wordmark, "Papiamento contributions" in semibold, with no logo mark; the maintainer found the old striped "P" icon unprofessional (2026-10-19).
   - The four ways to help share the blue; their icons tell them apart.
   - Avatars are blue initials on light blue; a board member's are white on blue, and "Review board" is a text badge on the Account page.
 - **States:**
