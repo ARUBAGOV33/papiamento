@@ -50,7 +50,8 @@ Aruban Papiamento rules that are not up for debate in this repo. Every AI agent 
 | Rule | Correct | Wrong | Source |
 |---|---|---|---|
 | **lo** (future) and **a** (past) never combine. Use one or the other. | mi a bay | lo a bay | Ruling; kept on 2026-10-17 against Morfologia pp. 42, 44, 57 and Sintaxis p. 119 (err-0019 to err-0022) |
-| Modals (kier, mester, por, sa, gusta, mag) never take **ta**. | mi kier bay | mi ta kier bay | Ruling; Morfologia §6.2.3.1, p. 39. gusta is under review (err-0023): Morfologia p. 39 and Sintaxis p. 31 print "Mucha (ta) gusta core den un espacio grandi." |
+| Modals (kier, mester, por, sa, mag) never take **ta**. | mi kier bay | mi ta kier bay | Ruling; Morfologia §6.2.3.1, p. 39 |
+| **gusta** is used with or without **ta**. | E mucha ta gusta core; E mucha gusta core | | Ruling, 2026-10-19; Morfologia §6.2.3.2, p. 39; Sintaxis §2.2.4.1 II.1, p. 31 (err-0023) |
 | **por** and **prefera** have no gerund. | | porndo, podiendo, preferando, prefiriendo | Ruling; decided against Morfologia p. 48 (err-0010, err-0011) |
 | Aruban irregular gerunds. | drumiendo, teniendo, keriendo, sabiendo | durmiendo, drumindo, tinindo, kierndo, sabindo | Ruling; AB 2018 word list; err-0009 |
 | Spanish **de la / del / de los** becomes **di**, and the article is dropped. | cas di famia | cas di la familia | Ruling |
