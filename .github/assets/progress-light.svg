@@ -43,7 +43,7 @@
 <text x="28" y="428" font-size="12" font-weight="600" fill="#59636e" letter-spacing="0.8">OTHER TABLES</text>
 <text x="28" y="454" font-size="15" fill="#1f2328">Rows reviewed</text>
 <rect x="350" y="444" width="270" height="10" rx="5" fill="#eaeef2"/>
-<text x="812" y="454" font-size="14" fill="#59636e" text-anchor="end">0 of 918<tspan font-weight="600" fill="#1f2328" dx="8">0%</tspan></text>
+<text x="812" y="454" font-size="14" fill="#59636e" text-anchor="end">0 of 1,099<tspan font-weight="600" fill="#1f2328" dx="8">0%</tspan></text>
 <text x="28" y="492" font-size="12" font-weight="600" fill="#59636e" letter-spacing="0.8">SENTENCES</text>
 <text x="28" y="518" font-size="15" fill="#1f2328">Prompts with a Papiamento translation</text>
 <rect x="350" y="508" width="270" height="10" rx="5" fill="#eaeef2"/>

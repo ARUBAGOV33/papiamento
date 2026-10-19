@@ -1,0 +1,51 @@
+id	class	subclass	pap	alt	features	en	status	reviewed_by	source	page	section	notes
+ccl-0102	conjunction	copulative	y		coordinating	and	draft		MOR2010	61	8.3.1.1	
+ccl-0103	conjunction	copulative	ni		coordinating	nor	draft		MOR2010	61	8.3.1.1	
+ccl-0104	conjunction	copulative	ni ... ni		coordinating	neither ... nor	draft		MOR2010	61	8.3.1.1	Printed with an ellipsis (ni … ni), written here as three periods.
+ccl-0105	conjunction	copulative	tambe		coordinating	also; too	draft		MOR2010	61	8.3.1.1	
+ccl-0106	conjunction	copulative	cu		coordinating	and; with	draft		MOR2010	61	8.3.1.1	Joins words: Mi tanta cu mi mama (p. 61).
+ccl-0107	conjunction	disjunctive	o	of	coordinating	or	draft		MOR2010	62	8.3.1.2	Printed o/of.
+ccl-0108	conjunction	disjunctive	sea ... sea		coordinating	either ... or	draft		MOR2010	62	8.3.1.2	Printed sea ... sea.
+ccl-0109	conjunction	adversative	ma		coordinating	but	draft		MOR2010	62	8.3.1.3	
+ccl-0110	conjunction	adversative	pero		coordinating	but	draft		MOR2010	62	8.3.1.3	pero can always replace sino (Nota, p. 62).
+ccl-0111	conjunction	adversative	sino		coordinating	but (rather)	draft		MOR2010	62	8.3.1.3	Only after a negative main clause (Nota, p. 62).
+ccl-0112	conjunction	adversative	toch		coordinating	yet; still	draft		MOR2010	62	8.3.1.3	
+ccl-0113	conjunction	adversative	sinembargo		coordinating	however; nevertheless	draft		MOR2010	62	8.3.1.3	
+ccl-0114	conjunction	conditional	si		subordinating	if	draft		MOR2010	63	8.3.2.1	
+ccl-0115	conjunction	conditional	en caso cu		subordinating	in case	draft		MOR2010	63	8.3.2.1	
+ccl-0116	conjunction	conditional	con tal cu		subordinating	provided that	draft		MOR2010	63	8.3.2.1	
+ccl-0117	conjunction	conditional	basta cu		subordinating	as long as; provided that	draft		MOR2010	63	8.3.2.1	
+ccl-0118	conjunction	conditional	semper cu		subordinating	as long as; provided that	draft		MOR2010	63	8.3.2.1	
+ccl-0119	conjunction	conditional	cu e condicion cu		subordinating	on the condition that	draft		MOR2010	63	8.3.2.1	
+ccl-0120	conjunction	final	pa		subordinating	so that; in order to	draft		MOR2010	63	8.3.2.2	
+ccl-0121	conjunction	final	cu e fin di		subordinating	with the aim of	draft		MOR2010	63	8.3.2.2	
+ccl-0122	conjunction	final	cu e idea di		subordinating	with the idea of	draft		MOR2010	63	8.3.2.2	
+ccl-0123	conjunction	final	cu e intencion di		subordinating	with the intention of	draft		MOR2010	63	8.3.2.2	
+ccl-0124	conjunction	final	cu e meta di		subordinating	with the goal of	draft		MOR2010	63	8.3.2.2	
+ccl-0125	conjunction	causal	pasobra		subordinating	because	draft		MOR2010	63	8.3.2.3	
+ccl-0126	conjunction	causal	ya cu		subordinating	since; as	draft		MOR2010	63	8.3.2.3	
+ccl-0127	conjunction	causal	como cu		subordinating	since; as	draft		MOR2010	63	8.3.2.3	
+ccl-0128	conjunction	consecutive	pues		subordinating	so; therefore	draft		MOR2010	63	8.3.2.4	
+ccl-0129	conjunction	consecutive	por lo tanto		subordinating	therefore	draft		MOR2010	63	8.3.2.4	
+ccl-0130	conjunction	consecutive	asina ta cu		subordinating	so; that is how	draft		MOR2010	63	8.3.2.4	
+ccl-0131	conjunction	consecutive	o sea cu		subordinating	that is; in other words	draft		MOR2010	63	8.3.2.4	
+ccl-0132	conjunction	consecutive	kiermen cu		subordinating	that means; so	draft		MOR2010	63	8.3.2.4	
+ccl-0133	conjunction	consecutive	di manera cu		subordinating	so that	draft		MOR2010	63	8.3.2.4	
+ccl-0134	conjunction	consecutive	p'esey		subordinating	that is why; therefore	draft		MOR2010	63	8.3.2.4	Printed with a curly apostrophe; the repo writes straight apostrophes.
+ccl-0135	conjunction	consecutive	wel		subordinating	well; so	draft		MOR2010	63	8.3.2.4	
+ccl-0136	conjunction	consecutive	anto		subordinating	so; then	draft		MOR2010	63	8.3.2.4	
+ccl-0137	conjunction	temporal	apenas		subordinating	as soon as	draft		MOR2010	64	8.3.2.5	
+ccl-0138	conjunction	temporal	mientras	mientras cu	subordinating	while	draft		MOR2010	64	8.3.2.5	Printed mientras (cu).
+ccl-0139	conjunction	temporal	ora	ora cu	subordinating	when	draft		MOR2010	64	8.3.2.5	Printed ora (cu).
+ccl-0140	conjunction	temporal	despues cu		subordinating	after	draft		MOR2010	64	8.3.2.5	
+ccl-0141	conjunction	temporal	prome cu		subordinating	before	draft		MOR2010	64	8.3.2.5	
+ccl-0142	conjunction	temporal	tempo	tempo cu	subordinating	when (at the time that)	draft		MOR2010	64	8.3.2.5	Printed tempo (cu).
+ccl-0143	conjunction	temporal	asina	asina cu	subordinating	as soon as	draft		MOR2010	64	8.3.2.5	Printed asina (cu).
+ccl-0144	conjunction	temporal	tanten	tanten cu	subordinating	as long as; while	draft		MOR2010	64	8.3.2.5	Printed tanten (cu).
+ccl-0145	conjunction	concessive	no obstante cu		subordinating	although; notwithstanding	draft		MOR2010	64	8.3.2.6	
+ccl-0146	conjunction	concessive	aunke		subordinating	although	draft		MOR2010	64	8.3.2.6	
+ccl-0147	conjunction	concessive	maske		subordinating	although; even if	draft		MOR2010	64	8.3.2.6	
+ccl-0148	conjunction	concessive	a pesar cu		subordinating	although; despite	draft		MOR2010	64	8.3.2.6	
+ccl-0149	conjunction	concessive	pa mas cu		subordinating	however much; even though	draft		MOR2010	64	8.3.2.6	
+ccl-0150	conjunction	completive	cu		subordinating	that	draft		MOR2010	64	8.3.2.7	Has no meaning of its own; opens a clause that is the object or subject. Also opens exclamations: Cu Dios bendiciona bo! (Nota, p. 65).
+ccl-0151	conjunction	completive	si		subordinating	whether; if	draft		MOR2010	64	8.3.2.7	Has no meaning of its own; opens a clause that is the object or subject.

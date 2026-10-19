@@ -37,6 +37,7 @@ Ids are assigned once, never reused and never renumbered. A word that moves to a
 | Barbarismos | `bar-` + 4 digits | `bar-0001` |
 | Curaçao–Aruba variants | `var-` + 4 digits | `var-0001` |
 | Loanwords | `loan-` + 4 digits | `loan-0001` |
+| Closed word classes | `ccl-` + 4 digits | `ccl-0001` |
 | Errata | `err-` + 4 digits | `err-0001` |
 | Audits | `aud-` + 4 digits | `aud-0001` |
 | Parallel prompts | `prm-` + 6 digits | `prm-000001` |
@@ -120,6 +121,25 @@ The first four are the abbreviations the AB list itself uses.
 | `expr.` | expresion |
 | `abr.` | abreviatura |
 
+## Closed word classes (`lexicon/closed-classes/`)
+
+Short, closed lists of grammatical words, copied from Morfologia (`MOR2010`): articles, pronouns, tense/aspect particles, dependent verbs (modal, passive, copulative), conjunctions and prepositions. One file per class; all share `_meta/schema/closed-classes.schema.json`.
+
+| Column | Content |
+|---|---|
+| `id` | Stable id, `ccl-0001`, unique across the six files. |
+| `class`, `subclass` | The book's word class and subcategory, in English (`pronoun`, `possessive`). The schema lists the values. |
+| `pap` | The form exactly as the page prints it. `...` marks the slot of a noun or clause (`e ... aki`, `ni ... ni`). |
+| `alt` | The other forms printed in the same place: `cua/cual` gives `pap` = `cua`, `alt` = `cual`; `ora (cu)` gives `ora` and `ora cu`. |
+| `features` | Person and number (`1sg` … `3pl`, or `sg`, `pl`), form (`emphatic`, `adjectival`, `independent` …), tense and aspect, or the relations a preposition expresses, separated by `; `. The schema lists the values. |
+| `en` | English gloss, as for words. |
+| `source`, `page`, `section` | Source id, printed page and the book's section number, e.g. `7.2.1`. |
+| `status`, `reviewed_by`, `notes` | As above. `notes` quotes the book's Notas where they limit the use. |
+
+- One row per form in each place the book lists it: `keda` is both a passive and a copulative verb, so it has two rows.
+- The printed ellipsis (…) is written as three periods, and curly apostrophes as straight ones (`p'esey`). Parentheses become `alt`, since they are not allowed in Aruban text.
+- A maintainer ruling wins over the book. The book's compound particle lo a has no row, because lo and a never combine (err-0019).
+
 ## Spelling checks on Aruban text
 
 These checks apply to Aruban text columns (`lemma`, `alt`, `pap`, `right`, `aruba`):
@@ -140,7 +160,7 @@ An audit measures how many rows of a table are wrong. Take a random sample of th
 |---|---|
 | `id` | Stable id, `aud-0001`. |
 | `date` | The day the audit finished, `YYYY-MM-DD`. |
-| `table` | What was audited: `words`, `numbers`, `calendar`, `barbarismos`, `variants`, `loanwords`, `grammar` (the files in `grammar/`), `rules` (the machine rules in `rules/rules.jsonl`), or `translations` (the `en`, `nl` and `es` cells of word rows). |
+| `table` | What was audited: `words`, `numbers`, `calendar`, `barbarismos`, `variants`, `loanwords`, `closed-classes`, `grammar` (the files in `grammar/`), `rules` (the machine rules in `rules/rules.jsonl`), or `translations` (the `en`, `nl` and `es` cells of word rows). |
 | `sample_size` | How many rows were checked. |
 | `errors` | How many of them were wrong. Never more than `sample_size`. |
 | `method` | How the sample was drawn, with the seed if a program drew it, and what counted as an error. |

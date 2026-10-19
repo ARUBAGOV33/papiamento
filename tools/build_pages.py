@@ -38,6 +38,7 @@ OTHER_TABLES = [
     ("barbarismos", "Barbarismos"),
     ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs"),
     ("loanwords", "Loanwords"),
+    ("closed-classes", "Closed word classes (articles, pronouns, particles, modals, conjunctions, prepositions)"),
 ]
 AUDIT_TABLES = [
     # (table in _meta/audits.tsv, label in the chart's Quality section), in
@@ -50,6 +51,7 @@ AUDIT_TABLES = [
     ("barbarismos", "Barbarismos"),
     ("variants", "Cura\u00e7ao \u2192 Aruba pairs"),
     ("loanwords", "Loanwords"),
+    ("closed-classes", "Closed word classes"),
     ("grammar", "Grammar rules"),
     ("rules", "Machine checker rules"),
 ]

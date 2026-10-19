@@ -13,7 +13,7 @@ The words of Aruban Papiamento and the small reference tables built around them.
 | `variants/` | `curacao-aruba.tsv` | Curaçao spelling mapped to Aruban spelling | 372 attested pairs |
 | `loanwords/` | `loanwords.tsv` | Loanwords, their origin and accepted Aruban form (AB §12) | 315 rows from AB 2018 §12 |
 | `names/` | — | Places, institutions, demonyms | schema to come |
-| `closed-classes/` | — | Pronouns, articles, prepositions, conjunctions, tense markers | schema to come |
+| `closed-classes/` | `articles.tsv`, `pronouns.tsv`, `particles.tsv`, `verbs.tsv`, `conjunctions.tsv`, `prepositions.tsv` | Articles, pronouns, tense/aspect particles, modal and other dependent verbs, conjunctions, prepositions (Morfologia ch. 4, 6–8, 10) | 181 rows, `draft`; verb forms (gerunds, participles) to come |
 
 The schema for each table is in [`_meta/schema/`](../_meta/schema/); [`registry.json`](../_meta/schema/registry.json) maps files to schemas.
 
