@@ -30,6 +30,9 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.23427109"
     description: "Version 0.1.0"
+  - type: doi
+    value: "10.5281/zenodo.23487394"
+    description: "Version 0.2.0"
 repository-code: "https://github.com/ARUBAGOV33/papiamento"
 url: "https://github.com/ARUBAGOV33/papiamento"
 license: CC-BY-4.0
