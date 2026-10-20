@@ -107,10 +107,10 @@ class TestValidRepo(GauntletCase):
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
         # A, C, H, numbers, calendar, barbarismos, variants, loanwords, closed
-        # classes, names, errata, sources, known-facts, audits, milestones,
-        # contributors, and the parallel prompts and pairs in corpus/ and
-        # eval/: every registry table has a file.
-        self.assertEqual(len(ctx.files), 20)
+        # classes, names, verb forms, errata, sources, known-facts, audits,
+        # milestones, contributors, and the parallel prompts and pairs in corpus/
+        # and eval/: every registry table has a file.
+        self.assertEqual(len(ctx.files), 21)
         self.assertEqual(ctx.facts_checked, ctx.facts_total)  # e.g. fact-0009: 7 -> shete
         self.assertEqual(ctx.facts_pending_ids, [])
 
@@ -123,7 +123,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 20)
+        self.assertEqual(report["files_checked"], 21)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):
@@ -558,6 +558,26 @@ class TestG4Integrity(GauntletCase):
         shutil.rmtree(str(root / "lexicon/words"))
         ctx = self.run_gauntlet(root)
         self.assertNoFinding(ctx, "G4")
+
+    def test_verb_forms_check_both_word_ids(self):
+        # verb-forms has two word_refs: word_id (the verb) and form_word_id (the
+        # form). form_word_id stays empty for a form the word list does not
+        # have (Morfologia's estando). come and comiendo are AB 2018 headwords.
+        root = self.build_repo()
+        words = root / "lexicon/words/C/words.tsv"
+        words.write_text(words.read_text(encoding="utf-8")
+                         + "pap-000005\tcome\t\t\t\t\t\t\t\tdraft\t\tAB2018\t14\t\n"
+                         + "pap-000006\tcomiendo\t\t\t\t\t\t\t\tdraft\t\tAB2018\t15\t\n", encoding="utf-8")
+        rel = "lexicon/verb-forms/verb-forms.tsv"
+        path = root / rel
+        path.write_text(path.read_text(encoding="utf-8") + "".join(
+            "vfm-0000%d\tcome\tpap-000005\t%s\t%s\t%s\tno\tdraft\t\tAB2018\t%s\t\t\n" % row for row in [
+                (1, "comiendo", "pap-000003", "gerund", "15"),  # the form's id is cas
+                (2, "comi", "", "participle", "14"),            # not in the fixture word list
+            ]), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G4", "error", rel, "form_word_id: 'pap-000003' has the lemma 'cas'", line=2)
+        self.assertEqual(len(self.findings(ctx, "G4", path=rel)), 1, dump(ctx))
 
     NAMES = "lexicon/names/names.tsv"
 

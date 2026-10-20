@@ -40,6 +40,7 @@ OTHER_TABLES = [
     ("loanwords", "Loanwords"),
     ("closed-classes", "Closed word classes (articles, pronouns, particles, modals, conjunctions, prepositions)"),
     ("names", "Names (places, demonyms, peoples, languages, religion, titles)"),
+    ("verb-forms", "Verb forms (gerunds and participles)"),
 ]
 AUDIT_TABLES = [
     # (table in _meta/audits.tsv, label in the chart's Quality section), in
@@ -54,6 +55,7 @@ AUDIT_TABLES = [
     ("loanwords", "Loanwords"),
     ("closed-classes", "Closed word classes"),
     ("names", "Names"),
+    ("verb-forms", "Verb forms"),
     ("grammar", "Grammar rules"),
     ("rules", "Machine checker rules"),
 ]

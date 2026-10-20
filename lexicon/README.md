@@ -13,7 +13,8 @@ The words of Aruban Papiamento and the small reference tables built around them.
 | `variants/` | `curacao-aruba.tsv` | Curaçao spelling mapped to Aruban spelling | 372 attested pairs |
 | `loanwords/` | `loanwords.tsv` | Loanwords, their origin and accepted Aruban form (AB §12) | 315 rows from AB 2018 §12 |
 | `names/` | `names.tsv` | The proper names of the AB 2018 word list: continents, countries, regions, islands, places, waters, demonyms, peoples, languages, religious names, holidays, titles, planets, zodiac signs, institutions (AB §9.3) | 380 rows, `draft`; each points to its headword in `words/` |
-| `closed-classes/` | `articles.tsv`, `pronouns.tsv`, `particles.tsv`, `verbs.tsv`, `conjunctions.tsv`, `prepositions.tsv` | Articles, pronouns, tense/aspect particles, modal and other dependent verbs, conjunctions, prepositions (Morfologia ch. 4, 6–8, 10) | 181 rows, `draft`; verb forms (gerunds, participles) to come |
+| `closed-classes/` | `articles.tsv`, `pronouns.tsv`, `particles.tsv`, `verbs.tsv`, `conjunctions.tsv`, `prepositions.tsv` | Articles, pronouns, tense/aspect particles, modal and other dependent verbs, conjunctions, prepositions (Morfologia ch. 4, 6–8, 10) | 181 rows, `draft` |
+| `verb-forms/` | `verb-forms.tsv` | Gerunds and participles that Morfologia (§6.6) or the AB 2018 word list prints, each linked to its base verb | 1,921 rows, `draft` |
 
 The schema for each table is in [`_meta/schema/`](../_meta/schema/); [`registry.json`](../_meta/schema/registry.json) maps files to schemas.
 

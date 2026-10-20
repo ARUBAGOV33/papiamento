@@ -1,0 +1,160 @@
+{
+  "title": "Verb forms: gerunds and participles printed in the sources",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^vfm-[0-9]{5}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "lemma",
+      "type": "string",
+      "description": "The base verb (infinitive), as the source pairs it with the form; for forms the AB 2018 word list prints on their own, the headword they belong to (see _meta/conventions.md)",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "word_id",
+      "type": "string",
+      "description": "Id of the lemma's row in lexicon/words/ (the verb row when the headword has several)",
+      "constraints": {
+        "pattern": "^pap-[0-9]{6}$"
+      }
+    },
+    {
+      "name": "form",
+      "type": "string",
+      "description": "The gerund or participle exactly as the source prints it",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "form_word_id",
+      "type": "string",
+      "description": "Id of the form's own row in lexicon/words/, when the AB 2018 word list prints it as a headword",
+      "constraints": {
+        "pattern": "^pap-[0-9]{6}$"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "description": "gerund (gerundio, Morfologia §6.6.2) or participle (participio, §6.6.3)",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "gerund",
+          "participle"
+        ]
+      }
+    },
+    {
+      "name": "irregular",
+      "type": "string",
+      "description": "yes: Morfologia (§6.6.2.2, §6.6.3.2) or a maintainer ruling lists it as irregular. no: it follows the formation rules of §6.6.2.1 or §6.6.3.1. Empty: neither (for example a verb ending in a consonant).",
+      "constraints": {
+        "enum": [
+          "yes",
+          "no"
+        ]
+      }
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the reviewers, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$"
+      },
+      "description": "Source id from sources/sources.tsv."
+    },
+    {
+      "name": "page",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)$"
+      },
+      "description": "Printed page number(s): the word-list page for AB2018, the book page for MOR2010."
+    },
+    {
+      "name": "section",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[0-9]+(\\.[0-9]+)*$"
+      },
+      "description": "The source's section number, e.g. 6.6.2.2. Empty for the AB 2018 word list."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "sort_by": [
+      "lemma",
+      "kind",
+      "form",
+      "source"
+    ],
+    "unique_together": [
+      [
+        "lemma",
+        "form",
+        "kind",
+        "source"
+      ]
+    ],
+    "aruban_text": [
+      "lemma",
+      "form"
+    ],
+    "word_refs": {
+      "word_id": "lemma",
+      "form_word_id": "form"
+    },
+    "contributor_refs": [
+      "reviewed_by"
+    ]
+  },
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
+  "primaryKey": "id",
+  "foreignKeys": [
+    {
+      "fields": "source",
+      "reference": {
+        "resource": "sources",
+        "fields": "id"
+      }
+    }
+  ]
+}

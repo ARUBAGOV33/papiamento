@@ -42,6 +42,11 @@
       "schema": "names.schema.json"
     },
     {
+      "name": "verb-forms",
+      "glob": "lexicon/verb-forms/*.tsv",
+      "schema": "verb-forms.schema.json"
+    },
+    {
       "name": "errata",
       "glob": "sources/errata.tsv",
       "schema": "errata.schema.json"
