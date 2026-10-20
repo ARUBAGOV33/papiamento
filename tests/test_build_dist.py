@@ -93,6 +93,11 @@ class BuildDistTest(unittest.TestCase):
         self.assertTrue(all(isinstance(r["notes"], str) for r in words))
         hopi = [r for r in words if r["lemma"] == "hopi"]
         self.assertTrue(hopi and "a lot" in hopi[0]["en"])
+        self.assertTrue(all(isinstance(r["features"], list) for r in self.jsonl("closed_classes.jsonl")))
+        self.assertTrue(all(isinstance(r["related"], list) for r in self.jsonl("names.jsonl")))
+        # prose with "; " in meta tables stays a string
+        self.assertTrue(all(isinstance(r["method"], str) for r in self.jsonl("audits.jsonl")))
+        self.assertTrue(all(isinstance(r["left"], str) for r in self.jsonl("milestones.jsonl")))
 
     def test_dataset_card(self):
         card = (self.out / "README.md").read_text(encoding="utf-8")
@@ -100,10 +105,14 @@ class BuildDistTest(unittest.TestCase):
         self.assertIn("Version 9.8.7.", card)
         self.assertIn('load_dataset("example/papiamento"', card)
         front = card.split("---\n")[1]
-        configs = re.findall(r"config_name: (\S+)\n\s+data_files: (\S+)", front)
-        self.assertEqual(sorted(c for c, _ in configs), sorted(self.counts))
-        for name, data_file in configs:
-            self.assertTrue((self.out / data_file).is_file(), data_file)
+        # data_files is either a file name or a list of splits with paths
+        configs = re.findall(r"config_name: (\S+)\n\s+data_files:(?: (\S+)|\n\s+- split: \S+\n\s+path: (\S+))", front)
+        self.assertEqual(sorted(c for c, _, _ in configs), sorted(self.counts))
+        for name, data_file, split_path in configs:
+            self.assertTrue((self.out / (data_file or split_path)).is_file(), name)
+        # held-out prompts are a test split, never train
+        self.assertRegex(front, r"config_name: eval_prompts\n\s+data_files:\n\s+- split: test\n\s+path: eval_prompts.jsonl")
+        self.assertIn("CC0", card)
 
     def test_manifest_matches_files(self):
         with open(self.out / "manifest.json", encoding="utf-8") as f:

@@ -30,7 +30,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import validate  # noqa: E402  (front matter and section parsing)
 
-LIST_FIELDS = {"alt", "en", "nl", "es", "reviewed_by", "translated_by", "right", "authors"}
+LIST_FIELDS = {"alt", "en", "nl", "es", "reviewed_by", "translated_by", "right", "authors", "features", "related"}
 TABLES = [
     # (output name, registry table name)
     ("words", "words"),
@@ -39,10 +39,23 @@ TABLES = [
     ("barbarismos", "barbarismos"),
     ("variants", "variants"),
     ("loanwords", "loanwords"),
+    ("closed_classes", "closed-classes"),
+    ("names", "names"),
+    ("verb_forms", "verb-forms"),
+    # Parallel prompts are CC0. The held-out prompts ship as their own
+    # configuration (a test split in the card) and must never be trained on.
+    # Their translations (parallel-pairs) ship once the teacher pilot fills them.
+    ("prompts", "parallel-prompts"),
+    ("eval_prompts", "eval-parallel-prompts"),
     ("errata", "errata"),
     ("sources", "sources"),
     ("known_facts", "known-facts"),
+    ("audits", "audits"),
+    ("milestones", "milestones"),
+    ("contributors", "contributors"),
 ]
+# Tables about the project, not language data: their "status" (if any) is not a review status.
+META_TABLES = {"sources", "known_facts", "rules", "audits", "milestones", "contributors"}
 CARD_TEMPLATE = os.path.join(ROOT, "release", "dataset-card.md")
 
 
@@ -202,7 +215,7 @@ def build(out, version, hf_repo="ARUBAGOV33/papiamento"):
         f.write("\n")
 
     counts = dict((k, len(v)) for k, v in data.items())
-    statuses = dict((k, status_counts(v)) for k, v in data.items() if k not in ("sources", "known_facts", "rules"))
+    statuses = dict((k, status_counts(v)) for k, v in data.items() if k not in META_TABLES)
     machine_translated = sum(1 for r in data["words"] if "machine" in r.get("translated_by", []))
     translated = sum(1 for r in data["words"] if r.get("en") or r.get("nl") or r.get("es"))
     reviewed = sum(n.get("reviewed", 0) for k, n in statuses.items() if k != "errata")
