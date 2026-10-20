@@ -8,15 +8,16 @@ message: >-
   word or rule, also cite the source and page given in that row.
 type: dataset
 title: "Papiamento: open data for Aruban Papiamento"
-version: "0.1.0"
-date-released: "2026-10-16"
+version: "0.2.0"
+date-released: "2026-10-20"
 abstract: >-
   An open, citable reference dataset for Aruban Papiamento (pap-AW), written in
   the etymological orthography of the AB 2018 no. 68 law. It contains the
   headwords of the AB 2018 word list with English, Dutch and Spanish
-  translations, numbers, calendar terms, barbarismos, loanwords, a
-  Curaçao-to-Aruba spelling map, and spelling and grammar rules in plain words
-  and as machine-readable checker rules. Every row cites a source document and
+  translations, numbers, calendar terms and public holidays, barbarismos,
+  loanwords, closed word classes, proper names, verb forms, a Curaçao-to-Aruba
+  spelling map, everyday sentence prompts for translation, and spelling and
+  grammar rules in plain words and as machine-readable checker rules. Every row cites a source document and
   printed page, and carries a review status (draft, reviewed, disputed,
   deprecated).
 authors:
