@@ -26,6 +26,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Changed
 
+- RULE_GRA_MODAL_TA_001 also flags ta before tin or tini after a pronoun (mi ta tin → mi tin): Morfologia §6.2.3.1 (p. 39) and Sintaxis §2.2.4.1 I (p. 29) both say tin(i) never takes ta. Added to `_meta/invariants.md`; the contribution tool's copy of the checks is rebuilt.
 - Project status: the table and chart count the closed word classes, and "Still empty" now lists only names. `_meta/audits.tsv` can log an audit of the table `closed-classes`.
 - Project status: the table and chart show the calendar with public holidays and the parallel sentences (prompts, held-out prompts, translations and reviews), so the picture covers the contribution tool's work.
 - The contribution tool is live at https://arubagov33.github.io/papiamento/ (2026-10-19): the maintainer ran the database setup, and the access-rule test and the outside security check passed. README Project status and `_meta/milestones.tsv` say so.

@@ -1,6 +1,6 @@
 ---
 id: RULE_GRA_MODAL_TA_001
-title: Modal verbs and conoce do not take the particle ta
+title: Modal verbs, conoce and tin do not take the particle ta
 status: draft
 source: MOR2010
 page: "39"
@@ -9,7 +9,7 @@ reviewed_by: ""
 ---
 
 ## Rule
-The verbs ke/kier, mag (di), mester (di), por and sa(bi) do not take the particle ta, and neither does conoce. gusta is not covered: it is used with or without ta.
+The verbs ke/kier, mag (di), mester (di), por and sa(bi) do not take the particle ta, and neither do conoce and tin(i). gusta is not covered: it is used with or without ta.
 
 ## Source
 Manual di Gramatica di Papiamento: Morfologia (2010), §6.2.3.1 "Verbo sin uzo di e particula ta", p. 39.
@@ -30,4 +30,5 @@ Manual di Gramatica di Papiamento: Morfologia (2010), §6.2.3.1 "Verbo sin uzo d
 - Which verbs are modal: Morfologia §6.2.2.1 (p. 37) lists gusta, kier, mag (di), mester, por, sa and tin cu / tin di, and says sigui, cuminsa, caba di and others can also be used as modals (p. 38). The ruling, and this rule, cover kier, mester, por, sa and mag, plus conoce; gusta takes ta or not.
 - Sintaxis §2.2.4.1 I (p. 29) gives the same no-ta list for ke/kier, (tin) mester (di) and sa(bi).
 - conoce is not a modal, but Morfologia §6.2.3.1 lists it with them. Sintaxis p. 31 instead lists conoce among the verbs used with or without ta. The maintainer ruled for Morfologia on 2026-10-19 (err-0024): Mi tata conoce nos bisiña is right; mi ta conoce nos bisiña is wrong, and the fix is mi conoce nos bisiña.
+- tin(i) never takes ta either. Both books say so: Morfologia §6.2.3.1 (p. 39) and Sintaxis §2.2.4.1 I (SIN2015 p. 29) list tin(i) among the verbs that do not use the particle ta. So mi ta tin is wrong and the fix is mi tin; mi ta tini is wrong as well. The modal tin cu / tin di follows the same rule.
 - Related rulings: por has no gerund (err-0010); lo and a never combine (`_meta/invariants.md`).
