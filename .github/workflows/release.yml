@@ -25,11 +25,11 @@ jobs:
       HF_DATASET_REPO: ${{ vars.HF_DATASET_REPO || 'ARUBAGOV33/papiamento' }}
       HAS_HF_TOKEN: ${{ secrets.HF_TOKEN != '' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
         with:
           ref: ${{ env.TAG }}
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
 

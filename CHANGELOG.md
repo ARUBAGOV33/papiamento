@@ -43,6 +43,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   - A known fact whose `where` matches no row is a warning. A fact on one row (`id=...`) is an error when that row's cell is emptied or the row is deprecated. The report lists the ids of pending facts.
   - `barbarismos.rule_id` must be the id of a grammar file, unless it is a row-level `RULE_LEX_*` id (warning). RULE_PRN_USTED_001 (bar-0005, bar-0006) is reported until it gets a grammar file or a `RULE_LEX_` id.
   - Rows with no source get an "untraced" warning. A PDF outside `sources/pdf/`, a hidden or line-breaking character in a cell (zero-width, U+2028, no-break space, control characters), and an unknown schema, constraint or `x-papiamento` key are errors.
+- The Gauntlet, Refresh progress pages and Release workflows use actions/checkout v7.0.1, actions/setup-python v7.0.0 and actions/upload-artifact v7.0.2, the versions the contribution workflows already use. The old v4/v5 versions targeted the deprecated Node.js 20 (board card P0-15).
 
 ### Fixed
 
