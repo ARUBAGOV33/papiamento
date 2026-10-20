@@ -37,6 +37,11 @@
       "schema": "closed-classes.schema.json"
     },
     {
+      "name": "names",
+      "glob": "lexicon/names/*.tsv",
+      "schema": "names.schema.json"
+    },
+    {
       "name": "verb-forms",
       "glob": "lexicon/verb-forms/*.tsv",
       "schema": "verb-forms.schema.json"

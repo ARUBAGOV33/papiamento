@@ -39,6 +39,7 @@ OTHER_TABLES = [
     ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs"),
     ("loanwords", "Loanwords"),
     ("closed-classes", "Closed word classes (articles, pronouns, particles, modals, conjunctions, prepositions)"),
+    ("names", "Names (places, demonyms, peoples, languages, religion, titles)"),
     ("verb-forms", "Verb forms (gerunds and participles)"),
 ]
 AUDIT_TABLES = [
@@ -53,6 +54,7 @@ AUDIT_TABLES = [
     ("variants", "Cura\u00e7ao \u2192 Aruba pairs"),
     ("loanwords", "Loanwords"),
     ("closed-classes", "Closed word classes"),
+    ("names", "Names"),
     ("verb-forms", "Verb forms"),
     ("grammar", "Grammar rules"),
     ("rules", "Machine checker rules"),

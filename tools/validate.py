@@ -10,7 +10,7 @@ Gates
   G2 Schema         required / enum / pattern / unique, reviewed_by; grammar rule files;
                     the schemas themselves (x-papiamento and constraint keys)
   G3 Orthography    accents, Curacao markers, letter folders
-  G4 Integrity      ids unique repo-wide, unique_together, lexicon refs, word refs, rule refs
+  G4 Integrity      ids unique repo-wide, unique_together, lexicon refs, rule refs
   G5 Known facts    rulings in _meta/known-facts.tsv; machine rules in rules/rules.jsonl tested
                     against their grammar files' examples (extension point: G5_CHECKS)
 
@@ -77,8 +77,8 @@ X_KEYS = {
     "at_most": "pairs",           # [["errors", "sample_size"]]
     "required_if_any": "map",     # {"translated_by": ["en", "nl", "es"]}
     "contributor_refs": "fields", # ["translated_by", "reviewed_by"]: handles in _meta/contributors.tsv
-    "folder_refs": "files",       # {"prompt_id": "prompts.tsv"}: an id in that file, same folder
-    "word_refs": "fieldmap",      # {"word_id": "lemma"}: a lexicon/words id whose lemma is this row's lemma
+    "folder_refs": "files",       # {"prompt_id": "prompts.tsv"}: ids in that file, same folder
+    "word_refs": "fieldmap",      # {"word_id": "name"}: a lexicon/words id whose lemma is the name cell
 }
 X_SHAPES = {
     "field": "a field name",
@@ -87,7 +87,7 @@ X_SHAPES = {
     "pairs": "a list of [field, field] pairs",
     "map": "an object mapping a field name to a list of field names",
     "files": "an object mapping a field name to a .tsv file name in the same folder",
-    "fieldmap": "an object mapping a field name to another field name",
+    "fieldmap": "an object mapping a field name to a field name",
 }
 # Folders that are not part of the dataset: build output (dist, _site) and local tool
 # folders. Hidden folders other than .github (.git, .claude worktrees, .venv)
@@ -312,12 +312,12 @@ def x_value_ok(table, shape, value):
         return isinstance(value, list) and all(names(g, 2) for g in value)
     if shape == "map":
         return isinstance(value, dict) and all(table.has(k) and names(v) for k, v in value.items())
-    if shape == "fieldmap":
-        return isinstance(value, dict) and all(
-            table.has(k) and isinstance(v, str) and table.has(v) for k, v in value.items())
     if shape == "files":
         return isinstance(value, dict) and all(
             table.has(k) and isinstance(v, str) and v.endswith(".tsv") and "/" not in v for k, v in value.items())
+    if shape == "fieldmap":
+        return isinstance(value, dict) and all(
+            table.has(k) and isinstance(v, str) and table.has(v) for k, v in value.items())
     return False
 
 
@@ -774,8 +774,8 @@ def gate_g4(ctx):
     words = ctx.tables.get("words")
     if words is None or not words.files:
         return
-    check_word_refs(ctx, words)
     lemmas = set(r.get("lemma") for r in words.rows())
+    check_word_refs(ctx, words)
     for tsv in ctx.files:
         refs = [f for f in (tsv.table.x.get("lexicon_refs") or []) if tsv.table.has(f)]
         for row in tsv.rows:
@@ -784,28 +784,6 @@ def gate_g4(ctx):
                     if value not in lemmas:
                         ctx.add("G4", WARNING, tsv.rel, row.line,
                                 "%s: %r is not a lemma in lexicon/words" % (field, value))
-
-
-def check_word_refs(ctx, words):
-    """x-papiamento word_refs: {"word_id": "lemma"} means the cell is the id of
-    a row in lexicon/words/ whose lemma is this row's lemma cell."""
-    lemma_of = dict((r.get("id"), r.get("lemma")) for r in words.rows())
-    for tsv in ctx.files:
-        pairs = sorted((tsv.table.x.get("word_refs") or {}).items())
-        for row in tsv.rows:
-            for field, other in pairs:
-                if not (tsv.table.has(field) and isinstance(other, str) and tsv.table.has(other)):
-                    continue  # reported against the schema
-                value = row.get(field)
-                if not value:
-                    continue
-                if value not in lemma_of:
-                    ctx.add("G4", ERROR, tsv.rel, row.line,
-                            "%s: %r is not an id in lexicon/words" % (field, value))
-                elif lemma_of[value] != row.get(other):
-                    ctx.add("G4", ERROR, tsv.rel, row.line,
-                            "%s: %r is the word %r, but %s is %r"
-                            % (field, value, lemma_of[value], other, row.get(other)))
 
 
 def check_contributor_refs(ctx):
@@ -829,10 +807,34 @@ def check_contributor_refs(ctx):
                                 "%s: %r is not a handle in _meta/contributors.tsv (add a row there)" % (field, name))
 
 
+def check_word_refs(ctx, words):
+    """x-papiamento word_refs: {"word_id": "name"} means the word_id cell is the
+    id of a row in lexicon/words and the name cell is that row's lemma, so a
+    table that points at the word list never copies a headword wrongly."""
+    by_id = dict((r.get("id"), r) for r in words.rows())
+    for tsv in ctx.files:
+        for field, name_field in sorted((tsv.table.x.get("word_refs") or {}).items()):
+            if not tsv.table.has(field) or not tsv.table.has(name_field):
+                continue  # reported against the schema
+            for row in tsv.rows:
+                value = row.get(field)
+                if not value:
+                    continue
+                word = by_id.get(value)
+                if word is None:
+                    ctx.add("G4", ERROR, tsv.rel, row.line,
+                            "%s: %r is not an id in lexicon/words" % (field, value))
+                elif word.get("lemma") != row.get(name_field):
+                    ctx.add("G4", ERROR, tsv.rel, row.line,
+                            "%s: %r has the lemma %r in %s, not %r"
+                            % (field, value, word.get("lemma"), word.file.rel, row.get(name_field)))
+
+
 def check_folder_refs(ctx):
-    """x-papiamento folder_refs: {"prompt_id": "prompts.tsv"} means the cell is
-    an id in prompts.tsv in the same folder. This keeps the held-out eval/
-    pairs on eval/ prompts, and corpus/ pairs on corpus/ prompts."""
+    """x-papiamento folder_refs: {"prompt_id": "prompts.tsv"} means the cell
+    holds ids ('; '-separated) in prompts.tsv in the same folder. This keeps
+    the held-out eval/ pairs on eval/ prompts, and corpus/ pairs on corpus/
+    prompts."""
     by_rel = dict((f.rel, f) for f in ctx.files)
     for tsv in ctx.files:
         for field, name in sorted((tsv.table.x.get("folder_refs") or {}).items()):
@@ -842,10 +844,10 @@ def check_folder_refs(ctx):
             target = by_rel.get(target_rel)
             ids = set(r.get("id") for r in target.rows) if target is not None else set()
             for row in tsv.rows:
-                value = row.get(field)
-                if value and value not in ids:
-                    ctx.add("G4", ERROR, tsv.rel, row.line,
-                            "%s: %r is not an id in %s" % (field, value, target_rel))
+                for value in split_multi(row.get(field)):
+                    if value not in ids:
+                        ctx.add("G4", ERROR, tsv.rel, row.line,
+                                "%s: %r is not an id in %s" % (field, value, target_rel))
 
 
 # --------------------------------------------------------------------------
