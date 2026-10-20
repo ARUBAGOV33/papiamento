@@ -39,6 +39,7 @@ OTHER_TABLES = [
     ("variants", "Cura\u00e7ao \u2192 Aruba spelling pairs"),
     ("loanwords", "Loanwords"),
     ("closed-classes", "Closed word classes (articles, pronouns, particles, modals, conjunctions, prepositions)"),
+    ("verb-forms", "Verb forms (gerunds and participles)"),
 ]
 AUDIT_TABLES = [
     # (table in _meta/audits.tsv, label in the chart's Quality section), in
@@ -52,6 +53,7 @@ AUDIT_TABLES = [
     ("variants", "Cura\u00e7ao \u2192 Aruba pairs"),
     ("loanwords", "Loanwords"),
     ("closed-classes", "Closed word classes"),
+    ("verb-forms", "Verb forms"),
     ("grammar", "Grammar rules"),
     ("rules", "Machine checker rules"),
 ]

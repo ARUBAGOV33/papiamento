@@ -10,7 +10,7 @@ Gates
   G2 Schema         required / enum / pattern / unique, reviewed_by; grammar rule files;
                     the schemas themselves (x-papiamento and constraint keys)
   G3 Orthography    accents, Curacao markers, letter folders
-  G4 Integrity      ids unique repo-wide, unique_together, lexicon refs, rule refs
+  G4 Integrity      ids unique repo-wide, unique_together, lexicon refs, word refs, rule refs
   G5 Known facts    rulings in _meta/known-facts.tsv; machine rules in rules/rules.jsonl tested
                     against their grammar files' examples (extension point: G5_CHECKS)
 
@@ -78,6 +78,7 @@ X_KEYS = {
     "required_if_any": "map",     # {"translated_by": ["en", "nl", "es"]}
     "contributor_refs": "fields", # ["translated_by", "reviewed_by"]: handles in _meta/contributors.tsv
     "folder_refs": "files",       # {"prompt_id": "prompts.tsv"}: an id in that file, same folder
+    "word_refs": "fieldmap",      # {"word_id": "lemma"}: a lexicon/words id whose lemma is this row's lemma
 }
 X_SHAPES = {
     "field": "a field name",
@@ -86,6 +87,7 @@ X_SHAPES = {
     "pairs": "a list of [field, field] pairs",
     "map": "an object mapping a field name to a list of field names",
     "files": "an object mapping a field name to a .tsv file name in the same folder",
+    "fieldmap": "an object mapping a field name to another field name",
 }
 # Folders that are not part of the dataset: build output (dist, _site) and local tool
 # folders. Hidden folders other than .github (.git, .claude worktrees, .venv)
@@ -310,6 +312,9 @@ def x_value_ok(table, shape, value):
         return isinstance(value, list) and all(names(g, 2) for g in value)
     if shape == "map":
         return isinstance(value, dict) and all(table.has(k) and names(v) for k, v in value.items())
+    if shape == "fieldmap":
+        return isinstance(value, dict) and all(
+            table.has(k) and isinstance(v, str) and table.has(v) for k, v in value.items())
     if shape == "files":
         return isinstance(value, dict) and all(
             table.has(k) and isinstance(v, str) and v.endswith(".tsv") and "/" not in v for k, v in value.items())
@@ -769,6 +774,7 @@ def gate_g4(ctx):
     words = ctx.tables.get("words")
     if words is None or not words.files:
         return
+    check_word_refs(ctx, words)
     lemmas = set(r.get("lemma") for r in words.rows())
     for tsv in ctx.files:
         refs = [f for f in (tsv.table.x.get("lexicon_refs") or []) if tsv.table.has(f)]
@@ -778,6 +784,28 @@ def gate_g4(ctx):
                     if value not in lemmas:
                         ctx.add("G4", WARNING, tsv.rel, row.line,
                                 "%s: %r is not a lemma in lexicon/words" % (field, value))
+
+
+def check_word_refs(ctx, words):
+    """x-papiamento word_refs: {"word_id": "lemma"} means the cell is the id of
+    a row in lexicon/words/ whose lemma is this row's lemma cell."""
+    lemma_of = dict((r.get("id"), r.get("lemma")) for r in words.rows())
+    for tsv in ctx.files:
+        pairs = sorted((tsv.table.x.get("word_refs") or {}).items())
+        for row in tsv.rows:
+            for field, other in pairs:
+                if not (tsv.table.has(field) and isinstance(other, str) and tsv.table.has(other)):
+                    continue  # reported against the schema
+                value = row.get(field)
+                if not value:
+                    continue
+                if value not in lemma_of:
+                    ctx.add("G4", ERROR, tsv.rel, row.line,
+                            "%s: %r is not an id in lexicon/words" % (field, value))
+                elif lemma_of[value] != row.get(other):
+                    ctx.add("G4", ERROR, tsv.rel, row.line,
+                            "%s: %r is the word %r, but %s is %r"
+                            % (field, value, lemma_of[value], other, row.get(other)))
 
 
 def check_contributor_refs(ctx):

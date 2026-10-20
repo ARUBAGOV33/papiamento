@@ -1,0 +1,1922 @@
+id	lemma	word_id	form	form_word_id	kind	irregular	status	reviewed_by	source	page	section	notes
+vfm-00001	abastece	pap-000017	abasteciendo	pap-000020	gerund	no	draft		AB2018	1		
+vfm-00002	abastece	pap-000017	abasteci	pap-000019	participle	no	draft		AB2018	1		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00003	abdica	pap-000023	abdicando	pap-000026	gerund	no	draft		AB2018	1		
+vfm-00004	aboli	pap-000040	aboliendo	pap-000042	gerund	no	draft		AB2018	1		
+vfm-00005	abona	pap-000044	abonando	pap-000046	gerund	no	draft		AB2018	1		
+vfm-00006	aborda	pap-000048	abordando	pap-000050	gerund	no	draft		AB2018	1		
+vfm-00007	aborta	pap-000053	abortando	pap-000054	gerund	no	draft		AB2018	1		
+vfm-00008	abrevia	pap-000062	abreviando	pap-000064	gerund	no	draft		AB2018	1		
+vfm-00009	absolve	pap-000072	absolviendo	pap-000074	gerund	no	draft		AB2018	1		
+vfm-00010	absolve	pap-000072	absolvi	pap-000073	participle	no	draft		AB2018	1		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00011	absorba	pap-000075	absorbando	pap-000078	gerund	no	draft		AB2018	1		
+vfm-00012	abstene	pap-000081	absteniendo	pap-000082	gerund	no	draft		AB2018	1		
+vfm-00013	abstrae	pap-000087	abstrayendo	pap-000089	gerund	no	draft		AB2018	1		
+vfm-00014	abstrae	pap-000087	abstrai	pap-000088	participle	no	draft		AB2018	1		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00015	abusa	pap-000094	abusando	pap-000096	gerund	no	draft		AB2018	1		
+vfm-00016	acaba	pap-000098	acabando	pap-000100	gerund	no	draft		AB2018	1		
+vfm-00017	accentua	pap-000106	accentuando	pap-000108	gerund	no	draft		AB2018	1		
+vfm-00018	acelera	pap-000123	acelerando	pap-000125	gerund	no	draft		AB2018	1		
+vfm-00019	acepta	pap-000126	aceptando	pap-000131	gerund	no	draft		AB2018	1		
+vfm-00020	acerca	pap-000133	acercando	pap-000135	gerund	no	draft		AB2018	1		
+vfm-00021	aclara	pap-000139	aclarando	pap-000142	gerund	no	draft		AB2018	1		
+vfm-00022	aclimatisa	pap-000146	aclimatisando	pap-000148	gerund	no	draft		AB2018	1		
+vfm-00023	acoge	pap-000149	acogiendo	pap-000151	gerund	no	draft		AB2018	1		
+vfm-00024	acomoda	pap-000152	acomodando	pap-000154	gerund	no	draft		AB2018	1		
+vfm-00025	acompaña	pap-000155	acompañando	pap-000157	gerund	no	draft		AB2018	1		
+vfm-00026	acopla	pap-000160	acoplando	pap-000163	gerund	no	draft		AB2018	1		
+vfm-00027	acorda	pap-000164	acordando	pap-000165	gerund	no	draft		AB2018	1		
+vfm-00028	acredita	pap-000168	acreditando	pap-000169	gerund	no	draft		AB2018	1		
+vfm-00029	activa	pap-000176	activando	pap-000178	gerund	no	draft		AB2018	1		
+vfm-00030	actua	pap-000190	actuando	pap-000199	gerund	no	draft		AB2018	1		
+vfm-00031	actualisa	pap-000194	actualisando	pap-000196	gerund	no	draft		AB2018	1		
+vfm-00032	acudi	pap-000203	acudiendo	pap-000204	gerund	no	draft		AB2018	1		
+vfm-00033	acultura	pap-000206	aculturando	pap-000208	gerund	no	draft		AB2018	1		
+vfm-00034	acumula	pap-000209	acumulando	pap-000211	gerund	no	draft		AB2018	1		
+vfm-00035	acusa	pap-000215	acusando	pap-000218	gerund	no	draft		AB2018	1		
+vfm-00036	adapta	pap-000223	adaptando	pap-000227	gerund	no	draft		AB2018	1		
+vfm-00037	adelanta	pap-000232	adelantando	pap-000233	gerund	no	draft		AB2018	2		
+vfm-00038	adheri	pap-000240	adheriendo	pap-000241	gerund	no	draft		AB2018	2		
+vfm-00039	adkiri	pap-000253	adkiriendo	pap-000255	gerund	no	draft		AB2018	2		
+vfm-00040	administra	pap-000257	administrando	pap-000261	gerund	no	draft		AB2018	2		
+vfm-00041	admira	pap-000263	admirando	pap-000270	gerund	no	draft		AB2018	2		
+vfm-00042	admiti	pap-000273	admitiendo	pap-000275	gerund	no	draft		AB2018	2		
+vfm-00043	adopta	pap-000279	adoptando	pap-000282	gerund	no	draft		AB2018	2		
+vfm-00044	adora	pap-000285	adorando	pap-000289	gerund	no	draft		AB2018	2		
+vfm-00045	adresa	pap-000293	adresando	pap-000295	gerund	no	draft		AB2018	2		
+vfm-00046	adverti	pap-000306	advertiendo	pap-000307	gerund	no	draft		AB2018	2		
+vfm-00047	afecta	pap-000323	afectando	pap-000324	gerund	no	draft		AB2018	2		
+vfm-00048	afilia	pap-000330	afiliando	pap-000333	gerund	no	draft		AB2018	2		
+vfm-00049	afirma	pap-000334	afirmando	pap-000336	gerund	no	draft		AB2018	2		
+vfm-00050	africanisa	pap-000345	africanisando	pap-000347	gerund	no	draft		AB2018	2		
+vfm-00051	agita	pap-000367	agitando	pap-000371	gerund	no	draft		AB2018	2		
+vfm-00052	aglomera	pap-000372	aglomerando	pap-000374	gerund	no	draft		AB2018	2		
+vfm-00053	agrega	pap-000385	agregando	pap-000388	gerund	no	draft		AB2018	2		
+vfm-00054	agrupa	pap-000399	agrupando	pap-000401	gerund	no	draft		AB2018	2		
+vfm-00055	ahusta	pap-000410	ahustando	pap-000413	gerund	no	draft		AB2018	2		
+vfm-00056	aisla	pap-000420	aislando	pap-000422	gerund	no	draft		AB2018	2		
+vfm-00057	alaba	pap-000432	alabando	pap-000433	gerund	no	draft		AB2018	2		
+vfm-00058	alarma	pap-000442	alarmando	pap-000443	gerund	no	draft		AB2018	2		
+vfm-00059	alcansa	pap-000452	alcansando	pap-000455	gerund	no	draft		AB2018	3		
+vfm-00060	alcoholisa	pap-000459	alcoholisando	pap-000461	gerund	no	draft		AB2018	3		
+vfm-00061	alegra	pap-000466	alegrando	pap-000467	gerund	no	draft		AB2018	3		
+vfm-00062	aleha	pap-000470	alehando	pap-000472	gerund	no	draft		AB2018	3		
+vfm-00063	alerta	pap-000480	alertando	pap-000481	gerund	no	draft		AB2018	3		
+vfm-00064	alfabetisa	pap-000487	alfabetisando	pap-000490	gerund	no	draft		AB2018	3		
+vfm-00065	alia	pap-000499	aliando	pap-000501	gerund	no	draft		AB2018	3		
+vfm-00066	alimenta	pap-000506	alimentando	pap-000508	gerund	no	draft		AB2018	3		
+vfm-00067	alinia	pap-000512	aliniando	pap-000514	gerund	no	draft		AB2018	3		
+vfm-00068	alivia	pap-000517	aliviando	pap-000518	gerund	no	draft		AB2018	3		
+vfm-00069	aloca	pap-000529	alocando	pap-000531	gerund	no	draft		AB2018	3		
+vfm-00070	aloha	pap-000534	alohando	pap-000536	gerund	no	draft		AB2018	3		
+vfm-00071	altera	pap-000543	alterando	pap-000545	gerund	no	draft		AB2018	3		
+vfm-00072	amarga	pap-000571	amargando	pap-000573	gerund	no	draft		AB2018	3		
+vfm-00073	ambiciona	pap-000583	ambicionando	pap-000584	gerund	no	draft		AB2018	3		
+vfm-00074	americanisa	pap-000603	americanisando	pap-000605	gerund	no	draft		AB2018	3		
+vfm-00075	amortisa	pap-000632	amortisando	pap-000634	gerund	no	draft		AB2018	3		
+vfm-00076	amplia	pap-000636	ampliando	pap-000640	gerund	no	draft		AB2018	3		
+vfm-00077	amputa	pap-000643	amputando	pap-000646	gerund	no	draft		AB2018	3		
+vfm-00078	analisa	pap-000660	analisando	pap-000661	gerund	no	draft		AB2018	3		
+vfm-00079	anda	pap-000682	andando	pap-000683	gerund	no	draft		AB2018	4		
+vfm-00080	anexa	pap-000699	anexando	pap-000700	gerund	no	draft		AB2018	4		
+vfm-00081	anhela	pap-000715	anhelando	pap-000716	gerund	no	draft		AB2018	4		
+vfm-00082	anima	pap-000718	animando	pap-000722	gerund	no	draft		AB2018	4		
+vfm-00083	anota	pap-000734	anotando	pap-000736	gerund	no	draft		AB2018	4		
+vfm-00084	ansha	pap-000737	anshando	pap-000739	gerund	no	draft		AB2018	4		
+vfm-00085	anticipa	pap-000769	anticipando	pap-000771	gerund	no	draft		AB2018	4		
+vfm-00086	antoha	pap-000806	antohando	pap-000807	gerund	no	draft		AB2018	4		
+vfm-00087	anula	pap-000822	anulando	pap-000824	gerund	no	draft		AB2018	4		
+vfm-00088	anuncia	pap-000825	anunciando	pap-000828	gerund	no	draft		AB2018	4		
+vfm-00089	aparece	pap-000832	apareciendo	pap-000834	gerund	no	draft		AB2018	4		
+vfm-00090	aparece	pap-000832	apareci	pap-000833	participle	no	draft		AB2018	4		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00091	aparta	pap-000841	apartando	pap-000843	gerund	no	draft		AB2018	4		
+vfm-00092	apela	pap-000851	apelando	pap-000853	gerund	no	draft		AB2018	4		
+vfm-00093	aplasa	pap-000862	aplasando	pap-000863	gerund	no	draft		AB2018	4		
+vfm-00094	aplasta	pap-000864	aplastando	pap-000865	gerund	no	draft		AB2018	4		
+vfm-00095	aplaudi	pap-000867	aplaudiendo	pap-000868	gerund	no	draft		AB2018	4		
+vfm-00096	aplica	pap-000870	aplicando	pap-000875	gerund	no	draft		AB2018	4		
+vfm-00097	aporta	pap-000883	aportando	pap-000885	gerund	no	draft		AB2018	4		
+vfm-00098	apoya	pap-000891	apoyando	pap-000893	gerund	no	draft		AB2018	4		
+vfm-00099	aprecia	pap-000899	apreciando	pap-000901	gerund	no	draft		AB2018	4		
+vfm-00100	aproba	pap-000905	aprobando	pap-000907	gerund	no	draft		AB2018	5		
+vfm-00101	aproxima	pap-000911	aproximando	pap-000914	gerund	no	draft		AB2018	5		
+vfm-00102	ara	pap-000922	arando	pap-000927	gerund	no	draft		AB2018	5		
+vfm-00103	aregla	pap-000943	areglando	pap-000944	gerund	no	draft		AB2018	5		
+vfm-00104	aresta	pap-000950	arestando	pap-000951	gerund	no	draft		AB2018	5		
+vfm-00105	argumenta	pap-000956	argumentando	pap-000958	gerund	no	draft		AB2018	5		
+vfm-00106	arma	pap-000978	armando	pap-000980	gerund	no	draft		AB2018	5		
+vfm-00107	articula	pap-001001	articulando	pap-001003	gerund	no	draft		AB2018	5		
+vfm-00108	asalta	pap-001020	asaltando	pap-001021	gerund	no	draft		AB2018	5		
+vfm-00109	asambla	pap-001024	asamblando	pap-001025	gerund	no	draft		AB2018	5		
+vfm-00110	asenti	pap-001032	asentiendo	pap-001033	gerund	no	draft		AB2018	5		
+vfm-00111	asesina	pap-001034	asesinando	pap-001035	gerund	no	draft		AB2018	5		
+vfm-00112	asfalta	pap-001041	asfaltando	pap-001043	gerund	no	draft		AB2018	5		
+vfm-00113	asimila	pap-001053	asimilando	pap-001055	gerund	no	draft		AB2018	5		
+vfm-00114	asisti	pap-001058	asistiendo	pap-001059	gerund	no	draft		AB2018	5		
+vfm-00115	asocia	pap-001062	asociando	pap-001065	gerund	no	draft		AB2018	5		
+vfm-00116	asombra	pap-001068	asombrando	pap-001069	gerund	no	draft		AB2018	5		
+vfm-00117	asota	pap-001072	asotando	pap-001073	gerund	no	draft		AB2018	5		
+vfm-00118	aspira	pap-001076	aspirando	pap-001078	gerund	no	draft		AB2018	5		
+vfm-00119	asumi	pap-001091	asumiendo	pap-001092	gerund	no	draft		AB2018	5		
+vfm-00120	ataca	pap-001096	atacando	pap-001098	gerund	no	draft		AB2018	5		
+vfm-00121	atende	pap-001105	atendiendo	pap-001107	gerund	no	draft		AB2018	5		
+vfm-00122	atende	pap-001105	atendi	pap-001106	participle	no	draft		AB2018	5		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00123	atenta	pap-001108	atentando	pap-001111	gerund	no	draft		AB2018	5		
+vfm-00124	aterisa	pap-001113	aterisando	pap-001115	gerund	no	draft		AB2018	5		
+vfm-00125	atraca	pap-001128	atracando	pap-001130	gerund	no	draft		AB2018	5		
+vfm-00126	atrae	pap-001134	atrayendo	pap-001144	gerund	no	draft		AB2018	6		
+vfm-00127	atrae	pap-001134	atrai	pap-001135	participle	no	draft		AB2018	6		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00128	atrapa	pap-001136	atrapando	pap-001138	gerund	no	draft		AB2018	6		
+vfm-00129	atrasa	pap-001140	atrasando	pap-001141	gerund	no	draft		AB2018	6		
+vfm-00130	atribui	pap-001145	atribuyendo	pap-001148	gerund	no	draft		AB2018	6		
+vfm-00131	aumenta	pap-001159	aumentando	pap-001160	gerund	no	draft		AB2018	6		
+vfm-00132	auspicia	pap-001168	auspiciando	pap-001169	gerund	no	draft		AB2018	6		
+vfm-00133	automatisa	pap-001196	automatisando	pap-001198	gerund	no	draft		AB2018	6		
+vfm-00134	autorisa	pap-001210	autorisando	pap-001212	gerund	no	draft		AB2018	6		
+vfm-00135	avansa	pap-001218	avansando	pap-001219	gerund	no	draft		AB2018	6		
+vfm-00136	averigua	pap-001226	averiguando	pap-001228	gerund	no	draft		AB2018	6		
+vfm-00137	avisa	pap-001236	avisando	pap-001237	gerund	no	draft		AB2018	6		
+vfm-00138	azeta	pap-001268	azetando	pap-001270	gerund	no	draft		AB2018	6		The list prints azetando [zetando].
+vfm-00139	añadi	pap-001275	añadiendo	pap-001276	gerund	no	draft		AB2018	4		
+vfm-00140	baba	pap-001278	babando	pap-001281	gerund	no	draft		AB2018	6		
+vfm-00141	bagatelisa	pap-001314	bagatelisando	pap-001315	gerund	no	draft		AB2018	6		
+vfm-00142	baha	pap-001317	bahando	pap-001320	gerund	no	draft		AB2018	6		
+vfm-00143	baila	pap-001323	bailando	pap-001327	gerund	no	draft		AB2018	6		The list prints bailando [baliando].
+vfm-00144	balansa	pap-001347	balansando	pap-001349	gerund	no	draft		AB2018	6		
+vfm-00145	balia	pap-001362	baliando	pap-001366	gerund	no	draft		AB2018	7		The list prints baliando [bailando].
+vfm-00146	balia	pap-001362	balia	pap-001362	participle	no	draft		MOR2010	50	6.6.3.3	Used as a noun: Diadomingo Juancho a dal un balia di kita sombre na Miramar.
+vfm-00147	balora	pap-001375	balorando	pap-001378	gerund	no	draft		AB2018	7		
+vfm-00148	balota	pap-001379	balotando	pap-001382	gerund	no	draft		AB2018	7		
+vfm-00149	balsama	pap-001384	balsamando	pap-001385	gerund	no	draft		AB2018	7		
+vfm-00150	balua	pap-001387	baluando	pap-001391	gerund	no	draft		AB2018	7		
+vfm-00151	bandona	pap-001411	bandonando	pap-001413	gerund	no	draft		AB2018	7		
+vfm-00152	baraha	pap-001426	barahando	pap-001428	gerund	no	draft		AB2018	7		
+vfm-00153	barca	pap-001447	barcando	pap-001449	gerund	no	draft		AB2018	7		
+vfm-00154	bari	pap-001454	bariendo	pap-001459	gerund	no	draft		AB2018	7		
+vfm-00155	basa	pap-001474	basando	pap-001475	gerund	no	draft		AB2018	7		
+vfm-00156	basha	pap-001478	bashando	pap-001481	gerund	no	draft		AB2018	7		
+vfm-00157	basila	pap-001485	basilando	pap-001487	gerund	no	draft		AB2018	7		
+vfm-00158	bataya	pap-001503	batayando	pap-001504	gerund	no	draft		AB2018	7		
+vfm-00159	bate	pap-001506	batiendo	pap-001514	gerund	no	draft		AB2018	7		
+vfm-00160	bate	pap-001506	bati	pap-001510	participle	no	draft		AB2018	7		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00161	batisa	pap-001517	batisando	pap-001519	gerund	no	draft		AB2018	7		
+vfm-00162	bay	pap-001524	bayendo	pap-001528	gerund		draft		AB2018	7		The verb ends in y; §6.6.2.1 covers verbs ending in a vowel.
+vfm-00163	bay	pap-001524	gebay	pap-006698	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00164	baña	pap-001533	bañando	pap-001535	gerund	no	draft		AB2018	7		
+vfm-00165	baña	pap-001533	bañando	pap-001535	gerund	no	draft		MOR2010	48	6.6.2.3	Example 1: Tecla no por bini, e ta bañando! The page does not print the infinitive; baña is the AB 2018 headword.
+vfm-00166	beatifica	pap-001542	beatificando	pap-001544	gerund	no	draft		AB2018	7		
+vfm-00167	bebe	pap-001545	bebiendo	pap-001551	gerund	no	draft		AB2018	7		
+vfm-00168	bebe	pap-001545	bebi	pap-001548	participle	no	draft		AB2018	7		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00169	bencha	pap-001584	benchando	pap-001586	gerund	no	draft		AB2018	7		
+vfm-00170	bende	pap-001587	bendiendo	pap-001598	gerund	no	draft		AB2018	8		
+vfm-00171	bende	pap-001587	bendi	pap-001592	participle	no	draft		AB2018	8		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00172	bende	pap-001587	bendi	pap-001592	participle	no	draft		MOR2010	50	6.7	Passive example 1: E auto a wordo bendi door di Johnny. Active: Johnny a bende e auto.
+vfm-00173	bendiciona	pap-001595	bendicionando	pap-001597	gerund	no	draft		AB2018	8		
+vfm-00174	beneficia	pap-001601	beneficiando	pap-001602	gerund	no	draft		AB2018	8		
+vfm-00175	benta	pap-001611	bentando	pap-001617	gerund	no	draft		AB2018	8		
+vfm-00176	biaha	pap-001656	biahando	pap-001658	gerund	no	draft		AB2018	8		
+vfm-00177	biba	pap-001661	bibando	pap-001663	gerund	no	draft		AB2018	8		
+vfm-00178	bienta	pap-001698	bientando	pap-001701	gerund	no	draft		AB2018	8		
+vfm-00179	bini	pap-001733	biniendo	pap-001737	gerund	no	draft		AB2018	8		
+vfm-00180	bira	pap-001761	birando	pap-001765	gerund	no	draft		AB2018	8		
+vfm-00181	bisa	pap-001769	bisando	pap-001770	gerund	no	draft		AB2018	8		
+vfm-00182	bishita	pap-001779	bishitando	pap-001781	gerund	no	draft		AB2018	8		
+vfm-00183	bisti	pap-001792	bistiendo	pap-001793	gerund	no	draft		AB2018	8		
+vfm-00184	bisti	pap-001792	bistiendo	pap-001793	gerund	no	draft		MOR2010	47	6.6.2.1	bisti → bist + iendo → bistiendo.
+vfm-00185	blaas	pap-001803	geblaas	pap-006699	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00186	blafona	pap-001816	blafonando	pap-001818	gerund	no	draft		AB2018	8		
+vfm-00187	blancha	pap-001820	blanchando	pap-001823	gerund	no	draft		AB2018	9		
+vfm-00188	blankia	pap-001826	blankiando	pap-001827	gerund	no	draft		AB2018	9		
+vfm-00189	blikia	pap-001836	blikiando	pap-001837	gerund	no	draft		AB2018	9		
+vfm-00190	blind	pap-001838	geblind	pap-006700	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00191	blokia	pap-001850	blokiando	pap-001852	gerund	no	draft		AB2018	9		
+vfm-00192	bochorna	pap-001872	bochornando	pap-001873	gerund	no	draft		AB2018	9		
+vfm-00193	boek	pap-001881	geboek	pap-006701	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00194	bofta	pap-001888	boftando	pap-001889	gerund	no	draft		AB2018	9		
+vfm-00195	boga	pap-001890	bogando	pap-001891	gerund	no	draft		AB2018	9		
+vfm-00196	boicotia	pap-001895	boicotiando	pap-001897	gerund	no	draft		AB2018	9		
+vfm-00197	bolbe	pap-001905	bolbiendo	pap-001906	gerund	no	draft		AB2018	9		
+vfm-00198	bolbe	pap-001905	bolbiendo	pap-001906	gerund	no	draft		MOR2010	47	6.6.2.1	bolbe → bolb + iendo → bolbiendo.
+vfm-00199	bolter	pap-001922	gebolter	pap-006702	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00200	boltia	pap-001924	boltiando	pap-001926	gerund	no	draft		AB2018	9		
+vfm-00201	bombardia	pap-001934	bombardiando	pap-001935	gerund	no	draft		AB2018	9		
+vfm-00202	bombena	pap-001937	bombenando	pap-001938	gerund	no	draft		AB2018	9		
+vfm-00203	book	pap-001967	gebook	pap-006703	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00204	bora	pap-001972	borando	pap-001974	gerund	no	draft		AB2018	9		
+vfm-00205	borda	pap-001976	bordando	pap-001979	gerund	no	draft		AB2018	9		
+vfm-00206	boroca	pap-001982	borocando	pap-001984	gerund	no	draft		AB2018	9		
+vfm-00207	boroha	pap-001985	borohando	pap-001987	gerund	no	draft		AB2018	9		
+vfm-00208	borota	pap-001988	borotando	pap-001989	gerund	no	draft		AB2018	9		
+vfm-00209	bosa	pap-001994	bosando	pap-001997	gerund	no	draft		AB2018	9		
+vfm-00210	boteya	pap-002006	boteyando	pap-002009	gerund	no	draft		AB2018	9		
+vfm-00211	botona	pap-002016	botonando	pap-002018	gerund	no	draft		AB2018	9		
+vfm-00212	brasa	pap-002043	brasando	pap-002045	gerund	no	draft		AB2018	9		
+vfm-00213	bres	pap-002059	gebres	pap-006704	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00214	brinda	pap-002071	brindando	pap-002072	gerund	no	draft		AB2018	10		
+vfm-00215	bringa	pap-002074	bringando	pap-002078	gerund	no	draft		AB2018	10		
+vfm-00216	briya	pap-002083	briyando	pap-002084	gerund	no	draft		AB2018	10		
+vfm-00217	broei	pap-002092	gebroei	pap-006705	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00218	broma	pap-002094	bromando	pap-002097	gerund	no	draft		AB2018	10		
+vfm-00219	brongosa	pap-002099	brongosando	pap-002101	gerund	no	draft		AB2018	10		
+vfm-00220	brota	pap-002105	brotando	pap-002106	gerund	no	draft		AB2018	10		
+vfm-00221	brouw	pap-002107	gebrouw	pap-006706	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00222	bruha	pap-002111	bruhando	pap-002114	gerund	no	draft		AB2018	10		
+vfm-00223	brush	pap-002125	gebrush	pap-006707	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00224	bucea	pap-002132	buceando	pap-002135	gerund	no	draft		AB2018	10		
+vfm-00225	buk	pap-002145	gebuk	pap-006708	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00226	bula	pap-002148	bulando	pap-002153	gerund	no	draft		AB2018	10		
+vfm-00227	busca	pap-002182	buscando	pap-002185	gerund	no	draft		AB2018	10		
+vfm-00228	buta	pap-002193	butando	pap-002196	gerund	no	draft		AB2018	10		
+vfm-00229	caba	pap-002201	cabando	pap-002206	gerund	no	draft		AB2018	10		
+vfm-00230	cabisha	pap-002221	cabishando	pap-002222	gerund	no	draft		AB2018	10		
+vfm-00231	cadena	pap-002248	cadenando	pap-002249	gerund	no	draft		AB2018	10		
+vfm-00232	caduca	pap-002251	caducando	pap-002252	gerund	no	draft		AB2018	10		
+vfm-00233	calcula	pap-002278	calculando	pap-002282	gerund	no	draft		AB2018	11		
+vfm-00234	calibra	pap-002290	calibrando	pap-002292	gerund	no	draft		AB2018	11		
+vfm-00235	calma	pap-002301	calmando	pap-002302	gerund	no	draft		AB2018	11		
+vfm-00236	cambia	pap-002318	cambiando	pap-002321	gerund	no	draft		AB2018	11		
+vfm-00237	campa	pap-002329	campando	pap-002333	gerund	no	draft		AB2018	11		
+vfm-00238	campaña	pap-002334	campañando	pap-002336	gerund	no	draft		AB2018	11		
+vfm-00239	camufla	pap-002341	camuflando	pap-002343	gerund	no	draft		AB2018	11		
+vfm-00240	cana	pap-002345	canando	pap-002354	gerund	no	draft		AB2018	11		
+vfm-00241	canalisa	pap-002349	canalisando	pap-002352	gerund	no	draft		AB2018	11		
+vfm-00242	cancela	pap-002359	cancelando	pap-002362	gerund	no	draft		AB2018	11		
+vfm-00243	cansa	pap-002386	cansando	pap-002388	gerund	no	draft		AB2018	11		
+vfm-00244	canta	pap-002389	cantando	pap-002393	gerund	no	draft		AB2018	11		
+vfm-00245	capa	pap-002403	capando	pap-002411	gerund	no	draft		AB2018	11		
+vfm-00246	capacita	pap-002406	capacitando	pap-002408	gerund	no	draft		AB2018	11		
+vfm-00247	capia	pap-002413	capiando	pap-002415	gerund	no	draft		AB2018	11		
+vfm-00248	capitula	pap-002421	capitulando	pap-002423	gerund	no	draft		AB2018	11		
+vfm-00249	capta	pap-002434	captando	pap-002435	gerund	no	draft		AB2018	11		
+vfm-00250	captura	pap-002436	capturando	pap-002437	gerund	no	draft		AB2018	11		
+vfm-00251	caracterisa	pap-002447	caracterisando	pap-002450	gerund	no	draft		AB2018	11		
+vfm-00252	carbonisa	pap-002467	carbonisando	pap-002469	gerund	no	draft		AB2018	11		
+vfm-00253	carece	pap-002482	careciendo	pap-002483	gerund	no	draft		AB2018	11		
+vfm-00254	carga	pap-002491	cargando	pap-002495	gerund	no	draft		AB2018	11		
+vfm-00255	caricia	pap-002502	cariciando	pap-002503	gerund	no	draft		AB2018	12		
+vfm-00256	casa	pap-002550	casando	pap-002554	gerund	no	draft		AB2018	12		
+vfm-00257	casca	pap-002555	cascando	pap-002558	gerund	no	draft		AB2018	12		
+vfm-00258	castiga	pap-002577	castigando	pap-002580	gerund	no	draft		AB2018	12		
+vfm-00259	castiga	pap-002577	castiga	pap-002577	participle	no	draft		MOR2010	38	6.2.2.1	II. Verbo auxiliar pasivo: Candido a wordo castiga pa su mal comportacion. Spelled like the infinitive.
+vfm-00260	catalisa	pap-002592	catalisando	pap-002595	gerund	no	draft		AB2018	12		
+vfm-00261	catalogisa	pap-002597	catalogisando	pap-002599	gerund	no	draft		AB2018	12		
+vfm-00262	categorisa	pap-002615	categorisando	pap-002617	gerund	no	draft		AB2018	12		
+vfm-00263	causa	pap-002629	causando	pap-002630	gerund	no	draft		AB2018	12		
+vfm-00264	cay	pap-002641	cayendo	pap-002646	gerund		draft		AB2018	12		The verb ends in y; §6.6.2.1 covers verbs ending in a vowel.
+vfm-00265	cay	pap-002641	gecay	pap-006709	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00266	caña	pap-002654	cañando	pap-002655	gerund	no	draft		AB2018	11		
+vfm-00267	celebra	pap-002660	celebrando	pap-002663	gerund	no	draft		AB2018	12		
+vfm-00268	cena	pap-002677	cenando	pap-002678	gerund	no	draft		AB2018	12		
+vfm-00269	cende	pap-002679	cendiendo	pap-002684	gerund	no	draft		AB2018	12		
+vfm-00270	cende	pap-002679	cendi	pap-002683	participle	no	draft		AB2018	12		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00271	censura	pap-002686	censurando	pap-002688	gerund	no	draft		AB2018	12		
+vfm-00272	centralisa	pap-002699	centralisando	pap-002701	gerund	no	draft		AB2018	12		
+vfm-00273	cera	pap-002705	cerando	pap-002710	gerund	no	draft		AB2018	12		
+vfm-00274	cerca	pap-002713	cercando	pap-002714	gerund	no	draft		AB2018	12		
+vfm-00275	certifica	pap-002724	certificando	pap-002727	gerund	no	draft		AB2018	12		
+vfm-00276	changa	pap-002739	changando	pap-002740	gerund	no	draft		AB2018	13		
+vfm-00277	chantahia	pap-002745	chantahiando	pap-002746	gerund	no	draft		AB2018	13		
+vfm-00278	chapi	pap-002750	gechapi	pap-006710	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00279	charge	pap-002753	gecharge	pap-006711	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00280	check	pap-002768	gecheck	pap-006712	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00281	chibatia	pap-002790	chibatiando	pap-002792	gerund	no	draft		AB2018	13		
+vfm-00282	chica	pap-002795	chicando	pap-002797	gerund	no	draft		AB2018	13		
+vfm-00283	chip	pap-002816	gechip	pap-006713	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00284	choca	pap-002824	chocando	pap-002827	gerund	no	draft		AB2018	13		
+vfm-00285	chok	pap-002831	gechok	pap-006714	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00286	chupa	pap-002845	chupando	pap-002850	gerund	no	draft		AB2018	13		
+vfm-00287	circula	pap-002902	circulando	pap-002904	gerund	no	draft		AB2018	13		
+vfm-00288	cita	pap-002917	citando	pap-002920	gerund	no	draft		AB2018	13		
+vfm-00289	civilisa	pap-002926	civilisando	pap-002928	gerund	no	draft		AB2018	13		
+vfm-00290	claba	pap-002931	clabando	pap-002933	gerund	no	draft		AB2018	13		
+vfm-00291	clafatia	pap-002937	clafatiando	pap-002938	gerund	no	draft		AB2018	13		
+vfm-00292	claria	pap-002942	clariando	pap-002943	gerund	no	draft		AB2018	13		
+vfm-00293	clarifica	pap-002945	clarificando	pap-002947	gerund	no	draft		AB2018	13		
+vfm-00294	clasifica	pap-002955	clasificando	pap-002959	gerund	no	draft		AB2018	14		
+vfm-00295	clausura	pap-002962	clausurando	pap-002963	gerund	no	draft		AB2018	14		
+vfm-00296	clinchi	pap-002979	geclinchi	pap-006715	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00297	coba	pap-002997	cobando	pap-003000	gerund	no	draft		AB2018	14		
+vfm-00298	cobardia	pap-003004	cobardiando	pap-003005	gerund	no	draft		AB2018	14		
+vfm-00299	cobra	pap-003008	cobrando	pap-003012	gerund	no	draft		AB2018	14		
+vfm-00300	cococha	pap-003024	cocochando	pap-003025	gerund	no	draft		AB2018	14		
+vfm-00301	codifica	pap-003035	codificando	pap-003037	gerund	no	draft		AB2018	14		
+vfm-00302	coeduca	pap-003041	coeducando	pap-003044	gerund	no	draft		AB2018	14		
+vfm-00303	coexisti	pap-003047	coexistiendo	pap-003048	gerund	no	draft		AB2018	14		
+vfm-00304	cofinancia	pap-003049	cofinanciando	pap-003052	gerund	no	draft		AB2018	14		
+vfm-00305	coge	pap-003054	cogiendo	pap-003055	gerund	no	draft		AB2018	14		
+vfm-00306	coincidi	pap-003066	coincidiendo	pap-003067	gerund	no	draft		AB2018	14		
+vfm-00307	coketia	pap-003070	coketiando	pap-003071	gerund	no	draft		AB2018	14		
+vfm-00308	cola	pap-003074	colando	pap-003081	gerund	no	draft		AB2018	14		
+vfm-00309	colabora	pap-003075	colaborando	pap-003078	gerund	no	draft		AB2018	14		
+vfm-00310	colecciona	pap-003084	coleccionando	pap-003086	gerund	no	draft		AB2018	14		
+vfm-00311	colecta	pap-003088	colectando	pap-003090	gerund	no	draft		AB2018	14		
+vfm-00312	colga	pap-003097	colgando	pap-003099	gerund	no	draft		AB2018	14		
+vfm-00313	coloca	pap-003107	colocando	pap-003110	gerund	no	draft		AB2018	14		
+vfm-00314	colonisa	pap-003119	colonisando	pap-003122	gerund	no	draft		AB2018	14		
+vfm-00315	comanda	pap-003130	comandando	pap-003131	gerund	no	draft		AB2018	14		
+vfm-00316	combati	pap-003135	combatiendo	pap-003136	gerund	no	draft		AB2018	14		
+vfm-00317	combersa	pap-003138	combersando	pap-003140	gerund	no	draft		AB2018	14		
+vfm-00318	combida	pap-003141	combidando	pap-003143	gerund	no	draft		AB2018	14		
+vfm-00319	combina	pap-003144	combinando	pap-003146	gerund	no	draft		AB2018	14		
+vfm-00320	come	pap-003152	comiendo	pap-003181	gerund	no	draft		AB2018	15		
+vfm-00321	come	pap-003152	comiendo	pap-003181	gerund	no	draft		MOR2010	47	6.6.2.1	come → com + iendo → comiendo. Also §6.6.2, example 2: Ora mi a yega su cas, e tabata comiendo.
+vfm-00322	come	pap-003152	comi	pap-003177	participle	no	draft		AB2018	14		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00323	come	pap-003152	comi	pap-003177	participle	no	draft		MOR2010	49	6.6.3.1	Rule 2 (two syllables, ending in e): e becomes i and the stress moves, [có-me] → [co-mí]. Example: E cuminda a wordo bon comi. Also §6.6.3.3 (p. 50), used as a noun: Ayera nos a dal un comi di otro mundo na El Gaucho.
+vfm-00324	comenta	pap-003160	comentando	pap-003161	gerund	no	draft		AB2018	14		
+vfm-00325	comercialisa	pap-003166	comercialisando	pap-003168	gerund	no	draft		AB2018	14		
+vfm-00326	comete	pap-003174	cometiendo	pap-003176	gerund	no	draft		AB2018	14		
+vfm-00327	comete	pap-003174	cometi	pap-003175	participle	no	draft		AB2018	14		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00328	compara	pap-003201	comparando	pap-003204	gerund	no	draft		AB2018	15		
+vfm-00329	comparti	pap-003207	compartiendo	pap-003209	gerund	no	draft		AB2018	15		
+vfm-00330	compaña	pap-003217	compañando	pap-003219	gerund	no	draft		AB2018	15		
+vfm-00331	compensa	pap-003224	compensando	pap-003226	gerund	no	draft		AB2018	15		
+vfm-00332	competi	pap-003230	competiendo	pap-003232	gerund	no	draft		AB2018	15		
+vfm-00333	compila	pap-003234	compilando	pap-003237	gerund	no	draft		AB2018	15		
+vfm-00334	complace	pap-003239	complaciendo	pap-003241	gerund	no	draft		AB2018	15		
+vfm-00335	complace	pap-003239	complaci	pap-003240	participle	no	draft		AB2018	15		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00336	complementa	pap-003245	complementando	pap-003247	gerund	no	draft		AB2018	15		
+vfm-00337	completa	pap-003249	completando	pap-003252	gerund	no	draft		AB2018	15		
+vfm-00338	complica	pap-003254	complicando	pap-003256	gerund	no	draft		AB2018	15		
+vfm-00339	compone	pap-003260	componiendo	pap-003263	gerund	no	draft		AB2018	15		
+vfm-00340	compone	pap-003260	componi	pap-003262	participle	no	draft		AB2018	15		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00341	comporta	pap-003264	comportando	pap-003266	gerund	no	draft		AB2018	15		
+vfm-00342	composita	pap-003268	compositando	pap-003269	gerund	no	draft		AB2018	15		
+vfm-00343	comprende	pap-003273	comprendiendo	pap-003276	gerund	no	draft		AB2018	15		The list prints comprendiendo [comprondiendo].
+vfm-00344	comprimi	pap-003279	comprimiendo	pap-003280	gerund	no	draft		AB2018	15		
+vfm-00345	comproba	pap-003281	comprobando	pap-003284	gerund	no	draft		AB2018	15		
+vfm-00346	compromete	pap-003286	comprometiendo	pap-003290	gerund	no	draft		AB2018	15		
+vfm-00347	compromete	pap-003286	comprometi	pap-003287	participle	no	draft		AB2018	15		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00348	compronde	pap-003292	comprondiendo	pap-003294	gerund	no	draft		AB2018	15		The list prints comprondiendo [comprendiendo].
+vfm-00349	computarisa	pap-003295	computarisando	pap-003297	gerund	no	draft		AB2018	15		The list prints computarisando [computerisando].
+vfm-00350	computerisa	pap-003299	computerisando	pap-003301	gerund	no	draft		AB2018	15		The list prints computerisando [computarisando].
+vfm-00351	comunica	pap-003303	comunicando	pap-003306	gerund	no	draft		AB2018	15		
+vfm-00352	concede	pap-003316	concediendo	pap-003318	gerund	no	draft		AB2018	15		
+vfm-00353	concede	pap-003316	concedi	pap-003317	participle	no	draft		AB2018	15		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00354	concentra	pap-003319	concentrando	pap-003321	gerund	no	draft		AB2018	15		
+vfm-00355	concerni	pap-003324	concerniendo	pap-003325	gerund	no	draft		AB2018	15		
+vfm-00356	concilia	pap-003332	conciliando	pap-003334	gerund	no	draft		AB2018	15		
+vfm-00357	concipia	pap-003336	concipiando	pap-003337	gerund	no	draft		AB2018	15		
+vfm-00358	conclo	pap-003340	geconclo	pap-006716	participle	no	draft		AB2018	30		The list prints geconclo [gekonkel]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00359	conclui	pap-003341	concluyendo	pap-003343	gerund	no	draft		AB2018	15		
+vfm-00360	conclui	pap-003341	conclui	pap-003341	participle	no	draft		MOR2010	38	6.2.2.1	II. Verbo auxiliar pasivo: E trabou a keda conclui manera palabra. Spelled like the infinitive.
+vfm-00361	concorda	pap-003345	concordando	pap-003347	gerund	no	draft		AB2018	15		
+vfm-00362	concretisa	pap-003350	concretisando	pap-003352	gerund	no	draft		AB2018	15		
+vfm-00363	condecora	pap-003357	condecorando	pap-003359	gerund	no	draft		AB2018	15		
+vfm-00364	condena	pap-003360	condenando	pap-003363	gerund	no	draft		AB2018	15		
+vfm-00365	condensa	pap-003364	condensando	pap-003366	gerund	no	draft		AB2018	15		
+vfm-00366	condiciona	pap-003370	condicionando	pap-003373	gerund	no	draft		AB2018	15		
+vfm-00367	conduci	pap-003381	conduciendo	pap-003382	gerund	no	draft		AB2018	15		
+vfm-00368	conecta	pap-003386	conectando	pap-003387	gerund	no	draft		AB2018	15		
+vfm-00369	confesa	pap-003393	confesando	pap-003394	gerund	no	draft		AB2018	15		
+vfm-00370	confia	pap-003399	confiando	pap-003402	gerund	no	draft		AB2018	16		
+vfm-00371	confirma	pap-003407	confirmando	pap-003409	gerund	no	draft		AB2018	16		
+vfm-00372	confisca	pap-003411	confiscando	pap-003414	gerund	no	draft		AB2018	16		
+vfm-00373	conforma	pap-003418	conformando	pap-003419	gerund	no	draft		AB2018	16		
+vfm-00374	confronta	pap-003426	confrontando	pap-003428	gerund	no	draft		AB2018	16		
+vfm-00375	confundi	pap-003429	confundiendo	pap-003430	gerund	no	draft		AB2018	16		
+vfm-00376	conhuga	pap-003441	conhugando	pap-003443	gerund	no	draft		AB2018	16		
+vfm-00377	conkista	pap-003448	conkistando	pap-003451	gerund	no	draft		AB2018	16		
+vfm-00378	conmemora	pap-003452	conmemorando	pap-003454	gerund	no	draft		AB2018	16		
+vfm-00379	conmove	pap-003457	conmoviendo	pap-003460	gerund	no	draft		AB2018	16		
+vfm-00380	conmove	pap-003457	conmovi	pap-003459	participle	no	draft		AB2018	16		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00381	conoce	pap-003461	conociendo	pap-003465	gerund	no	draft		AB2018	16		
+vfm-00382	conoce	pap-003461	conoci	pap-003464	participle	no	draft		AB2018	16		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00383	conopa	pap-003468	conopando	pap-003470	gerund	no	draft		AB2018	16		
+vfm-00384	consagra	pap-003475	consagrando	pap-003478	gerund	no	draft		AB2018	16		
+vfm-00385	conscientisa	pap-003482	conscientisando	pap-003484	gerund	no	draft		AB2018	16		
+vfm-00386	conseha	pap-003490	consehando	pap-003492	gerund	no	draft		AB2018	16		
+vfm-00387	consenti	pap-003498	consentiendo	pap-003499	gerund	no	draft		AB2018	16		
+vfm-00388	conserva	pap-003502	conservando	pap-003506	gerund	no	draft		AB2018	16		
+vfm-00389	considera	pap-003510	considerando	pap-003514	gerund	no	draft		AB2018	16		
+vfm-00390	consisti	pap-003517	consistiendo	pap-003518	gerund	no	draft		AB2018	16		
+vfm-00391	consola	pap-003519	consolando	pap-003521	gerund	no	draft		AB2018	16		
+vfm-00392	consolida	pap-003522	consolidando	pap-003524	gerund	no	draft		AB2018	16		
+vfm-00393	conspira	pap-003526	conspirando	pap-003529	gerund	no	draft		AB2018	16		
+vfm-00394	constata	pap-003532	constatando	pap-003533	gerund	no	draft		AB2018	16		
+vfm-00395	constitui	pap-003540	constituyendo	pap-003541	gerund	no	draft		AB2018	16		
+vfm-00396	construi	pap-003546	construyendo	pap-003547	gerund	no	draft		AB2018	16		
+vfm-00397	construi	pap-003546	construyendo	pap-003547	gerund	no	draft		MOR2010	48	6.6.2.1	Nota: the i of iendo becomes y between two vowels. The page does not print the infinitive; construi is the AB 2018 headword.
+vfm-00398	consulta	pap-003552	consultando	pap-003553	gerund	no	draft		AB2018	16		
+vfm-00399	consumi	pap-003556	consumiendo	pap-003559	gerund	no	draft		AB2018	16		
+vfm-00400	conta	pap-003561	contando	pap-003577	gerund	no	draft		AB2018	16		
+vfm-00401	contagia	pap-003567	contagiando	pap-003568	gerund	no	draft		AB2018	16		
+vfm-00402	contamina	pap-003573	contaminando	pap-003576	gerund	no	draft		AB2018	16		
+vfm-00403	contempla	pap-003578	contemplando	pap-003580	gerund	no	draft		AB2018	16		
+vfm-00404	contene	pap-003583	conteniendo	pap-003585	gerund	no	draft		AB2018	16		
+vfm-00405	contesta	pap-003589	contestando	pap-003592	gerund	no	draft		AB2018	16		
+vfm-00406	contextualisa	pap-003594	contextualisando	pap-003596	gerund	no	draft		AB2018	16		
+vfm-00407	continua	pap-003600	continuando	pap-003603	gerund	no	draft		AB2018	16		
+vfm-00408	contraataca	pap-003607	contraatacando	pap-003608	gerund	no	draft		AB2018	16		
+vfm-00409	contradeci	pap-003617	contradiciendo	pap-003619	gerund		draft		AB2018	16		The stem vowel changes (e → i), which §6.6.2.1 does not cover.
+vfm-00410	contrae	pap-003621	contrayendo	pap-003640	gerund	no	draft		AB2018	17		
+vfm-00411	contrae	pap-003621	contrai	pap-003622	participle	no	draft		AB2018	16		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00412	contraresta	pap-003625	contrarestando	pap-003626	gerund	no	draft		AB2018	16		
+vfm-00413	contrasta	pap-003633	contrastando	pap-003634	gerund	no	draft		AB2018	17		
+vfm-00414	contrata	pap-003636	contratando	pap-003637	gerund	no	draft		AB2018	17		
+vfm-00415	contribui	pap-003642	contribuyendo	pap-003643	gerund	no	draft		AB2018	17		
+vfm-00416	contribui	pap-003642	contribuyendo	pap-003643	gerund	no	draft		MOR2010	48	6.6.2.1	Nota: the i of iendo becomes y between two vowels. The page does not print the infinitive; contribui is the AB 2018 headword.
+vfm-00417	controla	pap-003648	controlando	pap-003652	gerund	no	draft		AB2018	17		
+vfm-00418	convence	pap-003655	convenciendo	pap-003657	gerund	no	draft		AB2018	17		
+vfm-00419	convence	pap-003655	convenci	pap-003656	participle	no	draft		AB2018	17		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00420	converti	pap-003666	convertiendo	pap-003667	gerund	no	draft		AB2018	17		
+vfm-00421	convoca	pap-003670	convocando	pap-003672	gerund	no	draft		AB2018	17		
+vfm-00422	coopera	pap-003674	cooperando	pap-003677	gerund	no	draft		AB2018	17		
+vfm-00423	coordina	pap-003681	coordinando	pap-003685	gerund	no	draft		AB2018	17		
+vfm-00424	copia	pap-003688	copiando	pap-003691	gerund	no	draft		AB2018	17		
+vfm-00425	copula	pap-003695	copulando	pap-003697	gerund	no	draft		AB2018	17		
+vfm-00426	corda	pap-003707	cordando	pap-003708	gerund	no	draft		AB2018	17		
+vfm-00427	core	pap-003713	coriendo	pap-003737	gerund	no	draft		AB2018	17		
+vfm-00428	core	pap-003713	coriendo	pap-003737	gerund	no	draft		MOR2010	48	6.6.2.3	Example 2: Meneer, bo ta coriendo auto mucho duro! The page does not print the infinitive; core is the AB 2018 headword.
+vfm-00429	core	pap-003713	cori	pap-003736	participle	no	draft		AB2018	17		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00430	coregi	pap-003719	coregiendo	pap-003721	gerund	no	draft		AB2018	17		The list prints coregiendo [corigiendo].
+vfm-00431	coresponde	pap-003729	corespondiendo	pap-003732	gerund	no	draft		AB2018	17		
+vfm-00432	coresponde	pap-003729	corespondi	pap-003731	participle	no	draft		AB2018	17		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00433	corigi	pap-003739	corigiendo	pap-003741	gerund	no	draft		AB2018	17		The list prints corigiendo [coregiendo].
+vfm-00434	corona	pap-003749	coronando	pap-003752	gerund	no	draft		AB2018	17		
+vfm-00435	corta	pap-003762	cortando	pap-003765	gerund	no	draft		AB2018	17		
+vfm-00436	corta	pap-003762	corta	pap-003762	participle	no	draft		MOR2010	50	6.6.3.3	Used as a noun: No duna mi e pan hente, duna mi esun corta.
+vfm-00437	corumpi	pap-003772	corumpiendo	pap-003773	gerund	no	draft		AB2018	17		
+vfm-00438	cose	pap-003778	cosiendo	pap-003785	gerund	no	draft		AB2018	17		
+vfm-00439	cose	pap-003778	cosi	pap-003784	participle	no	draft		AB2018	17		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00440	cosecha	pap-003779	cosechando	pap-003780	gerund	no	draft		AB2018	17		
+vfm-00441	costa	pap-003796	costando	pap-003798	gerund	no	draft		AB2018	17		
+vfm-00442	crea	pap-003823	creando	pap-003829	gerund	no	draft		AB2018	17		
+vfm-00443	crece	pap-003832	creciendo	pap-003834	gerund	no	draft		AB2018	17		
+vfm-00444	crem	pap-003846	gecrem	pap-006717	participle	no	draft		AB2018	30		The list prints gecrem [gekrimp]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00445	crema	pap-003847	cremando	pap-003849	gerund	no	draft		AB2018	17		
+vfm-00446	cremencha	pap-003851	cremenchando	pap-003852	gerund	no	draft		AB2018	17		
+vfm-00447	cria	pap-003859	criando	pap-003862	gerund	no	draft		AB2018	18		
+vfm-00448	cristalisa	pap-003878	cristalisando	pap-003881	gerund	no	draft		AB2018	18		
+vfm-00449	cristianisa	pap-003884	cristianisando	pap-003886	gerund	no	draft		AB2018	18		
+vfm-00450	critica	pap-003890	criticando	pap-003893	gerund	no	draft		AB2018	18		
+vfm-00451	crucifica	pap-003904	crucificando	pap-003907	gerund	no	draft		AB2018	18		
+vfm-00452	crusa	pap-003914	crusando	pap-003917	gerund	no	draft		AB2018	18		
+vfm-00453	cuadra	pap-003925	cuadrando	pap-003926	gerund	no	draft		AB2018	18		
+vfm-00454	cuaha	pap-003933	cuahando	pap-003934	gerund	no	draft		AB2018	18		
+vfm-00455	cualifica	pap-003937	cualificando	pap-003939	gerund	no	draft		AB2018	18		
+vfm-00456	cuantifica	pap-003947	cuantificando	pap-003949	gerund	no	draft		AB2018	18		
+vfm-00457	cubri	pap-003978	cubriendo	pap-003979	gerund	no	draft		AB2018	18		
+vfm-00458	cuestiona	pap-003999	cuestionando	pap-004002	gerund	no	draft		AB2018	18		
+vfm-00459	cuida	pap-004005	cuidando	pap-004010	gerund	no	draft		AB2018	18		
+vfm-00460	culmina	pap-004017	culminando	pap-004019	gerund	no	draft		AB2018	18		
+vfm-00461	culpa	pap-004021	culpando	pap-004024	gerund	no	draft		AB2018	18		
+vfm-00462	cultiva	pap-004025	cultivando	pap-004027	gerund	no	draft		AB2018	18		
+vfm-00463	cumbini	pap-004034	cumbiniendo	pap-004035	gerund	no	draft		AB2018	18		
+vfm-00464	cuminda	pap-004038	cumindando	pap-004040	gerund	no	draft		AB2018	18		
+vfm-00465	cuminsa	pap-004041	cuminsando	pap-004043	gerund	no	draft		AB2018	18		The list prints cuminsando [cunsando].
+vfm-00466	cumpli	pap-004048	cumpliendo	pap-004050	gerund	no	draft		AB2018	18		
+vfm-00467	cumpra	pap-004052	cumprando	pap-004055	gerund	no	draft		AB2018	18		
+vfm-00468	cunsa	pap-004057	cunsando	pap-004060	gerund	no	draft		AB2018	18		The list prints cunsando [cuminsando].
+vfm-00469	cunsumi	pap-004061	cunsumiendo	pap-004062	gerund	no	draft		AB2018	18		
+vfm-00470	cura	pap-004069	curando	pap-004076	gerund	no	draft		AB2018	18		
+vfm-00471	curasha	pap-004077	curashando	pap-004078	gerund	no	draft		AB2018	18		
+vfm-00472	cursiva	pap-004092	cursivando	pap-004093	gerund	no	draft		AB2018	19		
+vfm-00473	curti	pap-004096	curtiendo	pap-004098	gerund	no	draft		AB2018	19		
+vfm-00474	cushi	pap-004103	cushiendo	pap-004104	gerund	no	draft		AB2018	19		
+vfm-00475	cushina	pap-004106	cushinando	pap-004108	gerund	no	draft		AB2018	19		The list prints cushinando [cushnando].
+vfm-00476	cushina	pap-004106	cushina	pap-004106	participle	no	draft		MOR2010	50	6.7	Passive example 3: E cuminda lo wordo cushina door di Tecla. Spelled like the infinitive.
+vfm-00477	cushna	pap-004109	cushnando	pap-004111	gerund	no	draft		AB2018	19		The list prints cushnando [cushinando].
+vfm-00478	custuma	pap-004114	custumando	pap-004115	gerund	no	draft		AB2018	19		The list prints custumando [custumbrando].
+vfm-00479	custumbra	pap-004117	custumbrando	pap-004118	gerund	no	draft		AB2018	19		The list prints custumbrando [custumando].
+vfm-00480	dal	pap-004130	gedal	pap-006718	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00481	dal	pap-004130	gedal	pap-006718	participle	no	draft		MOR2010	49	6.6.3.1	Rule 5 (verbs from languages other than Spanish and/or ending in a consonant): ge- + the infinitive. Example: E auto a keda mal gedal. Also §3.3.1.3 Nota 3 (p. 19): E auto gedal ta na benta.
+vfm-00482	daña	pap-004153	dañando	pap-004155	gerund	no	draft		AB2018	19		
+vfm-00483	debate	pap-004161	debatiendo	pap-004163	gerund	no	draft		AB2018	19		
+vfm-00484	debate	pap-004161	debati	pap-004162	participle	no	draft		AB2018	19		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00485	debe	pap-004164	debiendo	pap-004171	gerund	no	draft		AB2018	19		
+vfm-00486	debe	pap-004164	debi	pap-004168	participle	no	draft		AB2018	19		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00487	debilita	pap-004174	debilitando	pap-004176	gerund	no	draft		AB2018	19		
+vfm-00488	debolbe	pap-004177	debolbiendo	pap-004179	gerund	no	draft		AB2018	19		
+vfm-00489	debolbe	pap-004177	debolbi	pap-004178	participle	no	draft		AB2018	19		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00490	debuta	pap-004182	debutando	pap-004183	gerund	no	draft		AB2018	19		
+vfm-00491	decai	pap-004190	decayendo	pap-004196	gerund	no	draft		AB2018	19		
+vfm-00492	decepciona	pap-004204	decepcionando	pap-004205	gerund	no	draft		AB2018	19		
+vfm-00493	declama	pap-004217	declamando	pap-004220	gerund	no	draft		AB2018	19		
+vfm-00494	declara	pap-004221	declarando	pap-004223	gerund	no	draft		AB2018	19		
+vfm-00495	decolonisa	pap-004228	decolonisando	pap-004230	gerund	no	draft		AB2018	19		
+vfm-00496	decora	pap-004232	decorando	pap-004236	gerund	no	draft		AB2018	19		
+vfm-00497	decreta	pap-004239	decretando	pap-004240	gerund	no	draft		AB2018	19		
+vfm-00498	dedica	pap-004243	dedicando	pap-004245	gerund	no	draft		AB2018	19		
+vfm-00499	deduci	pap-004248	deduciendo	pap-004250	gerund	no	draft		AB2018	19		
+vfm-00500	defende	pap-004253	defendiendo	pap-004256	gerund	no	draft		AB2018	19		
+vfm-00501	defende	pap-004253	defendi	pap-004254	participle	no	draft		AB2018	19		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00502	defende	pap-004253	defendi	pap-004254	participle	no	draft		MOR2010	49	6.6.3.1	From the Nota to rule 4: defende en bes di defendi. The book recommends defendi.
+vfm-00503	defini	pap-004263	definiendo	pap-004266	gerund	no	draft		AB2018	19		
+vfm-00504	deforma	pap-004269	deformando	pap-004271	gerund	no	draft		AB2018	19		
+vfm-00505	degenera	pap-004279	degenerando	pap-004281	gerund	no	draft		AB2018	19		
+vfm-00506	degrada	pap-004282	degradando	pap-004284	gerund	no	draft		AB2018	19		
+vfm-00507	dek	pap-004291	gedek	pap-006719	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00508	delega	pap-004302	delegando	pap-004305	gerund	no	draft		AB2018	19		
+vfm-00509	deleita	pap-004306	deleitando	pap-004307	gerund	no	draft		AB2018	19		
+vfm-00510	delibera	pap-004309	deliberando	pap-004312	gerund	no	draft		AB2018	20		
+vfm-00511	demanda	pap-004329	demandando	pap-004330	gerund	no	draft		AB2018	20		
+vfm-00512	democratisa	pap-004340	democratisando	pap-004342	gerund	no	draft		AB2018	20		
+vfm-00513	demoralisa	pap-004346	demoralisando	pap-004348	gerund	no	draft		AB2018	20		
+vfm-00514	demostra	pap-004349	demostrando	pap-004351	gerund	no	draft		AB2018	20		
+vfm-00515	demotiva	pap-004354	demotivando	pap-004356	gerund	no	draft		AB2018	20		
+vfm-00516	dempel	pap-004359	gedempel	pap-006720	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00517	denomina	pap-004364	denominando	pap-004367	gerund	no	draft		AB2018	20		
+vfm-00518	denuncia	pap-004373	denunciando	pap-004374	gerund	no	draft		AB2018	20		
+vfm-00519	depende	pap-004379	dependiendo	pap-004381	gerund	no	draft		AB2018	20		
+vfm-00520	depila	pap-004383	depilando	pap-004385	gerund	no	draft		AB2018	20		
+vfm-00521	deplora	pap-004386	deplorando	pap-004388	gerund	no	draft		AB2018	20		
+vfm-00522	depolitisa	pap-004389	depolitisando	pap-004390	gerund	no	draft		AB2018	20		
+vfm-00523	depone	pap-004391	deponiendo	pap-004393	gerund	no	draft		AB2018	20		
+vfm-00524	depone	pap-004391	deponi	pap-004392	participle	no	draft		AB2018	20		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00525	deporta	pap-004394	deportando	pap-004396	gerund	no	draft		AB2018	20		
+vfm-00526	deposita	pap-004400	depositando	pap-004402	gerund	no	draft		AB2018	20		
+vfm-00527	deprimi	pap-004407	deprimiendo	pap-004408	gerund	no	draft		AB2018	20		
+vfm-00528	dera	pap-004409	derando	pap-004412	gerund	no	draft		AB2018	20		
+vfm-00529	deregula	pap-004415	deregulando	pap-004417	gerund	no	draft		AB2018	20		
+vfm-00530	deriva	pap-004418	derivando	pap-004421	gerund	no	draft		AB2018	20		
+vfm-00531	derota	pap-004429	derotando	pap-004430	gerund	no	draft		AB2018	20		
+vfm-00532	desacredita	pap-004432	desacreditando	pap-004433	gerund	no	draft		AB2018	20		
+vfm-00533	desafia	pap-004435	desafiando	pap-004436	gerund	no	draft		AB2018	20		
+vfm-00534	desahoga	pap-004441	desahogando	pap-004442	gerund	no	draft		AB2018	20		
+vfm-00535	desanima	pap-004444	desanimando	pap-004446	gerund	no	draft		AB2018	20		
+vfm-00536	desaproba	pap-004449	desaprobando	pap-004451	gerund	no	draft		AB2018	20		
+vfm-00537	desarma	pap-004455	desarmando	pap-004458	gerund	no	draft		AB2018	20		
+vfm-00538	desaroya	pap-004459	desaroyando	pap-004461	gerund	no	draft		AB2018	20		
+vfm-00539	desayuna	pap-004466	desayunando	pap-004467	gerund	no	draft		AB2018	20		
+vfm-00540	desbalansa	pap-004469	desbalansando	pap-004470	gerund	no	draft		AB2018	20		
+vfm-00541	desbalorisa	pap-004472	desbalorisando	pap-004474	gerund	no	draft		AB2018	20		
+vfm-00542	desbarata	pap-004475	desbaratando	pap-004476	gerund	no	draft		AB2018	20		
+vfm-00543	descansa	pap-004480	descansando	pap-004481	gerund	no	draft		AB2018	20		
+vfm-00544	descarga	pap-004483	descargando	pap-004485	gerund	no	draft		AB2018	20		
+vfm-00545	descarta	pap-004486	descartando	pap-004487	gerund	no	draft		AB2018	20		
+vfm-00546	descende	pap-004488	descendiendo	pap-004490	gerund	no	draft		AB2018	20		
+vfm-00547	descentralisa	pap-004492	descentralisando	pap-004494	gerund	no	draft		AB2018	20		
+vfm-00548	descifra	pap-004495	descifrando	pap-004497	gerund	no	draft		AB2018	20		
+vfm-00549	desconecta	pap-004498	desconectando	pap-004499	gerund	no	draft		AB2018	20		
+vfm-00550	desconfia	pap-004501	desconfiando	pap-004502	gerund	no	draft		AB2018	20		
+vfm-00551	desconseha	pap-004506	desconsehando	pap-004507	gerund	no	draft		AB2018	20		
+vfm-00552	desconta	pap-004509	descontando	pap-004512	gerund	no	draft		AB2018	20		
+vfm-00553	describi	pap-004515	describiendo	pap-004516	gerund	no	draft		AB2018	20		
+vfm-00554	descualifica	pap-004519	descualificando	pap-004521	gerund	no	draft		AB2018	20		
+vfm-00555	descubri	pap-004522	descubriendo	pap-004524	gerund	no	draft		AB2018	20		
+vfm-00556	descuida	pap-004527	descuidando	pap-004528	gerund	no	draft		AB2018	20		
+vfm-00557	descurasha	pap-004532	descurashando	pap-004533	gerund	no	draft		AB2018	20		
+vfm-00558	descustuma	pap-004534	descustumando	pap-004535	gerund	no	draft		AB2018	21		The list prints descustumando [descustumbrando].
+vfm-00559	descustumbra	pap-004536	descustumbrando	pap-004537	gerund	no	draft		AB2018	21		The list prints descustumbrando [descustumando].
+vfm-00560	desea	pap-004539	deseando	pap-004541	gerund	no	draft		AB2018	21		
+vfm-00561	desekilibra	pap-004542	desekilibrando	pap-004543	gerund	no	draft		AB2018	21		
+vfm-00562	desembarca	pap-004545	desembarcando	pap-004547	gerund	no	draft		AB2018	21		
+vfm-00563	desemboca	pap-004548	desembocando	pap-004549	gerund	no	draft		AB2018	21		
+vfm-00564	desempaketa	pap-004550	desempaketando	pap-004551	gerund	no	draft		AB2018	21		
+vfm-00565	desenmascara	pap-004558	desenmascarando	pap-004559	gerund	no	draft		AB2018	21		
+vfm-00566	deserta	pap-004561	desertando	pap-004563	gerund	no	draft		AB2018	21		
+vfm-00567	desfaborece	pap-004569	desfaboreciendo	pap-004570	gerund	no	draft		AB2018	21		
+vfm-00568	desfigura	pap-004571	desfigurando	pap-004573	gerund	no	draft		AB2018	21		
+vfm-00569	desfila	pap-004574	desfilando	pap-004575	gerund	no	draft		AB2018	21		
+vfm-00570	desgaba	pap-004579	desgabando	pap-004580	gerund	no	draft		AB2018	21		
+vfm-00571	desgracia	pap-004582	desgraciando	pap-004585	gerund	no	draft		AB2018	21		
+vfm-00572	deshaci	pap-004586	deshaciendo	pap-004587	gerund	no	draft		AB2018	21		
+vfm-00573	desilusiona	pap-004595	desilusionando	pap-004596	gerund	no	draft		AB2018	21		
+vfm-00574	desinfecta	pap-004598	desinfectando	pap-004599	gerund	no	draft		AB2018	21		
+vfm-00575	desintegra	pap-004601	desintegrando	pap-004603	gerund	no	draft		AB2018	21		
+vfm-00576	desmantela	pap-004607	desmantelando	pap-004609	gerund	no	draft		AB2018	21		
+vfm-00577	desmenti	pap-004612	desmintiendo	pap-004613	gerund		draft		AB2018	21		The stem vowel changes (e → i), which §6.6.2.1 does not cover.
+vfm-00578	desmobilisa	pap-004614	desmobilisando	pap-004616	gerund	no	draft		AB2018	21		
+vfm-00579	desobedece	pap-004617	desobedeciendo	pap-004619	gerund	no	draft		AB2018	21		
+vfm-00580	desordena	pap-004626	desordenando	pap-004627	gerund	no	draft		AB2018	21		
+vfm-00581	despacha	pap-004633	despachando	pap-004635	gerund	no	draft		AB2018	21		
+vfm-00582	despedi	pap-004637	despidiendo	pap-004641	gerund		draft		AB2018	21		The stem vowel changes (e → i), which §6.6.2.1 does not cover.
+vfm-00583	despista	pap-004642	despistando	pap-004644	gerund	no	draft		AB2018	21		
+vfm-00584	desplega	pap-004645	desplegando	pap-004646	gerund	no	draft		AB2018	21		
+vfm-00585	despobla	pap-004647	despoblando	pap-004648	gerund	no	draft		AB2018	21		
+vfm-00586	desprecia	pap-004652	despreciando	pap-004655	gerund	no	draft		AB2018	21		
+vfm-00587	despropia	pap-004657	despropiando	pap-004659	gerund	no	draft		AB2018	21		
+vfm-00588	destabilisa	pap-004665	destabilisando	pap-004667	gerund	no	draft		AB2018	21		
+vfm-00589	destaca	pap-004668	destacando	pap-004669	gerund	no	draft		AB2018	21		
+vfm-00590	destera	pap-004671	desterando	pap-004673	gerund	no	draft		AB2018	21		
+vfm-00591	destila	pap-004675	destilando	pap-004678	gerund	no	draft		AB2018	21		
+vfm-00592	destrosa	pap-004683	destrosando	pap-004684	gerund	no	draft		AB2018	21		
+vfm-00593	destrui	pap-004689	destruyendo	pap-004691	gerund	no	draft		AB2018	21		
+vfm-00594	destrui	pap-004689	destruyendo	pap-004691	gerund	no	draft		MOR2010	48	6.6.2.1	Nota: the i of iendo becomes y between two vowels. The page does not print the infinitive; destrui is the AB 2018 headword.
+vfm-00595	desvela	pap-004693	desvelando	pap-004696	gerund	no	draft		AB2018	21		The list prints desvelando [develando].
+vfm-00596	desvia	pap-004697	desviando	pap-004699	gerund	no	draft		AB2018	21		
+vfm-00597	detecta	pap-004706	detectando	pap-004708	gerund	no	draft		AB2018	21		
+vfm-00598	detene	pap-004712	deteniendo	pap-004715	gerund	no	draft		AB2018	21		
+vfm-00599	detene	pap-004712	deteni	pap-004713	participle	no	draft		AB2018	21		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00600	deteriora	pap-004717	deteriorando	pap-004719	gerund	no	draft		AB2018	21		
+vfm-00601	determina	pap-004720	determinando	pap-004723	gerund	no	draft		AB2018	21		
+vfm-00602	detesta	pap-004725	detestando	pap-004727	gerund	no	draft		AB2018	21		
+vfm-00603	devalua	pap-004729	devaluando	pap-004731	gerund	no	draft		AB2018	21		
+vfm-00604	devela	pap-004732	develando	pap-004735	gerund	no	draft		AB2018	21		The list prints develando [desvelando].
+vfm-00605	dialisa	pap-004767	dialisando	pap-004769	gerund	no	draft		AB2018	22		
+vfm-00606	dialoga	pap-004772	dialogando	pap-004773	gerund	no	draft		AB2018	22		
+vfm-00607	diberti	pap-004787	dibertiendo	pap-004790	gerund	no	draft		AB2018	22		
+vfm-00608	dicidi	pap-004796	dicidiendo	pap-004798	gerund	no	draft		AB2018	22		
+vfm-00609	dicta	pap-004800	dictando	pap-004805	gerund	no	draft		AB2018	22		
+vfm-00610	difama	pap-004827	difamando	pap-004830	gerund	no	draft		AB2018	22		
+vfm-00611	diferencia	pap-004832	diferenciando	pap-004834	gerund	no	draft		AB2018	22		
+vfm-00612	dificulta	pap-004838	dificultando	pap-004840	gerund	no	draft		AB2018	22		
+vfm-00613	digeri	pap-004843	digeriendo	pap-004844	gerund	no	draft		AB2018	22		
+vfm-00614	digitalisa	pap-004848	digitalisando	pap-004850	gerund	no	draft		AB2018	22		
+vfm-00615	dirigi	pap-004901	dirigiendo	pap-004903	gerund	no	draft		AB2018	22		
+vfm-00616	dirti	pap-004906	dirtiendo	pap-004907	gerund	no	draft		AB2018	22		
+vfm-00617	discrimina	pap-004920	discriminando	pap-004922	gerund	no	draft		AB2018	22		
+vfm-00618	disculpa	pap-004924	disculpando	pap-004925	gerund	no	draft		AB2018	22		
+vfm-00619	discuti	pap-004928	discutiendo	pap-004930	gerund	no	draft		AB2018	22		
+vfm-00620	discuti	pap-004928	discuti	pap-004928	participle	no	draft		MOR2010	49	6.6.3.1	Rule 3: [dis-cu-tí]. Example: E asunto a wordo discuti te na final.
+vfm-00621	diseña	pap-004933	diseñando	pap-004935	gerund	no	draft		AB2018	22		
+vfm-00622	disfrasa	pap-004937	disfrasando	pap-004938	gerund	no	draft		AB2018	22		
+vfm-00623	disfruta	pap-004940	disfrutando	pap-004941	gerund	no	draft		AB2018	22		
+vfm-00624	disgusta	pap-004942	disgustando	pap-004943	gerund	no	draft		AB2018	22		
+vfm-00625	disimula	pap-004946	disimulando	pap-004948	gerund	no	draft		AB2018	22		
+vfm-00626	disminui	pap-004953	disminuyendo	pap-004954	gerund	no	draft		AB2018	22		
+vfm-00627	disolve	pap-004956	disolviendo	pap-004958	gerund	no	draft		AB2018	22		
+vfm-00628	disolve	pap-004956	disolvi	pap-004957	participle	no	draft		AB2018	22		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00629	disparce	pap-004960	disparciendo	pap-004961	gerund	no	draft		AB2018	22		
+vfm-00630	dispensa	pap-004962	dispensando	pap-004965	gerund	no	draft		AB2018	22		
+vfm-00631	dispidi	pap-004966	dispidiendo	pap-004968	gerund	no	draft		AB2018	22		The list prints dispidiendo [drispidiendo].
+vfm-00632	distancia	pap-004976	distanciando	pap-004977	gerund	no	draft		AB2018	22		
+vfm-00633	distingui	pap-004979	distinguiendo	pap-004981	gerund	no	draft		AB2018	22		
+vfm-00634	distrae	pap-004985	distrayendo	pap-004988	gerund	no	draft		AB2018	23		
+vfm-00635	distrae	pap-004985	distrai	pap-004986	participle	no	draft		AB2018	23		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00636	distribui	pap-004989	distribuyendo	pap-004993	gerund	no	draft		AB2018	23		
+vfm-00637	diversifica	pap-004997	diversificando	pap-004999	gerund	no	draft		AB2018	23		
+vfm-00638	dividi	pap-005003	dividiendo	pap-005005	gerund	no	draft		AB2018	23		
+vfm-00639	divorcia	pap-005010	divorciando	pap-005011	gerund	no	draft		AB2018	23		
+vfm-00640	divulga	pap-005013	divulgando	pap-005015	gerund	no	draft		AB2018	23		
+vfm-00641	djadja	pap-005017	djadjando	pap-005019	gerund	no	draft		AB2018	23		
+vfm-00642	dobla	pap-005037	doblando	pap-005040	gerund	no	draft		AB2018	23		
+vfm-00643	documenta	pap-005050	documentando	pap-005054	gerund	no	draft		AB2018	23		
+vfm-00644	domina	pap-005074	dominando	pap-005076	gerund	no	draft		AB2018	23		
+vfm-00645	dop	pap-005092	gedop	pap-006721	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00646	dorna	pap-005100	dornando	pap-005103	gerund	no	draft		AB2018	23		
+vfm-00647	dosifica	pap-005108	dosificando	pap-005110	gerund	no	draft		AB2018	23		
+vfm-00648	draai	pap-005124	gedraai	pap-006722	participle	no	draft		AB2018	30		The list prints gedraai [gedrey]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00649	draga	pap-005133	dragando	pap-005135	gerund	no	draft		AB2018	23		
+vfm-00650	drama	pap-005139	dramando	pap-005141	gerund	no	draft		AB2018	23		
+vfm-00651	dramatisa	pap-005144	dramatisando	pap-005146	gerund	no	draft		AB2018	23		
+vfm-00652	drecha	pap-005150	drechando	pap-005154	gerund	no	draft		AB2018	23		The list prints drechando [dresando].
+vfm-00653	dren	pap-005158	drenando	pap-005160	gerund		draft		AB2018	23		The verb ends in a consonant; §6.6.2.1 covers verbs ending in a vowel.
+vfm-00654	drenta	pap-005162	drentando	pap-005165	gerund	no	draft		AB2018	23		
+vfm-00655	dresa	pap-005167	dresando	pap-005169	gerund	no	draft		AB2018	23		The list prints dresando [drechando].
+vfm-00656	drey	pap-005171	gedrey	pap-006723	participle	no	draft		AB2018	30		The list prints gedrey [gedraai]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00657	drispidi	pap-005182	drispidiendo	pap-005184	gerund	no	draft		AB2018	23		The list prints drispidiendo [dispidiendo].
+vfm-00658	droga	pap-005188	drogando	pap-005192	gerund	no	draft		AB2018	23		
+vfm-00659	druk	pap-005201	gedruk	pap-006724	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00660	drumi	pap-005207	drumiendo	pap-005208	gerund	yes	draft		AB2018	23		An Aruban irregular gerund in _meta/invariants.md. Morfologia §6.6.2.2 (p. 48) prints durmiendo instead; the maintainer ruled for drumiendo (err-0009).
+vfm-00661	duda	pap-005219	dudando	pap-005220	gerund	no	draft		AB2018	24		
+vfm-00662	duna	pap-005236	dunando	pap-005239	gerund	no	draft		AB2018	24		
+vfm-00663	duplica	pap-005241	duplicando	pap-005244	gerund	no	draft		AB2018	24		
+vfm-00664	dura	pap-005245	durando	pap-005250	gerund	no	draft		AB2018	24		
+vfm-00665	echa	pap-005265	echando	pap-005268	gerund	no	draft		AB2018	24		The list prints echa (expr.) and echando (expr.).
+vfm-00666	economisa	pap-005279	economisando	pap-005281	gerund	no	draft		AB2018	24		
+vfm-00667	edita	pap-005289	editando	pap-005291	gerund	no	draft		AB2018	24		
+vfm-00668	educa	pap-005294	educando	pap-005300	gerund	no	draft		AB2018	24		
+vfm-00669	efectua	pap-005307	efectuando	pap-005309	gerund	no	draft		AB2018	24		
+vfm-00670	ehecuta	pap-005323	ehecutando	pap-005325	gerund	no	draft		AB2018	24		
+vfm-00671	eherce	pap-005331	eherciendo	pap-005334	gerund	no	draft		AB2018	24		
+vfm-00672	ekilibra	pap-005341	ekilibrando	pap-005342	gerund	no	draft		AB2018	24		
+vfm-00673	elabora	pap-005350	elaborando	pap-005353	gerund	no	draft		AB2018	24		
+vfm-00674	electrocuta	pap-005369	electrocutando	pap-005370	gerund	no	draft		AB2018	24		
+vfm-00675	eleva	pap-005392	elevando	pap-005394	gerund	no	draft		AB2018	24		
+vfm-00676	eligi	pap-005396	eligiendo	pap-005399	gerund	no	draft		AB2018	24		
+vfm-00677	elimina	pap-005401	eliminando	pap-005403	gerund	no	draft		AB2018	24		
+vfm-00678	elogia	pap-005413	elogiando	pap-005415	gerund	no	draft		AB2018	24		
+vfm-00679	emancipa	pap-005417	emancipando	pap-005419	gerund	no	draft		AB2018	24		
+vfm-00680	embeyece	pap-005427	embeyeciendo	pap-005429	gerund	no	draft		AB2018	24		
+vfm-00681	emboteya	pap-005431	emboteyando	pap-005434	gerund	no	draft		AB2018	24		
+vfm-00682	emigra	pap-005440	emigrando	pap-005442	gerund	no	draft		AB2018	24		
+vfm-00683	emiti	pap-005449	emitiendo	pap-005450	gerund	no	draft		AB2018	25		
+vfm-00684	emociona	pap-005452	emocionando	pap-005455	gerund	no	draft		AB2018	25		
+vfm-00685	empata	pap-005458	empatando	pap-005459	gerund	no	draft		AB2018	25		
+vfm-00686	empeora	pap-005461	empeorando	pap-005463	gerund	no	draft		AB2018	25		
+vfm-00687	emplea	pap-005472	empleando	pap-005476	gerund	no	draft		AB2018	25		
+vfm-00688	encabesa	pap-005491	encabesando	pap-005492	gerund	no	draft		AB2018	25		The list prints encabesando [encabezando].
+vfm-00689	encabeza	pap-005493	encabezando	pap-005494	gerund	no	draft		AB2018	25		The list prints encabezando [encabesando].
+vfm-00690	encarcela	pap-005497	encarcelando	pap-005499	gerund	no	draft		AB2018	25		
+vfm-00691	encarga	pap-005500	encargando	pap-005501	gerund	no	draft		AB2018	25		
+vfm-00692	encuaderna	pap-005509	encuadernando	pap-005513	gerund	no	draft		AB2018	25		
+vfm-00693	enfatisa	pap-005530	enfatisando	pap-005531	gerund	no	draft		AB2018	25		
+vfm-00694	enfoca	pap-005536	enfocando	pap-005537	gerund	no	draft		AB2018	25		
+vfm-00695	enfrenta	pap-005539	enfrentando	pap-005541	gerund	no	draft		AB2018	25		
+vfm-00696	engrandece	pap-005545	engrandeciendo	pap-005547	gerund	no	draft		AB2018	25		
+vfm-00697	enrikece	pap-005553	enrikeciendo	pap-005554	gerund	no	draft		AB2018	25		
+vfm-00698	ensaya	pap-005555	ensayando	pap-005556	gerund	no	draft		AB2018	25		
+vfm-00699	entabla	pap-005561	entablando	pap-005562	gerund	no	draft		AB2018	25		
+vfm-00700	entama	pap-005563	entamando	pap-005564	gerund	no	draft		AB2018	25		
+vfm-00701	entrega	pap-005579	entregando	pap-005581	gerund	no	draft		AB2018	25		
+vfm-00702	entremete	pap-005584	entremetiendo	pap-005587	gerund	no	draft		AB2018	25		
+vfm-00703	entremete	pap-005584	entremeti	pap-005585	participle	no	draft		AB2018	25		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00704	entrena	pap-005588	entrenando	pap-005590	gerund	no	draft		AB2018	25		
+vfm-00705	entretene	pap-005593	entreteniendo	pap-005595	gerund	no	draft		AB2018	25		
+vfm-00706	entretene	pap-005593	entreteni	pap-005594	participle	no	draft		AB2018	25		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00707	entrevista	pap-005597	entrevistando	pap-005599	gerund	no	draft		AB2018	25		
+vfm-00708	entusiasma	pap-005602	entusiasmando	pap-005603	gerund	no	draft		AB2018	25		
+vfm-00709	envidia	pap-005607	envidiando	pap-005609	gerund	no	draft		AB2018	25		
+vfm-00710	envolve	pap-005612	envolviendo	pap-005614	gerund	no	draft		AB2018	25		
+vfm-00711	envolve	pap-005612	envolvi	pap-005613	participle	no	draft		AB2018	25		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00712	escala	pap-005655	escalando	pap-005657	gerund	no	draft		AB2018	25		
+vfm-00713	escolta	pap-005666	escoltando	pap-005667	gerund	no	draft		AB2018	25		
+vfm-00714	establece	pap-005700	estableciendo	pap-005702	gerund	no	draft		AB2018	26		
+vfm-00715	establece	pap-005700	estableci	pap-005701	participle	no	draft		AB2018	26		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00716	estrena	pap-005727	estrenando	pap-005728	gerund	no	draft		AB2018	26		
+vfm-00717	evacua	pap-005775	evacuando	pap-005777	gerund	no	draft		AB2018	26		
+vfm-00718	evalua	pap-005778	evaluando	pap-005781	gerund	no	draft		AB2018	26		
+vfm-00719	evangelisa	pap-005784	evangelisando	pap-005786	gerund	no	draft		AB2018	26		
+vfm-00720	evita	pap-005796	evitando	pap-005798	gerund	no	draft		AB2018	26		
+vfm-00721	evoluciona	pap-005800	evolucionando	pap-005801	gerund	no	draft		AB2018	26		
+vfm-00722	exagera	pap-005808	exagerando	pap-005810	gerund	no	draft		AB2018	26		
+vfm-00723	examina	pap-005813	examinando	pap-005816	gerund	no	draft		AB2018	26		
+vfm-00724	excava	pap-005817	excavando	pap-005819	gerund	no	draft		AB2018	26		
+vfm-00725	excita	pap-005829	excitando	pap-005832	gerund	no	draft		AB2018	26		
+vfm-00726	exclui	pap-005834	excluyendo	pap-005839	gerund	no	draft		AB2018	26		
+vfm-00727	exhala	pap-005847	exhalando	pap-005849	gerund	no	draft		AB2018	26		
+vfm-00728	exhibi	pap-005851	exhibiendo	pap-005855	gerund	no	draft		AB2018	26		
+vfm-00729	exigi	pap-005858	exigiendo	pap-005860	gerund	no	draft		AB2018	26		
+vfm-00730	exilia	pap-005861	exiliando	pap-005863	gerund	no	draft		AB2018	26		
+vfm-00731	existi	pap-005870	existiendo	pap-005871	gerund	no	draft		AB2018	26		
+vfm-00732	expande	pap-005882	expandiendo	pap-005883	gerund	no	draft		AB2018	26		
+vfm-00733	experencia	pap-005890	experenciando	pap-005891	gerund	no	draft		AB2018	26		
+vfm-00734	experimenta	pap-005893	experimentando	pap-005895	gerund	no	draft		AB2018	26		
+vfm-00735	explicita	pap-005900	explicitando	pap-005902	gerund	no	draft		AB2018	27		
+vfm-00736	explora	pap-005904	explorando	pap-005907	gerund	no	draft		AB2018	27		
+vfm-00737	explota	pap-005910	explotando	pap-005914	gerund	no	draft		AB2018	27		
+vfm-00738	expone	pap-005915	exponiendo	pap-005918	gerund	no	draft		AB2018	27		
+vfm-00739	expone	pap-005915	exponi	pap-005917	participle	no	draft		AB2018	27		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00740	exporta	pap-005919	exportando	pap-005922	gerund	no	draft		AB2018	27		
+vfm-00741	exporta	pap-005919	exporta	pap-005919	participle	no	draft		MOR2010	48	6.6.3	Example 3: Tur e frutanan a wordo exporta pa Aruba. Spelled like the infinitive.
+vfm-00742	expresa	pap-005925	expresando	pap-005926	gerund	no	draft		AB2018	27		
+vfm-00743	expropia	pap-005931	expropiando	pap-005934	gerund	no	draft		AB2018	27		
+vfm-00744	expulsa	pap-005935	expulsando	pap-005936	gerund	no	draft		AB2018	27		
+vfm-00745	extende	pap-005939	extendiendo	pap-005941	gerund	no	draft		AB2018	27		
+vfm-00746	extende	pap-005939	extendi	pap-005940	participle	no	draft		AB2018	27		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00747	extradita	pap-005952	extraditando	pap-005954	gerund	no	draft		AB2018	27		
+vfm-00748	extrae	pap-005955	extrayendo	pap-005964	gerund	no	draft		AB2018	27		
+vfm-00749	extrae	pap-005955	extrai	pap-005957	participle	no	draft		AB2018	27		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00750	faborece	pap-005985	faboreciendo	pap-005986	gerund	no	draft		AB2018	27		
+vfm-00751	fabrica	pap-005989	fabricando	pap-005992	gerund	no	draft		AB2018	27		
+vfm-00752	facilita	pap-006002	facilitando	pap-006006	gerund	no	draft		AB2018	27		
+vfm-00753	fada	pap-006015	fadando	pap-006016	gerund	no	draft		AB2018	27		
+vfm-00754	faha	pap-006017	fahando	pap-006018	gerund	no	draft		AB2018	27		
+vfm-00755	falsifica	pap-006024	falsificando	pap-006028	gerund	no	draft		AB2018	27		
+vfm-00756	falta	pap-006030	faltando	pap-006031	gerund	no	draft		AB2018	27		
+vfm-00757	familiarisa	pap-006038	familiarisando	pap-006040	gerund	no	draft		AB2018	27		
+vfm-00758	fantasia	pap-006051	fantasiando	pap-006052	gerund	no	draft		AB2018	27		
+vfm-00759	fastidia	pap-006075	fastidiando	pap-006076	gerund	no	draft		AB2018	27		
+vfm-00760	fax	pap-006084	gefax	pap-006726	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00761	faya	pap-006085	fayando	pap-006088	gerund	no	draft		AB2018	27		
+vfm-00762	fayece	pap-006089	fayeciendo	pap-006091	gerund	no	draft		AB2018	27		
+vfm-00763	feila	pap-006105	feilando	pap-006107	gerund	no	draft		AB2018	27		
+vfm-00764	feita	pap-006109	feitando	pap-006111	gerund	no	draft		AB2018	27		
+vfm-00765	feita	pap-006109	feita	pap-006109	participle	no	draft		MOR2010	50	6.6.3.3	Used as a noun: Aworaki mi ta bay barbero pa mi dal un feita.
+vfm-00766	felicita	pap-006113	felicitando	pap-006115	gerund	no	draft		AB2018	27		
+vfm-00767	feneta	pap-006122	fenetando	pap-006123	gerund	no	draft		AB2018	27		
+vfm-00768	ferfela	pap-006133	ferfelando	pap-006135	gerund	no	draft		AB2018	28		
+vfm-00769	fermenta	pap-006138	fermentando	pap-006140	gerund	no	draft		AB2018	28		
+vfm-00770	fertilisa	pap-006148	fertilisando	pap-006150	gerund	no	draft		AB2018	28		
+vfm-00771	fia	pap-006162	fiando	pap-006165	gerund	no	draft		AB2018	28		
+vfm-00772	fiesta	pap-006182	fiestando	pap-006183	gerund	no	draft		AB2018	28		
+vfm-00773	figura	pap-006185	figurando	pap-006186	gerund	no	draft		AB2018	28		
+vfm-00774	fiha	pap-006190	fihando	pap-006192	gerund	no	draft		AB2018	28		
+vfm-00775	file	pap-006197	gefile	pap-006727	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00776	filma	pap-006207	filmando	pap-006209	gerund	no	draft		AB2018	28		
+vfm-00777	filosofia	pap-006215	filosofiando	pap-006216	gerund	no	draft		AB2018	28		
+vfm-00778	filtra	pap-006221	filtrando	pap-006224	gerund	no	draft		AB2018	28		
+vfm-00779	finalisa	pap-006228	finalisando	pap-006230	gerund	no	draft		AB2018	28		
+vfm-00780	financia	pap-006233	financiando	pap-006236	gerund	no	draft		AB2018	28		
+vfm-00781	fingi	pap-006245	fingiendo	pap-006246	gerund	no	draft		AB2018	28		
+vfm-00782	firma	pap-006254	firmando	pap-006256	gerund	no	draft		AB2018	28		
+vfm-00783	fix	pap-006274	gefix	pap-006728	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00784	flama	pap-006278	flamando	pap-006279	gerund	no	draft		AB2018	28		
+vfm-00785	flecha	pap-006297	flechando	pap-006298	gerund	no	draft		AB2018	28		
+vfm-00786	flit	pap-006309	geflit	pap-006729	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00787	floha	pap-006312	flohando	pap-006313	gerund	no	draft		AB2018	28		
+vfm-00788	florece	pap-006325	floreciendo	pap-006327	gerund	no	draft		AB2018	28		
+vfm-00789	floria	pap-006331	floriando	pap-006332	gerund	no	draft		AB2018	28		
+vfm-00790	flota	pap-006334	flotando	pap-006335	gerund	no	draft		AB2018	28		
+vfm-00791	flush	pap-006348	geflush	pap-006730	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00792	fomenta	pap-006364	fomentando	pap-006366	gerund	no	draft		AB2018	29		
+vfm-00793	forma	pap-006387	formando	pap-006399	gerund	no	draft		AB2018	29		
+vfm-00794	formalisa	pap-006393	formalisando	pap-006395	gerund	no	draft		AB2018	29		
+vfm-00795	formula	pap-006403	formulando	pap-006405	gerund	no	draft		AB2018	29		
+vfm-00796	forsa	pap-006409	forsando	pap-006411	gerund	no	draft		AB2018	29		
+vfm-00797	fortalece	pap-006414	fortaleciendo	pap-006416	gerund	no	draft		AB2018	29		
+vfm-00798	fortifica	pap-006420	fortificando	pap-006422	gerund	no	draft		AB2018	29		
+vfm-00799	fotocopia	pap-006430	fotocopiando	pap-006431	gerund	no	draft		AB2018	29		
+vfm-00800	fracasa	pap-006447	fracasando	pap-006448	gerund	no	draft		AB2018	29		
+vfm-00801	fracasa	pap-006447	fracasa	pap-006447	participle	no	draft		MOR2010	48	6.6.3	Example 1: Un amor fracasa ta un amor lubida. Spelled like the infinitive.
+vfm-00802	fragmenta	pap-006456	fragmentando	pap-006458	gerund	no	draft		AB2018	29		
+vfm-00803	fraternisa	pap-006474	fraternisando	pap-006476	gerund	no	draft		AB2018	29		
+vfm-00804	fraña	pap-006479	frañando	pap-006480	gerund	no	draft		AB2018	29		
+vfm-00805	frecuenta	pap-006482	frecuentando	pap-006483	gerund	no	draft		AB2018	29		
+vfm-00806	frega	pap-006489	fregando	pap-006492	gerund	no	draft		AB2018	29		
+vfm-00807	frena	pap-006496	frenando	pap-006498	gerund	no	draft		AB2018	29		
+vfm-00808	fresca	pap-006502	frescando	pap-006503	gerund	no	draft		AB2018	29		
+vfm-00809	fria	pap-006510	friando	pap-006513	gerund	no	draft		AB2018	29		
+vfm-00810	frustia	pap-006532	frustiando	pap-006534	gerund	no	draft		AB2018	29		
+vfm-00811	frustra	pap-006536	frustrando	pap-006538	gerund	no	draft		AB2018	29		
+vfm-00812	fula	pap-006552	fulando	pap-006555	gerund	no	draft		AB2018	29		
+vfm-00813	fumiga	pap-006561	fumigando	pap-006563	gerund	no	draft		AB2018	29		
+vfm-00814	funciona	pap-006566	funcionando	pap-006570	gerund	no	draft		AB2018	29		
+vfm-00815	funda	pap-006572	fundando	pap-006579	gerund	no	draft		AB2018	29		
+vfm-00816	fungi	pap-006583	fungiendo	pap-006584	gerund	no	draft		AB2018	30		
+vfm-00817	fura	pap-006585	furando	pap-006588	gerund	no	draft		AB2018	30		
+vfm-00818	fusila	pap-006596	fusilando	pap-006598	gerund	no	draft		AB2018	30		
+vfm-00819	gaba	pap-006605	gabando	pap-006607	gerund	no	draft		AB2018	30		
+vfm-00820	gaga	pap-006611	gagando	pap-006612	gerund	no	draft		AB2018	30		
+vfm-00821	galopia	pap-006633	galopiando	pap-006635	gerund	no	draft		AB2018	30		
+vfm-00822	galvanisa	pap-006636	galvanisando	pap-006638	gerund	no	draft		AB2018	30		
+vfm-00823	gana	pap-006643	ganando	pap-006647	gerund	no	draft		AB2018	30		
+vfm-00824	gancha	pap-006649	ganchando	pap-006651	gerund	no	draft		AB2018	30		
+vfm-00825	gara	pap-006657	garando	pap-006660	gerund	no	draft		AB2018	30		
+vfm-00826	garantisa	pap-006662	garantisando	pap-006663	gerund	no	draft		AB2018	30		
+vfm-00827	garna	pap-006667	garnando	pap-006670	gerund	no	draft		AB2018	30		
+vfm-00828	gasta	pap-006678	gastando	pap-006680	gerund	no	draft		AB2018	30		
+vfm-00829	gatia	pap-006685	gatiando	pap-006687	gerund	no	draft		AB2018	30		
+vfm-00830	gaña	pap-006694	gañando	pap-006697	gerund	no	draft		AB2018	30		
+vfm-00831	genera	pap-006762	generando	pap-006771	gerund	no	draft		AB2018	30		
+vfm-00832	generalisa	pap-006767	generalisando	pap-006769	gerund	no	draft		AB2018	30		
+vfm-00833	gesticula	pap-006885	gesticulando	pap-006887	gerund	no	draft		AB2018	31		
+vfm-00834	globalisa	pap-006941	globalisando	pap-006943	gerund	no	draft		AB2018	31		
+vfm-00835	glorifica	pap-006947	glorificando	pap-006949	gerund	no	draft		AB2018	31		
+vfm-00836	goberna	pap-006959	gobernando	pap-006962	gerund	no	draft		AB2018	31		
+vfm-00837	golpia	pap-006975	golpiando	pap-006977	gerund	no	draft		AB2018	31		
+vfm-00838	gorda	pap-006985	gordando	pap-006987	gerund	no	draft		AB2018	31		
+vfm-00839	gosa	pap-006994	gosando	pap-006996	gerund	no	draft		AB2018	31		
+vfm-00840	graba	pap-007001	grabando	pap-007005	gerund	no	draft		AB2018	31		
+vfm-00841	gradici	pap-007009	gradiciendo	pap-007011	gerund	no	draft		AB2018	31		
+vfm-00842	gradua	pap-007014	graduando	pap-007019	gerund	no	draft		AB2018	31		
+vfm-00843	grap	pap-007045	gegrap	pap-006731	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00844	gratifica	pap-007048	gratificando	pap-007050	gerund	no	draft		AB2018	32		
+vfm-00845	grawata	pap-007057	grawatando	pap-007059	gerund	no	draft		AB2018	32		
+vfm-00846	grease	pap-007061	gegrease	pap-006732	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00847	grita	pap-007074	gritando	pap-007077	gerund	no	draft		AB2018	32		
+vfm-00848	gruña	pap-007092	gruñando	pap-007094	gerund	no	draft		AB2018	32		
+vfm-00849	guia	pap-007108	guiando	pap-007111	gerund	no	draft		AB2018	32		
+vfm-00850	guli	pap-007117	guliendo	pap-007119	gerund	no	draft		AB2018	32		
+vfm-00851	guma	pap-007122	gumando	pap-007124	gerund	no	draft		AB2018	32		
+vfm-00852	gusta	pap-007128	gustando	pap-007129	gerund	no	draft		AB2018	32		
+vfm-00853	haak	pap-007142	gehaak	pap-006733	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00854	habita	pap-007151	habitando	pap-007152	gerund	no	draft		AB2018	32		
+vfm-00855	habla	pap-007155	hablando	pap-007156	gerund	no	draft		AB2018	32		
+vfm-00856	habona	pap-007159	habonando	pap-007160	gerund	no	draft		AB2018	32		
+vfm-00857	habraca	pap-007161	habracando	pap-007162	gerund	no	draft		AB2018	32		
+vfm-00858	habri	pap-007164	habriendo	pap-007166	gerund	no	draft		AB2018	32		
+vfm-00859	habri	pap-007164	habri	pap-007164	participle	no	draft		MOR2010	49	6.6.3.1	Rule 1: [há-bri] → [ha-brí]. Example: E porta a wordo habri pa e mucha drenta.
+vfm-00860	haci	pap-007170	haciendo	pap-007172	gerund	no	draft		AB2018	32		
+vfm-00861	haci	pap-007170	haci	pap-007170	participle	no	draft		MOR2010	50	6.7	Passive example 2: E trabou ta wordo haci door di Roy. Spelled like the infinitive.
+vfm-00862	hala	pap-007182	halando	pap-007185	gerund	no	draft		AB2018	32		
+vfm-00863	halsa	pap-007195	halsando	pap-007197	gerund	no	draft		AB2018	32		
+vfm-00864	halucina	pap-007201	halucinando	pap-007203	gerund	no	draft		AB2018	32		
+vfm-00865	hancha	pap-007212	hanchando	pap-007214	gerund	no	draft		AB2018	32		
+vfm-00866	hancra	pap-007218	hancrando	pap-007220	gerund	no	draft		AB2018	32		
+vfm-00867	hari	pap-007252	hariendo	pap-007253	gerund	no	draft		AB2018	32		
+vfm-00868	harmonisa	pap-007259	harmonisando	pap-007261	gerund	no	draft		AB2018	32		
+vfm-00869	harta	pap-007266	hartando	pap-007267	gerund	no	draft		AB2018	33		
+vfm-00870	hasa	pap-007272	hasando	pap-007274	gerund	no	draft		AB2018	33		
+vfm-00871	hawa	pap-007284	hawando	pap-007286	gerund	no	draft		AB2018	33		
+vfm-00872	haya	pap-007287	hayando	pap-007289	gerund	no	draft		AB2018	33		
+vfm-00873	hecha	pap-007293	hechando	pap-007295	gerund	no	draft		AB2018	33		
+vfm-00874	herbe	pap-007342	herbiendo	pap-007346	gerund	no	draft		AB2018	33		
+vfm-00875	herbe	pap-007342	herbi	pap-007344	participle	no	draft		AB2018	33		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00876	hereda	pap-007349	heredando	pap-007351	gerund	no	draft		AB2018	33		
+vfm-00877	herida	pap-007356	heridando	pap-007357	gerund	no	draft		AB2018	33		
+vfm-00878	hiba	pap-007388	hibando	pap-007391	gerund	no	draft		AB2018	33		
+vfm-00879	hila	pap-007405	hilando	pap-007407	gerund	no	draft		AB2018	33		
+vfm-00880	hinca	pap-007412	hincando	pap-007414	gerund	no	draft		AB2018	33		
+vfm-00881	hincha	pap-007415	hinchando	pap-007416	gerund	no	draft		AB2018	33		
+vfm-00882	hiperventila	pap-007423	hiperventilando	pap-007425	gerund	no	draft		AB2018	33		
+vfm-00883	hipnotisa	pap-007430	hipnotisando	pap-007433	gerund	no	draft		AB2018	33		
+vfm-00884	hipoteca	pap-007439	hipotecando	pap-007440	gerund	no	draft		AB2018	33		
+vfm-00885	hisa	pap-007444	hisando	pap-007447	gerund	no	draft		AB2018	33		
+vfm-00886	hispanisa	pap-007448	hispanisando	pap-007450	gerund	no	draft		AB2018	33		
+vfm-00887	hocha	pap-007472	hochando	pap-007474	gerund	no	draft		AB2018	33		
+vfm-00888	hoga	pap-007482	hogando	pap-007484	gerund	no	draft		AB2018	33		
+vfm-00889	hole	pap-007489	holiendo	pap-007490	gerund	no	draft		AB2018	33		
+vfm-00890	homogenisa	pap-007512	homogenisando	pap-007513	gerund	no	draft		AB2018	34		
+vfm-00891	honra	pap-007531	honrando	pap-007534	gerund	no	draft		AB2018	34		
+vfm-00892	hopia	pap-007540	hopiando	pap-007542	gerund	no	draft		AB2018	34		
+vfm-00893	horca	pap-007545	horcando	pap-007548	gerund	no	draft		AB2018	34		
+vfm-00894	horna	pap-007561	hornando	pap-007563	gerund	no	draft		AB2018	34		
+vfm-00895	horta	pap-007569	hortando	pap-007572	gerund	no	draft		AB2018	34		
+vfm-00896	hospitalisa	pap-007581	hospitalisando	pap-007583	gerund	no	draft		AB2018	34		
+vfm-00897	hulandisa	pap-007621	hulandisando	pap-007623	gerund	no	draft		AB2018	34		
+vfm-00898	huma	pap-007625	humando	pap-007629	gerund	no	draft		AB2018	34		
+vfm-00899	humanisa	pap-007631	humanisando	pap-007632	gerund	no	draft		AB2018	34		
+vfm-00900	humilia	pap-007642	humiliando	pap-007644	gerund	no	draft		AB2018	34		
+vfm-00901	hundi	pap-007649	hundiendo	pap-007650	gerund	no	draft		AB2018	34		
+vfm-00902	hunga	pap-007654	hungando	pap-007657	gerund	no	draft		AB2018	34		
+vfm-00903	hunga	pap-007654	hungando	pap-007657	gerund	no	draft		MOR2010	47	6.6.2.1	hunga → hung + ando → hungando.
+vfm-00904	hunta	pap-007660	huntando	pap-007662	gerund	no	draft		AB2018	34		
+vfm-00905	hura	pap-007664	hurando	pap-007669	gerund	no	draft		AB2018	34		
+vfm-00906	huramenta	pap-007666	huramentando	pap-007667	gerund	no	draft		AB2018	34		
+vfm-00907	husga	pap-007676	husgando	pap-007678	gerund	no	draft		AB2018	34		
+vfm-00908	hustifica	pap-007681	hustificando	pap-007684	gerund	no	draft		AB2018	34		
+vfm-00909	huy	pap-007691	huyendo	pap-007692	gerund		draft		AB2018	34		The verb ends in y; §6.6.2.1 covers verbs ending in a vowel.
+vfm-00910	huña	pap-007694	huñando	pap-007697	gerund	no	draft		AB2018	34		
+vfm-00911	idealisa	pap-007709	idealisando	pap-007711	gerund	no	draft		AB2018	34		
+vfm-00912	identifica	pap-007717	identificando	pap-007720	gerund	no	draft		AB2018	34		
+vfm-00913	ignora	pap-007731	ignorando	pap-007733	gerund	no	draft		AB2018	35		
+vfm-00914	iguala	pap-007736	igualando	pap-007737	gerund	no	draft		AB2018	35		
+vfm-00915	ilumina	pap-007757	iluminando	pap-007759	gerund	no	draft		AB2018	35		
+vfm-00916	ilusiona	pap-007761	ilusionando	pap-007762	gerund	no	draft		AB2018	35		
+vfm-00917	ilustra	pap-007764	ilustrando	pap-007767	gerund	no	draft		AB2018	35		
+vfm-00918	imagina	pap-007770	imaginando	pap-007773	gerund	no	draft		AB2018	35		
+vfm-00919	imita	pap-007779	imitando	pap-007783	gerund	no	draft		AB2018	35		
+vfm-00920	impedi	pap-007793	impediendo	pap-007794	gerund	no	draft		AB2018	35		
+vfm-00921	implanta	pap-007807	implantando	pap-007809	gerund	no	draft		AB2018	35		
+vfm-00922	implementa	pap-007810	implementando	pap-007812	gerund	no	draft		AB2018	35		
+vfm-00923	implica	pap-007813	implicando	pap-007815	gerund	no	draft		AB2018	35		
+vfm-00924	impone	pap-007818	imponiendo	pap-007820	gerund	no	draft		AB2018	35		
+vfm-00925	impone	pap-007818	imponi	pap-007819	participle	no	draft		AB2018	35		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-00926	importa	pap-007824	importando	pap-007829	gerund	no	draft		AB2018	35		
+vfm-00927	imposibilita	pap-007834	imposibilitando	pap-007835	gerund	no	draft		AB2018	35		
+vfm-00928	impresiona	pap-007842	impresionando	pap-007843	gerund	no	draft		AB2018	35		
+vfm-00929	imprimi	pap-007848	imprimiendo	pap-007849	gerund	no	draft		AB2018	35		
+vfm-00930	improvisa	pap-007854	improvisando	pap-007856	gerund	no	draft		AB2018	35		
+vfm-00931	inaugura	pap-007880	inaugurando	pap-007883	gerund	no	draft		AB2018	35		
+vfm-00932	inclina	pap-007906	inclinando	pap-007908	gerund	no	draft		AB2018	35		
+vfm-00933	inclui	pap-007909	incluyendo	pap-007914	gerund	no	draft		AB2018	35		
+vfm-00934	incorpora	pap-007953	incorporando	pap-007955	gerund	no	draft		AB2018	36		
+vfm-00935	indemnisa	pap-007973	indemnisando	pap-007975	gerund	no	draft		AB2018	36		
+vfm-00936	independisa	pap-007979	independisando	pap-007981	gerund	no	draft		AB2018	36		
+vfm-00937	indica	pap-007994	indicando	pap-007998	gerund	no	draft		AB2018	36		
+vfm-00938	individualisa	pap-008021	individualisando	pap-008023	gerund	no	draft		AB2018	36		
+vfm-00939	indoctrina	pap-008031	indoctrinando	pap-008033	gerund	no	draft		AB2018	36		
+vfm-00940	industrialisa	pap-008043	industrialisando	pap-008045	gerund	no	draft		AB2018	36		
+vfm-00941	infecta	pap-008070	infectando	pap-008071	gerund	no	draft		AB2018	36		
+vfm-00942	infiltra	pap-008082	infiltrando	pap-008084	gerund	no	draft		AB2018	36		
+vfm-00943	inflama	pap-008090	inflamando	pap-008092	gerund	no	draft		AB2018	36		
+vfm-00944	influi	pap-008096	influyendo	pap-008097	gerund	no	draft		AB2018	36		
+vfm-00945	informa	pap-008099	informando	pap-008105	gerund	no	draft		AB2018	36		
+vfm-00946	inhala	pap-008127	inhalando	pap-008129	gerund	no	draft		AB2018	36		
+vfm-00947	inicia	pap-008139	iniciando	pap-008143	gerund	no	draft		AB2018	36		
+vfm-00948	inmigra	pap-008164	inmigrando	pap-008166	gerund	no	draft		AB2018	36		
+vfm-00949	inmobilisa	pap-008170	inmobilisando	pap-008171	gerund	no	draft		AB2018	36		
+vfm-00950	inmortalisa	pap-008177	inmortalisando	pap-008178	gerund	no	draft		AB2018	37		
+vfm-00951	inmunisa	pap-008182	inmunisando	pap-008184	gerund	no	draft		AB2018	37		
+vfm-00952	innova	pap-008191	innovando	pap-008193	gerund	no	draft		AB2018	37		
+vfm-00953	inscribi	pap-008206	inscribiendo	pap-008207	gerund	no	draft		AB2018	37		
+vfm-00954	insemina	pap-008212	inseminando	pap-008214	gerund	no	draft		AB2018	37		
+vfm-00955	insinua	pap-008224	insinuando	pap-008226	gerund	no	draft		AB2018	37		
+vfm-00956	insisti	pap-008229	insistiendo	pap-008230	gerund	no	draft		AB2018	37		
+vfm-00957	inspecciona	pap-008234	inspeccionando	pap-008235	gerund	no	draft		AB2018	37		
+vfm-00958	inspecta	pap-008236	inspectando	pap-008237	gerund	no	draft		AB2018	37		
+vfm-00959	inspira	pap-008240	inspirando	pap-008242	gerund	no	draft		AB2018	37		
+vfm-00960	instala	pap-008245	instalando	pap-008248	gerund	no	draft		AB2018	37		
+vfm-00961	instiga	pap-008252	instigando	pap-008255	gerund	no	draft		AB2018	37		
+vfm-00962	institucionalisa	pap-008261	institucionalisando	pap-008262	gerund	no	draft		AB2018	37		
+vfm-00963	institui	pap-008264	instituyendo	pap-008266	gerund	no	draft		AB2018	37		
+vfm-00964	instrui	pap-008270	instruyendo	pap-008274	gerund	no	draft		AB2018	37		
+vfm-00965	instrui	pap-008270	instruyendo	pap-008274	gerund	no	draft		MOR2010	48	6.6.2.1	Nota: the i of iendo becomes y between two vowels. The page does not print the infinitive; instrui is the AB 2018 headword.
+vfm-00966	insulta	pap-008278	insultando	pap-008279	gerund	no	draft		AB2018	37		
+vfm-00967	integra	pap-008287	integrando	pap-008291	gerund	no	draft		AB2018	37		
+vfm-00968	intensifica	pap-008305	intensificando	pap-008307	gerund	no	draft		AB2018	37		
+vfm-00969	intensiva	pap-008308	intensivando	pap-008310	gerund	no	draft		AB2018	37		
+vfm-00970	intenta	pap-008313	intentando	pap-008314	gerund	no	draft		AB2018	37		
+vfm-00971	intercambia	pap-008318	intercambiando	pap-008319	gerund	no	draft		AB2018	37		
+vfm-00972	interesa	pap-008326	interesando	pap-008328	gerund	no	draft		AB2018	37		
+vfm-00973	intermedia	pap-008335	intermediando	pap-008337	gerund	no	draft		AB2018	37		
+vfm-00974	interna	pap-008341	internando	pap-008352	gerund	no	draft		AB2018	37		
+vfm-00975	internacionalisa	pap-008344	internacionalisando	pap-008345	gerund	no	draft		AB2018	37		
+vfm-00976	internalisa	pap-008349	internalisando	pap-008350	gerund	no	draft		AB2018	37		
+vfm-00977	interoga	pap-008357	interogando	pap-008360	gerund	no	draft		AB2018	37		
+vfm-00978	interpreta	pap-008363	interpretando	pap-008365	gerund	no	draft		AB2018	37		
+vfm-00979	interumpi	pap-008368	interumpiendo	pap-008369	gerund	no	draft		AB2018	37		
+vfm-00980	interveni	pap-008374	interveniendo	pap-008375	gerund	no	draft		AB2018	37		
+vfm-00981	intimida	pap-008377	intimidando	pap-008380	gerund	no	draft		AB2018	37		
+vfm-00982	intoxica	pap-008386	intoxicando	pap-008388	gerund	no	draft		AB2018	37		
+vfm-00983	intriga	pap-008394	intrigando	pap-008395	gerund	no	draft		AB2018	37		
+vfm-00984	introduci	pap-008399	introduciendo	pap-008400	gerund	no	draft		AB2018	37		
+vfm-00985	inunda	pap-008407	inundando	pap-008409	gerund	no	draft		AB2018	38		
+vfm-00986	invadi	pap-008412	invadiendo	pap-008413	gerund	no	draft		AB2018	38		
+vfm-00987	inventa	pap-008423	inventando	pap-008424	gerund	no	draft		AB2018	38		
+vfm-00988	inventarisa	pap-008426	inventarisando	pap-008428	gerund	no	draft		AB2018	38		
+vfm-00989	inverti	pap-008435	invertiendo	pap-008436	gerund	no	draft		AB2018	38		
+vfm-00990	investiga	pap-008437	investigando	pap-008440	gerund	no	draft		AB2018	38		
+vfm-00991	invita	pap-008444	invitando	pap-008447	gerund	no	draft		AB2018	38		
+vfm-00992	involucra	pap-008450	involucrando	pap-008451	gerund	no	draft		AB2018	38		
+vfm-00993	inyecta	pap-008455	inyectando	pap-008456	gerund	no	draft		AB2018	38		
+vfm-00994	iriga	pap-008488	irigando	pap-008490	gerund	no	draft		AB2018	38		
+vfm-00995	irita	pap-008492	iritando	pap-008496	gerund	no	draft		AB2018	38		
+vfm-00996	isola	pap-008511	isolando	pap-008513	gerund	no	draft		AB2018	38		
+vfm-00997	jaag	pap-008522	gejaag	pap-006734	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00998	jack	pap-008525	gejack	pap-006735	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-00999	kaft	pap-008591	gekaft	pap-006736	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01000	kap	pap-008600	gekap	pap-006737	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01001	kauw	pap-008616	gekauw	pap-006738	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01002	keda	pap-008621	kedando	pap-008623	gerund	no	draft		AB2018	38		
+vfm-01003	keha	pap-008628	kehando	pap-008631	gerund	no	draft		AB2018	38		
+vfm-01004	keinta	pap-008634	keintando	pap-008636	gerund	no	draft		AB2018	39		The list prints keintando [kentando].
+vfm-01005	kenta	pap-008652	kentando	pap-008654	gerund	no	draft		AB2018	39		The list prints kentando [keintando].
+vfm-01006	kenter	pap-008655	gekenter	pap-006739	participle	no	draft		AB2018	30		The list prints gekenter [gekentro]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01007	kentro	pap-008656	gekentro	pap-006740	participle	no	draft		AB2018	30		The list prints gekentro [gekenter]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01008	keur	pap-008677	gekeur	pap-006741	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01009	kiboca	pap-008684	kibocando	pap-008686	gerund	no	draft		AB2018	39		
+vfm-01010	kibra	pap-008687	kibrando	pap-008691	gerund	no	draft		AB2018	39		
+vfm-01011	kier	pap-008698	keriendo	pap-008667	gerund	yes	draft		AB2018	39		Linked to kier as Morfologia §6.6.2.2 (p. 48) pairs them. An Aruban irregular gerund in _meta/invariants.md. kere is also a headword; the list does not say which verb keriendo belongs to.
+vfm-01012	kier	pap-008698	keriendo	pap-008667	gerund	yes	draft		MOR2010	48	6.6.2.2	Printed kier – keriendo. An Aruban irregular gerund in _meta/invariants.md.
+vfm-01013	kier	pap-008698	keri	pap-008662	participle	yes	draft		AB2018	39		Linked to kier as Morfologia §6.6.3.2 (p. 49) prints kier – keri. kere is also a headword; the list does not say which verb keri belongs to.
+vfm-01014	kier	pap-008698	keri	pap-008662	participle	yes	draft		MOR2010	49	6.6.3.2	Printed kier – keri.
+vfm-01015	kima	pap-008715	kimando	pap-008717	gerund	no	draft		AB2018	39		
+vfm-01016	kinipi	pap-008727	kinipiendo	pap-008728	gerund	no	draft		AB2018	39		
+vfm-01017	kishiki	pap-008738	kishikiendo	pap-008739	gerund	no	draft		AB2018	39		
+vfm-01018	kita	pap-008743	kitando	pap-008745	gerund	no	draft		AB2018	39		
+vfm-01019	klem	pap-008759	geklem	pap-006742	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01020	konkel	pap-008792	gekonkel	pap-006743	participle	no	draft		AB2018	30		The list prints gekonkel [geconclo]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01021	kop	pap-008797	gekop	pap-006744	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01022	kraak	pap-008811	gekraak	pap-006745	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01023	krimp	pap-008818	gekrimp	pap-006746	participle	no	draft		AB2018	30		The list prints gekrimp [gecrem]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01024	krop	pap-008822	gekrop	pap-006747	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01025	laba	pap-008837	labando	pap-008842	gerund	no	draft		AB2018	39		
+vfm-01026	laba	pap-008837	labando	pap-008842	gerund	no	draft		MOR2010	47	6.6.2	Example 3: No habri e cranchi, mi ta labando paña! The page does not print the infinitive; laba is the AB 2018 headword.
+vfm-01027	laba	pap-008837	laba	pap-008837	participle	no	draft		MOR2010	51	6.7.1	Passive example: Bobby ta wordo/ser laba door di/pa Catalina. Spelled like the infinitive.
+vfm-01028	labia	pap-008847	labiando	pap-008850	gerund	no	draft		AB2018	39		
+vfm-01029	labora	pap-008853	laborando	pap-008855	gerund	no	draft		AB2018	39		
+vfm-01030	ladra	pap-008861	ladrando	pap-008863	gerund	no	draft		AB2018	40		
+vfm-01031	laga	pap-008868	lagando	pap-008871	gerund	no	draft		AB2018	40		
+vfm-01032	lamenta	pap-008886	lamentando	pap-008889	gerund	no	draft		AB2018	40		
+vfm-01033	landa	pap-008899	landando	pap-008902	gerund	no	draft		AB2018	40		
+vfm-01034	lansa	pap-008905	lansando	pap-008907	gerund	no	draft		AB2018	40		
+vfm-01035	lanta	pap-008908	lantando	pap-008911	gerund	no	draft		AB2018	40		
+vfm-01036	lanta	pap-008908	lanta	pap-008908	participle	no	draft		MOR2010	51	6.7.1	Passive example: M.E.P. a wordo/ser lanta door di/pa Betico Croes. Spelled like the infinitive.
+vfm-01037	larga	pap-008918	largando	pap-008920	gerund	no	draft		AB2018	40		
+vfm-01038	las	pap-008924	gelas	pap-006749	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01039	lastra	pap-008937	lastrando	pap-008939	gerund	no	draft		AB2018	40		
+vfm-01040	legalisa	pap-008975	legalisando	pap-008978	gerund	no	draft		AB2018	40		
+vfm-01041	legitima	pap-008987	legitimando	pap-008990	gerund	no	draft		AB2018	40		
+vfm-01042	lembe	pap-009012	lembiendo	pap-009017	gerund	no	draft		AB2018	40		
+vfm-01043	lembe	pap-009012	lembi	pap-009016	participle	no	draft		AB2018	40		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01044	len	pap-009018	gelen	pap-006751	participle	no	draft		AB2018	30		The list prints gelen [geleun]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01045	lepia	pap-009032	lepiando	pap-009033	gerund	no	draft		AB2018	40		
+vfm-01046	lesa	pap-009039	lesando	pap-009043	gerund	no	draft		AB2018	40		
+vfm-01047	lesiona	pap-009045	lesionando	pap-009046	gerund	no	draft		AB2018	40		
+vfm-01048	leun	pap-009057	geleun	pap-006752	participle	no	draft		AB2018	30		The list prints geleun [gelen]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01049	libera	pap-009078	liberando	pap-009084	gerund	no	draft		AB2018	40		
+vfm-01050	liberalisa	pap-009081	liberalisando	pap-009082	gerund	no	draft		AB2018	40		
+vfm-01051	libra	pap-009093	librando	pap-009094	gerund	no	draft		AB2018	41		
+vfm-01052	lidia	pap-009104	lidiando	pap-009106	gerund	no	draft		AB2018	41		
+vfm-01053	liga	pap-009109	ligando	pap-009111	gerund	no	draft		AB2018	41		
+vfm-01054	lijm	pap-009115	gelijm	pap-006753	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01055	likida	pap-009119	likidando	pap-009121	gerund	no	draft		AB2018	41		
+vfm-01056	limita	pap-009126	limitando	pap-009128	gerund	no	draft		AB2018	41		
+vfm-01057	limpia	pap-009135	limpiando	pap-009137	gerund	no	draft		AB2018	41		
+vfm-01058	localisa	pap-009186	localisando	pap-009189	gerund	no	draft		AB2018	41		
+vfm-01059	logra	pap-009215	logrando	pap-009216	gerund	no	draft		AB2018	41		
+vfm-01060	lolia	pap-009225	loliando	pap-009226	gerund	no	draft		AB2018	41		
+vfm-01061	lombra	pap-009231	lombrando	pap-009233	gerund	no	draft		AB2018	41		
+vfm-01062	lora	pap-009244	lorando	pap-009247	gerund	no	draft		AB2018	41		
+vfm-01063	los	pap-009249	gelos	pap-006754	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01064	lubida	pap-009259	lubidando	pap-009261	gerund	no	draft		AB2018	41		
+vfm-01065	lubida	pap-009259	lubida	pap-009259	participle	no	draft		MOR2010	48	6.6.3	Example 1: Un amor fracasa ta un amor lubida. Spelled like the infinitive.
+vfm-01066	lucha	pap-009263	luchando	pap-009266	gerund	no	draft		AB2018	41		
+vfm-01067	lusa	pap-009278	lusando	pap-009280	gerund	no	draft		AB2018	41		
+vfm-01068	macheta	pap-009299	machetando	pap-009300	gerund	no	draft		AB2018	41		
+vfm-01069	machica	pap-009303	machicando	pap-009305	gerund	no	draft		AB2018	41		
+vfm-01070	madura	pap-009324	madurando	pap-009325	gerund	no	draft		AB2018	42		
+vfm-01071	mafia	pap-009332	mafiando	pap-009334	gerund	no	draft		AB2018	42		
+vfm-01072	magnetisa	pap-009350	magnetisando	pap-009352	gerund	no	draft		AB2018	42		
+vfm-01073	maha	pap-009358	mahando	pap-009361	gerund	no	draft		AB2018	42		
+vfm-01074	makiya	pap-009372	makiyando	pap-009375	gerund	no	draft		AB2018	42		
+vfm-01075	malcria	pap-009386	malcriando	pap-009387	gerund	no	draft		AB2018	42		
+vfm-01076	maldiciona	pap-009391	maldicionando	pap-009392	gerund	no	draft		AB2018	42		
+vfm-01077	malgasta	pap-009400	malgastando	pap-009403	gerund	no	draft		AB2018	42		
+vfm-01078	malinterpreta	pap-009407	malinterpretando	pap-009409	gerund	no	draft		AB2018	42		
+vfm-01079	malogra	pap-009412	malogrando	pap-009413	gerund	no	draft		AB2018	42		
+vfm-01080	maltrata	pap-009418	maltratando	pap-009419	gerund	no	draft		AB2018	42		
+vfm-01081	maltrata	pap-009418	maltrata	pap-009418	participle	no	draft		MOR2010	38	6.2.2.1	II. Verbo auxiliar pasivo: Hende muhe ta ser maltrata continuamente. Spelled like the infinitive.
+vfm-01082	malversa	pap-009424	malversando	pap-009426	gerund	no	draft		AB2018	42		
+vfm-01083	manca	pap-009438	mancando	pap-009439	gerund	no	draft		AB2018	42		
+vfm-01084	mancha	pap-009441	manchando	pap-009442	gerund	no	draft		AB2018	42		
+vfm-01085	manda	pap-009444	mandando	pap-009446	gerund	no	draft		AB2018	42		
+vfm-01086	maneha	pap-009454	manehando	pap-009457	gerund	no	draft		AB2018	42		
+vfm-01087	manifesta	pap-009469	manifestando	pap-009471	gerund	no	draft		AB2018	42		
+vfm-01088	maniobra	pap-009474	maniobrando	pap-009475	gerund	no	draft		AB2018	42		
+vfm-01089	manipula	pap-009476	manipulando	pap-009479	gerund	no	draft		AB2018	42		
+vfm-01090	mansa	pap-009484	mansando	pap-009486	gerund	no	draft		AB2018	42		
+vfm-01091	mantene	pap-009494	manteniendo	pap-009497	gerund	no	draft		AB2018	42		
+vfm-01092	mantene	pap-009494	manteni	pap-009496	participle	no	draft		AB2018	42		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01093	mantene	pap-009494	manteni	pap-009496	participle	no	draft		MOR2010	49	6.6.3.1	Rule 4 (more than two syllables, ending in e): e becomes i, [man-te-né] → [man-te-ní]. Example: E señora, a pesar di su edad, ta bon manteni. Nota: some people use mantene as the participle; the book recommends manteni.
+vfm-01094	mara	pap-009504	marando	pap-009509	gerund	no	draft		AB2018	42		
+vfm-01095	marca	pap-009514	marcando	pap-009518	gerund	no	draft		AB2018	42		
+vfm-01096	marcha	pap-009519	marchando	pap-009521	gerund	no	draft		AB2018	42		
+vfm-01097	marea	pap-009524	mareando	pap-009526	gerund	no	draft		AB2018	42		
+vfm-01098	martirisa	pap-009557	martirisando	pap-009558	gerund	no	draft		AB2018	43		
+vfm-01099	masacra	pap-009564	masacrando	pap-009565	gerund	no	draft		AB2018	43		
+vfm-01100	masturba	pap-009586	masturbando	pap-009588	gerund	no	draft		AB2018	43		
+vfm-01101	mata	pap-009590	matando	pap-009594	gerund	no	draft		AB2018	43		
+vfm-01102	materialisa	pap-009602	materialisando	pap-009605	gerund	no	draft		AB2018	43		
+vfm-01103	maximalisa	pap-009626	maximalisando	pap-009628	gerund	no	draft		AB2018	43		
+vfm-01104	mecanisa	pap-009650	mecanisando	pap-009652	gerund	no	draft		AB2018	43		
+vfm-01105	medita	pap-009670	meditando	pap-009672	gerund	no	draft		AB2018	43		
+vfm-01106	mehora	pap-009681	mehorando	pap-009684	gerund	no	draft		AB2018	43		
+vfm-01107	mela	pap-009688	melando	pap-009691	gerund	no	draft		AB2018	43		
+vfm-01108	memorisa	pap-009707	memorisando	pap-009710	gerund	no	draft		AB2018	43		
+vfm-01109	menasa	pap-009712	menasando	pap-009713	gerund	no	draft		AB2018	43		
+vfm-01110	menciona	pap-009716	mencionando	pap-009718	gerund	no	draft		AB2018	43		
+vfm-01111	mengua	pap-009720	menguando	pap-009721	gerund	no	draft		AB2018	43		
+vfm-01112	menosprecia	pap-009729	menospreciando	pap-009731	gerund	no	draft		AB2018	43		
+vfm-01113	menstrua	pap-009735	menstruando	pap-009737	gerund	no	draft		AB2018	43		
+vfm-01114	menta	pap-009740	mentando	pap-009745	gerund	no	draft		AB2018	43		
+vfm-01115	mescla	pap-009771	mesclando	pap-009773	gerund	no	draft		AB2018	44		
+vfm-01116	mete	pap-009795	metiendo	pap-009804	gerund	no	draft		AB2018	44		
+vfm-01117	mete	pap-009795	meti	pap-009803	participle	no	draft		AB2018	44		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01118	midi	pap-009850	midiendo	pap-009852	gerund	no	draft		AB2018	44		
+vfm-01119	migra	pap-009860	migrando	pap-009863	gerund	no	draft		AB2018	44		
+vfm-01120	mik	pap-009866	gemik	pap-006756	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01121	milita	pap-009878	militando	pap-009880	gerund	no	draft		AB2018	44		
+vfm-01122	militarisa	pap-009883	militarisando	pap-009885	gerund	no	draft		AB2018	44		
+vfm-01123	mima	pap-009894	mimando	pap-009896	gerund	no	draft		AB2018	44		
+vfm-01124	mina	pap-009901	minando	pap-009902	gerund	no	draft		AB2018	44		
+vfm-01125	minimalisa	pap-009913	minimalisando	pap-009915	gerund	no	draft		AB2018	44		
+vfm-01126	mira	pap-009936	mirando	pap-009939	gerund	no	draft		AB2018	44		
+vfm-01127	mishi	pap-009947	mishiendo	pap-009948	gerund	no	draft		AB2018	44		
+vfm-01128	mobilisa	pap-009978	mobilisando	pap-009980	gerund	no	draft		AB2018	44		
+vfm-01129	mocha	pap-009983	mochando	pap-009985	gerund	no	draft		AB2018	44		
+vfm-01130	modela	pap-009992	modelando	pap-009994	gerund	no	draft		AB2018	44		
+vfm-01131	modera	pap-009997	moderando	pap-010001	gerund	no	draft		AB2018	45		
+vfm-01132	modernisa	pap-010002	modernisando	pap-010004	gerund	no	draft		AB2018	45		
+vfm-01133	modifica	pap-010010	modificando	pap-010012	gerund	no	draft		AB2018	45		
+vfm-01134	molestia	pap-010025	molestiando	pap-010026	gerund	no	draft		AB2018	45		
+vfm-01135	molia	pap-010030	moliando	pap-010031	gerund	no	draft		AB2018	45		
+vfm-01136	monologa	pap-010053	monologando	pap-010054	gerund	no	draft		AB2018	45		
+vfm-01137	monopolisa	pap-010057	monopolisando	pap-010059	gerund	no	draft		AB2018	45		
+vfm-01138	monta	pap-010071	montando	pap-010074	gerund	no	draft		AB2018	45		
+vfm-01139	montona	pap-010078	montonando	pap-010080	gerund	no	draft		AB2018	45		
+vfm-01140	mop	pap-010084	gemop	pap-006759	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01141	morde	pap-010091	mordiendo	pap-010094	gerund	no	draft		AB2018	45		
+vfm-01142	morde	pap-010091	mordi	pap-010093	participle	no	draft		AB2018	45		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01143	mors	pap-010107	gemors	pap-006760	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01144	motiva	pap-010130	motivando	pap-010132	gerund	no	draft		AB2018	45		
+vfm-01145	move	pap-010138	moviendo	pap-010143	gerund	no	draft		AB2018	45		
+vfm-01146	move	pap-010138	movi	pap-010141	participle	no	draft		AB2018	45		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01147	muca	pap-010145	mucando	pap-010146	gerund	no	draft		AB2018	45		
+vfm-01148	muda	pap-010152	mudando	pap-010154	gerund	no	draft		AB2018	45		
+vfm-01149	muebla	pap-010158	mueblando	pap-010159	gerund	no	draft		AB2018	45		
+vfm-01150	muha	pap-010165	muhando	pap-010167	gerund	no	draft		AB2018	45		
+vfm-01151	mula	pap-010171	mulando	pap-010173	gerund	no	draft		AB2018	45		
+vfm-01152	multiplica	pap-010187	multiplicando	pap-010189	gerund	no	draft		AB2018	45		
+vfm-01153	muri	pap-010197	muriendo	pap-010198	gerund	no	draft		AB2018	45		
+vfm-01154	murmura	pap-010199	murmurando	pap-010201	gerund	no	draft		AB2018	45		
+vfm-01155	mustra	pap-010221	mustrando	pap-010223	gerund	no	draft		AB2018	45		
+vfm-01156	mutila	pap-010226	mutilando	pap-010228	gerund	no	draft		AB2018	46		
+vfm-01157	nabega	pap-010236	nabegando	pap-010238	gerund	no	draft		AB2018	46		
+vfm-01158	nace	pap-010241	naciendo	pap-010246	gerund	no	draft		AB2018	46		
+vfm-01159	nace	pap-010241	naci	pap-010245	participle	no	draft		AB2018	46		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01160	nacionalisa	pap-010250	nacionalisando	pap-010252	gerund	no	draft		AB2018	46		
+vfm-01161	namora	pap-010257	namorando	pap-010259	gerund	no	draft		AB2018	46		
+vfm-01162	narcotisa	pap-010272	narcotisando	pap-010273	gerund	no	draft		AB2018	46		
+vfm-01163	nasalisa	pap-010278	nasalisando	pap-010280	gerund	no	draft		AB2018	46		
+vfm-01164	naturalisa	pap-010292	naturalisando	pap-010294	gerund	no	draft		AB2018	46		
+vfm-01165	neglisha	pap-010313	neglishando	pap-010314	gerund	no	draft		AB2018	46		
+vfm-01166	negocia	pap-010315	negociando	pap-010320	gerund	no	draft		AB2018	46		The list prints negociando [negoshando].
+vfm-01167	negosha	pap-010322	negoshando	pap-010325	gerund	no	draft		AB2018	46		The list prints negoshando [negociando].
+vfm-01168	nek	pap-010331	genek	pap-006761	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01169	nenga	pap-010333	nengando	pap-010335	gerund	no	draft		AB2018	46		
+vfm-01170	neutralisa	pap-010363	neutralisando	pap-010365	gerund	no	draft		AB2018	46		
+vfm-01171	niet	pap-010372	geniet	pap-006783	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01172	nifica	pap-010377	nificando	pap-010379	gerund	no	draft		AB2018	46		
+vfm-01173	nombra	pap-010427	nombrando	pap-010430	gerund	no	draft		AB2018	46		
+vfm-01174	nomina	pap-010433	nominando	pap-010437	gerund	no	draft		AB2018	46		
+vfm-01175	norma	pap-010453	normando	pap-010461	gerund	no	draft		AB2018	47		
+vfm-01176	normalisa	pap-010457	normalisando	pap-010459	gerund	no	draft		AB2018	47		
+vfm-01177	nota	pap-010473	notando	pap-010475	gerund	no	draft		AB2018	47		
+vfm-01178	notifica	pap-010481	notificando	pap-010483	gerund	no	draft		AB2018	47		
+vfm-01179	notula	pap-010485	notulando	pap-010486	gerund	no	draft		AB2018	47		
+vfm-01180	numera	pap-010506	numerando	pap-010509	gerund	no	draft		AB2018	47		
+vfm-01181	obedece	pap-010526	obedeciendo	pap-010528	gerund	no	draft		AB2018	47		
+vfm-01182	obliga	pap-010540	obligando	pap-010542	gerund	no	draft		AB2018	47		
+vfm-01183	obsekia	pap-010547	obsekiando	pap-010548	gerund	no	draft		AB2018	47		
+vfm-01184	observa	pap-010550	observando	pap-010555	gerund	no	draft		AB2018	47		
+vfm-01185	obsesiona	pap-010558	obsesionando	pap-010559	gerund	no	draft		AB2018	47		
+vfm-01186	obstaculisa	pap-010560	obstaculisando	pap-010561	gerund	no	draft		AB2018	47		
+vfm-01187	obtene	pap-010567	obteniendo	pap-010570	gerund	no	draft		AB2018	47		
+vfm-01188	obtene	pap-010567	obteni	pap-010568	participle	no	draft		AB2018	47		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01189	ocasiona	pap-010574	ocasionando	pap-010577	gerund	no	draft		AB2018	47		
+vfm-01190	ocupa	pap-010605	ocupando	pap-010607	gerund	no	draft		AB2018	47		
+vfm-01191	odia	pap-010610	odiando	pap-010611	gerund	no	draft		AB2018	47		
+vfm-01192	ofende	pap-010620	ofendiendo	pap-010623	gerund	no	draft		AB2018	47		
+vfm-01193	ofende	pap-010620	ofendi	pap-010622	participle	no	draft		AB2018	47		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01194	ofende	pap-010620	ofendi	pap-010622	participle	no	draft		MOR2010	49	6.6.3.1	Rule 4: [o-fen-dé] → [o-fen-dí]. Example: E polis a wordo ofendi pa un choller. Nota: some people use ofende as the participle; the book recommends ofendi.
+vfm-01195	oficialisa	pap-010630	oficialisando	pap-010632	gerund	no	draft		AB2018	47		
+vfm-01196	ofrece	pap-010637	ofreciendo	pap-010640	gerund	no	draft		AB2018	47		
+vfm-01197	ofrece	pap-010637	ofreci	pap-010639	participle	no	draft		AB2018	47		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01198	omiti	pap-010668	omitiendo	pap-010669	gerund	no	draft		AB2018	47		
+vfm-01199	opera	pap-010694	operando	pap-010700	gerund	no	draft		AB2018	48		
+vfm-01200	opina	pap-010702	opinando	pap-010703	gerund	no	draft		AB2018	48		
+vfm-01201	opone	pap-010707	oponiendo	pap-010709	gerund	no	draft		AB2018	48		
+vfm-01202	oprimi	pap-010718	oprimiendo	pap-010719	gerund	no	draft		AB2018	48		
+vfm-01203	opta	pap-010721	optando	pap-010722	gerund	no	draft		AB2018	48		
+vfm-01204	optimalisa	pap-010726	optimalisando	pap-010728	gerund	no	draft		AB2018	48		
+vfm-01205	ora	pap-010733	orando	pap-010740	gerund	no	draft		AB2018	48		
+vfm-01206	ordena	pap-010747	ordenando	pap-010750	gerund	no	draft		AB2018	48		
+vfm-01207	organisa	pap-010758	organisando	pap-010762	gerund	no	draft		AB2018	48		
+vfm-01208	orienta	pap-010773	orientando	pap-010778	gerund	no	draft		AB2018	48		
+vfm-01209	origina	pap-010781	originando	pap-010785	gerund	no	draft		AB2018	48		
+vfm-01210	orina	pap-010786	orinando	pap-010787	gerund	no	draft		AB2018	48		
+vfm-01211	otorga	pap-010808	otorgando	pap-010810	gerund	no	draft		AB2018	48		
+vfm-01212	ovula	pap-010820	ovulando	pap-010822	gerund	no	draft		AB2018	48		
+vfm-01213	oxida	pap-010823	oxidando	pap-010826	gerund	no	draft		AB2018	48		
+vfm-01214	pachanga	pap-010838	pachangando	pap-010839	gerund	no	draft		AB2018	48		
+vfm-01215	pachura	pap-010841	pachurando	pap-010843	gerund	no	draft		AB2018	48		
+vfm-01216	pacifica	pap-010844	pacificando	pap-010847	gerund	no	draft		AB2018	48		
+vfm-01217	padece	pap-010856	padeciendo	pap-010858	gerund	no	draft		AB2018	48		
+vfm-01218	paga	pap-010871	pagando	pap-010875	gerund	no	draft		AB2018	48		
+vfm-01219	pak	pap-010888	gepak	pap-006804	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01220	paketa	pap-010889	paketando	pap-010892	gerund	no	draft		AB2018	48		
+vfm-01221	paketa	pap-010889	paketa	pap-010889	participle	no	draft		MOR2010	49	6.6.3.1	Rule 3 (more than two syllables, ending in a or i): the participle stays the same as the infinitive, [pa-ke-tá]. Example: E regalo tabata bunita paketa.
+vfm-01222	palabra	pap-010898	palabrando	pap-010900	gerund	no	draft		AB2018	49		
+vfm-01223	palatalisa	pap-010905	palatalisando	pap-010907	gerund	no	draft		AB2018	49		
+vfm-01224	papa	pap-010943	papando	pap-010947	gerund	no	draft		AB2018	49		
+vfm-01225	papela	pap-010951	papelando	pap-010953	gerund	no	draft		AB2018	49		
+vfm-01226	papia	pap-010956	papiando	pap-010961	gerund	no	draft		AB2018	49		
+vfm-01227	para	pap-010965	parando	pap-010995	gerund	no	draft		AB2018	49		
+vfm-01228	paralisa	pap-010985	paralisando	pap-010987	gerund	no	draft		AB2018	49		
+vfm-01229	parandia	pap-010993	parandiando	pap-010994	gerund	no	draft		AB2018	49		
+vfm-01230	parasita	pap-011000	parasitando	pap-011001	gerund	no	draft		AB2018	49		
+vfm-01231	pari	pap-011017	pariendo	pap-011019	gerund	no	draft		AB2018	49		
+vfm-01232	parti	pap-011034	partiendo	pap-011049	gerund	no	draft		AB2018	49		
+vfm-01233	pasa	pap-011055	pasando	pap-011062	gerund	no	draft		AB2018	49		
+vfm-01234	pasa	pap-011055	pasando	pap-011062	gerund	no	draft		MOR2010	47	6.6.2.1	pasa → pas + ando → pasando. Also §6.6.2.3, example 3 (p. 48).
+vfm-01235	pasa	pap-011055	pasa	pap-011055	participle	no	draft		MOR2010	49	6.6.3.1	Rule 1 (two syllables, ending in a or i): the stress moves to the last syllable, [pá-sa] → [pa-sá]. Example: Hopi aña pasa mi a bay Grecia.
+vfm-01236	pashuma	pap-011071	pashumando	pap-011072	gerund	no	draft		AB2018	49		
+vfm-01237	pasteurisa	pap-011089	pasteurisando	pap-011090	gerund	no	draft		AB2018	49		
+vfm-01238	patrocina	pap-011124	patrocinando	pap-011126	gerund	no	draft		AB2018	50		
+vfm-01239	patruya	pap-011130	patruyando	pap-011131	gerund	no	draft		AB2018	50		
+vfm-01240	peca	pap-011147	pecando	pap-011150	gerund	no	draft		AB2018	50		
+vfm-01241	pega	pap-011171	pegando	pap-011173	gerund	no	draft		AB2018	50		
+vfm-01242	pela	pap-011184	pelando	pap-011187	gerund	no	draft		AB2018	50		
+vfm-01243	pela	pap-011184	pela	pap-011184	participle	no	draft		MOR2010	50	6.6.3.3	Used as a noun: E musico tabatin un pela copioso.
+vfm-01244	pena	pap-011201	penando	pap-011205	gerund	no	draft		AB2018	50		
+vfm-01245	pencha	pap-011206	penchando	pap-011208	gerund	no	draft		AB2018	50		
+vfm-01246	penetra	pap-011211	penetrando	pap-011214	gerund	no	draft		AB2018	50		
+vfm-01247	pensa	pap-011225	pensando	pap-011228	gerund	no	draft		AB2018	50		
+vfm-01248	percibi	pap-011245	percibiendo	pap-011246	gerund	no	draft		AB2018	50		
+vfm-01249	percura	pap-011248	percurando	pap-011249	gerund	no	draft		AB2018	50		
+vfm-01250	perde	pap-011252	perdiendo	pap-011258	gerund	no	draft		AB2018	50		
+vfm-01251	perde	pap-011252	perdiendo	pap-011258	gerund	no	draft		MOR2010	47	6.6.2	Example 1: Cada dia nos ta perdiendo mas placa pa via di inflacion. The Nota repeats it with the infinitive perde.
+vfm-01252	perde	pap-011252	perdi	pap-011255	participle	no	draft		AB2018	50		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01253	perde	pap-011252	perdi	pap-011255	participle	no	draft		MOR2010	49	6.6.3.1	Rule 2: [pér-de] → [per-dí]. Example: E pober mucha ta completamente perdi caba. Also §3.3.1.3 Nota 3 (p. 19): Amor scondi ta tempo perdi.
+vfm-01254	peregrina	pap-011259	peregrinando	pap-011261	gerund	no	draft		AB2018	50		
+vfm-01255	perfecciona	pap-011266	perfeccionando	pap-011268	gerund	no	draft		AB2018	50		
+vfm-01256	perfora	pap-011274	perforando	pap-011277	gerund	no	draft		AB2018	50		
+vfm-01257	perfuma	pap-011279	perfumando	pap-011280	gerund	no	draft		AB2018	50		
+vfm-01258	perhudica	pap-011282	perhudicando	pap-011283	gerund	no	draft		AB2018	50		
+vfm-01259	permanece	pap-011299	permaneciendo	pap-011300	gerund	no	draft		AB2018	50		
+vfm-01260	permiti	pap-011308	permitiendo	pap-011310	gerund	no	draft		AB2018	50		
+vfm-01261	persevera	pap-011314	perseverando	pap-011316	gerund	no	draft		AB2018	50		
+vfm-01262	persigui	pap-011318	persiguiendo	pap-011320	gerund	no	draft		AB2018	50		The list prints persiguiendo [pursiguiendo].
+vfm-01263	persisti	pap-011324	persistiendo	pap-011325	gerund	no	draft		AB2018	50		
+vfm-01264	personifica	pap-011331	personificando	pap-011333	gerund	no	draft		AB2018	50		
+vfm-01265	pertenece	pap-011337	perteneciendo	pap-011338	gerund	no	draft		AB2018	50		
+vfm-01266	pesta	pap-011352	pestando	pap-011353	gerund	no	draft		AB2018	51		
+vfm-01267	peña	pap-011363	peñando	pap-011366	gerund	no	draft		AB2018	50		
+vfm-01268	pica	pap-011371	picando	pap-011373	gerund	no	draft		AB2018	51		
+vfm-01269	picha	pap-011375	pichando	pap-011377	gerund	no	draft		AB2018	51		
+vfm-01270	pidi	pap-011389	pidiendo	pap-011391	gerund	no	draft		AB2018	51		
+vfm-01271	pifia	pap-011402	pifiando	pap-011404	gerund	no	draft		AB2018	51		
+vfm-01272	piki	pap-011408	pikiendo	pap-011410	gerund	no	draft		AB2018	51		
+vfm-01273	pilona	pap-011421	pilonando	pap-011423	gerund	no	draft		AB2018	51		
+vfm-01274	pinta	pap-011442	pintando	pap-011445	gerund	no	draft		AB2018	51		
+vfm-01275	pipita	pap-011455	pipitando	pap-011456	gerund	no	draft		AB2018	51		
+vfm-01276	piratea	pap-011460	pirateando	pap-011461	gerund	no	draft		AB2018	51		
+vfm-01277	pisa	pap-011466	pisando	pap-011468	gerund	no	draft		AB2018	51		
+vfm-01278	pisca	pap-011469	piscando	pap-011472	gerund	no	draft		AB2018	51		
+vfm-01279	pishi	pap-011476	pishiendo	pap-011477	gerund	no	draft		AB2018	51		
+vfm-01280	pita	pap-011490	pitando	pap-011492	gerund	no	draft		AB2018	51		The list prints pitando [pitrando].
+vfm-01281	pitra	pap-011496	pitrando	pap-011498	gerund	no	draft		AB2018	51		The list prints pitrando [pitando].
+vfm-01282	placha	pap-011508	plachando	pap-011510	gerund	no	draft		AB2018	51		The list prints plachando [plechando].
+vfm-01283	plak	pap-011513	geplak	pap-006805	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01284	plama	pap-011518	plamando	pap-011520	gerund	no	draft		AB2018	51		
+vfm-01285	planea	pap-011527	planeando	pap-011529	gerund	no	draft		AB2018	51		
+vfm-01286	planifica	pap-011533	planificando	pap-011535	gerund	no	draft		AB2018	51		
+vfm-01287	planta	pap-011537	plantando	pap-011541	gerund	no	draft		AB2018	51		
+vfm-01288	plantia	pap-011543	plantiando	pap-011544	gerund	no	draft		AB2018	51		
+vfm-01289	plastifica	pap-011552	plastificando	pap-011554	gerund	no	draft		AB2018	51		
+vfm-01290	plecha	pap-011570	plechando	pap-011572	gerund	no	draft		AB2018	51		The list prints plechando [plachando].
+vfm-01291	plega	pap-011573	plegando	pap-011574	gerund	no	draft		AB2018	51		
+vfm-01292	pleister	pap-011575	gepleister	pap-006806	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01293	pleita	pap-011579	pleitando	pap-011581	gerund	no	draft		AB2018	51		
+vfm-01294	ploeg	pap-011594	geploeg	pap-006807	participle	no	draft		AB2018	30		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01295	plok	pap-011596	geplok	pap-006808	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01296	plug	pap-011601	geplug	pap-006809	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01297	pluma	pap-011603	plumando	pap-011605	gerund	no	draft		AB2018	52		
+vfm-01298	pobla	pap-011618	poblando	pap-011620	gerund	no	draft		AB2018	52		
+vfm-01299	podera	pap-011628	poderando	pap-011629	gerund	no	draft		AB2018	52		
+vfm-01300	polarisa	pap-011642	polarisando	pap-011644	gerund	no	draft		AB2018	52		
+vfm-01301	polish	pap-011660	gepolish	pap-006810	participle	no	draft		AB2018	31		The list prints gepolish [gepolshi]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01302	polshi	pap-011677	gepolshi	pap-006811	participle	no	draft		AB2018	31		The list prints gepolshi [gepolish]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01303	pomp	pap-011682	gepomp	pap-006812	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01304	pompa	pap-011683	pompando	pap-011685	gerund	no	draft		AB2018	52		
+vfm-01305	pone	pap-011692	poniendo	pap-011697	gerund	no	draft		AB2018	52		
+vfm-01306	pone	pap-011692	poni	pap-011696	participle	no	draft		AB2018	52		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01307	popularisa	pap-011709	popularisando	pap-011711	gerund	no	draft		AB2018	52		
+vfm-01308	pordona	pap-011723	pordonando	pap-011725	gerund	no	draft		AB2018	52		
+vfm-01309	pospone	pap-011762	posponiendo	pap-011765	gerund	no	draft		AB2018	52		
+vfm-01310	pospone	pap-011762	posponi	pap-011764	participle	no	draft		AB2018	52		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01311	postula	pap-011777	postulando	pap-011778	gerund	no	draft		AB2018	52		
+vfm-01312	practica	pap-011801	practicando	pap-011803	gerund	no	draft		AB2018	52		
+vfm-01313	precede	pap-011814	precediendo	pap-011817	gerund	no	draft		AB2018	53		
+vfm-01314	precede	pap-011814	precedi	pap-011816	participle	no	draft		AB2018	53		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01315	predestina	pap-011825	predestinando	pap-011827	gerund	no	draft		AB2018	53		
+vfm-01316	predica	pap-011828	predicando	pap-011831	gerund	no	draft		AB2018	53		
+vfm-01317	prefabrica	pap-011838	prefabricando	pap-011840	gerund	no	draft		AB2018	53		
+vfm-01318	premia	pap-011858	premiando	pap-011860	gerund	no	draft		AB2018	53		
+vfm-01319	premira	pap-011863	premirando	pap-011864	gerund	no	draft		AB2018	53		
+vfm-01320	preocupa	pap-011870	preocupando	pap-011872	gerund	no	draft		AB2018	53		
+vfm-01321	prepara	pap-011874	preparando	pap-011876	gerund	no	draft		AB2018	53		
+vfm-01322	pres	pap-011881	gepres	pap-006813	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01323	prescribi	pap-011883	prescribiendo	pap-011884	gerund	no	draft		AB2018	53		
+vfm-01324	presencia	pap-011886	presenciando	pap-011887	gerund	no	draft		AB2018	53		
+vfm-01325	presenta	pap-011888	presentando	pap-011891	gerund	no	draft		AB2018	53		
+vfm-01326	presenti	pap-011893	presentiendo	pap-011894	gerund	no	draft		AB2018	53		The list prints presentiendo [presintiendo]. presente is also a headword; presenti is the verb.
+vfm-01327	presenti	pap-011893	presintiendo	pap-011907	gerund		draft		AB2018	53		The list prints presintiendo [presentiendo]. The stem vowel changes (e → i), which §6.6.2.1 does not cover.
+vfm-01328	preserva	pap-011896	preservando	pap-011898	gerund	no	draft		AB2018	53		
+vfm-01329	presidi	pap-011903	presidiendo	pap-011906	gerund	no	draft		AB2018	53		
+vfm-01330	presiona	pap-011909	presionando	pap-011910	gerund	no	draft		AB2018	53		
+vfm-01331	presta	pap-011913	prestando	pap-011917	gerund	no	draft		AB2018	53		
+vfm-01332	presupuesta	pap-011920	presupuestando	pap-011921	gerund	no	draft		AB2018	53		
+vfm-01333	preta	pap-011925	pretando	pap-011926	gerund	no	draft		AB2018	53		
+vfm-01334	pretende	pap-011927	pretendiendo	pap-011929	gerund	no	draft		AB2018	53		
+vfm-01335	prevalece	pap-011934	prevaleciendo	pap-011935	gerund	no	draft		AB2018	53		
+vfm-01336	preveni	pap-011937	preveniendo	pap-011938	gerund	no	draft		AB2018	53		
+vfm-01337	primi	pap-011950	primiendo	pap-011952	gerund	no	draft		AB2018	53		
+vfm-01338	priminti	pap-011954	primintiendo	pap-011955	gerund	no	draft		AB2018	53		
+vfm-01339	principia	pap-011966	principiando	pap-011967	gerund	no	draft		AB2018	53		
+vfm-01340	print	pap-011972	geprint	pap-006815	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01341	priva	pap-011981	privando	pap-011983	gerund	no	draft		AB2018	53		
+vfm-01342	privatisa	pap-011984	privatisando	pap-011986	gerund	no	draft		AB2018	53		
+vfm-01343	privilegia	pap-011987	privilegiando	pap-011989	gerund	no	draft		AB2018	53		
+vfm-01344	proba	pap-011995	probando	pap-012000	gerund	no	draft		AB2018	53		The list prints probando [pruebando].
+vfm-01345	probecha	pap-012001	probechando	pap-012002	gerund	no	draft		AB2018	53		
+vfm-01346	procede	pap-012007	procediendo	pap-012011	gerund	no	draft		AB2018	53		
+vfm-01347	procesa	pap-012014	procesando	pap-012017	gerund	no	draft		AB2018	53		
+vfm-01348	proclama	pap-012020	proclamando	pap-012022	gerund	no	draft		AB2018	53		
+vfm-01349	produci	pap-012025	produciendo	pap-012026	gerund	no	draft		AB2018	53		
+vfm-01350	profesa	pap-012037	profesando	pap-012038	gerund	no	draft		AB2018	54		
+vfm-01351	profesionalisa	pap-012041	profesionalisando	pap-012043	gerund	no	draft		AB2018	54		
+vfm-01352	profetisa	pap-012050	profetisando	pap-012052	gerund	no	draft		AB2018	54		
+vfm-01353	profundisa	pap-012058	profundisando	pap-012060	gerund	no	draft		AB2018	54		
+vfm-01354	programa	pap-012064	programando	pap-012066	gerund	no	draft		AB2018	54		
+vfm-01355	progresa	pap-012068	progresando	pap-012069	gerund	no	draft		AB2018	54		
+vfm-01356	prohibi	pap-012072	prohibiendo	pap-012074	gerund	no	draft		AB2018	54		
+vfm-01357	prolonga	pap-012080	prolongando	pap-012082	gerund	no	draft		AB2018	54		
+vfm-01358	promove	pap-012095	promoviendo	pap-012097	gerund	no	draft		AB2018	54		
+vfm-01359	promove	pap-012095	promovi	pap-012096	participle	no	draft		AB2018	54		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01360	pronkia	pap-012099	pronkiando	pap-012100	gerund	no	draft		AB2018	54		
+vfm-01361	pronostica	pap-012104	pronosticando	pap-012106	gerund	no	draft		AB2018	54		
+vfm-01362	pronuncia	pap-012109	pronunciando	pap-012112	gerund	no	draft		AB2018	54		
+vfm-01363	propaga	pap-012115	propagando	pap-012121	gerund	no	draft		AB2018	54		
+vfm-01364	propaganda	pap-012118	propagandando	pap-012119	gerund	no	draft		AB2018	54		
+vfm-01365	propone	pap-012126	proponiendo	pap-012128	gerund	no	draft		AB2018	54		
+vfm-01366	propone	pap-012126	proponi	pap-012127	participle	no	draft		AB2018	54		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01367	proporciona	pap-012130	proporcionando	pap-012133	gerund	no	draft		AB2018	54		
+vfm-01368	prospera	pap-012140	prosperando	pap-012141	gerund	no	draft		AB2018	54		
+vfm-01369	prostitui	pap-012146	prostituyendo	pap-012148	gerund	no	draft		AB2018	54		
+vfm-01370	protege	pap-012152	protegiendo	pap-012154	gerund	no	draft		AB2018	54		The list prints protegiendo [protehando].
+vfm-01371	protege	pap-012152	protegi	pap-012153	participle	no	draft		AB2018	54		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01372	proteha	pap-012155	protehando	pap-012156	gerund	no	draft		AB2018	54		The list prints protehando [protegiendo].
+vfm-01373	protesta	pap-012160	protestando	pap-012161	gerund	no	draft		AB2018	54		
+vfm-01374	provee	pap-012167	proveyendo	pap-012171	gerund	no	draft		AB2018	54		
+vfm-01375	provoca	pap-012179	provocando	pap-012182	gerund	no	draft		AB2018	54		
+vfm-01376	proyecta	pap-012191	proyectando	pap-012192	gerund	no	draft		AB2018	54		
+vfm-01377	prueba	pap-012198	pruebando	pap-012199	gerund	no	draft		AB2018	54		The list prints pruebando [probando].
+vfm-01378	publica	pap-012235	publicando	pap-012238	gerund	no	draft		AB2018	54		
+vfm-01379	puiro	pap-012247	gepuiro	pap-006816	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01380	punta	pap-012257	puntando	pap-012258	gerund	no	draft		AB2018	54		
+vfm-01381	puntra	pap-012260	puntrando	pap-012262	gerund	no	draft		AB2018	54		
+vfm-01382	pura	pap-012267	purando	pap-012269	gerund	no	draft		AB2018	55		
+vfm-01383	purba	pap-012270	purbando	pap-012271	gerund	no	draft		AB2018	55		
+vfm-01384	purifica	pap-012279	purificando	pap-012281	gerund	no	draft		AB2018	55		
+vfm-01385	pursigui	pap-012285	pursiguiendo	pap-012286	gerund	no	draft		AB2018	55		The list prints pursiguiendo [persiguiendo].
+vfm-01386	pusha	pap-012292	pushando	pap-012294	gerund	no	draft		AB2018	55		
+vfm-01387	pusta	pap-012296	pustando	pap-012299	gerund	no	draft		AB2018	55		
+vfm-01388	putri	pap-012300	putriendo	pap-012301	gerund	no	draft		AB2018	55		
+vfm-01389	puya	pap-012304	puyando	pap-012305	gerund	no	draft		AB2018	55		
+vfm-01390	rabia	pap-012325	rabiando	pap-012327	gerund	no	draft		AB2018	55		
+vfm-01391	rafina	pap-012363	rafinando	pap-012366	gerund	no	draft		AB2018	55		The list prints rafinando [refinando].
+vfm-01392	rafocha	pap-012368	rafochando	pap-012370	gerund	no	draft		AB2018	55		
+vfm-01393	rama	pap-012374	ramando	pap-012376	gerund	no	draft		AB2018	55		
+vfm-01394	ranca	pap-012380	rancando	pap-012382	gerund	no	draft		AB2018	55		
+vfm-01395	raporta	pap-012401	raportando	pap-012402	gerund	no	draft		AB2018	55		
+vfm-01396	rasa	pap-012405	rasando	pap-012407	gerund	no	draft		AB2018	55		
+vfm-01397	rasca	pap-012408	rascando	pap-012410	gerund	no	draft		AB2018	55		
+vfm-01398	rasona	pap-012415	rasonando	pap-012418	gerund	no	draft		AB2018	55		
+vfm-01399	raspa	pap-012419	raspando	pap-012421	gerund	no	draft		AB2018	55		
+vfm-01400	ratifica	pap-012426	ratificando	pap-012428	gerund	no	draft		AB2018	55		
+vfm-01401	reacciona	pap-012440	reaccionando	pap-012441	gerund	no	draft		AB2018	55		
+vfm-01402	reactiva	pap-012443	reactivando	pap-012445	gerund	no	draft		AB2018	55		
+vfm-01403	reagrupa	pap-012449	reagrupando	pap-012451	gerund	no	draft		AB2018	55		
+vfm-01404	reahusta	pap-012452	reahustando	pap-012454	gerund	no	draft		AB2018	55		
+vfm-01405	realisa	pap-012457	realisando	pap-012460	gerund	no	draft		AB2018	55		
+vfm-01406	reanima	pap-012466	reanimando	pap-012468	gerund	no	draft		AB2018	55		
+vfm-01407	reanuda	pap-012469	reanudando	pap-012471	gerund	no	draft		AB2018	55		
+vfm-01408	reaparece	pap-012472	reapareciendo	pap-012473	gerund	no	draft		AB2018	55		
+vfm-01409	rebaha	pap-012477	rebahando	pap-012478	gerund	no	draft		AB2018	55		
+vfm-01410	rebalorisa	pap-012481	rebalorisando	pap-012483	gerund	no	draft		AB2018	55		
+vfm-01411	rebeldia	pap-012485	rebeldiando	pap-012486	gerund	no	draft		AB2018	55		
+vfm-01412	rebiba	pap-012492	rebibando	pap-012494	gerund	no	draft		AB2018	56		
+vfm-01413	reboltia	pap-012496	reboltiando	pap-012498	gerund	no	draft		AB2018	56		
+vfm-01414	recapacita	pap-012501	recapacitando	pap-012503	gerund	no	draft		AB2018	56		
+vfm-01415	recauda	pap-012505	recaudando	pap-012508	gerund	no	draft		AB2018	56		
+vfm-01416	receta	pap-012515	recetando	pap-012516	gerund	no	draft		AB2018	56		
+vfm-01417	rechasa	pap-012517	rechasando	pap-012518	gerund	no	draft		AB2018	56		
+vfm-01418	recita	pap-012536	recitando	pap-012540	gerund	no	draft		AB2018	56		
+vfm-01419	reclama	pap-012541	reclamando	pap-012543	gerund	no	draft		AB2018	56		
+vfm-01420	reclasifica	pap-012545	reclasificando	pap-012547	gerund	no	draft		AB2018	56		
+vfm-01421	recobra	pap-012549	recobrando	pap-012550	gerund	no	draft		AB2018	56		
+vfm-01422	recoge	pap-012551	recogiendo	pap-012555	gerund	no	draft		AB2018	56		
+vfm-01423	recoge	pap-012551	recogi	pap-012554	participle	no	draft		AB2018	56		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01424	recomenda	pap-012556	recomendando	pap-012559	gerund	no	draft		AB2018	56		
+vfm-01425	recompensa	pap-012560	recompensando	pap-012561	gerund	no	draft		AB2018	56		
+vfm-01426	reconcilia	pap-012562	reconciliando	pap-012564	gerund	no	draft		AB2018	56		
+vfm-01427	reconecta	pap-012565	reconectando	pap-012566	gerund	no	draft		AB2018	56		
+vfm-01428	reconfirma	pap-012568	reconfirmando	pap-012570	gerund	no	draft		AB2018	56		
+vfm-01429	reconkista	pap-012571	reconkistando	pap-012574	gerund	no	draft		AB2018	56		
+vfm-01430	reconoce	pap-012575	reconociendo	pap-012579	gerund	no	draft		AB2018	56		
+vfm-01431	reconoce	pap-012575	reconoci	pap-012577	participle	no	draft		AB2018	56		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01432	reconsidera	pap-012581	reconsiderando	pap-012583	gerund	no	draft		AB2018	56		
+vfm-01433	reconstrui	pap-012585	reconstruyendo	pap-012586	gerund	no	draft		AB2018	56		
+vfm-01434	recopila	pap-012587	recopilando	pap-012591	gerund	no	draft		AB2018	56		
+vfm-01435	recorda	pap-012593	recordando	pap-012594	gerund	no	draft		AB2018	56		
+vfm-01436	recore	pap-012596	recoriendo	pap-012599	gerund	no	draft		AB2018	56		
+vfm-01437	recore	pap-012596	recori	pap-012597	participle	no	draft		AB2018	56		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01438	recrea	pap-012601	recreando	pap-012603	gerund	no	draft		AB2018	56		
+vfm-01439	rectifica	pap-012608	rectificando	pap-012610	gerund	no	draft		AB2018	56		
+vfm-01440	recupera	pap-012613	recuperando	pap-012615	gerund	no	draft		AB2018	56		
+vfm-01441	reda	pap-012619	redando	pap-012625	gerund	no	draft		AB2018	56		
+vfm-01442	redacta	pap-012621	redactando	pap-012622	gerund	no	draft		AB2018	56		
+vfm-01443	redefini	pap-012627	redefiniendo	pap-012629	gerund	no	draft		AB2018	56		
+vfm-01444	redobla	pap-012632	redoblando	pap-012634	gerund	no	draft		AB2018	56		
+vfm-01445	reduci	pap-012637	reduciendo	pap-012638	gerund	no	draft		AB2018	56		
+vfm-01446	reduplica	pap-012641	reduplicando	pap-012643	gerund	no	draft		AB2018	56		
+vfm-01447	reedita	pap-012645	reeditando	pap-012646	gerund	no	draft		AB2018	56		
+vfm-01448	reeduca	pap-012647	reeducando	pap-012650	gerund	no	draft		AB2018	56		
+vfm-01449	reeligi	pap-012652	reeligiendo	pap-012655	gerund	no	draft		AB2018	56		
+vfm-01450	reemigra	pap-012657	reemigrando	pap-012659	gerund	no	draft		AB2018	56		
+vfm-01451	reemiti	pap-012661	reemitiendo	pap-012662	gerund	no	draft		AB2018	56		
+vfm-01452	reemplasa	pap-012663	reemplasando	pap-012665	gerund	no	draft		AB2018	56		
+vfm-01453	reenforsa	pap-012670	reenforsando	pap-012671	gerund	no	draft		AB2018	56		
+vfm-01454	reestablece	pap-012672	reestableciendo	pap-012675	gerund	no	draft		AB2018	56		
+vfm-01455	reestablece	pap-012672	reestableci	pap-012674	participle	no	draft		AB2018	56		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01456	reevalua	pap-012676	reevaluando	pap-012678	gerund	no	draft		AB2018	56		
+vfm-01457	referi	pap-012684	referiendo	pap-012685	gerund	no	draft		AB2018	56		
+vfm-01458	refina	pap-012686	refinando	pap-012692	gerund	no	draft		AB2018	56		The list prints refinando [rafinando].
+vfm-01459	refinancia	pap-012688	refinanciando	pap-012691	gerund	no	draft		AB2018	56		
+vfm-01460	refleha	pap-012694	reflehando	pap-012695	gerund	no	draft		AB2018	56		
+vfm-01461	reflexiona	pap-012699	reflexionando	pap-012700	gerund	no	draft		AB2018	56		
+vfm-01462	reforma	pap-012704	reformando	pap-012706	gerund	no	draft		AB2018	56		
+vfm-01463	reformula	pap-012708	reformulando	pap-012710	gerund	no	draft		AB2018	56		
+vfm-01464	reforsa	pap-012711	reforsando	pap-012712	gerund	no	draft		AB2018	56		
+vfm-01465	refresca	pap-012715	refrescando	pap-012716	gerund	no	draft		AB2018	56		
+vfm-01466	regala	pap-012723	regalando	pap-012724	gerund	no	draft		AB2018	57		
+vfm-01467	regenera	pap-012730	regenerando	pap-012732	gerund	no	draft		AB2018	57		
+vfm-01468	registra	pap-012738	registrando	pap-012740	gerund	no	draft		AB2018	57		
+vfm-01469	regla	pap-012742	reglando	pap-012748	gerund	no	draft		AB2018	57		
+vfm-01470	reglamenta	pap-012743	reglamentando	pap-012745	gerund	no	draft		AB2018	57		
+vfm-01471	regresa	pap-012749	regresando	pap-012750	gerund	no	draft		AB2018	57		
+vfm-01472	regula	pap-012753	regulando	pap-012755	gerund	no	draft		AB2018	57		
+vfm-01473	rehabilita	pap-012759	rehabilitando	pap-012761	gerund	no	draft		AB2018	57		
+vfm-01474	reihi	pap-012764	gereihi	pap-006818	participle	no	draft		AB2018	31		The list prints gereihi [gerijg]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01475	reina	pap-012767	reinando	pap-012769	gerund	no	draft		AB2018	57		
+vfm-01476	reinmigra	pap-012771	reinmigrando	pap-012773	gerund	no	draft		AB2018	57		
+vfm-01477	reinstitui	pap-012776	reinstituyendo	pap-012777	gerund	no	draft		AB2018	57		
+vfm-01478	reintroduci	pap-012779	reintroduciendo	pap-012780	gerund	no	draft		AB2018	57		
+vfm-01479	reinverti	pap-012782	reinvertiendo	pap-012783	gerund	no	draft		AB2018	57		
+vfm-01480	rek	pap-012785	gerek	pap-006819	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01481	rekeri	pap-012786	rekeriendo	pap-012787	gerund	no	draft		AB2018	57		
+vfm-01482	relaciona	pap-012792	relacionando	pap-012793	gerund	no	draft		AB2018	57		
+vfm-01483	relaha	pap-012795	relahando	pap-012797	gerund	no	draft		AB2018	57		
+vfm-01484	relata	pap-012798	relatando	pap-012799	gerund	no	draft		AB2018	57		
+vfm-01485	relativa	pap-012800	relativando	pap-012802	gerund	no	draft		AB2018	57		
+vfm-01486	rema	pap-012815	remando	pap-012818	gerund	no	draft		AB2018	57		
+vfm-01487	remarca	pap-012819	remarcando	pap-012821	gerund	no	draft		AB2018	57		
+vfm-01488	remata	pap-012823	rematando	pap-012824	gerund	no	draft		AB2018	57		
+vfm-01489	remedia	pap-012828	remediando	pap-012829	gerund	no	draft		AB2018	57		
+vfm-01490	rementa	pap-012830	rementando	pap-012832	gerund	no	draft		AB2018	57		
+vfm-01491	remiti	pap-012834	remitiendo	pap-012836	gerund	no	draft		AB2018	57		
+vfm-01492	remodela	pap-012837	remodelando	pap-012838	gerund	no	draft		AB2018	57		
+vfm-01493	remorde	pap-012840	remordiendo	pap-012842	gerund	no	draft		AB2018	57		
+vfm-01494	renace	pap-012844	renaciendo	pap-012847	gerund	no	draft		AB2018	57		
+vfm-01495	renace	pap-012844	renaci	pap-012846	participle	no	draft		AB2018	57		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01496	renoba	pap-012857	renobando	pap-012860	gerund	no	draft		AB2018	57		
+vfm-01497	renombra	pap-012861	renombrando	pap-012863	gerund	no	draft		AB2018	57		
+vfm-01498	renuncia	pap-012865	renunciando	pap-012866	gerund	no	draft		AB2018	57		
+vfm-01499	reorganisa	pap-012868	reorganisando	pap-012870	gerund	no	draft		AB2018	57		
+vfm-01500	reorienta	pap-012871	reorientando	pap-012873	gerund	no	draft		AB2018	57		
+vfm-01501	repara	pap-012874	reparando	pap-012877	gerund	no	draft		AB2018	57		
+vfm-01502	reparti	pap-012878	repartiendo	pap-012880	gerund	no	draft		AB2018	57		
+vfm-01503	repasa	pap-012881	repasando	pap-012882	gerund	no	draft		AB2018	57		
+vfm-01504	repatria	pap-012884	repatriando	pap-012886	gerund	no	draft		AB2018	57		
+vfm-01505	repia	pap-012894	repiando	pap-012896	gerund	no	draft		AB2018	57		
+vfm-01506	replica	pap-012897	replicando	pap-012898	gerund	no	draft		AB2018	57		
+vfm-01507	reporta	pap-012899	reportando	pap-012901	gerund	no	draft		AB2018	57		
+vfm-01508	reposa	pap-012904	reposando	pap-012905	gerund	no	draft		AB2018	57		
+vfm-01509	representa	pap-012908	representando	pap-012910	gerund	no	draft		AB2018	57		
+vfm-01510	reprocha	pap-012913	reprochando	pap-012915	gerund	no	draft		AB2018	57		
+vfm-01511	reproduci	pap-012918	reproduciendo	pap-012919	gerund	no	draft		AB2018	57		
+vfm-01512	resa	pap-012927	resando	pap-012932	gerund	no	draft		AB2018	57		
+vfm-01513	resalta	pap-012929	resaltando	pap-012930	gerund	no	draft		AB2018	57		
+vfm-01514	rescata	pap-012933	rescatando	pap-012934	gerund	no	draft		AB2018	57		
+vfm-01515	reserva	pap-012938	reservando	pap-012940	gerund	no	draft		AB2018	57		
+vfm-01516	reseña	pap-012942	reseñando	pap-012945	gerund	no	draft		AB2018	57		
+vfm-01517	residencia	pap-012946	residenciando	pap-012947	gerund	no	draft		AB2018	57		
+vfm-01518	resisti	pap-012951	resistiendo	pap-012952	gerund	no	draft		AB2018	58		
+vfm-01519	resocialisa	pap-012953	resocialisando	pap-012955	gerund	no	draft		AB2018	58		
+vfm-01520	resolve	pap-012957	resolviendo	pap-012959	gerund	no	draft		AB2018	58		
+vfm-01521	resolve	pap-012957	resolvi	pap-012958	participle	no	draft		AB2018	58		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01522	resona	pap-012961	resonando	pap-012963	gerund	no	draft		AB2018	58		
+vfm-01523	resorta	pap-012964	resortando	pap-012965	gerund	no	draft		AB2018	58		
+vfm-01524	respalda	pap-012966	respaldando	pap-012967	gerund	no	draft		AB2018	58		
+vfm-01525	respeta	pap-012972	respetando	pap-012975	gerund	no	draft		AB2018	58		
+vfm-01526	respira	pap-012978	respirando	pap-012980	gerund	no	draft		AB2018	58		
+vfm-01527	responde	pap-012983	respondiendo	pap-012985	gerund	no	draft		AB2018	58		
+vfm-01528	responde	pap-012983	respondi	pap-012984	participle	no	draft		AB2018	58		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01529	responsabilisa	pap-012989	responsabilisando	pap-012991	gerund	no	draft		AB2018	58		
+vfm-01530	resta	pap-012993	restando	pap-012994	gerund	no	draft		AB2018	58		
+vfm-01531	restaura	pap-012995	restaurando	pap-012998	gerund	no	draft		AB2018	58		
+vfm-01532	restitui	pap-013001	restituyendo	pap-013002	gerund	no	draft		AB2018	58		
+vfm-01533	restringi	pap-013005	restringiendo	pap-013006	gerund	no	draft		AB2018	58		
+vfm-01534	restructura	pap-013007	restructurando	pap-013009	gerund	no	draft		AB2018	58		
+vfm-01535	resucita	pap-013012	resucitando	pap-013013	gerund	no	draft		AB2018	58		
+vfm-01536	resulta	pap-013014	resultando	pap-013016	gerund	no	draft		AB2018	58		
+vfm-01537	resumi	pap-013018	resumiendo	pap-013019	gerund	no	draft		AB2018	58		
+vfm-01538	reta	pap-013021	retando	pap-013022	gerund	no	draft		AB2018	58		
+vfm-01539	retarda	pap-013023	retardando	pap-013025	gerund	no	draft		AB2018	58		
+vfm-01540	retira	pap-013029	retirando	pap-013030	gerund	no	draft		AB2018	58		
+vfm-01541	retransmiti	pap-013036	retransmitiendo	pap-013037	gerund	no	draft		AB2018	58		
+vfm-01542	retrasa	pap-013038	retrasando	pap-013039	gerund	no	draft		AB2018	58		
+vfm-01543	reuni	pap-013047	reuniendo	pap-013048	gerund	no	draft		AB2018	58		
+vfm-01544	revalida	pap-013051	revalidando	pap-013053	gerund	no	draft		AB2018	58		
+vfm-01545	revela	pap-013055	revelando	pap-013057	gerund	no	draft		AB2018	58		
+vfm-01546	revisa	pap-013059	revisando	pap-013060	gerund	no	draft		AB2018	58		
+vfm-01547	revitalisa	pap-013063	revitalisando	pap-013065	gerund	no	draft		AB2018	58		
+vfm-01548	revoca	pap-013066	revocando	pap-013070	gerund	no	draft		AB2018	58		
+vfm-01549	ricibi	pap-013081	ricibiendo	pap-013082	gerund	no	draft		AB2018	58		
+vfm-01550	ridiculisa	pap-013086	ridiculisando	pap-013088	gerund	no	draft		AB2018	58		
+vfm-01551	rifa	pap-013094	rifando	pap-013096	gerund	no	draft		AB2018	58		
+vfm-01552	rijg	pap-013106	gerijg	pap-006825	participle	no	draft		AB2018	31		The list prints gerijg [gereihi]. Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01553	rijs	pap-013109	gerijs	pap-006826	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01554	rindi	pap-013118	rindiendo	pap-013119	gerund	no	draft		AB2018	58		
+vfm-01555	ripara	pap-013125	riparando	pap-013127	gerund	no	draft		AB2018	58		
+vfm-01556	ripiti	pap-013128	ripitiendo	pap-013130	gerund	no	draft		AB2018	58		
+vfm-01557	risca	pap-013131	riscando	pap-013132	gerund	no	draft		AB2018	58		
+vfm-01558	rista	pap-013137	ristando	pap-013139	gerund	no	draft		AB2018	58		
+vfm-01559	roba	pap-013153	robando	pap-013157	gerund	no	draft		AB2018	58		
+vfm-01560	roga	pap-013169	rogando	pap-013171	gerund	no	draft		AB2018	58		
+vfm-01561	ronca	pap-013191	roncando	pap-013193	gerund	no	draft		AB2018	59		
+vfm-01562	rondia	pap-013197	rondiando	pap-013200	gerund	no	draft		AB2018	59		
+vfm-01563	rondona	pap-013202	rondonando	pap-013203	gerund	no	draft		AB2018	59		
+vfm-01564	rosa	pap-013210	rosando	pap-013212	gerund	no	draft		AB2018	59		
+vfm-01565	rubrica	pap-013230	rubricando	pap-013231	gerund	no	draft		AB2018	59		
+vfm-01566	ruina	pap-013239	ruinando	pap-013240	gerund	no	draft		AB2018	59		
+vfm-01567	rushi	pap-013248	gerushi	pap-006834	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01568	sa	pap-013258	sabiendo	pap-013265	gerund	yes	draft		AB2018	59		Linked to sa as Morfologia §6.6.2.2 (p. 48) prints sa(bi) – sabiendo. An Aruban irregular gerund in _meta/invariants.md. sabi is also a headword.
+vfm-01569	sa	pap-013258	sabiendo	pap-013265	gerund	yes	draft		MOR2010	48	6.6.2.2	Printed sa(bi) – sabiendo. An Aruban irregular gerund in _meta/invariants.md.
+vfm-01570	sa	pap-013258	sabi	pap-013263	participle	yes	draft		MOR2010	49	6.6.3.2	Printed sa – sabi.
+vfm-01571	saboria	pap-013268	saboriando	pap-013269	gerund	no	draft		AB2018	59		
+vfm-01572	sabotia	pap-013271	sabotiando	pap-013272	gerund	no	draft		AB2018	59		
+vfm-01573	saca	pap-013274	sacando	pap-013277	gerund	no	draft		AB2018	59		
+vfm-01574	sacia	pap-013279	saciando	pap-013282	gerund	no	draft		AB2018	59		
+vfm-01575	sacrifica	pap-013286	sacrificando	pap-013287	gerund	no	draft		AB2018	59		
+vfm-01576	sacudi	pap-013291	sacudiendo	pap-013292	gerund	no	draft		AB2018	59		
+vfm-01577	safe	pap-013296	gesafe	pap-006836	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01578	sak	pap-013299	gesak	pap-006837	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01579	sala	pap-013302	salando	pap-013305	gerund	no	draft		AB2018	59		
+vfm-01580	salba	pap-013307	salbando	pap-013313	gerund	no	draft		AB2018	59		
+vfm-01581	sali	pap-013316	saliendo	pap-013318	gerund	no	draft		AB2018	59		
+vfm-01582	salta	pap-013329	saltando	pap-013331	gerund	no	draft		AB2018	59		
+vfm-01583	saluda	pap-013335	saludando	pap-013337	gerund	no	draft		AB2018	59		
+vfm-01584	salvaguardia	pap-013340	salvaguardiando	pap-013341	gerund	no	draft		AB2018	59		
+vfm-01585	sambuya	pap-013348	sambuyando	pap-013351	gerund	no	draft		AB2018	59		
+vfm-01586	samina	pap-013352	saminando	pap-013355	gerund	no	draft		AB2018	59		
+vfm-01587	sanciona	pap-013363	sancionando	pap-013365	gerund	no	draft		AB2018	59		
+vfm-01588	sanea	pap-013369	saneando	pap-013371	gerund	no	draft		AB2018	59		
+vfm-01589	sangra	pap-013373	sangrando	pap-013375	gerund	no	draft		AB2018	59		
+vfm-01590	sapatia	pap-013400	sapatiando	pap-013402	gerund	no	draft		AB2018	59		
+vfm-01591	satisface	pap-013424	satisfaciendo	pap-013425	gerund	no	draft		AB2018	60		
+vfm-01592	satura	pap-013429	saturando	pap-013431	gerund	no	draft		AB2018	60		
+vfm-01593	scama	pap-013449	scamando	pap-013451	gerund	no	draft		AB2018	60		
+vfm-01594	scan	pap-013452	gescan	pap-006838	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01595	scandalisa	pap-013454	scandalisando	pap-013455	gerund	no	draft		AB2018	60		
+vfm-01596	scapa	pap-013459	scapando	pap-013460	gerund	no	draft		AB2018	60		
+vfm-01597	scapula	pap-013462	scapulando	pap-013464	gerund	no	draft		AB2018	60		
+vfm-01598	schaaf	pap-013471	geschaaf	pap-006839	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01599	scheur	pap-013482	gescheur	pap-006840	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01600	schors	pap-013491	geschors	pap-006841	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01601	schroef	pap-013496	geschroef	pap-006842	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01602	schuif	pap-013499	geschuif	pap-006843	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01603	schuur	pap-013505	geschuur	pap-006844	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01604	sclama	pap-013509	sclamando	pap-013511	gerund	no	draft		AB2018	60		
+vfm-01605	sclavisa	pap-013512	sclavisando	pap-013514	gerund	no	draft		AB2018	60		
+vfm-01606	scoge	pap-013520	scogiendo	pap-013523	gerund	no	draft		AB2018	60		
+vfm-01607	scoge	pap-013520	scogi	pap-013522	participle	no	draft		AB2018	60		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01608	sconde	pap-013528	scondiendo	pap-013531	gerund	no	draft		AB2018	60		
+vfm-01609	sconde	pap-013528	scondi	pap-013530	participle	no	draft		AB2018	60		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01610	sconde	pap-013528	scondi	pap-013530	participle	no	draft		MOR2010	19	3.3.1.3	Nota 3, a participle used as an adjective: Amor scondi ta tempo perdi. The page does not print the infinitive; sconde is the AB 2018 headword.
+vfm-01611	scop	pap-013533	gescop	pap-006845	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01612	score	pap-013539	gescore	pap-006846	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01613	scot	pap-013542	gescot	pap-006847	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01614	scrap	pap-013547	gescrap	pap-006848	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01615	screen	pap-013549	gescreen	pap-006849	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01616	scual	pap-013555	gescual	pap-006850	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01617	scucha	pap-013557	scuchando	pap-013560	gerund	no	draft		AB2018	60		
+vfm-01618	scuma	pap-013562	scumando	pap-013564	gerund	no	draft		AB2018	60		
+vfm-01619	scupi	pap-013565	scupiendo	pap-013566	gerund	no	draft		AB2018	60		
+vfm-01620	seca	pap-013577	secando	pap-013579	gerund	no	draft		AB2018	60		
+vfm-01621	secuestra	pap-013597	secuestrando	pap-013600	gerund	no	draft		AB2018	60		
+vfm-01622	secularisa	pap-013603	secularisando	pap-013605	gerund	no	draft		AB2018	60		
+vfm-01623	sefta	pap-013613	seftando	pap-013615	gerund	no	draft		AB2018	60		
+vfm-01624	segmenta	pap-013616	segmentando	pap-013617	gerund	no	draft		AB2018	60		
+vfm-01625	selecciona	pap-013631	seleccionando	pap-013632	gerund	no	draft		AB2018	60		
+vfm-01626	selecta	pap-013633	selectando	pap-013635	gerund	no	draft		AB2018	60		
+vfm-01627	sembra	pap-013647	sembrando	pap-013650	gerund	no	draft		AB2018	61		
+vfm-01628	sencia	pap-013657	senciando	pap-013659	gerund	no	draft		AB2018	61		
+vfm-01629	sentencia	pap-013671	sentenciando	pap-013673	gerund	no	draft		AB2018	61		
+vfm-01630	separa	pap-013679	separando	pap-013683	gerund	no	draft		AB2018	61		
+vfm-01631	sepiya	pap-013687	sepiyando	pap-013689	gerund	no	draft		AB2018	61		
+vfm-01632	set	pap-013723	geset	pap-006851	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01633	seya	pap-013745	seyando	pap-013747	gerund	no	draft		AB2018	61		
+vfm-01634	señala	pap-013750	señalando	pap-013751	gerund	no	draft		AB2018	61		
+vfm-01635	shangrina	pap-013756	shangrinando	pap-013757	gerund	no	draft		AB2018	61		
+vfm-01636	shobel	pap-013781	geshobel	pap-006853	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01637	shora	pap-013790	shorando	pap-013792	gerund	no	draft		AB2018	61		
+vfm-01638	shorota	pap-013794	shorotando	pap-013796	gerund	no	draft		AB2018	61		
+vfm-01639	sigui	pap-013822	siguiendo	pap-013826	gerund	no	draft		AB2018	61		
+vfm-01640	sigura	pap-013831	sigurando	pap-013833	gerund	no	draft		AB2018	61		
+vfm-01641	simbolisa	pap-013846	simbolisando	pap-013848	gerund	no	draft		AB2018	61		
+vfm-01642	simpatisa	pap-013859	simpatisando	pap-013861	gerund	no	draft		AB2018	62		
+vfm-01643	simplifica	pap-013867	simplificando	pap-013869	gerund	no	draft		AB2018	62		
+vfm-01644	simula	pap-013873	simulando	pap-013875	gerund	no	draft		AB2018	62		
+vfm-01645	sincronisa	pap-013885	sincronisando	pap-013887	gerund	no	draft		AB2018	62		
+vfm-01646	sink	pap-013899	gesink	pap-006854	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01647	sinta	pap-013902	sintando	pap-013904	gerund	no	draft		AB2018	62		
+vfm-01648	sintetisa	pap-013908	sintetisando	pap-013909	gerund	no	draft		AB2018	62		
+vfm-01649	sinti	pap-013910	sintiendo	pap-013911	gerund	no	draft		AB2018	62		
+vfm-01650	sintonisa	pap-013916	sintonisando	pap-013917	gerund	no	draft		AB2018	62		
+vfm-01651	sipa	pap-013920	sipando	pap-013921	gerund	no	draft		AB2018	62		
+vfm-01652	sirbi	pap-013924	sirbiendo	pap-013926	gerund	no	draft		AB2018	62		
+vfm-01653	sistematisa	pap-013938	sistematisando	pap-013940	gerund	no	draft		AB2018	62		
+vfm-01654	siña	pap-013950	siñando	pap-013952	gerund	no	draft		AB2018	62		
+vfm-01655	skeiro	pap-013959	geskeiro	pap-006855	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01656	skematisa	pap-013966	skematisando	pap-013967	gerund	no	draft		AB2018	62		
+vfm-01657	sker	pap-013973	gesker	pap-006856	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01658	skerf	pap-013975	geskerf	pap-006857	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01659	sketch	pap-013980	gesketch	pap-006858	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01660	skirbi	pap-013986	skirbiendo	pap-013987	gerund	no	draft		AB2018	62		
+vfm-01661	skirbi	pap-013986	skirbiendo	pap-013987	gerund	no	draft		MOR2010	48	6.6.2.1	skirbi → skirb + iendo → skirbiendo.
+vfm-01662	skirbi	pap-013986	skirbi	pap-013986	participle	no	draft		MOR2010	51	6.7.1	Passive example: "Zuidstraat" a wordo/ser skirbi door di/pa Denis Henriquez. Spelled like the infinitive.
+vfm-01663	skit	pap-013989	geskit	pap-006859	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01664	slice	pap-013999	geslice	pap-006860	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01665	slijm	pap-014002	geslijm	pap-006861	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01666	slijp	pap-014004	geslijp	pap-006862	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01667	smeer	pap-014027	gesmeer	pap-006863	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01668	smoor	pap-014032	gesmoor	pap-006864	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01669	snoei	pap-014046	gesnoei	pap-006865	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01670	snuif	pap-014052	gesnuif	pap-006866	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01671	sobrecarga	pap-014063	sobrecargando	pap-014064	gerund	no	draft		AB2018	62		
+vfm-01672	sobrevivi	pap-014068	sobreviviendo	pap-014069	gerund	no	draft		AB2018	62		
+vfm-01673	socialisa	pap-014077	socialisando	pap-014079	gerund	no	draft		AB2018	62		
+vfm-01674	soda	pap-014094	sodando	pap-014096	gerund	no	draft		AB2018	63		
+vfm-01675	sofoca	pap-014101	sofocando	pap-014102	gerund	no	draft		AB2018	63		
+vfm-01676	solia	pap-014123	soliando	pap-014124	gerund	no	draft		AB2018	63		
+vfm-01677	solicita	pap-014125	solicitando	pap-014127	gerund	no	draft		AB2018	63		
+vfm-01678	soluciona	pap-014139	solucionando	pap-014140	gerund	no	draft		AB2018	63		
+vfm-01679	somenta	pap-014146	somentando	pap-014147	gerund	no	draft		AB2018	63		
+vfm-01680	somete	pap-014148	sometiendo	pap-014150	gerund	no	draft		AB2018	63		
+vfm-01681	somete	pap-014148	someti	pap-014149	participle	no	draft		AB2018	63		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01682	sondea	pap-014151	sondeando	pap-014153	gerund	no	draft		AB2018	63		
+vfm-01683	soporta	pap-014161	soportando	pap-014163	gerund	no	draft		AB2018	63		
+vfm-01684	sorprende	pap-014167	sorprendiendo	pap-014170	gerund	no	draft		AB2018	63		
+vfm-01685	sorprende	pap-014167	sorprendi	pap-014169	participle	no	draft		AB2018	63		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01686	sorpresa	pap-014171	sorpresando	pap-014172	gerund	no	draft		AB2018	63		
+vfm-01687	sortia	pap-014178	sortiando	pap-014180	gerund	no	draft		AB2018	63		
+vfm-01688	sosega	pap-014183	sosegando	pap-014184	gerund	no	draft		AB2018	63		
+vfm-01689	sosode	pap-014187	sosodiendo	pap-014188	gerund	no	draft		AB2018	63		
+vfm-01690	sospecha	pap-014189	sospechando	pap-014190	gerund	no	draft		AB2018	63		
+vfm-01691	sostene	pap-014194	sosteniendo	pap-014198	gerund	no	draft		AB2018	63		
+vfm-01692	sostene	pap-014194	sosteni	pap-014196	participle	no	draft		AB2018	63		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01693	soya	pap-014201	soyando	pap-014204	gerund	no	draft		AB2018	63		
+vfm-01694	soña	pap-014205	soñando	pap-014208	gerund	no	draft		AB2018	63		
+vfm-01695	spaar	pap-014212	gespaar	pap-006868	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01696	spacha	pap-014216	spachando	pap-014219	gerund	no	draft		AB2018	63		
+vfm-01697	span	pap-014224	gespan	pap-006869	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01698	spart	pap-014233	gespart	pap-006870	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01699	spañolisa	pap-014238	spañolisando	pap-014239	gerund	no	draft		AB2018	63		
+vfm-01700	specialisa	pap-014244	specialisando	pap-014246	gerund	no	draft		AB2018	63		
+vfm-01701	specifica	pap-014250	specificando	pap-014253	gerund	no	draft		AB2018	63		
+vfm-01702	specula	pap-014255	speculando	pap-014258	gerund	no	draft		AB2018	63		
+vfm-01703	spera	pap-014272	sperando	pap-014273	gerund	no	draft		AB2018	63		
+vfm-01704	spierta	pap-014285	spiertando	pap-014286	gerund	no	draft		AB2018	63		
+vfm-01705	spiona	pap-014297	spionando	pap-014299	gerund	no	draft		AB2018	63		
+vfm-01706	splica	pap-014308	splicando	pap-014310	gerund	no	draft		AB2018	63		
+vfm-01707	split	pap-014315	gesplit	pap-006871	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01708	spons	pap-014320	gespons	pap-006872	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01709	sponsor	pap-014322	gesponsor	pap-006873	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01710	spray	pap-014334	gespray	pap-006874	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01711	sprei	pap-014337	gesprei	pap-006875	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01712	sproei	pap-014345	gesproei	pap-006876	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01713	spuit	pap-014351	gespuit	pap-006877	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01714	spula	pap-014353	spulando	pap-014355	gerund	no	draft		AB2018	64		
+vfm-01715	stabilisa	pap-014364	stabilisando	pap-014366	gerund	no	draft		AB2018	64		
+vfm-01716	staca	pap-014367	stacando	pap-014369	gerund	no	draft		AB2018	64		
+vfm-01717	staciona	pap-014371	stacionando	pap-014373	gerund	no	draft		AB2018	64		
+vfm-01718	stanca	pap-014384	stancando	pap-014385	gerund	no	draft		AB2018	64		
+vfm-01719	standarisa	pap-014388	standarisando	pap-014390	gerund	no	draft		AB2018	64		
+vfm-01720	stapel	pap-014393	gestapel	pap-006878	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01721	start	pap-014394	gestart	pap-006879	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01722	steam	pap-014405	gesteam	pap-006880	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01723	stek	pap-014411	gestek	pap-006881	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01724	stem	pap-014417	gestem	pap-006882	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01725	stempel	pap-014425	gestempel	pap-006883	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01726	stenografia	pap-014433	stenografiando	pap-014434	gerund	no	draft		AB2018	64		
+vfm-01727	sterilisa	pap-014449	sterilisando	pap-014451	gerund	no	draft		AB2018	64		
+vfm-01728	stet	pap-014453	gestet	pap-006884	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01729	stik	pap-014463	gestik	pap-006888	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01730	stima	pap-014469	stimando	pap-014471	gerund	no	draft		AB2018	64		
+vfm-01731	stimula	pap-014472	stimulando	pap-014474	gerund	no	draft		AB2018	64		
+vfm-01732	stip	pap-014478	gestip	pap-006890	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01733	stipula	pap-014480	stipulando	pap-014483	gerund	no	draft		AB2018	64		
+vfm-01734	stiwa	pap-014484	stiwando	pap-014487	gerund	no	draft		AB2018	64		
+vfm-01735	stoba	pap-014488	stobando	pap-014490	gerund	no	draft		AB2018	64		
+vfm-01736	stock	pap-014491	gestock	pap-006892	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01737	stofia	pap-014495	stofiando	pap-014497	gerund	no	draft		AB2018	64		
+vfm-01738	stop	pap-014508	gestop	pap-006893	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01739	straight	pap-014521	gestraight	pap-006894	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01740	straña	pap-014533	strañando	pap-014534	gerund	no	draft		AB2018	64		
+vfm-01741	stret	pap-014548	gestret	pap-006895	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01742	strica	pap-014552	stricando	pap-014555	gerund	no	draft		AB2018	65		
+vfm-01743	strip	pap-014562	gestrip	pap-006896	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01744	stroba	pap-014564	strobando	pap-014567	gerund	no	draft		AB2018	65		
+vfm-01745	strooi	pap-014571	gestrooi	pap-006897	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01746	structura	pap-014580	structurando	pap-014583	gerund	no	draft		AB2018	65		
+vfm-01747	studia	pap-014584	studiando	pap-014586	gerund	no	draft		AB2018	65		
+vfm-01748	stuf	pap-014590	gestuf	pap-006898	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01749	suavisa	pap-014605	suavisando	pap-014606	gerund	no	draft		AB2018	65		
+vfm-01750	subbalota	pap-014610	subbalotando	pap-014611	gerund	no	draft		AB2018	65		
+vfm-01751	subi	pap-014625	subiendo	pap-014627	gerund	no	draft		AB2018	65		
+vfm-01752	subleva	pap-014630	sublevando	pap-014632	gerund	no	draft		AB2018	65		
+vfm-01753	subraya	pap-014638	subrayando	pap-014639	gerund	no	draft		AB2018	65		
+vfm-01754	subsidia	pap-014644	subsidiando	pap-014647	gerund	no	draft		AB2018	65		
+vfm-01755	substitui	pap-014654	substituyendo	pap-014655	gerund	no	draft		AB2018	65		
+vfm-01756	sucumbi	pap-014667	sucumbiendo	pap-014668	gerund	no	draft		AB2018	65		
+vfm-01757	sufri	pap-014683	sufriendo	pap-014684	gerund	no	draft		AB2018	65		
+vfm-01758	sugeri	pap-014687	sugeriendo	pap-014688	gerund	no	draft		AB2018	65		
+vfm-01759	suma	pap-014700	sumando	pap-014702	gerund	no	draft		AB2018	65		
+vfm-01760	suministra	pap-014704	suministrando	pap-014707	gerund	no	draft		AB2018	65		
+vfm-01761	supera	pap-014717	superando	pap-014718	gerund	no	draft		AB2018	65		
+vfm-01762	supervisa	pap-014734	supervisando	pap-014735	gerund	no	draft		AB2018	65		
+vfm-01763	supla	pap-014738	suplando	pap-014740	gerund	no	draft		AB2018	65		
+vfm-01764	suplica	pap-014742	suplicando	pap-014743	gerund	no	draft		AB2018	65		
+vfm-01765	supone	pap-014744	suponiendo	pap-014745	gerund	no	draft		AB2018	65		
+vfm-01766	suprimi	pap-014749	suprimiendo	pap-014750	gerund	no	draft		AB2018	65		
+vfm-01767	surgi	pap-014762	surgiendo	pap-014763	gerund	no	draft		AB2018	65		
+vfm-01768	surpasa	pap-014768	surpasando	pap-014769	gerund	no	draft		AB2018	65		
+vfm-01769	surti	pap-014773	surtiendo	pap-014775	gerund	no	draft		AB2018	66		
+vfm-01770	susha	pap-014777	sushando	pap-014779	gerund	no	draft		AB2018	66		
+vfm-01771	suspende	pap-014782	suspendiendo	pap-014784	gerund	no	draft		AB2018	66		
+vfm-01772	suspende	pap-014782	suspendi	pap-014783	participle	no	draft		AB2018	66		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01773	suspira	pap-014786	suspirando	pap-014787	gerund	no	draft		AB2018	66		
+vfm-01774	suta	pap-014793	sutando	pap-014795	gerund	no	draft		AB2018	66		
+vfm-01775	ta	pap-014805	estando		gerund	yes	draft		MOR2010	48	6.6.2.2	Printed ta – siendo, estando. estando is not in the AB 2018 word list.
+vfm-01776	ta	pap-014805	siendo	pap-013812	gerund	yes	draft		AB2018	61		Linked to ta as Morfologia §6.6.2.2 (p. 48) pairs them: ta – siendo, estando.
+vfm-01777	ta	pap-014805	siendo	pap-013812	gerund	yes	draft		MOR2010	48	6.6.2.2	Printed ta – siendo, estando.
+vfm-01778	tacha	pap-014816	tachando	pap-014818	gerund	no	draft		AB2018	66		
+vfm-01779	taha	pap-014826	tahando	pap-014828	gerund	no	draft		AB2018	66		
+vfm-01780	tambalia	pap-014843	tambaliando	pap-014844	gerund	no	draft		AB2018	66		
+vfm-01781	tapa	pap-014868	tapando	pap-014872	gerund	no	draft		AB2018	66		
+vfm-01782	tape	pap-014875	getape	pap-006899	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01783	tarda	pap-014884	tardando	pap-014886	gerund	no	draft		AB2018	66		
+vfm-01784	tatua	pap-014900	tatuando	pap-014902	gerund	no	draft		AB2018	66		
+vfm-01785	telegrafia	pap-014944	telegrafiando	pap-014945	gerund	no	draft		AB2018	66		
+vfm-01786	tembla	pap-014967	temblando	pap-014969	gerund	no	draft		AB2018	66		
+vfm-01787	teme	pap-014971	temiendo	pap-014973	gerund	no	draft		AB2018	66		
+vfm-01788	teme	pap-014971	temi	pap-014972	participle	no	draft		AB2018	66		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01789	tempera	pap-014976	temperando	pap-014978	gerund	no	draft		AB2018	66		
+vfm-01790	tende	pap-014989	tendiendo	pap-014993	gerund	no	draft		AB2018	66		
+vfm-01791	tende	pap-014989	tendi	pap-014992	participle	no	draft		AB2018	66		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01792	tene	pap-014994	teni	pap-014998	participle	no	draft		AB2018	66		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01793	tenta	pap-015006	tentando	pap-015012	gerund	no	draft		AB2018	67		
+vfm-01794	teoretisa	pap-015020	teoretisando	pap-015021	gerund	no	draft		AB2018	67		
+vfm-01795	termina	pap-015040	terminando	pap-015043	gerund	no	draft		AB2018	67		
+vfm-01796	terorisa	pap-015051	terorisando	pap-015052	gerund	no	draft		AB2018	67		
+vfm-01797	test	pap-015064	getest	pap-006900	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01798	testigua	pap-015069	testiguando	pap-015070	gerund	no	draft		AB2018	67		
+vfm-01799	tight	pap-015092	getight	pap-006901	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01800	tilda	pap-015100	tildando	pap-015102	gerund	no	draft		AB2018	67		
+vfm-01801	tin	pap-015110	teniendo	pap-014999	gerund	yes	draft		AB2018	66		Linked to tin as Morfologia §6.6.2.2 (p. 48) pairs them. An Aruban irregular gerund in _meta/invariants.md. tene is also a headword; the list does not say which verb teniendo belongs to.
+vfm-01802	tin	pap-015110	teniendo	pap-014999	gerund	yes	draft		MOR2010	48	6.6.2.2	Printed tin – teniendo. An Aruban irregular gerund in _meta/invariants.md.
+vfm-01803	tipifica	pap-015121	tipificando	pap-015122	gerund	no	draft		AB2018	67		
+vfm-01804	tira	pap-015126	tirando	pap-015130	gerund	no	draft		AB2018	67		
+vfm-01805	tiranisa	pap-015132	tiranisando	pap-015133	gerund	no	draft		AB2018	67		
+vfm-01806	titula	pap-015137	titulando	pap-015139	gerund	no	draft		AB2018	67		
+vfm-01807	tiña	pap-015142	tiñando	pap-015144	gerund	no	draft		AB2018	67		
+vfm-01808	toast	pap-015146	getoast	pap-006903	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01809	toca	pap-015149	tocando	pap-015153	gerund	no	draft		AB2018	67		
+vfm-01810	tolera	pap-015171	tolerando	pap-015174	gerund	no	draft		AB2018	67		
+vfm-01811	tolondra	pap-015178	tolondrando	pap-015179	gerund	no	draft		AB2018	67		
+vfm-01812	topa	pap-015191	topando	pap-015192	gerund	no	draft		AB2018	67		
+vfm-01813	toria	pap-015199	toriando	pap-015202	gerund	no	draft		AB2018	67		
+vfm-01814	tormenta	pap-015204	tormentando	pap-015205	gerund	no	draft		AB2018	67		
+vfm-01815	torno	pap-015209	getorno	pap-006904	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01816	torpedia	pap-015213	torpediando	pap-015214	gerund	no	draft		AB2018	67		
+vfm-01817	tortura	pap-015218	torturando	pap-015219	gerund	no	draft		AB2018	67		
+vfm-01818	tosa	pap-015221	tosando	pap-015223	gerund	no	draft		AB2018	67		
+vfm-01819	tota	pap-015225	totando	pap-015229	gerund	no	draft		AB2018	68		
+vfm-01820	touw	pap-015236	getouw	pap-006905	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01821	traduci	pap-015251	traduciendo	pap-015253	gerund	no	draft		AB2018	68		
+vfm-01822	trafica	pap-015256	traficando	pap-015258	gerund	no	draft		AB2018	68		
+vfm-01823	traga	pap-015261	tragando	pap-015263	gerund	no	draft		AB2018	68		
+vfm-01824	traha	pap-015268	trahando	pap-015271	gerund	no	draft		AB2018	68		
+vfm-01825	traha	pap-015268	traha	pap-015268	participle	no	draft		MOR2010	48	6.6.3	Example 2: E tentamen ta traha caba. Spelled like the infinitive.
+vfm-01826	traiciona	pap-015274	traicionando	pap-015275	gerund	no	draft		AB2018	68		
+vfm-01827	trama	pap-015289	tramando	pap-015290	gerund	no	draft		AB2018	68		
+vfm-01828	tranca	pap-015295	trancando	pap-015296	gerund	no	draft		AB2018	68		
+vfm-01829	trankilisa	pap-015302	trankilisando	pap-015303	gerund	no	draft		AB2018	68		
+vfm-01830	transcende	pap-015309	transcendiendo	pap-015313	gerund	no	draft		AB2018	68		
+vfm-01831	transcende	pap-015309	transcendi	pap-015312	participle	no	draft		AB2018	68		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01832	transcribi	pap-015314	transcribiendo	pap-015315	gerund	no	draft		AB2018	68		
+vfm-01833	transcuri	pap-015317	transcuriendo	pap-015318	gerund	no	draft		AB2018	68		
+vfm-01834	transferi	pap-015321	transferiendo	pap-015323	gerund	no	draft		AB2018	68		
+vfm-01835	transforma	pap-015325	transformando	pap-015329	gerund	no	draft		AB2018	68		
+vfm-01836	transmiti	pap-015341	transmitiendo	pap-015342	gerund	no	draft		AB2018	68		
+vfm-01837	transpira	pap-015345	transpirando	pap-015347	gerund	no	draft		AB2018	68		
+vfm-01838	transplanta	pap-015348	transplantando	pap-015350	gerund	no	draft		AB2018	68		
+vfm-01839	transporta	pap-015353	transportando	pap-015357	gerund	no	draft		AB2018	68		
+vfm-01840	trapa	pap-015361	trapando	pap-015363	gerund	no	draft		AB2018	68		
+vfm-01841	traspasa	pap-015368	traspasando	pap-015369	gerund	no	draft		AB2018	68		
+vfm-01842	trastorna	pap-015373	trastornando	pap-015374	gerund	no	draft		AB2018	68		
+vfm-01843	trata	pap-015376	tratando	pap-015379	gerund	no	draft		AB2018	68		
+vfm-01844	traumatisa	pap-015383	traumatisando	pap-015384	gerund	no	draft		AB2018	68		
+vfm-01845	trece	pap-015392	treciendo	pap-015395	gerund	no	draft		AB2018	68		
+vfm-01846	trece	pap-015392	treci	pap-015394	participle	no	draft		AB2018	68		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01847	trek	pap-015403	getrek	pap-006906	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01848	triplica	pap-015463	triplicando	pap-015465	gerund	no	draft		AB2018	69		The list prints triplicando [triplificando].
+vfm-01849	triplifica	pap-015466	triplificando	pap-015468	gerund	no	draft		AB2018	69		The list prints triplificando [triplicando].
+vfm-01850	tripula	pap-015470	tripulando	pap-015472	gerund	no	draft		AB2018	69		
+vfm-01851	triunfa	pap-015477	triunfando	pap-015479	gerund	no	draft		AB2018	69		
+vfm-01852	troca	pap-015484	trocando	pap-015486	gerund	no	draft		AB2018	69		
+vfm-01853	troce	pap-015487	trociendo	pap-015490	gerund	no	draft		AB2018	69		
+vfm-01854	troce	pap-015487	troci	pap-015489	participle	no	draft		AB2018	69		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01855	trompica	pap-015502	trompicando	pap-015503	gerund	no	draft		AB2018	69		
+vfm-01856	tuma	pap-015528	tumando	pap-015530	gerund	no	draft		AB2018	69		
+vfm-01857	tumba	pap-015531	tumbando	pap-015533	gerund	no	draft		AB2018	69		
+vfm-01858	ubica	pap-015567	ubicando	pap-015569	gerund	no	draft		AB2018	69		
+vfm-01859	uni	pap-015588	uniendo	pap-015594	gerund	no	draft		AB2018	69		
+vfm-01860	unifica	pap-015595	unificando	pap-015597	gerund	no	draft		AB2018	69		
+vfm-01861	uniforma	pap-015599	uniformando	pap-015601	gerund	no	draft		AB2018	69		
+vfm-01862	urbanisa	pap-015614	urbanisando	pap-015616	gerund	no	draft		AB2018	69		
+vfm-01863	urgi	pap-015620	urgiendo	pap-015621	gerund	no	draft		AB2018	69		
+vfm-01864	utilisa	pap-015630	utilisando	pap-015632	gerund	no	draft		AB2018	69		
+vfm-01865	uza	pap-015635	uzando	pap-015639	gerund	no	draft		AB2018	69		
+vfm-01866	uza	pap-015635	uza	pap-015635	participle	no	draft		MOR2010	50	6.6.3.3	Used as a noun: Ta bon pa uza papel uza como kladpapier.
+vfm-01867	vacila	pap-015646	vacilando	pap-015648	gerund	no	draft		AB2018	69		
+vfm-01868	vacuna	pap-015649	vacunando	pap-015651	gerund	no	draft		AB2018	69		
+vfm-01869	vapora	pap-015673	vaporando	pap-015675	gerund	no	draft		AB2018	69		
+vfm-01870	varia	pap-015676	variando	pap-015680	gerund	no	draft		AB2018	69		
+vfm-01871	vegeta	pap-015690	vegetando	pap-015693	gerund	no	draft		AB2018	70		
+vfm-01872	veila	pap-015699	veilando	pap-015701	gerund	no	draft		AB2018	70		
+vfm-01873	vence	pap-015707	venciendo	pap-015713	gerund	no	draft		AB2018	70		
+vfm-01874	vence	pap-015707	venci	pap-015711	participle	no	draft		AB2018	70		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01875	venena	pap-015714	venenando	pap-015716	gerund	no	draft		AB2018	70		
+vfm-01876	venera	pap-015719	venerando	pap-015722	gerund	no	draft		AB2018	70		
+vfm-01877	venga	pap-015728	vengando	pap-015730	gerund	no	draft		AB2018	70		
+vfm-01878	ventila	pap-015736	ventilando	pap-015738	gerund	no	draft		AB2018	70		
+vfm-01879	verbalisa	pap-015742	verbalisando	pap-015744	gerund	no	draft		AB2018	70		
+vfm-01880	verf	pap-015754	geverf	pap-006908	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01881	verf	pap-015754	geverf	pap-006908	participle	no	draft		MOR2010	49	6.6.3.1	Rule 5: ge- + the infinitive. Example: E cas a wordo bunita geverf.
+vfm-01882	verifica	pap-015758	verificando	pap-015761	gerund	no	draft		AB2018	70		
+vfm-01883	vernisa	pap-015774	vernisando	pap-015776	gerund	no	draft		AB2018	70		The list prints vernisando [vernisiando].
+vfm-01884	vernisia	pap-015777	vernisiando	pap-015779	gerund	no	draft		AB2018	70		The list prints vernisiando [vernisando].
+vfm-01885	vibra	pap-015802	vibrando	pap-015804	gerund	no	draft		AB2018	70		
+vfm-01886	vigila	pap-015829	vigilando	pap-015833	gerund	no	draft		AB2018	70		
+vfm-01887	viola	pap-015840	violando	pap-015844	gerund	no	draft		AB2018	70		
+vfm-01888	visualisa	pap-015860	visualisando	pap-015862	gerund	no	draft		AB2018	70		
+vfm-01889	vlecht	pap-015871	gevlecht	pap-006909	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01890	vocalisa	pap-015881	vocalisando	pap-015883	gerund	no	draft		AB2018	70		
+vfm-01891	vocifera	pap-015886	vociferando	pap-015887	gerund	no	draft		AB2018	70		
+vfm-01892	vota	pap-015904	votando	pap-015908	gerund	no	draft		AB2018	71		
+vfm-01893	vries	pap-015910	gevries	pap-006911	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01894	wanta	pap-015951	wantando	pap-015954	gerund	no	draft		AB2018	71		
+vfm-01895	warda	pap-015959	wardando	pap-015964	gerund	no	draft		AB2018	71		
+vfm-01896	wave	pap-015984	gewave	pap-006912	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01897	waya	pap-015987	wayando	pap-015995	gerund	no	draft		AB2018	71		
+vfm-01898	weita	pap-016009	weitando	pap-016010	gerund	no	draft		AB2018	71		
+vfm-01899	welcha	pap-016015	welchando	pap-016016	gerund	no	draft		AB2018	71		
+vfm-01900	welder	pap-016018	gewelder	pap-006913	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01901	welga	pap-016023	welgando	pap-016024	gerund	no	draft		AB2018	71		
+vfm-01902	werkia	pap-016034	werkiando	pap-016035	gerund	no	draft		AB2018	71		
+vfm-01903	yama	pap-016074	yamando	pap-016077	gerund	no	draft		AB2018	71		
+vfm-01904	yanga	pap-016082	yangando	pap-016083	gerund	no	draft		AB2018	71		
+vfm-01905	yaya	pap-016088	yayando	pap-016089	gerund	no	draft		AB2018	71		
+vfm-01906	yega	pap-016091	yegando	pap-016094	gerund	no	draft		AB2018	71		
+vfm-01907	yena	pap-016096	yenando	pap-016098	gerund	no	draft		AB2018	71		
+vfm-01908	yobe	pap-016107	yobiendo	pap-016111	gerund	no	draft		AB2018	71		
+vfm-01909	yobe	pap-016107	yobi	pap-016109	participle	no	draft		AB2018	71		Not labelled in the list; a participle by Morfologia §6.6.3.1 rules 2 and 4 (p. 49): final e becomes i.
+vfm-01910	yora	pap-016119	yorando	pap-016122	gerund	no	draft		AB2018	71		
+vfm-01911	yuda	pap-016129	yudando	pap-016132	gerund	no	draft		AB2018	71		
+vfm-01912	yuna	pap-016137	yunando	pap-016138	gerund	no	draft		AB2018	72		
+vfm-01913	zaag	pap-016140	gezaag	pap-006915	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01914	zembla	pap-016151	zemblando	pap-016152	gerund	no	draft		AB2018	72		
+vfm-01915	zeta	pap-016154	zetando	pap-016156	gerund	no	draft		AB2018	72		The list prints zetando [azetando].
+vfm-01916	zjangurna	pap-016166	zjangurnando	pap-016167	gerund	no	draft		AB2018	72		
+vfm-01917	zom	pap-016173	gezom	pap-006917	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.
+vfm-01918	zona	pap-016177	zonando	pap-016179	gerund	no	draft		AB2018	72		
+vfm-01919	zoya	pap-016191	zoyando	pap-016193	gerund	no	draft		AB2018	72		
+vfm-01920	zundra	pap-016202	zundrando	pap-016204	gerund	no	draft		AB2018	72		
+vfm-01921	zwiep	pap-016214	gezwiep	pap-006918	participle	no	draft		AB2018	31		Not labelled in the list; a participle by Morfologia §6.6.3.1 rule 5 (p. 49): ge- + the infinitive.

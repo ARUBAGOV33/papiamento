@@ -36,7 +36,7 @@ Only files that match a glob in `_meta/schema/registry.json` are checked, plus `
 | | The schemas themselves: no unknown top-level, field or constraint keys (only `required`, `enum`, `pattern`, `unique` are checked), and every `x-papiamento` key is known and names fields of the table. A typo would otherwise switch a check off. | error |
 | G3 Orthography | In `aruban_text` columns: accented or non-Aruban characters unless the word is in `_meta/allowlists/accented-loans.txt`; word in the wrong letter folder | error |
 | | Curaçao markers (`-shon`, `k` before a/o/u, `ku`/`kos`/`kon`/`ki`), skipped for rows sourced from `AB2018` | warning |
-| G4 Integrity | `id` unique across all tables; `unique_together` across all files of a table | error |
+| G4 Integrity | `id` unique across all tables; `unique_together` across all files of a table; `word_refs` values (`word_id`, `form_word_id` in `lexicon/verb-forms/`) that are not the id of a `lexicon/words/` row with the same lemma | error |
 | | `lexicon_refs` values that are not a lemma in `lexicon/words/` (skipped while there are no word files); `rule_refs` values (`barbarismos.rule_id`) that are not the id of a grammar file. `RULE_LEX_*` ids are row-level, the row itself is the rule, so they need no grammar file. | warning |
 | G5 Known facts | Each row of `_meta/known-facts.tsv` holds for the matching data rows (deprecated rows and empty cells are ignored, and the fact is then pending). A fact on one row (`where` = `id=...`) is an error when that row's cell is empty or the row is deprecated, so a correction cannot be switched off silently. | error |
 | | A fact whose `where` matches no row at all (a typo, or a fact recorded before its row) | warning |

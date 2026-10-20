@@ -106,6 +106,18 @@ class ProgressTest(unittest.TestCase):
         total = sum(count for _, _, count, _ in rs["other"])
         self.assertIn("of %s" % build_pages.fmt(total), svg.split(">Rows reviewed<", 1)[1])
 
+    def test_verb_forms_are_counted(self):
+        # The verb forms (lexicon/verb-forms/) are a row in the README table
+        # and part of the chart's "Rows reviewed" bar, like the closed classes.
+        rs = self.stats()
+        other = dict((key, (label, n, reviewed)) for key, label, n, reviewed in rs["other"])
+        self.assertIn("verb-forms", other)
+        label, n, reviewed = other["verb-forms"]
+        self.assertEqual(n, len(build_pages.table_rows("verb-forms")))
+        self.assertGreater(n, 0)
+        self.assertIn("| %s | %s | %s | not audited yet |" % (label, build_pages.fmt(n), build_pages.fmt(reviewed)),
+                      build_pages.readme_block(rs))
+
 
 
 class RegistryTest(unittest.TestCase):

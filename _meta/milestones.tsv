@@ -1,6 +1,6 @@
 id	title	status	left	notes
 P0	Foundation	done	branch protection; written licence confirmation	
-P1	Clean data	in-progress	names; verb forms (gerunds and participles); review of the closed word classes; human-checked answers for the test sets	Version 0.1.0 released and audited.
+P1	Clean data	in-progress	names; review of the closed word classes and verb forms; human-checked answers for the test sets	Version 0.1.0 released and audited.
 P2	Community	in-progress	teacher pilot; review board; onboarding guide; watchdog	Contribution tool live since 2026-10-19.
 P3	Products	not-started		
 P4	Speech and AI	not-started		
