@@ -1,0 +1,151 @@
+{
+  "title": "Names: the capitalised headwords of the AB 2018 word list (places, demonyms, peoples, languages, religion, titles, institutions)",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Stable id, never reused",
+      "constraints": {
+        "required": true,
+        "pattern": "^nam-[0-9]{4}$",
+        "unique": true
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The name exactly as the source prints it, capital letters included. For AB 2018 rows it equals the lemma of the word_id row.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "word_id",
+      "type": "string",
+      "description": "The id of the headword in lexicon/words that this name is (pap-...). Empty only for a name that is not a headword of the word list.",
+      "constraints": {
+        "pattern": "^pap-[0-9]{6}$"
+      }
+    },
+    {
+      "name": "kind",
+      "type": "string",
+      "description": "What the name is, by the capitalisation rules of AB 2018 §9.3-9.4 (gazette pp. 30-32). Geographic names (§9.3 e): continent, region (a part of the world, a historical land, a mountain range, a pole), country (including former ones), island, place (a city, town, district or neighbourhood), water (an ocean, sea or river). demonym: the adjective, inhabitant or language name derived from a geographic name (§9.3 g). people: a people or tribe and its derivatives (§9.3 j). language: a language not named after a place (§9.3 h). religion: a deity or a name for one, a religious figure, a prayer, a scripture or another religious name (§9.3 d). holiday: a holiday or religious day (§9.3 i). title: a form of address, title or dignity and its abbreviation (§9.3 b, k, m; §9.4). planet and zodiac (§9.3 e). institution: an institution, organisation, business or brand (§9.3 f). person: a named person or figure (§9.3 a). other: anything else, or a name whose meaning the source leaves open.",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "continent",
+          "region",
+          "country",
+          "island",
+          "place",
+          "water",
+          "demonym",
+          "people",
+          "language",
+          "religion",
+          "holiday",
+          "title",
+          "planet",
+          "zodiac",
+          "institution",
+          "person",
+          "other"
+        ]
+      }
+    },
+    {
+      "name": "related",
+      "type": "string",
+      "description": "Ids of the names this one is derived from, '; '-separated: a demonym's place (Arubano > Aruba). Only when the word list itself makes the link obvious.",
+      "constraints": {
+        "pattern": "^nam-[0-9]{4}(; nam-[0-9]{4})*$"
+      }
+    },
+    {
+      "name": "en",
+      "type": "string",
+      "description": "English name(s) or gloss, '; '-separated; a short description in parentheses when needed"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "draft",
+          "reviewed",
+          "disputed",
+          "deprecated"
+        ]
+      },
+      "description": "draft | reviewed | disputed | deprecated"
+    },
+    {
+      "name": "reviewed_by",
+      "type": "string",
+      "constraints": {
+        "pattern": "^[A-Za-z0-9-]+(; [A-Za-z0-9-]+)*$"
+      },
+      "description": "GitHub usernames of the reviewers, separated by '; '. Required when status is reviewed."
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^[A-Z]{2,5}[0-9]{4}[a-z]?$"
+      },
+      "description": "Source id from sources/sources.tsv."
+    },
+    {
+      "name": "page",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "^([0-9]+(-[0-9]+)?|[ivxlc]+(-[ivxlc]+)?)$"
+      },
+      "description": "Printed page number(s), e.g. 38 or 38-39, roman for front matter. For AB 2018, the word-list page."
+    },
+    {
+      "name": "notes",
+      "type": "string"
+    }
+  ],
+  "x-papiamento": {
+    "unique_together": [
+      [
+        "name",
+        "kind"
+      ]
+    ],
+    "sort_by": [
+      "name",
+      "kind",
+      "id"
+    ],
+    "aruban_text": [
+      "name"
+    ],
+    "word_refs": {
+      "word_id": "name"
+    },
+    "folder_refs": {
+      "related": "names.tsv"
+    },
+    "contributor_refs": [
+      "reviewed_by"
+    ]
+  },
+  "$comment": "Frictionless Table Schema plus x-papiamento extensions read by tools/validate.py. See _meta/conventions.md.",
+  "primaryKey": "id",
+  "foreignKeys": [
+    {
+      "fields": "source",
+      "reference": {
+        "resource": "sources",
+        "fields": "id"
+      }
+    }
+  ]
+}

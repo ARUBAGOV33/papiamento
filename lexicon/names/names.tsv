@@ -1,0 +1,381 @@
+id	name	word_id	kind	related	en	status	reviewed_by	source	page	notes
+nam-0001	Acuario	pap-000201	zodiac		Aquarius	draft		AB2018	1	AB 2018 §9.3 e (gazette p. 30) gives it as an example.
+nam-0002	Africa	pap-000344	continent		Africa	draft		AB2018	2	
+nam-0003	Africano	pap-000350	demonym	nam-0002	African	draft		AB2018	2	
+nam-0004	Afroantiano	pap-000353	people		Afro-Antillean	draft		AB2018	2	
+nam-0005	Afrobrasilero	pap-000354	people		Afro-Brazilian	draft		AB2018	2	
+nam-0006	Afrobrasileño	pap-000355	people		Afro-Brazilian	draft		AB2018	2	
+nam-0007	Afrocaribense	pap-000356	people		Afro-Caribbean	draft		AB2018	2	
+nam-0008	Afrocaribeño	pap-000357	people		Afro-Caribbean	draft		AB2018	2	
+nam-0009	Afrocubano	pap-000358	people		Afro-Cuban	draft		AB2018	2	
+nam-0010	Afromericano	pap-000359	people		African American; Afro-American	draft		AB2018	2	
+nam-0011	Albanes	pap-000445	demonym	nam-0012	Albanian	draft		AB2018	2	
+nam-0012	Albania	pap-000446	country		Albania	draft		AB2018	2	
+nam-0013	Aleman	pap-000476	demonym	nam-0014	German	draft		AB2018	3	
+nam-0014	Alemania	pap-000477	country		Germany	draft		AB2018	3	
+nam-0015	Algeria	pap-000495	country		Algeria	draft		AB2018	3	
+nam-0016	Algeriano	pap-000496	demonym	nam-0015	Algerian	draft		AB2018	3	
+nam-0017	Allah	pap-000523	religion		Allah	draft		AB2018	3	
+nam-0018	Amazona	pap-000579	water		Amazon (river)	draft		AB2018	3	The word list labels it riu (river).
+nam-0019	Amazonia	pap-000580	region		Amazonia; the Amazon	draft		AB2018	3	
+nam-0020	Amazonico	pap-000581	demonym	nam-0019; nam-0018	Amazonian	draft		AB2018	3	
+nam-0021	Ambon	pap-000591	island		Ambon	draft		AB2018	3	
+nam-0022	Ambones	pap-000592	demonym	nam-0021	Ambonese	draft		AB2018	3	
+nam-0023	America	pap-000601	continent		America; the Americas	draft		AB2018	3	
+nam-0024	America Latino	pap-000602	region		Latin America	draft		AB2018	3	
+nam-0025	Americano	pap-000608	demonym	nam-0023	American	draft		AB2018	3	
+nam-0026	Andes	pap-000686	region		the Andes	draft		AB2018	4	
+nam-0027	Andino	pap-000688	demonym	nam-0026	Andean	draft		AB2018	4	
+nam-0028	Angola	pap-000711	country		Angola	draft		AB2018	4	
+nam-0029	Angoles	pap-000712	demonym	nam-0028	Angolan	draft		AB2018	4	
+nam-0030	Antartica	pap-000745	continent		Antarctica	draft		AB2018	4	
+nam-0031	Antartico	pap-000746	demonym	nam-0030	Antarctic	draft		AB2018	4	
+nam-0032	Antia	pap-000760	region		the Antilles	draft		AB2018	4	
+nam-0033	Antia Hulandes	pap-000761	country		the Netherlands Antilles	draft		AB2018	4	A former country.
+nam-0034	Antiano	pap-000764	demonym	nam-0032; nam-0035	Antillean	draft		AB2018	4	
+nam-0035	Antias	pap-000765	region		the Antilles	draft		AB2018	4	
+nam-0036	Antias Hulandes	pap-000766	country		the Netherlands Antilles	draft		AB2018	4	A former country.
+nam-0037	Anunciacion	pap-000826	holiday		the Annunciation	draft		AB2018	4	
+nam-0038	Arabe	pap-000923	demonym	nam-0039	Arab; Arabic	draft		AB2018	5	
+nam-0039	Arabia	pap-000924	region		Arabia	draft		AB2018	5	
+nam-0040	Arabier	pap-000925	demonym	nam-0039	Arab	draft		AB2018	5	
+nam-0041	Arawak	pap-000929	people		Arawak	draft		AB2018	5	
+nam-0042	Argentina	pap-000953	country		Argentina	draft		AB2018	5	
+nam-0043	Argentinero	pap-000954	demonym	nam-0042	Argentine; Argentinian	draft		AB2018	5	
+nam-0044	Argentino	pap-000955	demonym	nam-0042	Argentine; Argentinian	draft		AB2018	5	
+nam-0045	Aries	pap-000965	zodiac		Aries	draft		AB2018	5	
+nam-0046	Aruba	pap-001015	country		Aruba	draft		AB2018	5	A country of the Kingdom of the Netherlands and an island.
+nam-0047	Arubano	pap-001016	demonym	nam-0046	Aruban	draft		AB2018	5	
+nam-0048	Arubiano	pap-001018	demonym	nam-0046	Aruban	draft		AB2018	5	
+nam-0049	Ascension	pap-001029	holiday		the Ascension; Ascension Day	draft		AB2018	5	
+nam-0050	Asia	pap-001045	continent		Asia	draft		AB2018	5	
+nam-0051	Asiatico	pap-001046	demonym	nam-0050	Asian	draft		AB2018	5	
+nam-0052	Asuncion	pap-001093	holiday		the Assumption	draft		AB2018	5	AB 2018 §9.3 i (gazette p. 31) gives Asuncion as an example of a holiday or religious day.
+nam-0053	Atlantico	pap-001116	water		the Atlantic (Ocean); Atlantic	draft		AB2018	5	
+nam-0054	Australia	pap-001172	country		Australia	draft		AB2018	6	
+nam-0055	Australiano	pap-001173	demonym	nam-0054	Australian	draft		AB2018	6	
+nam-0056	Austria	pap-001174	country		Austria	draft		AB2018	6	
+nam-0057	Austriaco	pap-001175	demonym	nam-0056	Austrian	draft		AB2018	6	
+nam-0058	Ave Maria	pap-001220	religion		Hail Mary; Ave Maria	draft		AB2018	6	A prayer: AB 2018 §9.3 d (gazette p. 30) gives it as an example.
+nam-0059	Azteca	pap-001271	people		Aztec	draft		AB2018	6	AB 2018 §9.3 j (gazette p. 31) gives it as an example.
+nam-0060	Babilonico	pap-001284	demonym		Babylonian	draft		AB2018	6	
+nam-0061	Belga	pap-001577	demonym	nam-0062	Belgian	draft		AB2018	7	
+nam-0062	Belgica	pap-001578	country		Belgium	draft		AB2018	7	
+nam-0063	Belgicano	pap-001579	demonym	nam-0062	Belgian	draft		AB2018	7	
+nam-0064	Biblia	pap-001667	religion		the Bible	draft		AB2018	8	
+nam-0065	Bierna Santo	pap-001703	holiday		Good Friday	draft		AB2018	8	
+nam-0066	Bijbel	pap-001712	religion		the Bible	draft		AB2018	8	AB 2018 §9.3 d (gazette p. 30) gives it as an example.
+nam-0067	Birgen	pap-001766	religion		the Virgin (Mary)	draft		AB2018	8	The word list labels it rel. (religion).
+nam-0068	Bolivia	pap-001913	country		Bolivia	draft		AB2018	9	
+nam-0069	Boliviano	pap-001914	demonym	nam-0068	Bolivian	draft		AB2018	9	
+nam-0070	Bonaire	pap-001943	island		Bonaire	draft		AB2018	9	
+nam-0071	Boneiro	pap-001957	island		Bonaire	draft		AB2018	9	
+nam-0072	Boneriano	pap-001959	demonym	nam-0070; nam-0071	Bonairean	draft		AB2018	9	
+nam-0073	Brasil	pap-002046	country		Brazil	draft		AB2018	9	
+nam-0074	Brasilero	pap-002047	demonym	nam-0073	Brazilian	draft		AB2018	10	
+nam-0075	Brasileño	pap-002048	demonym	nam-0073	Brazilian	draft		AB2018	10	
+nam-0076	Brazil	pap-002051	place		Brazil (Aruba)	draft		AB2018	10	The word list labels it Aruba: the place in Aruba, not the country Brasil (p. 9).
+nam-0077	Britania	pap-002081	country		Britain	draft		AB2018	10	
+nam-0078	Britanico	pap-002082	demonym	nam-0077; nam-0152	British	draft		AB2018	10	
+nam-0079	Buda	pap-002138	religion		Buddha	draft		AB2018	10	
+nam-0080	Bulgaria	pap-002155	country		Bulgaria	draft		AB2018	10	
+nam-0081	Bulgaro	pap-002156	demonym	nam-0080	Bulgarian	draft		AB2018	10	
+nam-0082	Cabo Verde	pap-002226	country		Cape Verde; Cabo Verde	draft		AB2018	10	
+nam-0083	Cabo Verdiano	pap-002227	demonym	nam-0082	Cape Verdean	draft		AB2018	10	
+nam-0084	Calabas	pap-002266	other			draft		AB2018	10	The word list gives no label; what it names is left for a reviewer.
+nam-0085	Canada	pap-002346	country		Canada	draft		AB2018	11	
+nam-0086	Canades	pap-002347	demonym	nam-0085	Canadian	draft		AB2018	11	
+nam-0087	Cancer	pap-002363	zodiac		Cancer	draft		AB2018	11	
+nam-0088	Cantabrico	pap-002390	water		the Cantabrian Sea; Cantabrian	draft		AB2018	11	
+nam-0089	Capricornio	pap-002431	zodiac		Capricorn	draft		AB2018	11	
+nam-0090	Caquetio	pap-002440	people		Caquetio	draft		AB2018	11	AB 2018 §9.3 j (gazette p. 31) gives it as an example.
+nam-0091	Caracas	pap-002444	place		Caracas	draft		AB2018	11	
+nam-0092	Caraqueño	pap-002458	demonym	nam-0091	person from Caracas	draft		AB2018	11	
+nam-0093	Caribe	pap-002496	region		the Caribbean	draft		AB2018	11	
+nam-0094	Caribense	pap-002497	demonym	nam-0093	Caribbean	draft		AB2018	11	
+nam-0095	Caribeño	pap-002498	demonym	nam-0093	Caribbean	draft		AB2018	11	
+nam-0096	Castellano	pap-002576	demonym	nam-0097	Castilian; Spanish (language)	draft		AB2018	12	
+nam-0097	Castilla	pap-002582	region		Castile	draft		AB2018	12	
+nam-0098	Celsius	pap-002672	other		Celsius	draft		AB2018	12	The temperature scale.
+nam-0099	Checo	pap-002774	demonym	nam-0100	Czech	draft		AB2018	13	
+nam-0100	Chekia	pap-002777	country		Czechia; the Czech Republic	draft		AB2018	13	
+nam-0101	Chi	pap-002788	title		(form of address before a name)	draft		AB2018	13	The word list labels it apel. (apelativo). AB 2018 §9.3 b (gazette p. 30) gives Chi Tonia as an example.
+nam-0102	Chile	pap-002806	country		Chile	draft		AB2018	13	
+nam-0103	Chileno	pap-002807	demonym	nam-0102	Chilean	draft		AB2018	13	
+nam-0104	China	pap-002810	country		China	draft		AB2018	13	
+nam-0105	Chines	pap-002814	demonym	nam-0104	Chinese	draft		AB2018	13	
+nam-0106	Ciudad Vaticano	pap-002922	country		Vatican City	draft		AB2018	13	
+nam-0107	Colombia	pap-003113	country		Colombia	draft		AB2018	14	
+nam-0108	Colombiano	pap-003114	demonym	nam-0107	Colombian	draft		AB2018	14	
+nam-0109	Coran	pap-003701	religion		the Quran; the Koran	draft		AB2018	17	AB 2018 §9.3 d (gazette p. 30) spells its example Koran, with k; the word list prints Coran.
+nam-0110	Corsou	pap-003761	country		Curaçao	draft		AB2018	17	A country of the Kingdom of the Netherlands and an island.
+nam-0111	Costa Rica	pap-003797	country		Costa Rica	draft		AB2018	17	
+nam-0112	Costaricense	pap-003799	demonym	nam-0111	Costa Rican	draft		AB2018	17	
+nam-0113	Costariqueño	pap-003800	demonym	nam-0111	Costa Rican	draft		AB2018	17	
+nam-0114	Creador	pap-003827	religion		the Creator	draft		AB2018	17	The word list labels it rel. (religion).
+nam-0115	Cristo	pap-003888	religion		Christ	draft		AB2018	18	
+nam-0116	Cuba	pap-003975	country		Cuba	draft		AB2018	18	
+nam-0117	Cubano	pap-003976	demonym	nam-0116	Cuban	draft		AB2018	18	
+nam-0118	Curasoleño	pap-004080	demonym	nam-0119	person from Curaçao	draft		AB2018	19	
+nam-0119	Curaçao	pap-004084	country		Curaçao	draft		AB2018	18	A country of the Kingdom of the Netherlands and an island.
+nam-0120	Danes	pap-004141	demonym	nam-0121	Danish; Dane	draft		AB2018	19	
+nam-0121	Dinamarca	pap-004868	country		Denmark	draft		AB2018	22	
+nam-0122	Dios	pap-004879	religion		God	draft		AB2018	22	
+nam-0123	Domeinbeheer	pap-005070	institution		Domeinbeheer (land management office)	draft		AB2018	23	
+nam-0124	Dominicano	pap-005080	demonym	nam-0283	Dominican	draft		AB2018	23	
+nam-0125	Ecuador	pap-005283	country		Ecuador	draft		AB2018	24	
+nam-0126	Ecuatoriano	pap-005285	demonym	nam-0125	Ecuadorian	draft		AB2018	24	
+nam-0127	Egipcio	pap-005316	demonym	nam-0128	Egyptian	draft		AB2018	24	
+nam-0128	Egipto	pap-005317	country		Egypt	draft		AB2018	24	
+nam-0129	Eilandsraad	pap-005337	institution		Island Council	draft		AB2018	24	
+nam-0130	EPB	pap-005618	institution			draft		AB2018	25	An acronym; the word list does not say what it stands for. The kind is inferred and the gloss is left for a reviewer.
+nam-0131	EPI	pap-005620	institution			draft		AB2018	25	An acronym; the word list does not say what it stands for. The kind is inferred and the gloss is left for a reviewer.
+nam-0132	Eskimo	pap-005681	people		Eskimo; Inuit	draft		AB2018	26	
+nam-0133	Esperanto	pap-005693	language		Esperanto	draft		AB2018	26	
+nam-0134	Estados Unidos	pap-005709	country		the United States	draft		AB2018	26	
+nam-0135	Estadounidense	pap-005710	demonym	nam-0134	American (of the United States)	draft		AB2018	26	
+nam-0136	Europa	pap-005769	continent		Europe	draft		AB2018	26	
+nam-0137	Europeano	pap-005770	demonym	nam-0136	European	draft		AB2018	26	
+nam-0138	Europeo	pap-005773	demonym	nam-0136	European	draft		AB2018	26	
+nam-0139	Fahrenheit	pap-006019	other		Fahrenheit	draft		AB2018	27	The temperature scale.
+nam-0140	Filipina	pap-006204	country		the Philippines	draft		AB2018	28	
+nam-0141	Filipino	pap-006205	demonym	nam-0140	Filipino; Philippine	draft		AB2018	28	
+nam-0142	Finlandes	pap-006250	demonym	nam-0143	Finnish; Finn	draft		AB2018	28	
+nam-0143	Finlandia	pap-006251	country		Finland	draft		AB2018	28	
+nam-0144	Frances	pap-006462	demonym	nam-0145	French	draft		AB2018	29	AB 2018 §9.3 g (gazette p. 31) uses Francia and Frances as its example.
+nam-0145	Francia	pap-006463	country		France	draft		AB2018	29	AB 2018 §9.3 g (gazette p. 31) uses Francia and Frances as its example.
+nam-0146	Galilea	pap-006628	region		Galilee	draft		AB2018	30	
+nam-0147	Galileo	pap-006629	demonym	nam-0146	Galilean	draft		AB2018	30	Could also be the given name Galileo; the word list gives no label.
+nam-0148	Geminis	pap-006757	zodiac		Gemini	draft		AB2018	30	
+nam-0149	Germania	pap-006827	region		Germania	draft		AB2018	31	
+nam-0150	Germanico	pap-006828	demonym	nam-0149	Germanic	draft		AB2018	31	
+nam-0151	Germano	pap-006830	demonym	nam-0149	Germanic; German	draft		AB2018	31	
+nam-0152	Gran Britania	pap-007032	country		Great Britain	draft		AB2018	31	
+nam-0153	Grecia	pap-007063	country		Greece	draft		AB2018	32	
+nam-0154	Griego	pap-007066	demonym	nam-0153	Greek	draft		AB2018	32	
+nam-0155	Guatemala	pap-007097	country		Guatemala	draft		AB2018	32	
+nam-0156	Guatemalteco	pap-007098	demonym	nam-0155	Guatemalan	draft		AB2018	32	
+nam-0157	Gueni	pap-007101	region		Guinea	draft		AB2018	32	The word list gives no label: the region of West Africa or one of the countries of that name.
+nam-0158	Guyana	pap-007136	country		Guyana	draft		AB2018	32	
+nam-0159	Guyanes	pap-007137	demonym	nam-0158	Guyanese	draft		AB2018	32	
+nam-0160	Haiti	pap-007179	country		Haiti	draft		AB2018	32	
+nam-0161	Haitiano	pap-007180	demonym	nam-0160	Haitian	draft		AB2018	32	
+nam-0162	Hapon	pap-007240	country		Japan	draft		AB2018	32	
+nam-0163	Hapones	pap-007241	demonym	nam-0162	Japanese	draft		AB2018	32	
+nam-0164	Hebreu	pap-007292	language		Hebrew	draft		AB2018	33	Also the Hebrew people (AB 2018 §9.3 j); the word list gives no label.
+nam-0165	Hesucristo	pap-007377	religion		Jesus Christ	draft		AB2018	33	
+nam-0166	Hesus	pap-007379	religion		Jesus	draft		AB2018	33	
+nam-0167	Hindu	pap-007419	people		Hindu	draft		AB2018	33	The word list labels it pueblo (people).
+nam-0168	Hindustan	pap-007421	region		Hindustan	draft		AB2018	33	
+nam-0169	Honduras	pap-007521	country		Honduras	draft		AB2018	34	
+nam-0170	Hondureño	pap-007522	demonym	nam-0169	Honduran	draft		AB2018	34	
+nam-0171	Hudas	pap-007603	religion		Judas	draft		AB2018	34	
+nam-0172	Hudiu	pap-007608	people		Jew; Jewish people	draft		AB2018	34	The word list labels it pueblo (people). AB 2018 §9.3 j (gazette p. 31) gives it as an example, and writes it in lowercase when it refers to religion: e hudiunan.
+nam-0173	Huebs Santo	pap-007609	holiday		Maundy Thursday; Holy Thursday	draft		AB2018	34	
+nam-0174	Hulanda	pap-007619	country		the Netherlands; Holland	draft		AB2018	34	
+nam-0175	Hulandes	pap-007620	demonym	nam-0174	Dutch	draft		AB2018	34	
+nam-0176	Hungaro	pap-007658	demonym	nam-0177	Hungarian	draft		AB2018	34	
+nam-0177	Hungria	pap-007659	country		Hungary	draft		AB2018	34	
+nam-0178	Iberico	pap-007703	demonym		Iberian	draft		AB2018	34	
+nam-0179	Inca	pap-007884	people		Inca	draft		AB2018	35	
+nam-0180	Indico	pap-008001	water		the Indian Ocean; Indian (Ocean)	draft		AB2018	36	
+nam-0181	Indjan	pap-008029	people		Amerindian; Indigenous people	draft		AB2018	36	The word list labels it pueblo (people). AB 2018 §9.3 j (gazette p. 31) gives it as an example, and writes it in lowercase when it refers to race: rasgo indjan.
+nam-0182	Indo Europeo	pap-008030	language		Indo-European	draft		AB2018	36	
+nam-0183	Indones	pap-008036	demonym	nam-0184	Indonesian	draft		AB2018	36	
+nam-0184	Indonesia	pap-008037	country		Indonesia	draft		AB2018	36	
+nam-0185	Inglatera	pap-008119	country		England	draft		AB2018	36	
+nam-0186	Ingles	pap-008120	demonym	nam-0185	English	draft		AB2018	36	
+nam-0187	Inmaculada Concepcion	pap-008153	holiday		the Immaculate Conception	draft		AB2018	36	
+nam-0188	Interpol	pap-008362	institution		Interpol	draft		AB2018	37	
+nam-0189	IPA	pap-008457	institution			draft		AB2018	38	An acronym; the word list does not say what it stands for. The kind is inferred and the gloss is left for a reviewer.
+nam-0190	Irak	pap-008461	country		Iraq	draft		AB2018	38	
+nam-0191	Iraki	pap-008462	demonym	nam-0190	Iraqi	draft		AB2018	38	
+nam-0192	Iran	pap-008463	country		Iran	draft		AB2018	38	
+nam-0193	Irani	pap-008464	demonym	nam-0192	Iranian	draft		AB2018	38	
+nam-0194	Irlanda	pap-008498	country		Ireland	draft		AB2018	38	
+nam-0195	Irlandes	pap-008499	demonym	nam-0194	Irish	draft		AB2018	38	
+nam-0196	Isla Ariba	pap-008505	place		Isla Ariba	draft		AB2018	38	The word list gives no label; its demonym Islaribeño is on the same page.
+nam-0197	Islaribeño	pap-008509	demonym	nam-0196	person from Isla Ariba	draft		AB2018	38	
+nam-0198	Israel	pap-008514	country		Israel	draft		AB2018	38	
+nam-0199	Israeli	pap-008515	demonym	nam-0198	Israeli	draft		AB2018	38	
+nam-0200	Israelita	pap-008516	demonym	nam-0198	Israelite	draft		AB2018	38	
+nam-0201	Italia	pap-008517	country		Italy	draft		AB2018	38	
+nam-0202	Italiano	pap-008518	demonym	nam-0201	Italian	draft		AB2018	38	
+nam-0203	Jamaica	pap-008535	country		Jamaica	draft		AB2018	38	
+nam-0204	Jamaiquino	pap-008536	demonym	nam-0203	Jamaican	draft		AB2018	38	
+nam-0205	Jehova	pap-008542	religion		Jehovah	draft		AB2018	38	
+nam-0206	Jupiter	pap-008581	planet		Jupiter	draft		AB2018	38	
+nam-0207	La Birgen	pap-008833	religion		the Virgin (Mary)	draft		AB2018	39	AB 2018 §9.3 m (gazette p. 31) names La Birgen as a capitalised construction.
+nam-0208	La Reina	pap-008834	title		the Queen	draft		AB2018	39	AB 2018 §9.3 m (gazette p. 31) names La Reina as a capitalised construction.
+nam-0209	Latin	pap-008947	language		Latin	draft		AB2018	40	
+nam-0210	Latino	pap-008948	people		Latin; Latino	draft		AB2018	40	
+nam-0211	Latino America	pap-008949	region		Latin America	draft		AB2018	40	
+nam-0212	Latino Americano	pap-008950	demonym	nam-0211	Latin American	draft		AB2018	40	
+nam-0213	Leo	pap-009028	zodiac		Leo	draft		AB2018	40	
+nam-0214	Libanes	pap-009075	demonym	nam-0215	Lebanese	draft		AB2018	40	
+nam-0215	Libanon	pap-009076	country		Lebanon	draft		AB2018	40	
+nam-0216	Liberia	pap-009085	country		Liberia	draft		AB2018	40	
+nam-0217	Liberiano	pap-009086	demonym	nam-0216	Liberian	draft		AB2018	40	
+nam-0218	Libia	pap-009090	country		Libya	draft		AB2018	41	
+nam-0219	Libio	pap-009091	demonym	nam-0218	Libyan	draft		AB2018	41	
+nam-0220	Libra	pap-009092	zodiac		Libra	draft		AB2018	41	
+nam-0221	Madame Jeanette	pap-009315	other		Madame Jeanette (a hot pepper)	draft		AB2018	41	
+nam-0222	Marocano	pap-009549	demonym	nam-0223	Moroccan	draft		AB2018	43	
+nam-0223	Maroco	pap-009550	country		Morocco	draft		AB2018	43	
+nam-0224	Mars	pap-009552	planet		Mars	draft		AB2018	43	
+nam-0225	Maya	pap-009632	people		Maya; Mayan	draft		AB2018	43	
+nam-0226	Merca	pap-009753	country		America; the United States	draft		AB2018	43	
+nam-0227	Mercurio	pap-009756	planet		Mercury	draft		AB2018	43	
+nam-0228	Mercurius	pap-009758	planet		Mercury	draft		AB2018	43	
+nam-0229	Mericano	pap-009764	demonym	nam-0226	American	draft		AB2018	43	
+nam-0230	Mesias	pap-009775	religion		the Messiah	draft		AB2018	44	
+nam-0231	Mexicano	pap-009820	demonym	nam-0232	Mexican	draft		AB2018	44	
+nam-0232	Mexico	pap-009821	country		Mexico	draft		AB2018	44	
+nam-0233	Mgr.	pap-009825	title		Mgr. (Monsignor)	draft		AB2018	44	
+nam-0234	Mo	pap-009975	title		(form of address before a name)	draft		AB2018	44	The word list labels it apel. (apelativo). AB 2018 §9.3 b (gazette p. 30) gives Mo Hose as an example.
+nam-0235	Mohammed	pap-010019	religion		Muhammad; Mohammed	draft		AB2018	45	
+nam-0236	Monseigneur	pap-010067	title		Monsignor; Monseigneur	draft		AB2018	45	
+nam-0237	Moscovita	pap-010119	demonym	nam-0238	Muscovite	draft		AB2018	45	
+nam-0238	Moscu	pap-010120	place		Moscow	draft		AB2018	45	
+nam-0239	Nacionnan Uni	pap-010255	institution		the United Nations	draft		AB2018	46	
+nam-0240	Neptuno	pap-010345	planet		Neptune	draft		AB2018	46	
+nam-0241	Neptunus	pap-010346	planet		Neptune	draft		AB2018	46	
+nam-0242	Nicaragua	pap-010368	country		Nicaragua	draft		AB2018	46	
+nam-0243	Nicaragueño	pap-010369	demonym	nam-0242	Nicaraguan	draft		AB2018	46	
+nam-0244	Nigeria	pap-010380	country		Nigeria	draft		AB2018	46	
+nam-0245	Nigeriano	pap-010381	demonym	nam-0244	Nigerian	draft		AB2018	46	
+nam-0246	Niño	pap-010398	other			draft		AB2018	46	The word list gives no label; what it names is left for a reviewer.
+nam-0247	Noord	pap-010443	place		Noord	draft		AB2018	46	The word list labels it luga (place).
+nam-0248	Noord Amerika	pap-010444	continent		North America	draft		AB2018	46	
+nam-0249	Noord Korea	pap-010445	country		North Korea	draft		AB2018	46	
+nam-0250	Noord Koreano	pap-010446	demonym	nam-0249	North Korean	draft		AB2018	46	
+nam-0251	Noordpool	pap-010449	region		the North Pole	draft		AB2018	46	The word list labels it luga (place).
+nam-0252	Norte America	pap-010464	continent		North America	draft		AB2018	47	
+nam-0253	Norte Americano	pap-010465	demonym	nam-0252	North American	draft		AB2018	47	
+nam-0254	Nortero	pap-010466	demonym		northerner	draft		AB2018	47	Perhaps a person from Noord (p. 46); the word list gives no label.
+nam-0255	Noruechi	pap-010467	demonym	nam-0256	Norwegian	draft		AB2018	47	
+nam-0256	Noruega	pap-010468	country		Norway	draft		AB2018	47	
+nam-0257	Nos Tata	pap-010470	religion		the Lord's Prayer; Our Father	draft		AB2018	47	A prayer: AB 2018 §9.3 d (gazette p. 30) gives it as an example.
+nam-0258	Pacifico	pap-010848	water		the Pacific (Ocean); Pacific	draft		AB2018	48	
+nam-0259	Palestina	pap-010909	region		Palestine	draft		AB2018	49	
+nam-0260	Palestino	pap-010910	demonym	nam-0259	Palestinian	draft		AB2018	49	
+nam-0261	Panama	pap-010925	country		Panama	draft		AB2018	49	
+nam-0262	Panameño	pap-010926	demonym	nam-0261	Panamanian	draft		AB2018	49	
+nam-0263	Pancho	pap-010930	other			draft		AB2018	49	The word list gives no label; what it names is left for a reviewer.
+nam-0264	Papiamento	pap-010960	language		Papiamento	draft		AB2018	49	The word list labels it idioma (language). AB 2018 §9.3 h (gazette p. 31) gives it as an example.
+nam-0265	Paraguay	pap-010978	country		Paraguay	draft		AB2018	49	
+nam-0266	Paraguayo	pap-010979	demonym	nam-0265	Paraguayan	draft		AB2018	49	
+nam-0267	Pasco	pap-011066	holiday		Christmas	draft		AB2018	49	AB 2018 §9.3 i (gazette p. 31) gives it as an example.
+nam-0268	Pentecoste	pap-011235	holiday		Pentecost	draft		AB2018	50	
+nam-0269	Peru	pap-011341	country		Peru	draft		AB2018	50	
+nam-0270	Peruano	pap-011342	demonym	nam-0269	Peruvian	draft		AB2018	50	
+nam-0271	Piscis	pap-011475	zodiac		Pisces	draft		AB2018	51	
+nam-0272	Playa	pap-011566	place		Oranjestad	draft		AB2018	51	
+nam-0273	Playero	pap-011568	demonym	nam-0272	person from Oranjestad	draft		AB2018	51	
+nam-0274	Pluto	pap-011612	planet		Pluto	draft		AB2018	52	
+nam-0275	Polaco	pap-011640	demonym	nam-0276	Polish; Pole	draft		AB2018	52	
+nam-0276	Polonia	pap-011675	country		Poland	draft		AB2018	52	
+nam-0277	Portoriqueño	pap-011744	demonym	nam-0280	Puerto Rican	draft		AB2018	52	
+nam-0278	Portugal	pap-011745	country		Portugal	draft		AB2018	52	
+nam-0279	Portugues	pap-011746	demonym	nam-0278	Portuguese	draft		AB2018	52	
+nam-0280	Puerto Rico	pap-012244	island		Puerto Rico	draft		AB2018	54	
+nam-0281	Q-tips	pap-012312	institution		Q-tips (cotton swabs)	draft		AB2018	55	A brand name (AB 2018 §9.3 f, gazette p. 31).
+nam-0282	Quechua	pap-012313	people		Quechua	draft		AB2018	55	
+nam-0283	Republica Dominicana	pap-012922	country		the Dominican Republic	draft		AB2018	57	
+nam-0284	Romano	pap-013185	demonym		Roman	draft		AB2018	59	
+nam-0285	Rubiano	pap-013229	demonym	nam-0046	Aruban	draft		AB2018	59	
+nam-0286	Rumania	pap-013243	country		Romania	draft		AB2018	59	
+nam-0287	Rumano	pap-013244	demonym	nam-0286	Romanian	draft		AB2018	59	
+nam-0288	Rusia	pap-013249	country		Russia	draft		AB2018	59	
+nam-0289	Rusiano	pap-013250	demonym	nam-0288	Russian	draft		AB2018	59	
+nam-0290	Ruso	pap-013251	demonym	nam-0288	Russian	draft		AB2018	59	
+nam-0291	S.A.R.	pap-013254	title		HRH (Her or His Royal Highness)	draft		AB2018	59	The word list prints Su Altesa/Alteza Real after it. AB 2018 §9.4 (gazette p. 32) gives it as an example.
+nam-0292	S.E.	pap-013255	title		HE (Her or His Excellency)	draft		AB2018	60	The word list prints Su Excelencia after it. AB 2018 §9.4 (gazette p. 32) gives it as an example.
+nam-0293	S.M.	pap-013256	title		HM (Her or His Majesty)	draft		AB2018	62	The word list prints Su Mahestad after it.
+nam-0294	S.S.	pap-013257	title		His Holiness	draft		AB2018	64	The word list prints Su Santidad after it. AB 2018 §9.4 (gazette p. 32) gives it as an example.
+nam-0295	Sagitario	pap-013297	zodiac		Sagittarius	draft		AB2018	59	
+nam-0296	Salbador	pap-013311	religion		the Saviour	draft		AB2018	59	Built on salba (to save), like salbacion on the same page; capitalised as a name for God (AB 2018 §9.3 d). The country is not meant: the word list writes Salvadoreño and San Salvador with v.
+nam-0297	Salvadoreño	pap-013339	demonym		Salvadoran	draft		AB2018	59	
+nam-0298	San	pap-013357	title		Saint	draft		AB2018	59	Capitalised before a person's name (AB 2018 §9.3 k, gazette p. 31).
+nam-0299	San Nicolas	pap-013358	place		San Nicolas	draft		AB2018	59	
+nam-0300	San Salvador	pap-013359	place		San Salvador	draft		AB2018	59	
+nam-0301	Sanskriet	pap-013381	language		Sanskrit	draft		AB2018	59	
+nam-0302	Santa	pap-013382	title		Saint	draft		AB2018	59	Capitalised before a person's name (AB 2018 §9.3 k, gazette p. 31).
+nam-0303	Santa Claus	pap-013383	person		Santa Claus	draft		AB2018	59	
+nam-0304	Santa Cruz	pap-013384	place		Santa Cruz	draft		AB2018	59	
+nam-0305	Santa Cruzero	pap-013385	demonym	nam-0304	person from Santa Cruz	draft		AB2018	59	
+nam-0306	Santa Oleo	pap-013386	religion		holy oil; chrism	draft		AB2018	59	
+nam-0307	Santo	pap-013394	title		Saint	draft		AB2018	59	Capitalised before a person's name (AB 2018 §9.3 k, gazette p. 31).
+nam-0308	Santo Domingo	pap-013396	place		Santo Domingo	draft		AB2018	59	AB 2018 §9.3 k (gazette p. 31) uses Santo Domingo as an example of santo before a person's name (Saint Dominic); the word list gives no label.
+nam-0309	Satanas	pap-013416	religion		Satan	draft		AB2018	60	
+nam-0310	Saturno	pap-013432	planet		Saturn	draft		AB2018	60	AB 2018 §9.3 e (gazette p. 30) gives it as an example.
+nam-0311	Saturnus	pap-013433	planet		Saturn	draft		AB2018	60	
+nam-0312	Saudi Arabia	pap-013435	country		Saudi Arabia	draft		AB2018	60	
+nam-0313	Saudita	pap-013436	demonym	nam-0312	Saudi	draft		AB2018	60	
+nam-0314	Savaneta	pap-013439	place		Savaneta	draft		AB2018	60	
+nam-0315	Savanetero	pap-013440	demonym	nam-0314	person from Savaneta	draft		AB2018	60	
+nam-0316	Scorpio	pap-013540	zodiac		Scorpio	draft		AB2018	60	
+nam-0317	Scritura	pap-013553	religion		Scripture	draft		AB2018	60	
+nam-0318	Sefardi	pap-013611	people		Sephardi; Sephardic	draft		AB2018	60	
+nam-0319	Sefardita	pap-013612	people		Sephardi; Sephardic	draft		AB2018	60	
+nam-0320	Semana Santa	pap-013641	holiday		Holy Week	draft		AB2018	61	AB 2018 §9.3 i (gazette p. 31) gives it as an example.
+nam-0321	Shi	pap-013769	title		(form of address before a name)	draft		AB2018	61	The word list labels it apel. (apelativo).
+nam-0322	Sinterklaas	pap-013905	person		Sinterklaas; Saint Nicholas	draft		AB2018	62	
+nam-0323	Siria	pap-013931	country		Syria	draft		AB2018	62	
+nam-0324	Sirio	pap-013932	demonym	nam-0323	Syrian	draft		AB2018	62	
+nam-0325	Slovaco	pap-014018	demonym	nam-0326	Slovak	draft		AB2018	62	
+nam-0326	Slovakia	pap-014019	country		Slovakia	draft		AB2018	62	
+nam-0327	Slovenia	pap-014020	country		Slovenia	draft		AB2018	62	
+nam-0328	Sloveno	pap-014021	demonym	nam-0327	Slovenian; Slovene	draft		AB2018	62	
+nam-0329	Spaña	pap-014236	country		Spain	draft		AB2018	63	
+nam-0330	Spaño	pap-014237	demonym	nam-0329	Spanish	draft		AB2018	63	
+nam-0331	Sr.	pap-014357	title		Mr.	draft		AB2018	64	AB 2018 §9.3 b (gazette p. 30) gives Sr. Figaroa as an example.
+nam-0332	Sra.	pap-014358	title		Mrs.	draft		AB2018	64	AB 2018 §9.3 b (gazette p. 30) gives Sra. Marcia as an example.
+nam-0333	Sranan Tongo	pap-014359	language		Sranan Tongo	draft		AB2018	64	AB 2018 §9.3 h (gazette p. 31) gives it as an example.
+nam-0334	Srta.	pap-014360	title		Miss	draft		AB2018	64	
+nam-0335	Status Aparte	pap-014399	other		Status Aparte (Aruba's separate status in the Kingdom)	draft		AB2018	64	
+nam-0336	Statuut	pap-014402	other		the Charter for the Kingdom of the Netherlands	draft		AB2018	64	
+nam-0337	Sudan	pap-014670	country		Sudan	draft		AB2018	65	
+nam-0338	Sudanes	pap-014671	demonym	nam-0337	Sudanese	draft		AB2018	65	
+nam-0339	Suecia	pap-014672	country		Sweden	draft		AB2018	65	
+nam-0340	Sueco	pap-014673	demonym	nam-0339	Swedish; Swede	draft		AB2018	65	
+nam-0341	Suisa	pap-014694	country		Switzerland	draft		AB2018	65	
+nam-0342	Suiso	pap-014695	demonym	nam-0341	Swiss	draft		AB2018	65	
+nam-0343	Sur Africa	pap-014754	country		South Africa	draft		AB2018	65	
+nam-0344	Sur Africano	pap-014755	demonym	nam-0343	South African	draft		AB2018	65	
+nam-0345	Sur America	pap-014756	continent		South America	draft		AB2018	65	AB 2018 §9.3 e (gazette p. 30) gives it as an example.
+nam-0346	Sur Americano	pap-014757	demonym	nam-0345	South American	draft		AB2018	65	
+nam-0347	Sur Korea	pap-014758	country		South Korea	draft		AB2018	65	
+nam-0348	Sur Koreano	pap-014759	demonym	nam-0347	South Korean	draft		AB2018	65	
+nam-0349	Surinam	pap-014765	country		Suriname	draft		AB2018	65	
+nam-0350	Surnam	pap-014766	country		Suriname	draft		AB2018	65	
+nam-0351	Surnameño	pap-014767	demonym	nam-0350; nam-0349	Surinamese	draft		AB2018	65	
+nam-0352	Taino	pap-014829	people		Taino	draft		AB2018	66	
+nam-0353	Taiwan	pap-014831	island		Taiwan	draft		AB2018	66	
+nam-0354	Taiwanes	pap-014832	demonym	nam-0353	Taiwanese	draft		AB2018	66	
+nam-0355	Tanki Leendert	pap-014860	place		Tanki Leendert	draft		AB2018	66	
+nam-0356	Tanki Lendero	pap-014861	place		Tanki Leendert	draft		AB2018	66	
+nam-0357	Tauro	pap-014903	zodiac		Taurus	draft		AB2018	66	
+nam-0358	Todopoderoso	pap-015160	religion		the Almighty	draft		AB2018	67	The word list also has todopoderoso (almighty) in lowercase.
+nam-0359	Trinidad	pap-015443	island		Trinidad	draft		AB2018	68	
+nam-0360	Trinitario	pap-015445	demonym	nam-0359	Trinidadian	draft		AB2018	68	
+nam-0361	Turco	pap-015543	demonym	nam-0362	Turkish; Turk	draft		AB2018	69	
+nam-0362	Turkia	pap-015550	country		Turkey; Türkiye	draft		AB2018	69	
+nam-0363	Uganda	pap-015570	country		Uganda	draft		AB2018	69	
+nam-0364	Ugandes	pap-015571	demonym	nam-0363	Ugandan	draft		AB2018	69	
+nam-0365	Urano	pap-015612	planet		Uranus	draft		AB2018	69	
+nam-0366	Uranus	pap-015613	planet		Uranus	draft		AB2018	69	
+nam-0367	Uruguay	pap-015623	country		Uruguay	draft		AB2018	69	
+nam-0368	Uruguayo	pap-015624	demonym	nam-0367	Uruguayan	draft		AB2018	69	
+nam-0369	Vaticano	pap-015687	country		the Vatican	draft		AB2018	70	
+nam-0370	Venezolano	pap-015726	demonym	nam-0371	Venezuelan	draft		AB2018	70	
+nam-0371	Venezuela	pap-015727	country		Venezuela	draft		AB2018	70	
+nam-0372	Venus	pap-015739	planet		Venus	draft		AB2018	70	AB 2018 §9.3 e (gazette p. 30) gives it as an example.
+nam-0373	Vietnam	pap-015825	country		Vietnam	draft		AB2018	70	
+nam-0374	Vietnamita	pap-015826	demonym	nam-0373	Vietnamese	draft		AB2018	70	
+nam-0375	Virgo	pap-015851	zodiac		Virgo	draft		AB2018	70	
+nam-0376	Voogdijraad	pap-015901	institution		Guardianship Council	draft		AB2018	70	
+nam-0377	Yugoslavia	pap-016135	country		Yugoslavia	draft		AB2018	72	A former country.
+nam-0378	Yugoslavo	pap-016136	demonym	nam-0377	Yugoslav	draft		AB2018	72	
+nam-0379	Zuidpool	pap-016198	region		the South Pole	draft		AB2018	72	The word list labels it luga (place).
+nam-0380	Zwarte Piet	pap-016210	person		Zwarte Piet (Black Pete)	draft		AB2018	72	
