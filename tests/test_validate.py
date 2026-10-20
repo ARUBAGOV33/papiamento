@@ -107,10 +107,10 @@ class TestValidRepo(GauntletCase):
         self.assertEqual(ctx.findings, [], dump(ctx))
         self.assertTrue(validate.is_ok(ctx))
         # A, C, H, numbers, calendar, barbarismos, variants, loanwords, closed
-        # classes, errata, sources, known-facts, audits, milestones,
+        # classes, names, errata, sources, known-facts, audits, milestones,
         # contributors, and the parallel prompts and pairs in corpus/ and
         # eval/: every registry table has a file.
-        self.assertEqual(len(ctx.files), 19)
+        self.assertEqual(len(ctx.files), 20)
         self.assertEqual(ctx.facts_checked, ctx.facts_total)  # e.g. fact-0009: 7 -> shete
         self.assertEqual(ctx.facts_pending_ids, [])
 
@@ -123,7 +123,7 @@ class TestValidRepo(GauntletCase):
         self.assertTrue(report["ok"])
         self.assertEqual(sorted(report["gates"]), validate.GATES)
         self.assertEqual(report["findings"], [])
-        self.assertEqual(report["files_checked"], 19)
+        self.assertEqual(report["files_checked"], 20)
         self.assertGreater(report["rows_checked"], 5)
 
     def test_cli_human_output_and_exit_one(self):
@@ -558,6 +558,47 @@ class TestG4Integrity(GauntletCase):
         shutil.rmtree(str(root / "lexicon/words"))
         ctx = self.run_gauntlet(root)
         self.assertNoFinding(ctx, "G4")
+
+    NAMES = "lexicon/names/names.tsv"
+
+    def write_names(self, root, rows):
+        path = root / self.NAMES
+        path.write_text(path.read_text(encoding="utf-8") + "".join(
+            "nam-%04d\t%s\t%s\tother\t%s\t\tdraft\t\tAB2018\t12\t\n" % row for row in rows), encoding="utf-8")
+
+    def test_word_refs_must_match_the_word_list(self):
+        # names.word_id is a words id, and names.name is that word's lemma.
+        root = self.build_repo()
+        self.write_names(root, [
+            (1, "abo", "pap-000001", ""),   # id and lemma match
+            (2, "awa", "pap-000099", ""),   # no such word
+            (3, "Cas", "pap-000003", ""),   # the lemma is cas
+        ])
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G4", "error", self.NAMES, "word_id: 'pap-000099' is not an id in lexicon/words", line=3)
+        self.assertFinding(ctx, "G4", "error", self.NAMES, "has the lemma 'cas'", line=4)
+        self.assertEqual(len(self.findings(ctx, "G4", path=self.NAMES)), 2, dump(ctx))
+
+    def test_related_names_are_checked_one_by_one(self):
+        # folder_refs cells may hold several ids, separated by '; '.
+        root = self.build_repo()
+        self.write_names(root, [
+            (1, "abo", "pap-000001", ""),
+            (2, "awa", "pap-000002", "nam-0001; nam-0009"),
+        ])
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G4", "error", self.NAMES,
+                           "related: 'nam-0009' is not an id in lexicon/names/names.tsv", line=3)
+        self.assertNoFinding(ctx, "G4", contains="'nam-0001'")
+
+    def test_word_refs_must_name_fields(self):
+        root = self.build_repo()
+        rel = "_meta/schema/names.schema.json"
+        schema = json.loads((root / rel).read_text(encoding="utf-8"))
+        schema["x-papiamento"]["word_refs"] = {"word_id": "lemma"}
+        (root / rel).write_text(json.dumps(schema), encoding="utf-8")
+        ctx = self.run_gauntlet(root)
+        self.assertFinding(ctx, "G2", "error", rel, "word_refs")
 
 
 class TestG5KnownFacts(GauntletCase):

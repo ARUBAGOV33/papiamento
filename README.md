@@ -65,7 +65,7 @@ lexicon/
   barbarismos/    Forms to avoid, with the Aruban form to use instead
   variants/       Curaçao spelling mapped to Aruban spelling
   loanwords/      Loanwords, their origin and the accepted Aruban form
-  names/          Places, institutions, demonyms
+  names/          Proper names: places, demonyms, peoples, languages, titles
   closed-classes/ Pronouns, articles, prepositions, conjunctions, tense markers, modals
 grammar/          Rules in plain language, one file per rule: orthography,
                   morphology, syntax, prepositions, style
@@ -109,14 +109,13 @@ Milestones: **P0 Foundation** ✅ done · **P1 Clean data** 🟡 in progress · 
 | Curaçao → Aruba spelling pairs | 372 | 0 | 0% (0 of 40)<br><sub>95% CI 0–8.8%, checked by machine on 2026-10-17</sub> |
 | Loanwords | 315 | 0 | 0% (0 of 40)<br><sub>95% CI 0–8.8%, checked by machine on 2026-10-17</sub> |
 | Closed word classes (articles, pronouns, particles, modals, conjunctions, prepositions) | 181 | 0 | not audited yet |
+| Names (places, demonyms, peoples, languages, religion, titles) | 380 | 0 | not audited yet |
 | [Sentence prompts](corpus/parallel/) (English and Spanish; 45 held out for tests) | 300 | 0 | not audited yet |
 | Aruban Papiamento sentence translations | 0 | 0 | not audited yet |
 | [Grammar rules](grammar/) | 192 | 0 | 0% (0 of 20)<br><sub>95% CI 0–16.1%, checked by machine on 2026-10-17</sub> |
 | [Machine checker rules](rules/) | 49 | | not audited yet |
 
 Measured error rate: the share of wrong rows in the latest random audit of the table against the source PDFs, with its 95% Wilson interval (CI). The audits are logged in [`_meta/audits.tsv`](_meta/audits.tsv). "Checked by machine" means software or an AI model did the checking, not yet a person.
-
-Still empty: names.
 <!-- REPO-PROGRESS:END -->
 
 - Every headword of the AB 2018 word list is in `lexicon/words/A`–`Z`, checked against the printed law and the Papiamento.aw list. The most frequent words have machine-drafted English, Dutch and Spanish translations, marked `translated_by = machine` until a person reviews them. [Progress per letter](lexicon/words/README.md).
@@ -124,9 +123,10 @@ Still empty: names.
 - **Bug hunt (October 2026):** AI checker agents compared samples of each table with the page images of the source PDFs. They found 2 wrong machine translations out of 60 and no errors in the other samples. The rows found wrong were fixed in [#15](https://github.com/ARUBAGOV33/papiamento/pull/15). No person has repeated these audits yet. The results are the error rates in the table above.
 - **Rulings audit (October 2026):** every grammar rule now rests on a printed page or a dated maintainer decision. The last open question was settled on 19 October 2026: gusta is used with or without ta, as the books say (err-0023 in [`sources/errata.tsv`](sources/errata.tsv)).
 - **Closed word classes (October 2026):** 181 articles, pronouns, tense/aspect particles, modal and other dependent verbs, conjunctions and prepositions, copied from Morfologia with page and section, are in [`lexicon/closed-classes/`](lexicon/closed-classes/). They stay `draft` until the review board checks them against the page. The verb forms (gerunds and participles) come next.
+- **Names (October 2026):** the 380 proper names of the AB 2018 word list are in [`lexicon/names/`](lexicon/names/): countries, places, demonyms such as Arubano, peoples, languages, religious names, holidays, titles, planets, zodiac signs and institutions, sorted by the capitalisation rules of AB 2018 §9.3 and linked to their headword in `lexicon/words/`. Their kind and English gloss are machine-written and stay `draft` until the review board checks them.
 - **Parallel sentences (set up October 2026):** the tables for everyday English and Spanish sentences and their Aruban Papiamento translations are ready in `corpus/parallel/`, with 15% held out in `eval/parallel/`, under CC0 so they can go to Common Voice. Batch 1 holds 300 everyday prompts (machine-drafted in English and Spanish, `draft` until a maintainer checks them): 255 in `corpus/parallel/`, 45 held out. There are no Papiamento translations yet. Teachers will write them through the contribution tool ([`tools/contribute/`](tools/contribute/)), published at <https://arubagov33.github.io/papiamento/>: sign-in by emailed code, two independent answers per item, the review board's decisions brought in by a weekly pull request. Everyone credited is listed in [`_meta/contributors.tsv`](_meta/contributors.tsv).
 - **Contribution tool (live since 19 October 2026):** <https://arubagov33.github.io/papiamento/>. Teachers sign in with an email code, check translations, translate words and write sentences; two people answer each item and the review board confirms. The privacy rules passed their tests in the database and from outside. Next: a pilot with 3–5 teachers. How it works: [`tools/contribute/`](tools/contribute/).
-- The milestones line, the chart, the table and the "still empty" line above are rebuilt from the data after every change.
+- The milestones line, the chart and the table above are rebuilt from the data after every change. While a table has no rows, a "Still empty" line under the table names it.
 
 ## How to use it
 

@@ -38,6 +38,7 @@ Ids are assigned once, never reused and never renumbered. A word that moves to a
 | Curaçao–Aruba variants | `var-` + 4 digits | `var-0001` |
 | Loanwords | `loan-` + 4 digits | `loan-0001` |
 | Closed word classes | `ccl-` + 4 digits | `ccl-0001` |
+| Names | `nam-` + 4 digits | `nam-0001` |
 | Errata | `err-` + 4 digits | `err-0001` |
 | Audits | `aud-` + 4 digits | `aud-0001` |
 | Parallel prompts | `prm-` + 6 digits | `prm-000001` |
@@ -140,9 +141,41 @@ Short, closed lists of grammatical words, copied from Morfologia (`MOR2010`): ar
 - The printed ellipsis (…) is written as three periods, and curly apostrophes as straight ones (`p'esey`). Parentheses become `alt`, since they are not allowed in Aruban text.
 - A maintainer ruling wins over the book. The book's compound particle lo a has no row, because lo and a never combine (err-0019).
 
+## Names (`lexicon/names/names.tsv`)
+
+The proper names of the AB 2018 word list: the capitalised headwords that AB 2018 §9.3 and §9.4 (gazette pp. 30–32) say to write with a capital letter. Schema: `_meta/schema/names.schema.json`.
+
+| Column | Content |
+|---|---|
+| `id` | Stable id, `nam-0001`. |
+| `name` | The name exactly as the source prints it, capital letters included. |
+| `word_id` | The id of the same headword in `lexicon/words/`. The validator checks that the id exists and that its lemma is `name` (`word_refs`), so the word list stays the one copy of each headword. Empty only for a name from another source that is not a headword. |
+| `kind` | What the name is, by the letters of AB 2018 §9.3 (table below). |
+| `related` | Ids of the names this one is derived from, separated by `; `: a demonym's place (Arubano → Aruba; Antiano → Antia; Antias). Only when the word list makes the link obvious: the same stem, usually on the same page. |
+| `en` | English name or gloss, as for words. Machine-written. |
+| `status`, `reviewed_by`, `source`, `page`, `notes` | As above. `page` is the word-list page. `notes` gives the word list's own label (luga, riu, pueblo, idioma, rel., apel.), the §9.3 example that names the word, or a doubt for the reviewer. |
+
+| `kind` | AB 2018 | Examples |
+|---|---|---|
+| `continent`, `region`, `country`, `island`, `place`, `water` | §9.3 e, geographic names. `region`: a part of the world, a historical land, a mountain range, a pole. `country` includes former countries. `place`: a city, town, district or neighbourhood. `water`: an ocean, sea or river. | Africa, Caribe, Hulanda, Bonaire, Playa, Atlantico |
+| `demonym` | §9.3 g: the adjective, inhabitant or language name derived from a geographic name | Arubano, Frances |
+| `people` | §9.3 j: a people or tribe and its derivatives | Caquetio, Indjan, Afroantiano |
+| `language` | §9.3 h: a language not named after a place | Papiamento, Sranan Tongo |
+| `religion` | §9.3 d: a deity or a name for one, a religious figure, a prayer, a scripture | Dios, Nos Tata, Bijbel |
+| `holiday` | §9.3 i: a holiday or religious day | Pasco, Semana Santa |
+| `title` | §9.3 b, k, m and §9.4: a form of address, title or dignity, and its abbreviation | Mo, San, La Reina, Sr., S.E. |
+| `planet`, `zodiac` | §9.3 e: planets and astrological signs | Saturno, Acuario |
+| `institution` | §9.3 f: an institution, organisation, business or brand | Nacionnan Uni, Interpol |
+| `person` | §9.3 a: a named person or figure | Sinterklaas |
+| `other` | Anything else, or a name whose meaning the word list leaves open | Celsius, Status Aparte |
+
+- One row per headword. Spelling variants are separate headwords in the word list (Antia [Antias] and Antias [Antia]), so each has its own row. A headword that names two kinds of thing would get one row per kind: `name` + `kind` is unique.
+- The word list labels only a few headwords. For the rest, `kind`, `related` and `en` are a machine reading of the name; they stay `draft` until a reviewer confirms them.
+- **Left out:** capitalised headwords that are not names under §9.3: abbreviations of common nouns (AIDS, CD, DVD, LP, PC), abbreviations used in letters (L.S., NB, PS) and common nouns spelled with a capital letter (T-shirt, T-weg, X-ray). They stay in `lexicon/words/` only. The four words the law capitalises by mistake (Bongo, Cinematografo, Computarisando, Computerisando; err-0003 to err-0006) are lowercase in `lexicon/words/` and are not names.
+
 ## Spelling checks on Aruban text
 
-These checks apply to Aruban text columns (`lemma`, `alt`, `pap`, `right`, `aruba`):
+These checks apply to Aruban text columns (`lemma`, `alt`, `pap`, `right`, `aruba`, `name`):
 
 - **Allowed characters only:** ASCII letters, `ñ`/`Ñ`, digits, apostrophe, hyphen, period and space. Any other character, including accented vowels (á é í ó ú à è ì ò ù â ê ô û ë ï ü), is an error, except in the loanwords listed in `_meta/allowlists/accented-loans.txt`.
 - **Curaçao markers** (`-shon` endings, `k` before a/o/u, the words `ku`, `kos`, `kon`, `ki`) are a warning, not an error, because the AB list contains legitimate words with them (`cashon`, `shon`, `kabel`, `kantoor`). The warning is skipped for rows whose `source` is `AB2018`.
@@ -160,7 +193,7 @@ An audit measures how many rows of a table are wrong. Take a random sample of th
 |---|---|
 | `id` | Stable id, `aud-0001`. |
 | `date` | The day the audit finished, `YYYY-MM-DD`. |
-| `table` | What was audited: `words`, `numbers`, `calendar`, `barbarismos`, `variants`, `loanwords`, `closed-classes`, `grammar` (the files in `grammar/`), `rules` (the machine rules in `rules/rules.jsonl`), or `translations` (the `en`, `nl` and `es` cells of word rows). |
+| `table` | What was audited: `words`, `numbers`, `calendar`, `barbarismos`, `variants`, `loanwords`, `closed-classes`, `names`, `grammar` (the files in `grammar/`), `rules` (the machine rules in `rules/rules.jsonl`), or `translations` (the `en`, `nl` and `es` cells of word rows). |
 | `sample_size` | How many rows were checked. |
 | `errors` | How many of them were wrong. Never more than `sample_size`. |
 | `method` | How the sample was drawn, with the seed if a program drew it, and what counted as an error. |
