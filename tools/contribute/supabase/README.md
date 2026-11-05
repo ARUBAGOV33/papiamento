@@ -8,6 +8,7 @@ The contribution tool's database, in the Supabase project `papiamento-contribute
 | `rls-test.sql` | Tries every access rule as three test people and as an anonymous visitor, then rolls everything back. |
 | `email-template.html` | The sign-in email that shows the 6-digit code. |
 | `check_anon_access.mjs` | Proves from outside that the public key alone reads and writes nothing. The **Contribution security check** workflow runs it. |
+| `check_database_up.mjs` | Checks that the sign-in service answers and a table can be read. The **Contribution database check** workflow runs it on Mondays, Wednesdays and Fridays; a failed run means the database is down. |
 
 ## What the access rules guarantee
 
@@ -78,6 +79,17 @@ When the second board member is added, maintainers with `role = 'maintainer'` st
 ## Removing someone
 
 Go to **Authentication → Users → … → Delete user**. That deletes their profile, answers, sentences and ratings in this database. Anything already merged into the repository stays there, under its licence.
+
+## If the website loads but nobody can sign in
+
+The project is probably paused. The website is hosted on GitHub, so it keeps loading, but a paused project's address stops working. This happened on 5 November 2026, three days after the weekly sync had read the database, so a weekly read does not keep it awake.
+
+1. Open the project in the [Supabase dashboard](https://supabase.com/dashboard). If it says it is paused, restore it.
+2. Wait about two minutes. While the database wakes up, the checks can report that they got no answer. That is not a leak.
+3. GitHub → **Actions → Contribution database check → Run workflow**, then the same for **Contribution security check**. Both should end green.
+4. Sign in once on the website to confirm the code email arrives.
+
+GitHub turns off scheduled workflows after 60 days without activity in the repository. If these checks stop appearing under **Actions**, turn them back on there.
 
 ## Changing the database later
 

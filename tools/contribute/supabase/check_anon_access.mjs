@@ -5,7 +5,8 @@
 // It needs only the two public values the website itself uses:
 //   SUPABASE_URL=... SUPABASE_PUBLISHABLE_KEY=... node tools/contribute/supabase/check_anon_access.mjs
 // The workflow "Contribution security check" runs it with the repository
-// variables. It never prints the key. Exit code 1 if anything is readable.
+// variables. It never prints the key. Exit code 1 if anything is readable, or
+// if the database did not answer, because then the run proved nothing.
 
 const url = (process.env.SUPABASE_URL || "").replace(/\/+$/, "");
 const key = process.env.SUPABASE_PUBLISHABLE_KEY || "";
@@ -16,6 +17,7 @@ if (!url || !key) {
 
 const headers = { apikey: key, "Content-Type": "application/json" };
 const failures = [];
+const unanswered = [];
 let checks = 0;
 
 // A request is safe when it is refused (401/403/404) or returns no rows.
@@ -25,17 +27,22 @@ async function expectNothing(label, path, init = {}) {
   try {
     res = await fetch(url + path, { ...init, headers: { ...headers, ...(init.headers || {}) } });
   } catch (err) {
-    failures.push(`${label}: request failed (${err.message})`);
+    unanswered.push(`${label}: request failed (${err.message})`);
     return;
   }
   const text = await res.text();
+  // A server error says nothing about access: the database is down or waking up.
+  if (res.status >= 500) {
+    unanswered.push(`${label}: HTTP ${res.status}`);
+    return;
+  }
   let body = null;
   try { body = JSON.parse(text); } catch (e) { /* not JSON */ }
   const refused = [401, 403, 404].includes(res.status) ||
     (body && typeof body === "object" && !Array.isArray(body) && (body.code === "42501" || body.code === "PGRST202" || body.code === "PGRST106"));
   const empty = Array.isArray(body) && body.length === 0;
   const graphqlEmpty = body && body.data && Object.values(body.data).every((v) => !v || (v.edges && v.edges.length === 0));
-  if (refused || empty || (path.startsWith("/graphql") && (graphqlEmpty || body.errors))) {
+  if (refused || empty || (path.startsWith("/graphql") && (graphqlEmpty || body?.errors))) {
     console.log(`PASS  ${label} (${res.status})`);
   } else {
     failures.push(`${label}: HTTP ${res.status}, ${text.slice(0, 120)}`);
@@ -47,7 +54,7 @@ async function expectNothing(label, path, init = {}) {
 {
   const res = await fetch(url + "/auth/v1/settings", { headers }).catch((err) => ({ ok: false, status: err.message }));
   if (!res.ok) {
-    console.log(`FAIL  cannot reach the Supabase project's public auth settings (${res.status}); check SUPABASE_URL`);
+    console.log(`FAIL  cannot reach the Supabase project's public auth settings (${res.status}). The project may be paused: open the Supabase dashboard and restore it. Otherwise check SUPABASE_URL.`);
     process.exit(1);
   }
   console.log("ok    reached the Supabase project");
@@ -71,9 +78,16 @@ await expectNothing("read profiles through GraphQL", "/graphql/v1", {
   method: "POST", body: JSON.stringify({ query: "{ profilesCollection(first: 5) { edges { node { handle } } } }" }),
 });
 
+if (unanswered.length) {
+  console.log("\nNO ANSWER\n" + unanswered.map((f) => "  " + f).join("\n"));
+}
 if (failures.length) {
   console.log("\nFAIL\n" + failures.map((f) => "  " + f).join("\n"));
   console.log(`\n${failures.length} of ${checks} checks failed: the public key can reach data it must not.`);
+  process.exit(1);
+}
+if (unanswered.length) {
+  console.log(`\n${unanswered.length} of ${checks} checks got no answer, so this run proves nothing about them. This is not a sign of a leak: the database is down or still waking up. Run the check again in a few minutes.`);
   process.exit(1);
 }
 console.log(`\nAll ${checks} checks passed: the public key alone reads and writes nothing.`);

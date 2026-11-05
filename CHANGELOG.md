@@ -6,6 +6,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Added
+
+- The **Contribution database check** workflow and `tools/contribute/supabase/check_database_up.mjs`: on Mondays, Wednesdays and Fridays they check that the contribution tool's sign-in service answers and a table can be read, and the run fails if not. The database was found paused on 5 November 2026, and was restored the same day; the website had kept loading, so nothing showed the problem. `tools/contribute/supabase/README.md` says what to do when it happens.
+
+### Fixed
+
+- `check_anon_access.mjs` no longer says "the public key can reach data" when the database answers with a server error or not at all. Those checks now count as unanswered: the run still fails, but says the database is down or waking up, and a real leak is still reported first.
+
 ## [0.2.0] - 2026-10-20
 
 ### Added
