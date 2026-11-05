@@ -13,6 +13,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ### Fixed
 
 - `check_anon_access.mjs` no longer says "the public key can reach data" when the database answers with a server error or not at all. Those checks now count as unanswered: the run still fails, but says the database is down or waking up, and a real leak is still reported first.
+- The Gauntlet's Python 3.9 job runs on Ubuntu 24.04. GitHub's `ubuntu-latest` moved to Ubuntu 26.04, which has no Python 3.9 build, so the job failed on every pull request before any test ran.
 
 ## [0.2.0] - 2026-10-20
 
